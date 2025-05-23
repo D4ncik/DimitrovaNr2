@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparate - Dimitrova.Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-fixes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+    <style>
+        /* Language switching */
+        .ru { display: none; }
+        html[lang='ru'] .ru { display: block; }
+        html[lang='ru'] .ro { display: none; }
+        html[lang='ro'] .ru { display: none; }
+        html[lang='ro'] .ro { display: block; }
+
+        .products-section {
+            padding: 120px 0 60px;
+            background: #f2fafc;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            height: 300px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 40%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-content {
+            width: 60%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-content h3 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+
+        .product-content p {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            line-height: 1.5;
+            flex-grow: 0;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 15px 0;
+        }
+
+        .ingredients-list li {
+            color: #666;
+            font-size: 0.85em;
+            padding: 4px 0;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.4;
+        }
+
+        .ingredients-list li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #5999ee;
+            font-weight: bold;
+            font-size: 1.1em;
+            top: 4px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .reviews-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 2em;
+        }
+
+        .reviews-section {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .reviews-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 2em;
+        }
+
+        .reviews-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #333;
+            margin-right: 15px;
+        }
+
+        .review-rating {
+            color: #ffd700;
+            font-size: 1.2em;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .reviews-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .review-rating {
+            color: #FFD700;
+        }
+
+        .review-text {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 968px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .product-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .product-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="preparate.html">Preparate</a></li>
+                            <li><a href="gallery.html">Galerie</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                            <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                            <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prices.html">Prețuri</a></li>
+                    <li><a href="contacte.html">Contacte</a></li>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" class="current-lang" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#" class="alt-lang" data-lang="ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="products-section">
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <img src="images/product1.jpg" alt="Preparat 1" class="product-image">
+                    <div class="product-content">
+                        <h3>Ser Vitamina C</h3>
+                        <p>Ser concentrat pentru luminozitate și uniformizarea tenului. Ajută la reducerea petelor pigmentare și stimulează producția de colagen.</p>
+                        <ul class="ingredients-list">
+                            <li>Vitamina C (L-Ascorbic Acid) 15%</li>
+                            <li>Acid Hialuronic 1%</li>
+                            <li>Vitamin E 0.5%</li>
+                            <li>Ferulic Acid 0.5%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <img src="images/product2.jpg" alt="Preparat 2" class="product-image">
+                    <div class="product-content">
+                        <h3>Ser Retinol</h3>
+                        <p>Ser anti-îmbătrânire pentru reînnoirea celulară și reducerea ridurilor fine. Ideal pentru utilizare nocturnă.</p>
+                        <ul class="ingredients-list">
+                            <li>Retinol 1%</li>
+                            <li>Peptide Complex 3%</li>
+                            <li>Niacinamidă 2%</li>
+                            <li>Ceramide</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <img src="images/product3.jpg" alt="Preparat 3" class="product-image">
+                    <div class="product-content">
+                        <h3>Ser Acid Hialuronic</h3>
+                        <p>Ser ultra-hidratant cu multiple greutăți moleculare pentru hidratare profundă și de suprafață.</p>
+                        <ul class="ingredients-list">
+                            <li>Acid Hialuronic 2% (Multi-weight)</li>
+                            <li>B5 (Panthenol) 5%</li>
+                            <li>Ceramide Complex</li>
+                            <li>Glicerină</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <img src="images/product4.jpg" alt="Preparat 4" class="product-image">
+                    <div class="product-content">
+                        <h3>Ser Niacinamidă</h3>
+                        <p>Ser pentru reglarea sebumului și îmbunătățirea texturii pielii. Ajută la reducerea porilor și a imperfecțiunilor.</p>
+                        <ul class="ingredients-list">
+                            <li>Niacinamidă (Vitamina B3) 10%</li>
+                            <li>Zinc PCA 1%</li>
+                            <li>Acid Salicilic 0.5%</li>
+                            <li>Extract de Ceai Verde</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews-section">
+            <div class="reviews-container">
+                <h2 class="reviews-title">Recenzii Clienți</h2>
+
+                <div class="reviews-list">
+                    <!-- Review 1 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="reviewer-name">Maria P.</span>
+                            <span class="review-rating">★★★★★</span>
+                        </div>
+                        <p class="review-text">"Serul cu Vitamina C este incredibil! După doar câteva săptămâni de utilizare, am observat o îmbunătățire vizibilă a luminozității tenului meu. Petele pigmentare s-au estompat considerabil."</p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="reviewer-name">Ana D.</span>
+                            <span class="review-rating">★★★★★</span>
+                        </div>
+                        <p class="review-text">"Serul cu Acid Hialuronic este exact ce aveam nevoie pentru tenul meu deshidratat. Pielea este vizibil mai hidratată și mai catifelată. Textura ușoară se absoarbe rapid."</p>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="reviewer-name">Elena M.</span>
+                            <span class="review-rating">★★★★★</span>
+                        </div>
+                        <p class="review-text">"Serul cu Retinol a făcut minuni pentru ridurile mele fine. L-am folosit seara și după câteva luni am observat o diferență remarcabilă în textura pielii."</p>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="reviewer-name">Cristina V.</span>
+                            <span class="review-rating">★★★★★</span>
+                        </div>
+                        <p class="review-text">"Serul cu Niacinamidă este perfect pentru tenul meu mixt. A ajutat la reglarea sebumului și la reducerea porilor dilatați. Recomand cu încredere!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+37360049402" class="ro"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="tel:+37360049402" class="ru"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                </div>
+                <div class="address">
+                    <p class="ro">Republica Moldova,</p>
+                    <p class="ru">Республика Молдова,</p>
+                    <p class="ro">Chișinău, str.Armenească 47</p>
+                    <p class="ru">Кишинёв, ул. Армянская 47</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="ro">Dimitrova Clinic</h3>
+                <h3 class="ru">Dimitrova Clinic</h3>
+                <ul>
+                    <li><a href="#despre" class="ro">Despre noi</a><a href="#despre" class="ru">О нас</a></li>
+                    <li><a href="#galerie" class="ro">Galerie</a><a href="#galerie" class="ru">Галерея</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="ro">Serviciile centrului nostru</h3>
+                <h3 class="ru">Наши услуги</h3>
+                <ul>
+                    <li><a href="facial-care.html" class="ro">Îngrijirea pielii feței</a><a href="facial-care.html" class="ru">Уход за кожей лица</a></li>
+                    <li><a href="dermapen.html" class="ro">Proceduri Dermapen</a><a href="dermapen.html" class="ru">Процедуры Dermapen</a></li>
+                    <li><a href="body-care.html" class="ro">Îngrijirea corpului</a><a href="body-care.html" class="ru">Уход за телом</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="ro">Urmăriți-ne...</h3>
+                <h3 class="ru">Следите за нами...</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <h3 class="ro">Scrieti în direct...</h3>
+                <h3 class="ru">Напишите нам...</h3>
+                <div class="messenger-links">
+                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="ro">&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+            <p class="ru">&copy; 2024 Dimitrova.Clinic. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

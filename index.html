@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimitrova.Clinic - Clinica de Cosmetologie</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow: auto;
+        }
+        .modal-content {
+            background: white;
+            margin: 2% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 95%;
+            max-width: 1200px;
+            position: relative;
+            height: 95vh;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .consultation-modal {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .calendly-section {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .calendly-section iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+ 
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="preparate.html">Preparate</a></li>
+                            <li><a href="gallery.html">Galerie</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                            <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                            <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prices.html">Prețuri</a></li>
+                    <li><a href="contacte.html">Contacte</a></li>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#" data-lang="ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle">Îngrijire personalizată, atenție la fiecare detaliu</p>
+                <h1 class="hero-title">Frumusețea ta, în mâini sigure<br>și dedicate!</h1>
+                <p class="hero-description">
+                    Servicii cosmetologice profesionale oferite cu grijă<br>
+                    într-un spațiu intim și relaxant din Chișinău
+                </p>
+                <a href="#" class="cta-button" onclick="openModal('bookingModal'); return false;">Programează-te acum</a>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="container">
+                <div class="services-header">
+                    <h2 class="services-title">Serviciile centrului nostru</h2>
+                    <p class="services-subtitle">Frumusețea ta merită toată grija — te aștept cu sufletul deschis.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="images/fata.jpg" alt="Îngrijirea pielii feței" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Îngrijirea pielii feței</h3>
+                            <p class="service-description">Tratamente personalizate pentru îngrijirea tenului, curățare facială profesională și proceduri specializate pentru toate tipurile de ten.</p>
+                            <a href="facial-care.html" class="details-button">Detalii</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="images/dermapen.jpg" alt="Proceduri Dermapen" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Proceduri Dermapen</h3>
+                            <p class="service-description">Tehnologie avansată pentru regenerarea pielii, reducerea cicatricilor și îmbunătățirea texturii tenului.</p>
+                            <a href="dermapen.html" class="details-button">Detalii</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="images/corporal.png" alt="Îngrijirea pielii corpului" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Îngrijirea pielii corpului</h3>
+                            <p class="service-description">Tratamente corporale complete pentru tonifiere, hidratare și îmbunătățirea aspectului general al pielii.</p>
+                            <a href="body-care.html" class="details-button">Detalii</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                </div>
+                <div class="address">
+                    <p>Republica Moldova,</p>
+                    <p>Chișinău, str.Armenească 47</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Dimitrova Clinic</h3>
+                <ul>
+                    <li><a href="#despre">Despre noi</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Serviciile centrului nostru</h3>
+                <ul>
+                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                    <li><a href="#preturi">Price list</a></li>
+                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Urmăriți-ne...</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <h3>Scrieti în direct...</h3>
+                <div class="messenger-links">
+                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content consultation-modal">
+            <div class="calendly-section">
+                <iframe src="https://dimitrovaclinic.setmore.com/services/4ba81d76-0b52-4fab-b388-4cdb76e4e921" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/modal-handler.js"></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html> 

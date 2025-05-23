@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacte - Dimitrova.Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contacte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="preparate.html">Preparate</a></li>
+                            <li><a href="gallery.html">Galerie</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                            <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                            <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prices.html">Prețuri</a></li>
+                    <li><a href="contacte.html" class="active">Contacte</a></li>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#" data-lang="ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h1>Contacte</h1>
+            <p class="intro-text">
+                Aici puteți să ne contactați pentru informații adiționale, programări sau orice alte întrebări. 
+                Echipa noastră este gata să vă răspundă în cel mai scurt timp posibil.
+            </p>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h2>Dimitrova.Clinic</h2>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Republica Moldova,<br>Chișinău, str.Armenească 47</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+373 60 049 402</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank">@dimitrova.clinic</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-facebook"></i>
+                            <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank">Dimitrova.Clinic</a>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2720.0814431793837!2d28.84400731582708!3d47.01875197914855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3c2e5e483d%3A0x8b5d0f2f6da10ab7!2sStrada%20Armeneasc%C4%83%2047%2C%20Chi%C8%99in%C4%83u%2C%20Moldova!5e0!3m2!1sro!2s!4v1621489812345!5m2!1sro!2s" 
+                            width="100%" 
+                            height="250" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Trimiteți-ne un mesaj</h2>
+                    <form id="contactForm" onsubmit="return sendEmail(event)">
+                        <div class="form-group">
+                            <label for="nume">Nume</label>
+                            <input type="text" id="nume" name="nume" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenume">Prenume</label>
+                            <input type="text" id="prenume" name="prenume" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefon">Număr de telefon</label>
+                            <input type="tel" id="telefon" name="telefon" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mesaj">Mesaj</label>
+                            <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Trimite</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                </div>
+                <div class="address">
+                    <p>Republica Moldova,</p>
+                    <p>Chișinău, str.Armenească 47</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Dimitrova Clinic</h3>
+                <ul>
+                    <li><a href="#despre">Despre noi</a></li>
+                    <li><a href="gallery.html">Galerie</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Serviciile centrului nostru</h3>
+                <ul>
+                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                    <li><a href="prices.html">Price list</a></li>
+                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Urmăriți-ne...</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <h3>Scrieti în direct...</h3>
+                <div class="messenger-links">
+                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Inițializăm EmailJS
+        (function() {
+            emailjs.init("FMsZlI49b2QPG1OHK"); // Vom înlocui acest lucru cu cheia publică reală
+        })();
+
+        function sendEmail(e) {
+            e.preventDefault();
+            
+            // Verificăm dacă formularul este valid
+            const form = document.getElementById('contactForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return false;
+            }
+
+            // Obținem valorile din formular
+            const nume = document.getElementById('nume').value;
+            const prenume = document.getElementById('prenume').value;
+            const email = document.getElementById('email').value;
+            const telefon = document.getElementById('telefon').value;
+            const mesaj = document.getElementById('mesaj').value;
+
+            // Dezactivăm butonul de trimitere
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Se trimite...';
+
+            console.log('Încercăm să trimitem email...');
+
+            // Pregătim template-ul pentru email
+            const templateParams = {
+                from_name: nume + ' ' + prenume,
+                from_email: email,
+                phone: telefon,
+                message: mesaj,
+                to_email: 'macoveidaniel977@gmail.com'
+            };
+
+            console.log('Configurație:', templateParams);
+
+            // Încercăm să trimitem email-ul
+            try {
+                emailjs.send('service_n39pd3i', 'template_xe2h4od', templateParams)
+                    .then(function(response) {
+                        console.log('Răspuns de la server:', response);
+                        
+                        // Reactivăm butonul
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Trimite';
+
+                        if (response.status === 200) {
+                            showMessage("✓ Mesajul a fost trimis cu succes!", "success");
+                            form.reset();
+                        } else {
+                            console.error('Eroare la trimiterea email-ului:', response);
+                            showMessage("✕ A apărut o eroare la trimiterea mesajului. Vă rugăm să încercați din nou.", "error");
+                        }
+                    })
+                    .catch(function(error) {
+                        console.error('Eroare la trimiterea email-ului:', error);
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Trimite';
+                        showMessage("✕ A apărut o eroare la trimiterea mesajului. Vă rugăm să încercați din nou.", "error");
+                    });
+            } catch (error) {
+                console.error('Eroare la inițializarea trimiterii:', error);
+                submitButton.disabled = false;
+                submitButton.textContent = 'Trimite';
+                showMessage("✕ A apărut o eroare la trimiterea mesajului. Vă rugăm să încercați din nou.", "error");
+            }
+
+            return false;
+        }
+
+        // Funcție pentru afișarea mesajelor
+        function showMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: ${type === 'success' ? '#4CAF50' : '#f44336'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideIn 0.5s ease-out;
+            `;
+            messageDiv.textContent = text;
+            document.body.appendChild(messageDiv);
+
+            // Adăugăm stilul pentru animație dacă nu există deja
+            if (!document.querySelector('style#message-animations')) {
+                const style = document.createElement('style');
+                style.id = 'message-animations';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Ștergem mesajul după 3 secunde
+            setTimeout(() => {
+                messageDiv.style.animation = 'slideOut 0.5s ease-in';
+                setTimeout(() => messageDiv.remove(), 500);
+            }, 3000);
+        }
+    </script>
+</body>
+</html> 

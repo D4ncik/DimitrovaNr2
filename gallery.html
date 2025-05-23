@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Dimitrova.Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="preparate.html">Preparate</a></li>
+                            <li><a href="gallery.html">Galerie</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                            <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                            <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prices.html">Prețuri</a></li>
+                    <li><a href="contacte.html">Contacte</a></li>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#" data-lang="ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="gallery-section">
+            <div class="gallery-container">
+                <div class="gallery-header">
+                    <h1 class="gallery-title">Galerie de Lucrări</h1>
+                    <p class="gallery-subtitle">Rezultatele noastre vorbesc de la sine</p>
+                </div>
+
+                <!-- Îngrijirea pielii feței -->
+                <div class="gallery-category">
+                    <h2 class="category-title">Îngrijirea pielii feței</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item before-after-container">
+                            <div class="before-image">
+                                <img src="images/IMG_6047.jpg" alt="Before">
+                            </div>
+                            <img src="images/IMG_6049.jpg" alt="After" class="after-image">
+                            <div class="slider-handle"></div>
+                            <div class="before-label">Before</div>
+                            <div class="after-label">After</div>
+                        </div>
+
+                        <div class="gallery-item before-after-container">
+                            <div class="before-image">
+                                <img src="images/gallery/before2.jpg" alt="Before">
+                            </div>
+                            <img src="images/gallery/after2.jpg" alt="After" class="after-image">
+                            <div class="slider-handle"></div>
+                            <div class="before-label">Before</div>
+                            <div class="after-label">After</div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="images/gallery/photo1.jpg" alt="Gallery Image">
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="images/gallery/photo2.jpg" alt="Gallery Image">
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="images/gallery/photo3.jpg" alt="Gallery Image">
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="images/gallery/photo4.jpg" alt="Gallery Image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proceduri Dermapen -->
+                <div class="gallery-category">
+                    <h2 class="category-title">Proceduri Dermapen</h2>
+                    <div class="gallery-grid">
+                        <!-- Before-After pentru Dermapen -->
+                        <div class="gallery-item before-after-container">
+                            <div class="before-image">
+                                <img src="images/gallery/dermapen-before1.jpg" alt="Before Dermapen">
+                            </div>
+                            <img src="images/gallery/dermapen-after1.jpg" alt="After Dermapen" class="after-image">
+                            <div class="slider-handle"></div>
+                            <div class="before-label">Before</div>
+                            <div class="after-label">After</div>
+                        </div>
+
+                         <div class="gallery-item before-after-container">
+                            <div class="before-image">
+                                <img src="images/gallery/dermapen-before2.jpg" alt="Before Dermapen">
+                            </div>
+                            <img src="images/gallery/dermapen-after2.jpg" alt="After Dermapen" class="after-image">
+                            <div class="slider-handle"></div>
+                            <div class="before-label">Before</div>
+                            <div class="after-label">After</div>
+                        </div>
+
+                        <!-- Poze individuale Dermapen -->
+                        <div class="gallery-item">
+                            <img src="images/gallery/dermapen-photo1.jpg" alt="Procedură Dermapen">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images/gallery/dermapen-photo2.jpg" alt="Procedură Dermapen">
+                        </div>
+                        <!-- Add more images as needed -->
+                    </div>
+                </div>
+
+                <!-- Îngrijirea pielii corpului -->
+                <div class="gallery-category">
+                    <h2 class="category-title">Îngrijirea pielii corpului</h2>
+                    <div class="gallery-grid">
+                        <!-- Before-After pentru Corp -->
+                         <div class="gallery-item before-after-container">
+                            <div class="before-image">
+                                <img src="images/gallery/body-before1.jpg" alt="Before Body Care">
+                            </div>
+                            <img src="images/gallery/body-after1.jpg" alt="After Body Care" class="after-image">
+                            <div class="slider-handle"></div>
+                            <div class="before-label">Before</div>
+                            <div class="after-label">After</div>
+                        </div>
+                         <div class="gallery-item before-after-container">
+                            <div class="before-image">
+                                <img src="images/gallery/body-before2.jpg" alt="Before Body Care">
+                            </div>
+                            <img src="images/gallery/body-after2.jpg" alt="After Body Care" class="after-image">
+                            <div class="slider-handle"></div>
+                            <div class="before-label">Before</div>
+                            <div class="after-label">After</div>
+                        </div>
+                        <!-- Poze individuale Corp -->
+                        <div class="gallery-item">
+                            <img src="images/gallery/body-photo1.jpg" alt="Procedură corporală">
+                        </div>
+                         <div class="gallery-item">
+                            <img src="images/gallery/body-photo2.jpg" alt="Procedură corporală">
+                        </div>
+                        <!-- Add more images as needed -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="close-lightbox">&times;</span>
+            <div class="lightbox-content">
+                <img src="" alt="Enlarged image">
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                </div>
+                <div class="address">
+                    <p>Republica Moldova,</p>
+                    <p>Chișinău, str.Armenească 47</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Dimitrova Clinic</h3>
+                <ul>
+                    <li><a href="#despre">Despre noi</a></li>
+                    <li><a href="gallery.html">Galerie</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Serviciile centrului nostru</h3>
+                <ul>
+                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                    <li><a href="#preturi">Price list</a></li>
+                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Urmăriți-ne...</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <h3>Scrieti în direct...</h3>
+                <div class="messenger-links">
+                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/before-after.js"></script>
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        const closeLightbox = lightbox.querySelector('.close-lightbox');
+
+       
+
+        // Funcție pentru a deschide lightbox-ul cu o anumită imagine
+        function openLightbox(imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightbox.style.display = 'flex'; // Folosim flex pentru centrare initiala
+            
+          
+
+            // Adăugăm clasa pentru a indica că lightbox-ul este deschis
+            document.body.classList.add('lightbox-open');
+            // Resetăm cursorul imaginii la deschidere pentru a reflecta lipsa zoom/pan
+            lightboxImg.style.cursor = 'default';
+        }
+
+        // Funcție pentru a închide lightbox-ul
+        function closeLightboxFunc() {
+             lightbox.style.display = 'none';
+             // Eliminăm clasa indicatoare
+             document.body.classList.remove('lightbox-open');
+            
+        }
+
+        // Gestionăm click-ul pe elementele galeriei (poze individuale)
+        document.querySelectorAll('.gallery-item:not(.before-after-container)').forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                openLightbox(imgSrc);
+            });
+        });
+
+        // Gestionăm click-ul pe etichetele Before/After din containerele before-after
+        document.querySelectorAll('.before-after-container .before-label').forEach(label => {
+            label.addEventListener('click', function(e) {
+                e.stopPropagation(); // Oprim propagarea evenimentului
+                const container = this.closest('.before-after-container');
+                const imgSrc = container.querySelector('.before-image img').src;
+                openLightbox(imgSrc);
+            });
+        });
+
+        document.querySelectorAll('.before-after-container .after-label').forEach(label => {
+            label.addEventListener('click', function(e) {
+                e.stopPropagation(); // Oprim propagarea evenimentului
+                const container = this.closest('.before-after-container');
+                const imgSrc = container.querySelector('.after-image').src;
+                openLightbox(imgSrc);
+            });
+        });
+
+        // Adăugăm funcționalitate de închidere lightbox la click pe X sau în afara imaginii
+        closeLightbox.addEventListener('click', closeLightboxFunc);
+
+        lightbox.addEventListener('click', (e) => {
+            // Verificăm dacă s-a făcut click direct pe overlay-ul lightbox-ului
+            if (e.target === lightbox) {
+                closeLightboxFunc();
+            }
+        });
+
+       
+         document.addEventListener('keydown', (e) => {
+             if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                 closeLightboxFunc();
+             }
+         });
+
+
+    </script>
+</body>
+</html> 

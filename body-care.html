@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicii profesionale de îngrijire a pielii la Dimitrova.Clinic - tratamente faciale, proceduri Dermapen și multe altele.">
+    <meta name="keywords" content="îngrijire piele, tratamente faciale, Dermapen, Dimitrova.Clinic, Chișinău">
+    <meta name="author" content="Dimitrova.Clinic">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dimitrova.clinic/body-care.html">
+    <meta property="og:title" content="Îngrijirea pielii - Dimitrova.Clinic">
+    <meta property="og:description" content="Servicii profesionale de îngrijire a pielii la Dimitrova.Clinic">
+    <meta property="og:image" content="https://dimitrova.clinic/images/logo1500.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dimitrova.clinic/body-care.html">
+    <meta property="twitter:title" content="Îngrijirea pielii - Dimitrova.Clinic">
+    <meta property="twitter:description" content="Servicii profesionale de îngrijire a pielii la Dimitrova.Clinic">
+    <meta property="twitter:image" content="https://dimitrova.clinic/images/logo1500.png">
+
+    <title>Îngrijirea pielii - Dimitrova.Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-fixes.css">
+    <link rel="stylesheet" href="css/body-care.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+    <style>
+        .facial-treatments {
+            padding: 120px 0 60px;
+            background: #f2fafc;
+        }
+        .treatments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .treatment-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .treatment-card:hover {
+            transform: translateY(-5px);
+        }
+        .treatment-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .treatment-content {
+            padding: 20px;
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .treatment-content h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .treatment-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .treatment-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        .treatment-price {
+            color: #5999ee;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        .details-button {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #5999ee, #3d7fd9);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1.05em;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(89, 153, 238, 0.2);
+        }
+        .details-button:hover {
+            background: linear-gradient(45deg, #3d7fd9, #2666c0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(89, 153, 238, 0.3);
+        }
+        .modal-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #5999ee, #3d7fd9);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(89, 153, 238, 0.3);
+        }
+        .modal-button:hover {
+            background: linear-gradient(45deg, #3d7fd9, #2666c0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(89, 153, 238, 0.4);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            margin: 5% auto;
+        }
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .consultation-banner {
+            background: #f2fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(89, 153, 238, 0.1);
+        }
+        .consultation-banner h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .consultation-banner p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .free-tag {
+            display: inline-block;
+            background: #5999ee;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .free-tag:hover {
+            background: #4788dd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(89, 153, 238, 0.2);
+        }
+        
+        .consultation-modal {
+            display: flex;
+            max-width: 900px;
+            width: 90%;
+            height: 90vh;
+            max-height: 800px;
+            padding: 0;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .calendly-section {
+            flex: 1;
+            position: relative;
+            transition: all 0.3s ease;
+            background: #fff;
+            height: 100%;
+        }
+
+        .calendly-inline-widget {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .consultation-modal {
+                flex-direction: column;
+                height: 90vh;
+            }
+
+            .calendly-section {
+                flex: 2;
+            }
+        }
+        .modal-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+        }
+        .modal-price {
+            color: #5999ee;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="preparate.html">Preparate</a></li>
+                            <li><a href="gallery.html">Galerie</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                            <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                            <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prices.html">Prețuri</a></li>
+                    <li><a href="contacte.html">Contacte</a></li>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#" data-lang="ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="facial-treatments">
+            <div class="container">
+                <section class="consultation-banner">
+                    <h2 data-translate="facial-consultation-title">Consultație Personalizată</h2>
+                    <p data-translate="facial-consultation-desc">Vom alege împreună un tratament individual perfect pentru pielea ta</p>
+                    <div class="free-tag" data-translate="facial-consultation-free">GRATUIT</div>
+                </section>
+
+                <div class="treatments-grid">
+                    <!-- RF-lifting corporal -->
+                    <div class="treatment-card" data-treatment="rf-body" role="article" aria-labelledby="rf-body-title">
+                        <img src="images/treatments/rf-body.jpg" alt="RF-lifting corporal" class="treatment-image" loading="lazy" width="320" height="200">
+                        <div class="treatment-content">
+                            <h3 id="rf-body-title" class="ro">RF-lifting corporal</h3>
+                            <p class="ro">Lifting și îmbunătățirea conturului corporal</p>
+                            <div class="treatment-info">
+                                <div class="treatment-price">1200 MDL</div>
+                                <button class="details-button" data-treatment="rf-body" aria-label="Vezi detalii despre RF-lifting corporal">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cavitație -->
+                    <div class="treatment-card" data-treatment="cavitation" role="article" aria-labelledby="cavitation-title">
+                        <img src="images/treatments/cavitation.jpg" alt="Cavitație" class="treatment-image" loading="lazy" width="320" height="200">
+                        <div class="treatment-content">
+                            <h3 id="cavitation-title" class="ro">Cavitație</h3>
+                            <p class="ro">Eliminarea nedureroasă a grăsimii</p>
+                            <div class="treatment-info">
+                                <div class="treatment-price">800 MDL</div>
+                                <button class="details-button" data-treatment="cavitation" aria-label="Vezi detalii despre tratamentul de cavitație">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lipo laser -->
+                    <div class="treatment-card" data-treatment="lipo-laser" role="article" aria-labelledby="lipo-laser-title">
+                        <img src="images/treatments/lipo-laser.jpg" alt="Lipo laser" class="treatment-image" loading="lazy" width="320" height="200">
+                        <div class="treatment-content">
+                            <h3 id="lipo-laser-title" class="ro">Lipo laser</h3>
+                            <p class="ro">Remodelare corporală și reducerea volumului</p>
+                            <div class="treatment-info">
+                                <div class="treatment-price">1000 MDL</div>
+                                <button class="details-button" data-treatment="lipo-laser" aria-label="Vezi detalii despre tratamentul Lipo laser">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terapie cu vacuum -->
+                    <div class="treatment-card" data-treatment="vacuum-therapy" role="article" aria-labelledby="vacuum-therapy-title">
+                        <img src="images/treatments/vacuum-therapy.jpg" alt="Terapie cu vacuum" class="treatment-image" loading="lazy" width="320" height="200">
+                        <div class="treatment-content">
+                            <h3 id="vacuum-therapy-title" class="ro">Terapie cu vacuum</h3>
+                            <p class="ro">Îmbunătățirea circulației și detoxifiere</p>
+                            <div class="treatment-info">
+                                <div class="treatment-price">600 MDL</div>
+                                <button class="details-button" data-treatment="vacuum-therapy" aria-label="Vezi detalii despre terapia cu vacuum">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Biofoton -->
+                    <div class="treatment-card" data-treatment="biofoton" role="article" aria-labelledby="biofoton-title">
+                        <img src="images/treatments/biofoton.jpg" alt="Biofoton" class="treatment-image" loading="lazy" width="320" height="200">
+                        <div class="treatment-content">
+                            <h3 id="biofoton-title" class="ro">Biofoton</h3>
+                            <p class="ro">Regenerare și întinerirea pielii corpului</p>
+                            <div class="treatment-info">
+                                <div class="treatment-price">900 MDL</div>
+                                <button class="details-button" data-treatment="biofoton" aria-label="Vezi detalii despre tratamentul Biofoton">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal pentru tratamente -->
+    <div id="treatmentModal" class="modal">
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div class="modal-text">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+            </div>
+            <div class="modal-info">
+                <p id="modalPrice" class="modal-price"></p>
+                <div class="modal-buttons">
+                    <button class="modal-button" onclick="window.open('https://dimitrovaclinic.setmore.com', '_blank')">Programează-te</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pentru consultație -->
+    <div id="consultationModal" class="modal">
+        <div class="modal-content consultation-modal">
+           
+            <div class="calendly-section">
+                <iframe src="https://dimitrovaclinic.setmore.com" style="width:100%;height:750px;border:none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                </div>
+                <div class="address">
+                    <p>Republica Moldova,</p>
+                    <p>Chișinău, str.Armenească 47</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Dimitrova Clinic</h3>
+                <ul>
+                    <li><a href="reviews.html">Recenzii</a></li>
+                    <li><a href="gallery.html">Galerie</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Serviciile centrului nostru</h3>
+                <ul>
+                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                    <li><a href="prices.html">Price list</a></li>
+                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Urmăriți-ne...</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <h3>Scrieti în direct...</h3>
+                <div class="messenger-links">
+                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/body-care-modals.js"></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
