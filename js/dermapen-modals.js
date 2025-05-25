@@ -37,9 +37,9 @@ const dermapenData = {
         image: 'images/dermapen6.jpg'
     },
     'dermapen-face': {
-        title: 'Dermapen Față',
-        description: 'Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen. Tratamentul îmbunătățește textura pielii, reduce cicatricile și ridurile fine. Include și aplicarea de seruri specializate pentru maximizarea rezultatelor.',
-        price: '1200 MDL',
+        title: 'DermaPen Facial',
+        description: 'Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen. Acest tratament ajută la reducerea ridurilor, îmbunătățirea texturii pielii și uniformizarea culorii tenului.',
+        price: '1200 lei',
         image: 'images/treatments/dermapen-face.jpg'
     },
     'dermapen-acne': {
@@ -49,16 +49,46 @@ const dermapenData = {
         image: 'images/treatments/dermapen-acne.jpg'
     },
     'dermapen-stretch': {
-        title: 'Dermapen pentru Vergeturi',
-        description: 'Tratament eficient pentru reducerea vergeturilor pe corp. Stimulează regenerarea naturală a pielii și producția de colagen pentru a diminua aspectul vergeturilor. Include seruri specializate și peptide.',
-        price: '900 MDL',
+        title: 'DermaPen Vergeturi',
+        description: 'Tratament eficient pentru reducerea vergeturilor pe corp. Procedura stimulează regenerarea pielii și îmbunătățește aspectul vergeturilor.',
+        price: '900 lei',
         image: 'images/treatments/dermapen-stretch.jpg'
     },
     'dermapen-hair': {
-        title: 'Dermapen pentru Scalp',
-        description: 'Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului. Procedura include micro-needling specializat și aplicarea de seruri cu factori de creștere. Recomandată pentru alopecie și subțierea părului.',
-        price: '800 MDL',
+        title: 'DermaPen Scalp',
+        description: 'Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului. Procedura ajută la revitalizarea foliculilor de păr și promovează creșterea părului sănătos.',
+        price: '800 lei',
         image: 'images/treatments/dermapen-hair.jpg'
+    },
+    'dermapen-lips': {
+        title: 'DermaPen Buze',
+        description: 'Tratament specializat pentru volumizarea și conturarea buzelor. Procedura ajută la îmbunătățirea conturului buzelor și promovează producția de colagen.',
+        price: '700 lei',
+        image: 'images/treatments/dermapen-lips.jpg'
+    },
+    'dermapen-face-program': {
+        title: 'DermaPen Facial - Program',
+        description: 'Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen. Acest tratament ajută la reducerea ridurilor, îmbunătățirea texturii pielii și uniformizarea culorii tenului. Beneficiați de 15% reducere la programul de tratament.',
+        price: '1020 lei',
+        image: 'images/treatments/dermapen-face.jpg'
+    },
+    'dermapen-hair-program': {
+        title: 'DermaPen Scalp - Program',
+        description: 'Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului. Procedura ajută la revitalizarea foliculilor de păr și promovează creșterea părului sănătos. Beneficiați de 15% reducere la programul de tratament.',
+        price: '680 lei',
+        image: 'images/treatments/dermapen-hair.jpg'
+    },
+    'dermapen-stretch-program': {
+        title: 'DermaPen Vergeturi - Program',
+        description: 'Tratament eficient pentru reducerea vergeturilor pe corp. Procedura stimulează regenerarea pielii și îmbunătățește aspectul vergeturilor. Beneficiați de 15% reducere la programul de tratament.',
+        price: '765 lei',
+        image: 'images/treatments/dermapen-stretch.jpg'
+    },
+    'dermapen-lips-program': {
+        title: 'DermaPen Buze - Program',
+        description: 'Tratament specializat pentru volumizarea și conturarea buzelor. Procedura ajută la îmbunătățirea conturului buzelor și promovează producția de colagen. Beneficiați de 15% reducere la programul de tratament.',
+        price: '595 lei',
+        image: 'images/treatments/dermapen-lips.jpg'
     }
 };
 
@@ -124,6 +154,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-
-    
 }); 

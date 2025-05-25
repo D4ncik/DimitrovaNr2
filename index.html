@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
@@ -52,7 +54,105 @@
             height: 100%;
             border: none;
         }
- 
+        .logo-link span {
+            font-family: "GFS Didot", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 3.2em;
+            color: #5999ee;
+        }
+        .monthly-offer {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 40px 0;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(89, 153, 238, 0.08);
+            border-radius: 0;
+        }
+        .monthly-offer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(89, 153, 238, 0.03) 0%,
+                rgba(89, 153, 238, 0) 20%,
+                rgba(89, 153, 238, 0) 80%,
+                rgba(89, 153, 238, 0.03) 100%);
+            pointer-events: none;
+            border-radius: 0;
+        }
+        .offer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .offer-card {
+            display: flex;
+            background: white;
+            box-shadow: 0 0 15px rgba(89, 153, 238, 0.05);
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+        }
+        .offer-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                rgba(89, 153, 238, 0.02) 0%,
+                rgba(89, 153, 238, 0) 50%,
+                rgba(89, 153, 238, 0.02) 100%);
+            pointer-events: none;
+            border-radius: 15px;
+        }
+        .offer-image {
+            width: 40%;
+            object-fit: cover;
+            border-radius: 15px 0 0 15px;
+        }
+        .offer-details {
+            padding: 30px;
+            flex: 1;
+            border-radius: 0 15px 15px 0;
+        }
+        .offer-title {
+            font-family: "GFS Didot", serif;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .offer-details h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .offer-description {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .offer-price {
+            font-size: 1.5em;
+            color: #5999ee;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .offer-original {
+            font-size: 1.1em;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -61,7 +161,7 @@
             <div class="logo">
                 <a href="index.html" class="logo-link">
                     <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>Dimitrova Clinic</span>
+                    <span>DIMITROVA CLINIC</span>
                 </a>
             </div>
             <nav class="nav">
@@ -81,9 +181,11 @@
                     <li class="has-dropdown">
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
-                            <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
-                            <li><a href="dermapen.html">Proceduri Dermapen</a></li>
-                            <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                            <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
+                            <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                            <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                            <li><a href="body-remodeling.html">Remodelare corporală</a></li>
                         </ul>
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
@@ -112,6 +214,24 @@
             </div>
         </section>
 
+        <section class="monthly-offer">
+            <div class="container">
+                <div class="offer-content">
+                    <h2 class="offer-title">Ofertă lunii</h2>
+                    <div class="offer-card">
+                        <img src="images/offer.jpg" alt="Ofertă specială" class="offer-image">
+                        <div class="offer-details">
+                            <h3>Pachet Premium Facial</h3>
+                            <p class="offer-description">Tratament facial complet + Peeling chimic + Mezoterapie</p>
+                            <p class="offer-price">Preț special: 1500 lei</p>
+                            <p class="offer-original">Preț normal: 2000 lei</p>
+                            <a href="#" class="cta-button" onclick="openModal('bookingModal'); return false;">Programează-te acum</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="services-section">
             <div class="container">
                 <div class="services-header">
@@ -120,28 +240,46 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <img src="images/fata.jpg" alt="Îngrijirea pielii feței" class="service-image">
+                        <img src="images/cosmetologie.jpg" alt="Cosmetologie estetică" class="service-image">
                         <div class="service-content">
-                            <h3 class="service-title">Îngrijirea pielii feței</h3>
-                            <p class="service-description">Tratamente personalizate pentru îngrijirea tenului, curățare facială profesională și proceduri specializate pentru toate tipurile de ten.</p>
+                            <h3 class="service-title">Cosmetologie estetică</h3>
+                            <p class="service-description">Tratamente profesionale pentru îngrijirea și îmbunătățirea aspectului pielii, adaptate nevoilor individuale.</p>
                             <a href="facial-care.html" class="details-button">Detalii</a>
                         </div>
                     </div>
 
                     <div class="service-card">
-                        <img src="images/dermapen.jpg" alt="Proceduri Dermapen" class="service-image">
+                        <img src="images/peeling.jpg" alt="Peelinguri chimice" class="service-image">
                         <div class="service-content">
-                            <h3 class="service-title">Proceduri Dermapen</h3>
-                            <p class="service-description">Tehnologie avansată pentru regenerarea pielii, reducerea cicatricilor și îmbunătățirea texturii tenului.</p>
+                            <h3 class="service-title">Peelinguri chimice</h3>
+                            <p class="service-description">Proceduri specializate pentru exfoliere și reînnoirea pielii, cu rezultate vizibile imediate.</p>
                             <a href="dermapen.html" class="details-button">Detalii</a>
                         </div>
                     </div>
 
                     <div class="service-card">
-                        <img src="images/corporal.png" alt="Îngrijirea pielii corpului" class="service-image">
+                        <img src="images/facial-premium.jpg" alt="Tratamente faciale premium" class="service-image">
                         <div class="service-content">
-                            <h3 class="service-title">Îngrijirea pielii corpului</h3>
-                            <p class="service-description">Tratamente corporale complete pentru tonifiere, hidratare și îmbunătățirea aspectului general al pielii.</p>
+                            <h3 class="service-title">Tratamente faciale premium</h3>
+                            <p class="service-description">Proceduri de lux cu produse de înaltă calitate pentru un efect maxim și durabil.</p>
+                            <a href="facial-care.html" class="details-button">Detalii</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card last-row">
+                        <img src="images/dermapen.jpg" alt="Mezoterapie fracționară" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Mezoterapie fracționară (Dermapen)</h3>
+                            <p class="service-description">Tehnologie avansată pentru regenerarea profundă a pielii și stimularea producției de colagen.</p>
+                            <a href="dermapen.html" class="details-button">Detalii</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card last-row">
+                        <img src="images/corporal.png" alt="Remodelare corporală" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Remodelare corporală</h3>
+                            <p class="service-description">Tratamente specializate pentru conturarea și tonifierea corpului, cu rezultate vizibile.</p>
                             <a href="body-care.html" class="details-button">Detalii</a>
                         </div>
                     </div>
@@ -155,7 +293,7 @@
             <div class="footer-column">
                 <div class="footer-logo">
                     <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>Dimitrova Clinic</span>
+                    <span>Dimitrova.Clinic</span>
                 </div>
                 <div class="contact-info">
                     <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
@@ -178,11 +316,11 @@
             <div class="footer-column">
                 <h3>Serviciile centrului nostru</h3>
                 <ul>
-                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
-                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
-                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
-                    <li><a href="#preturi">Price list</a></li>
-                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                    <li><a href="dermapen.html">Peelinguri chimice</a></li>
+                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
                 </ul>
             </div>
 

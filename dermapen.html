@@ -24,6 +24,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
         }
 
         .section-header h2 {
@@ -38,15 +39,15 @@
             line-height: 1.5;
         }
         .facial-treatments {
-            padding: 120px 0 60px;
+            padding: 60px 0 30px;
             background: #f2fafc;
         }
         .treatments-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             padding: 20px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             justify-content: center;
         }
@@ -59,6 +60,8 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            margin-top: 15px;
         }
         .treatment-card:hover {
             transform: translateY(-5px);
@@ -229,14 +232,55 @@
         .consultation-button:hover {
             background: #4580d0;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
+            .treatments-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .discount-badge {
+                right: 100px;
+                top: 20px;
+            }
+        }
+        @media (max-width: 900px) {
+            .treatments-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .discount-badge {
+                right: 105px;
+                top: 15px;
+                font-size: 1.1em;
+            }
+        }
+        @media (max-width: 600px) {
             .treatments-grid {
                 grid-template-columns: 1fr;
             }
-            .modal-content {
-                width: 90%;
-                margin: 20% auto;
+            .discount-badge {
+                position: relative;
+                right: 0;
+                top: 0;
+                display: inline-block;
+                margin-top: 10px;
             }
+        }
+        .discount-badge {
+            position: absolute;
+            top: 25px;
+            right: 95px;
+            background: #ff4444;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transform: rotate(15deg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+        .discount-badge:hover {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -246,7 +290,7 @@
             <div class="logo">
                 <a href="index.html" class="logo-link">
                     <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>Dimitrova Clinic</span>
+                    <span>DIMITROVA CLINIC</span>
                 </a>
             </div>
             <nav class="nav">
@@ -266,9 +310,11 @@
                     <li class="has-dropdown">
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
-                            <li><a href="facial-care.html" class="ro">Îngrijirea pielii</a><a href="facial-care.html" class="ru">Уход за кожей</a></li>
-                            <li><a href="dermapen.html" class="ro">Proceduri Dermapen</a><a href="dermapen.html" class="ru">Процедуры Dermapen</a></li>
-                            <li><a href="body-care.html" class="ro">Îngrijirea corpului</a><a href="body-care.html" class="ru">Уход за телом</a></li>
+                            <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                            <li><a href="dermapen.html">Peelinguri chimice</a></li>
+                            <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                            <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                            <li><a href="body-remodeling.html">Remodelare corporală</a></li>
                         </ul>
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
@@ -288,128 +334,56 @@
         <section class="facial-treatments">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="ro">Proceduri Dermapen</h2>
-                    <h2 class="ru">Процедуры Dermapen</h2>
+                    <h2 class="ro">Mezoterapie fracțională</h2>
+                    <h2 class="ru">Фракционная мезотерапия</h2>
                     <p class="ro">Tratamente avansate pentru regenerarea și îmbunătățirea aspectului pielii</p>
                     <p class="ru">Продвинутые процедуры для регенерации и улучшения внешнего вида кожи</p>
                 </div>
                 <div class="treatments-grid">
                     <div class="treatment-card">
-                        <img src="images/dermapen1.jpg" alt="Dermapen 4" class="treatment-image">
+                        <img src="images/treatments/dermapen-face.jpg" alt="DermaPen Facial" class="treatment-image">
                         <div class="treatment-content">
-                            <h3>Dermapen 4</h3>
-                            <p>Procedură avansată de microacupunctură pentru regenerarea pielii.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">500 MDL</span>
-                                <button class="details-button" data-treatment="dermapen1">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="treatment-card">
-                        <img src="images/dermapen2.jpg" alt="Dermapen Anti-Aging" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Dermapen Anti-Aging</h3>
-                            <p>Tratament specializat pentru reducerea ridurilor și îmbunătățirea elasticității.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">600 MDL</span>
-                                <button class="details-button" data-treatment="dermapen2">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="treatment-card">
-                        <img src="images/dermapen3.jpg" alt="Dermapen Acne" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Dermapen Acne</h3>
-                            <p>Tratament eficient pentru acne și cicatrici post-acneice.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">550 MDL</span>
-                                <button class="details-button" data-treatment="dermapen3">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="treatment-card">
-                        <img src="images/dermapen4.jpg" alt="Dermapen Pigmentare" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Dermapen Pigmentare</h3>
-                            <p>Tratament pentru reducerea pigmentării și uniformizarea tenului.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">580 MDL</span>
-                                <button class="details-button" data-treatment="dermapen4">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="treatment-card">
-                        <img src="images/dermapen5.jpg" alt="Dermapen Stretch Marks" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Dermapen Stretch Marks</h3>
-                            <p>Tratament specializat pentru reducerea striurilor.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">650 MDL</span>
-                                <button class="details-button" data-treatment="dermapen5">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="treatment-card">
-                        <img src="images/dermapen6.jpg" alt="Dermapen Hair Growth" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Dermapen Hair Growth</h3>
-                            <p>Stimularea creșterii părului și tratarea alopeciei.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">700 MDL</span>
-                                <button class="details-button" data-treatment="dermapen6">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="treatment-card">
-                        <img src="images/treatments/dermapen-face.jpg" alt="Dermapen Față" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Dermapen Față</h3>
+                            <h3>DermaPen Facial</h3>
                             <p>Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">1200 MDL</span>
+                                <span class="treatment-price">1200 lei</span>
                                 <button class="details-button" data-treatment="dermapen-face">Detalii</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/treatments/dermapen-acne.jpg" alt="Dermapen pentru Acnee" class="treatment-image">
+                        <img src="images/treatments/dermapen-hair.jpg" alt="DermaPen Scalp" class="treatment-image">
                         <div class="treatment-content">
-                            <h3>Dermapen pentru Acnee</h3>
-                            <p>Tratament specializat pentru cicatrici post-acneice și acnee activă.</p>
+                            <h3>DermaPen Scalp</h3>
+                            <p>Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">1000 MDL</span>
-                                <button class="details-button" data-treatment="dermapen-acne">Detalii</button>
+                                <span class="treatment-price">800 lei</span>
+                                <button class="details-button" data-treatment="dermapen-hair">Detalii</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/treatments/dermapen-stretch.jpg" alt="Dermapen pentru Vergeturi" class="treatment-image">
+                        <img src="images/treatments/dermapen-stretch.jpg" alt="DermaPen Vergeturi" class="treatment-image">
                         <div class="treatment-content">
-                            <h3>Dermapen pentru Vergeturi</h3>
+                            <h3>DermaPen Vergeturi</h3>
                             <p>Tratament eficient pentru reducerea vergeturilor pe corp.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">900 MDL</span>
+                                <span class="treatment-price">900 lei</span>
                                 <button class="details-button" data-treatment="dermapen-stretch">Detalii</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/treatments/dermapen-hair.jpg" alt="Dermapen pentru Scalp" class="treatment-image">
+                        <img src="images/treatments/dermapen-lips.jpg" alt="DermaPen Buze" class="treatment-image">
                         <div class="treatment-content">
-                            <h3>Dermapen pentru Scalp</h3>
-                            <p>Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.</p>
+                            <h3>DermaPen Buze</h3>
+                            <p>Tratament specializat pentru volumizarea și conturarea buzelor.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">800 MDL</span>
-                                <button class="details-button" data-treatment="dermapen-hair">Detalii</button>
+                                <span class="treatment-price">700 lei</span>
+                                <button class="details-button" data-treatment="dermapen-lips">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -417,11 +391,70 @@
             </div>
         </section>
 
+        <section class="facial-treatments" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="ro">Mezoterapie programe</h2>
+                    <h2 class="ru">Программы мезотерапии</h2>
+                    <div class="discount-badge">-15%</div>
+                    <p class="ro">Beneficiați de 15% reducere la programele de tratament</p>
+                    <p class="ru">Получите скидку 15% на программы лечения</p>
+                </div>
+                <div class="treatments-grid">
+                    <div class="treatment-card">
+                        <img src="images/treatments/dermapen-face.jpg" alt="DermaPen Facial" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>DermaPen Facial</h3>
+                            <p>Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">1020 lei</span>
+                                <button class="details-button" data-treatment="dermapen-face-program">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <img src="images/treatments/dermapen-hair.jpg" alt="DermaPen Scalp" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>DermaPen Scalp</h3>
+                            <p>Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">680 lei</span>
+                                <button class="details-button" data-treatment="dermapen-hair-program">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <img src="images/treatments/dermapen-stretch.jpg" alt="DermaPen Vergeturi" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>DermaPen Vergeturi</h3>
+                            <p>Tratament eficient pentru reducerea vergeturilor pe corp.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">765 lei</span>
+                                <button class="details-button" data-treatment="dermapen-stretch-program">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <img src="images/treatments/dermapen-lips.jpg" alt="DermaPen Buze" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>DermaPen Buze</h3>
+                            <p>Tratament specializat pentru volumizarea și conturarea buzelor.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">595 lei</span>
+                                <button class="details-button" data-treatment="dermapen-lips-program">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div id="treatmentModal" class="modal">
         <div class="modal-content">
-           
             <img id="modalImage" class="modal-image" src="" alt="">
             <div class="modal-text">
                 <h2 id="modalTitle"></h2>
@@ -449,7 +482,7 @@
             <div class="footer-column">
                 <div class="footer-logo">
                     <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>Dimitrova Clinic</span>
+                    <span>Dimitrova.Clinic</span>
                 </div>
                 <div class="contact-info">
                     <a href="tel:+37360049402" class="ro"><i class="fas fa-phone"></i> +373 60 049 402</a>
@@ -477,9 +510,11 @@
                 <h3 class="ro">Serviciile centrului nostru</h3>
                 <h3 class="ru">Наши услуги</h3>
                 <ul>
-                    <li><a href="facial-care.html" class="ro">Îngrijirea pielii feței</a><a href="facial-care.html" class="ru">Уход за кожей лица</a></li>
-                    <li><a href="dermapen.html" class="ro">Proceduri Dermapen</a><a href="dermapen.html" class="ru">Процедуры Dermapen</a></li>
-                    <li><a href="body-care.html" class="ro">Îngrijirea corpului</a><a href="body-care.html" class="ru">Уход за телом</a></li>
+                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                    <li><a href="dermapen.html">Peelinguri chimice</a></li>
+                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
                 </ul>
             </div>
 

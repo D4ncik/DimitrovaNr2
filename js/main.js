@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
             noutati: "Noutăți",
             contacte: "Contacte",
             // Services submenu
-            fata: "Îngrijirea pielii feței",
-            dermapen: "Proceduri Dermapen",
-            corp: "Îngrijirea pielii corpului",
+            fata: "Cosmetologie estetică",
+            dermapen: "Peelinguri chimice",
+            corp: "Tratamente faciale premium",
             // Hero section translations
             "hero-subtitle": "Îngrijire personalizată, atenție la fiecare detaliu",
             "hero-title": "Frumusețea ta, în mâini sigure<br>și dedicate!",
@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Services section
             "services-title": "Serviciile centrului nostru",
             "services-subtitle": "Frumusețea ta merită toată grija — te aștept cu sufletul deschis.",
-            "service-face-title": "Îngrijirea pielii feței",
-            "service-face-description": "Tratamente personalizate pentru îngrijirea tenului, curățare facială profesională și proceduri specializate pentru toate tipurile de ten.",
-            "service-dermapen-title": "Proceduri Dermapen",
-            "service-dermapen-description": "Tehnologie avansată pentru regenerarea pielii, reducerea cicatricilor și îmbunătățirea texturii tenului.",
-            "service-body-title": "Îngrijirea pielii corpului",
-            "service-body-description": "Tratamente corporale complete pentru tonifiere, hidratare și îmbunătățirea aspectului general al pielii.",
+            "service-face-title": "Cosmetologie estetică",
+            "service-face-description": "Tratamente profesionale pentru îngrijirea și îmbunătățirea aspectului pielii, adaptate nevoilor individuale.",
+            "service-dermapen-title": "Peelinguri chimice",
+            "service-dermapen-description": "Proceduri specializate pentru exfoliere și reînnoirea pielii, cu rezultate vizibile imediate.",
+            "service-body-title": "Tratamente faciale premium",
+            "service-body-description": "Proceduri de lux cu produse de înaltă calitate pentru un efect maxim și durabil.",
             "service-button": "Detalii"
         },
         ru: {
@@ -170,14 +170,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function hideAllDropdowns() {
         if (window.innerWidth <= 768) {
             dropdowns.forEach(dropdown => {
-                const dropdownMenu = dropdown.querySelector('.dropdown');
-                if (dropdownMenu) dropdownMenu.style.display = 'none';
-                dropdown.classList.remove('active');
-            });
-        } else {
-            dropdowns.forEach(dropdown => {
-                const dropdownMenu = dropdown.querySelector('.dropdown');
-                if (dropdownMenu) dropdownMenu.style.display = '';
                 dropdown.classList.remove('active');
             });
         }
@@ -191,68 +183,50 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
             this.classList.toggle('active');
             navLinks.classList.toggle('active');
-            hideAllDropdowns(); // Ascunde dropdown-urile când deschizi/închizi meniul
+            hideAllDropdowns();
         });
     }
 
     // Dropdown click pe mobil
     dropdowns.forEach(dropdown => {
         const link = dropdown.querySelector('a');
-        const dropdownMenu = dropdown.querySelector('.dropdown');
-        if (link && dropdownMenu) {
+        if (link) {
             link.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
                     e.stopPropagation();
+                    
                     // Închide toate celelalte dropdown-uri
                     dropdowns.forEach(otherDropdown => {
                         if (otherDropdown !== dropdown) {
-                            const otherMenu = otherDropdown.querySelector('.dropdown');
-                            if (otherMenu) otherMenu.style.display = 'none';
                             otherDropdown.classList.remove('active');
                         }
                     });
+                    
                     // Toggle dropdown-ul curent
-                    if (dropdownMenu.style.display === 'block') {
-                        dropdownMenu.style.display = 'none';
-                        dropdown.classList.remove('active');
-                    } else {
-                        dropdownMenu.style.display = 'block';
-                        dropdown.classList.add('active');
-                    }
-                    // Nu face scroll sau focus automat!
+                    dropdown.classList.toggle('active');
                 }
             });
         }
     });
 
-    // Închide meniul mobil și dropdown-urile când dai click în afara meniului
+    // Închide meniul când se face click în afara lui
     document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav') && navLinks.classList.contains('active')) {
-            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            hideAllDropdowns();
+        if (window.innerWidth <= 768) {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                hideAllDropdowns();
+            }
         }
     });
 
-    // Închide meniul mobil când dai click pe un link (fără dropdown)
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Dacă nu e părinte de dropdown
-            if (!this.closest('.has-dropdown') || window.innerWidth > 768) {
-                if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-                hideAllDropdowns();
-            }
-        });
-    });
-
-    // Resetare la resize
+    // Închide meniul când se redimensionează fereastra
     window.addEventListener('resize', function() {
-        hideAllDropdowns();
         if (window.innerWidth > 768) {
-            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
             navLinks.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            hideAllDropdowns();
         }
     });
 
@@ -339,4 +313,56 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    // Funcție pentru a verifica dacă un element este în viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+            rect.bottom >= 0
+        );
+    }
+
+    // Funcție pentru a activa animațiile
+    function activateAnimations() {
+        const sections = document.querySelectorAll('.services-section, .about-section, .monthly-offer, .packages-section');
+        const cards = document.querySelectorAll('.service-card, .package-card, .treatment-card');
+        const headers = document.querySelectorAll('.section-header');
+
+        sections.forEach(section => {
+            if (isInViewport(section)) {
+                section.classList.add('visible');
+            } else {
+                section.classList.remove('visible');
+            }
+        });
+
+        cards.forEach(card => {
+            if (isInViewport(card)) {
+                card.classList.add('visible');
+            } else {
+                card.classList.remove('visible');
+            }
+        });
+
+        headers.forEach(header => {
+            if (isInViewport(header)) {
+                header.classList.add('visible');
+            } else {
+                header.classList.remove('visible');
+            }
+        });
+    }
+
+    // Adăugăm event listener pentru scroll cu throttling
+    let isScrolling;
+    window.addEventListener('scroll', function() {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(function() {
+            activateAnimations();
+        }, 20);
+    });
+
+    // Activăm animațiile la încărcarea paginii
+    activateAnimations();
 }); 
