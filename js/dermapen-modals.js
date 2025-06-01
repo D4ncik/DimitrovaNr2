@@ -51,19 +51,19 @@ const dermapenData = {
     'dermapen-stretch': {
         title: 'DermaPen Vergeturi',
         description: 'Tratament eficient pentru reducerea vergeturilor pe corp. Procedura stimulează regenerarea pielii și îmbunătățește aspectul vergeturilor.',
-        price: '900 lei',
+        price: '1000 lei',
         image: 'images/treatments/dermapen-stretch.jpg'
     },
     'dermapen-hair': {
         title: 'DermaPen Scalp',
         description: 'Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului. Procedura ajută la revitalizarea foliculilor de păr și promovează creșterea părului sănătos.',
-        price: '800 lei',
+        price: '1300 lei',
         image: 'images/treatments/dermapen-hair.jpg'
     },
     'dermapen-lips': {
         title: 'DermaPen Buze',
         description: 'Tratament specializat pentru volumizarea și conturarea buzelor. Procedura ajută la îmbunătățirea conturului buzelor și promovează producția de colagen.',
-        price: '700 lei',
+        price: '750 lei',
         image: 'images/treatments/dermapen-lips.jpg'
     },
     'dermapen-face-program': {
@@ -108,6 +108,33 @@ function openTreatmentModal(treatmentId, treatmentType) {
     modalTitle.textContent = treatment.title;
     modalDescription.textContent = treatment.description;
     modalPrice.textContent = treatment.price;
+
+    // Adaugă etichete de ședințe pentru tratamentele program
+    const sessionLabelsData = {
+        'dermapen-face-program': ['5 ședințe – 5100 lei', '8 ședințe – 8160 lei'],
+        'dermapen-hair-program': ['5 ședințe – 5525 lei', '8 ședințe – 8840 lei'],
+        'dermapen-stretch-program': ['5 ședințe – 4250 lei', '8 ședințe – 6800 lei'],
+        'dermapen-lips-program': ['5 ședințe – 3190 lei']
+    };
+    let container = document.getElementById('modalSessionLabels');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'modalSessionLabels';
+        container.className = 'modal-session-labels';
+        modalPrice.parentNode.insertBefore(container, modalPrice);
+    }
+    container.innerHTML = '';
+    (sessionLabelsData[treatmentId] || []).forEach(label => {
+        const span = document.createElement('span');
+        span.className = 'modal-session-label';
+        span.textContent = label;
+        container.appendChild(span);
+    });
+    if (!(treatmentId in sessionLabelsData)) {
+        container.innerHTML = '';
+    }
+    // Ascund prețul individual
+    modalPrice.style.display = (treatmentId in sessionLabelsData) ? 'none' : '';
 
     modal.style.display = 'flex';
     modal.style.opacity = '0';
@@ -154,4 +181,17 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-}); 
+});
+
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modalId === 'treatmentModal') {
+        // Aici poți adăuga logica pentru popularea datelor tratamentului
+        // sau poți apela direct openTreatmentModal cu ID-ul tratamentului
+    }
+    modal.style.display = 'flex';
+    modal.style.opacity = '0';
+    setTimeout(() => {
+        modal.style.opacity = '1';
+    }, 10);
+} 

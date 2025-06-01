@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
         .body-treatments {
-            padding: 80px 0 30px;
+            padding: 40px 0 30px;
             background: #f2fafc;
         }
         .treatments-grid {
@@ -27,7 +27,7 @@
         }
         .treatment-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
@@ -78,7 +78,7 @@
             padding: 10px 25px;
             background: linear-gradient(45deg, #5999ee, #3d7fd9);
             color: white;
-            border-radius: 25px;
+            border-radius: 5px;
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
@@ -147,9 +147,9 @@
         }
         .consultation-banner {
             background: #f2fafc;
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(89, 153, 238, 0.1);
         }
@@ -225,7 +225,7 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 20px;
             position: relative;
         }
 
@@ -261,6 +261,105 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/body_remodeling.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #234a7c;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(242, 250, 252, 0.65);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: linear-gradient(to bottom, #658698, #13283c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .benefits-list li {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: #5999ee;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5em;
+                white-space: normal;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .benefits-list li {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .benefits-list li {
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -290,10 +389,11 @@
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="facial-care.html">Cosmetologie estetică</a></li>
-                            <li><a href="dermapen.html">Peelinguri chimice</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
                             <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
                             <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
                             <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                            <li><a href="massage.html">Masaj</a></li>
                         </ul>
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
@@ -310,135 +410,173 @@
         </div>
     </header>
 
-    <section class="body-treatments">
-        <div class="container">
-            <div class="section-header">
-                <h2>Tratamente Corporale</h2>
-                <div class="discount-badge">-10%</div>
-                <p>Oricare 2 proceduri consecutive -10%</p>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Remodelare Corporală</h1>
+                <p>Descoperă soluțiile noastre avansate pentru remodelarea corporală. Combinăm tehnologii moderne cu tehnici inovatoare pentru a ajuta la atingerea siluetei dorite și la îmbunătățirea conturului corporal.</p>
+                <ul class="benefits-list">
+                    <li>Proceduri non-invazive și sigure</li>
+                    <li>Rezultate vizibile și de lungă durată</li>
+                    <li>Tratamente personalizate pentru fiecare client</li>
+                    <li>Tehnologii de ultimă generație</li>
+                    <li>Experiență profesională și rezultate garantate</li>
+                </ul>
             </div>
-            <div class="treatments-grid">
-                <div class="treatment-card">
-                    <img src="images/treatments/rf-lifting.jpg" alt="RF-lifting" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>RF-lifting</h3>
-                        <p>Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">800 lei</span>
-                            <button class="details-button" data-treatment="rf-lifting">Detalii</button>
+        </section>
+
+        <section class="consultation-banner" style="margin-top: 120px !important;">
+            <h2 data-translate="facial-consultation-title">Consultație Personalizată</h2>
+            <p data-translate="facial-consultation-desc">Vom alege împreună un tratament individual perfect pentru pielea ta</p>
+            <button class="modal-button" style="margin-top: 30px;" onclick="openModal('consultationModal')" data-translate="facial-consultation-free">GRATUIT</button>
+        </section>
+
+        <section class="body-treatments">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tratamente Corporale</h2>
+                </div>
+                <div class="treatments-grid">
+                    <div class="treatment-card">
+                        <img src="images/RF-Lifting2.jpg" alt="RF-lifting" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>RF-lifting</h3>
+                            <p>Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">500 lei</span>
+                                <button class="details-button" data-treatment="rf-lifting">Detalii</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="treatment-card">
-                    <img src="images/treatments/cavitatie.jpg" alt="Cavitație" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Cavitație</h3>
-                        <p>Tratament non-invaziv pentru reducerea grăsimii localizate.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">600 lei</span>
-                            <button class="details-button" data-treatment="cavitatie">Detalii</button>
+                    <div class="treatment-card">
+                        <img src="images/corp2.PNG" alt="Cavitație" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Cavitație</h3>
+                            <p>Tratament non-invaziv pentru reducerea grăsimii localizate.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">600 lei</span>
+                                <button class="details-button" data-treatment="cavitatie">Detalii</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="treatment-card">
-                    <img src="images/treatments/vacuum.jpg" alt="Vacuum" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Vacuum</h3>
-                        <p>Tratament de drenaj limfatic și modelare corporală.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">500 lei</span>
-                            <button class="details-button" data-treatment="vacuum">Detalii</button>
+                    <div class="treatment-card">
+                        <img src="images/corp3.PNG" alt="Vacuum" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Vacuum</h3>
+                            <p>Tratament de drenaj limfatic și modelare corporală.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">600 lei</span>
+                                <button class="details-button" data-treatment="vacuum">Detalii</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="treatment-card">
-                    <img src="images/treatments/lipolazer.jpg" alt="Lipolazer" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Lipolazer</h3>
-                        <p>Tratament cu laser pentru reducerea grăsimii și modelare corporală.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">700 lei</span>
-                            <button class="details-button" data-treatment="lipolazer">Detalii</button>
+                    <div class="treatment-card">
+                        <img src="images/treatments/lipolazer.jpg" alt="Lipolazer" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Lipolazer</h3>
+                            <p>Tratament cu laser pentru reducerea grăsimii și modelare corporală.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">500 lei</span>
+                                <button class="details-button" data-treatment="lipolazer">Detalii</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="treatment-card">
-                    <img src="images/treatments/biofoton.jpg" alt="Biofoton" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Biofoton</h3>
-                        <p>Tratament cu lumină pentru îmbunătățirea aspectului pielii și modelare.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">550 lei</span>
-                            <button class="details-button" data-treatment="biofoton">Detalii</button>
+                    <div class="treatment-card">
+                        <img src="images/treatments/biofoton.jpg" alt="Biofoton" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Biofoton</h3>
+                            <p>Tratament cu lumină pentru îmbunătățirea aspectului pielii și modelare.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">500 lei</span>
+                                <button class="details-button" data-treatment="biofoton">Detalii</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="body-treatments" style="background: #f8f9fa;">
-        <div class="container">
-            <div class="section-header">
-                <h2>Pachete</h2>
-                <div class="discount-badge">-30%</div>
-                <p>Beneficiați de 30% reducere la pachetele de tratamente</p>
-            </div>
-            <div class="treatments-grid">
-                <div class="treatment-card">
-                    <img src="images/treatments/vacuum-cavitatie.jpg" alt="Vacuum + Cavitație" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Vacuum + Cavitație</h3>
-                        <p>Pachet combinat pentru rezultate optime în modelarea corporală.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">770 lei</span>
-                            <button class="details-button" data-treatment="vacuum-cavitatie">Detalii</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="treatment-card">
-                    <img src="images/treatments/vacuum-rf.jpg" alt="Vacuum + RF-lifting" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Vacuum + RF-lifting</h3>
-                        <p>Pachet pentru firmare și modelare corporală.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">910 lei</span>
-                            <button class="details-button" data-treatment="vacuum-rf">Detalii</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="treatment-card">
-                    <img src="images/treatments/cavitatie-rf.jpg" alt="Cavitație + RF-lifting" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Cavitație + RF-lifting</h3>
-                        <p>Pachet pentru reducerea grăsimii și firmare.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">980 lei</span>
-                            <button class="details-button" data-treatment="cavitatie-rf">Detalii</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="treatment-card">
-                    <img src="images/treatments/lipolazer-package.jpg" alt="Lipolazer" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Lipolazer</h3>
-                        <p>Pachet de tratamente cu Lipolazer pentru rezultate optime.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">490 lei</span>
-                            <button class="details-button" data-treatment="lipolazer-package">Detalii</button>
+                    <div class="treatment-card" style="background:linear-gradient(135deg,#f2fafc 60%,#e9f2ff 100%);border:2px solid #3d7fd9;box-shadow:0 2px 12px rgba(61,127,217,0.07);display:flex;align-items:center;justify-content:center;min-height:220px;">
+                        <div style="width:100%;text-align:center;padding:30px 10px;">
+                            <span style="display:block;font-size:1.5em;font-weight:700;color:#3d7fd9;margin-bottom:10px;">Reducere -10%</span>
+                            <span style="font-size:1.1em;color:#234a7c;font-weight:500;">după două proceduri consecutive</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="body-treatments" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Pachete</h2>
+                    <div class="discount-badge">-30%</div>
+                    <p>Beneficiați de 30% reducere la pachetele de tratamente</p>
+                </div>
+                <div class="treatments-grid">
+                    <div class="treatment-card">
+                        <img src="images/treatments/vacuum-cavitatie.jpg" alt="Vacuum + Cavitație" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Vacuum + Cavitație</h3>
+                            <p>Pachet combinat pentru rezultate optime în modelarea corporală.</p>
+                            <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">10 ședințe – 4200 lei</span>
+                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">20 ședințe – 8100 lei</span>
+                            </div>
+                            <div class="treatment-info" style="justify-content: flex-end;">
+                                <button class="details-button" data-treatment="vacuum-cavitatie">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <img src="images/treatments/vacuum-rf.jpg" alt="Vacuum + RF-lifting" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Vacuum + RF-lifting</h3>
+                            <p>Pachet pentru firmare și modelare corporală.</p>
+                            <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">10 ședințe – 4200 lei</span>
+                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">20 ședințe – 8100 lei</span>
+                            </div>
+                            <div class="treatment-info" style="justify-content: flex-end;">
+                                <button class="details-button" data-treatment="vacuum-rf">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <img src="images/treatments/cavitatie-rf.jpg" alt="Cavitație + RF-lifting" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Cavitație + RF-lifting</h3>
+                            <p>Pachet pentru reducerea grăsimii și firmare.</p>
+                            <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">10 ședințe – 4200 lei</span>
+                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">20 ședințe – 8100 lei</span>
+                            </div>
+                            <div class="treatment-info" style="justify-content: flex-end;">
+                                <button class="details-button" data-treatment="cavitatie-rf">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <img src="images/treatments/lipolazer-package.jpg" alt="Lipolazer" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Lipolazer</h3>
+                            <p>Pachet de tratamente cu Lipolazer pentru rezultate optime.</p>
+                            <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">5 ședințe – 2250 lei</span>
+                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">10 ședințe – 4500 lei</span>
+                            </div>
+                            <div class="treatment-info" style="justify-content: flex-end;">
+                                <button class="details-button" data-treatment="lipolazer-package">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <div id="treatmentModal" class="modal">
         <div class="modal-content">
@@ -485,11 +623,12 @@
             <div class="footer-column">
                 <h3>Serviciile centrului nostru</h3>
                 <ul>
-                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
-                    <li><a href="dermapen.html">Peelinguri chimice</a></li>
-                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
-                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
-                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                    <li><a href="prices.html">Price list</a></li>
+                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="massage.html">Masaj</a></li>
                 </ul>
             </div>
 

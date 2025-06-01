@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masaj - Dimitrova.Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-fixes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/masaj2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #234a7c;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(242, 250, 252, 0.65);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: linear-gradient(to bottom, #658698, #13283c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .benefits-list li {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: #5999ee;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>DIMITROVA CLINIC</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="preparate.html">Preparate</a></li>
+                            <li><a href="gallery.html">Galerie</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
+                            <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                            <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                            <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                            <li><a href="massage.html">Masaj</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prices.html">Prețuri</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="language-selector">
+                        <a href="#"><i class="fas fa-globe"></i> RO <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#" data-lang="ro">RO</a></li>
+                            <li><a href="#" data-lang="ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Masaj Terapeutic</h1>
+                <p>Descoperă beneficiile masajului terapeutic în clinica noastră. Oferim o gamă variată de tehnici de masaj, adaptate nevoilor tale specifice, pentru relaxare, recuperare și îmbunătățirea sănătății generale.</p>
+                <ul class="benefits-list">
+                    <li>Reducerea stresului și tensiunii musculare</li>
+                    <li>Îmbunătățirea circulației sanguine</li>
+                    <li>Alinierea posturii și reducerea durerilor</li>
+                    <li>Relaxare profundă și revitalizare</li>
+                    <li>Tehnici personalizate pentru fiecare client</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>DIMITROVA CLINIC</span>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                </div>
+                <div class="address">
+                    <p>Republica Moldova,</p>
+                    <p>Chișinău, str.Armenească 47</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Dimitrova Clinic</h3>
+                <ul>
+                    <li><a href="#despre">Despre noi</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#aparate">Aparate</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Serviciile centrului nostru</h3>
+                <ul>
+                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                    <li><a href="prices.html">Price list</a></li>
+                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="massage.html">Masaj</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Urmăriți-ne...</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <h3>Scrieti în direct...</h3>
+                <div class="messenger-links">
+                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

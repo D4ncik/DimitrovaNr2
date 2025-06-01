@@ -1,3 +1,37 @@
+// Function to open modal
+function openModal(modalId, triggerElement) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return; // Adăugat pentru a preveni erori dacă modalul nu există
+
+    if (modalId === 'treatmentModal' && triggerElement) {
+        const treatmentId = triggerElement.getAttribute('data-treatment');
+        // Assuming openTreatmentModal is accessible globally or in the same scope
+        if (typeof openTreatmentModal === 'function') {
+            openTreatmentModal(treatmentId, 'body'); // Am adăugat tipul 'body'
+        } else {
+            console.error('openTreatmentModal function is not defined.');
+            // Fallback: maybe just open the modal without specific treatment data
+        }
+    }
+
+    modal.style.display = 'flex';
+    modal.style.opacity = '0';
+    setTimeout(() => {
+        modal.style.opacity = '1';
+    }, 10);
+}
+
+// Function to close modal
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Translations object - mutat la început
     const translations = {
@@ -273,28 +307,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Modal functionality
-    function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.display = 'flex';
-            modal.style.opacity = '0';
-            setTimeout(() => {
-                modal.style.opacity = '1';
-            }, 10);
-        }
-    }
-
-    function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.opacity = '0';
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-        }
-    }
 
     // Close modal when clicking outside
     window.addEventListener('click', function(event) {

@@ -12,9 +12,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/premium_facial.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #234a7c;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(242, 250, 252, 0.65);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: linear-gradient(to bottom, #658698, #13283c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .benefits-list li {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: #5999ee;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
         .facial-treatments {
             padding: 120px 0 60px;
             background: #f2fafc;
+        }
+        .facial-treatments h2 {
+            font-size: 2.7em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         .treatments-grid {
             display: grid;
@@ -27,7 +106,7 @@
         }
         .treatment-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
@@ -53,12 +132,13 @@
         .treatment-content h3 {
             color: #333;
             margin-bottom: 10px;
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
         .treatment-content p {
             color: #666;
             margin-bottom: 15px;
-            font-size: 1.1em;
+            font-size: 0.95em;
+            line-height: 1.5;
         }
         .treatment-info {
             display: flex;
@@ -78,7 +158,7 @@
             padding: 10px 25px;
             background: linear-gradient(45deg, #5999ee, #3d7fd9);
             color: white;
-            border-radius: 25px;
+            border-radius: 5px;
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
@@ -221,6 +301,218 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(89, 153, 238, 0.4);
         }
+        .accordion-treatments {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: none;
+        }
+        .accordion-item {
+            background: #fff;
+            border-radius: 15px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 16px rgba(89,153,238,0.07);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        .accordion-header {
+            width: 100%;
+            background: #f2fafc;
+            border: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 28px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .accordion-header:hover, .accordion-item.active .accordion-header {
+            background: #e6f0fa;
+        }
+        .accordion-title {
+            flex: 2;
+            text-align: left;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .accordion-price {
+            flex: 1;
+            text-align: right;
+            font-size: 1.1em;
+        }
+        .accordion-price del {
+            color: #bbb;
+            margin-right: 8px;
+        }
+        .accordion-price .promo {
+            color: #5999ee;
+            font-weight: bold;
+            font-size: 1.25em;
+        }
+        .accordion-arrow {
+            margin-left: 18px;
+            color: #5999ee;
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+        .accordion-item.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+        .accordion-body {
+            display: none;
+            background: #fff;
+            border-top: 1px solid #e6f0fa;
+            padding: 0 28px 28px 28px;
+            animation: fadeIn 0.4s;
+        }
+        .accordion-item.active .accordion-body {
+            display: block;
+        }
+        .accordion-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+            margin-top: 18px;
+            min-height: 300px;
+            position: relative;
+        }
+        .accordion-image {
+            width: 280px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(89,153,238,0.08);
+        }
+        .accordion-info {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+            position: relative;
+        }
+        .accordion-info ul {
+            margin-bottom: 18px;
+            color: #444;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        .accordion-info li {
+            margin-bottom: 8px;
+        }
+        .accordion-info b {
+            color: #333;
+            font-weight: 600;
+        }
+        .details-button {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #5999ee, #3d7fd9);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1.13em;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(89, 153, 238, 0.2);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .details-button:hover {
+            background: linear-gradient(45deg, #3d7fd9, #2666c0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(89, 153, 238, 0.3);
+        }
+        @media (max-width: 700px) {
+            .facial-treatments h2 {
+                font-size: 2em;
+            }
+            .accordion-header {
+                font-size: 1.1em;
+            }
+            .accordion-title {
+                font-size: 1em;
+            }
+            .accordion-price {
+                font-size: 1.08em;
+            }
+            .accordion-price .promo {
+                font-size: 1.12em;
+            }
+            .accordion-info ul {
+                font-size: 1em;
+            }
+            .accordion-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .accordion-image {
+                width: 100%;
+                height: 180px;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .logo-link span {
+            color: #234a7c !important;
+            letter-spacing: 0.5px;
+        }
+        .footer-logo span {
+            color: #234a7c !important;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .accordion-content p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .accordion-content ul {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .accordion-content li {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5em;
+                white-space: normal;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .benefits-list li {
+                font-size: 1em;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .benefits-list li {
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -250,10 +542,11 @@
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="facial-care.html">Cosmetologie estetică</a></li>
-                            <li><a href="dermapen.html">Peelinguri chimice</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
                             <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
                             <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
                             <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                            <li><a href="massage.html">Masaj</a></li>
                         </ul>
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
@@ -270,185 +563,316 @@
         </div>
     </header>
 
-    <section class="facial-treatments">
-        <div class="container">
-            <div class="treatments-grid">
-                <div class="treatment-card">
-                    <img src="images/facial1.jpg" alt="Tratament facial premium" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Tratament Facial Premium</h3>
-                        <p>Tratament complex pentru îngrijirea și regenerarea pielii feței, folosind produse de înaltă calitate.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">500 lei</span>
-                            <button class="details-button" onclick="openModal('premium-facial')">Detalii</button>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Tratamente Faciale Premium</h1>
+                <p>Descoperă colecția noastră exclusivă de tratamente faciale premium, concepute pentru a oferi rezultate extraordinare și o experiență de relaxare de neegalat.</p>
+                <ul class="benefits-list">
+                    <li>Produse de înaltă calitate și ingrediente active</li>
+                    <li>Tehnici avansate de aplicare</li>
+                    <li>Rezultate vizibile și de lungă durată</li>
+                    <li>Experiență personalizată pentru fiecare client</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="facial-treatments">
+            <div class="container">
+                <h2 style="text-align:center;margin-bottom:30px;">Tratamente faciale premium</h2>
+                <div class="accordion-treatments">
+                    <!-- Exemplu de item, restul se adaugă la fel -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">RGenerin BEAUTY PLAN PREMIUM</span>
+                            <span class="accordion-price"><del>1390 lei</del> <span class="promo">1190 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/beauty2.ARW" alt="RGenerin BEAUTY PLAN PREMIUM" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> 30+</li>
+                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, riduri mimice</li>
+                                        <li><b>Efecte principale:</b> Alternativă la botox, netezire</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Purifying TREATMENT</span>
+                            <span class="accordion-price"><del>1390 lei</del> <span class="promo">1190 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/purify.PNG" alt="Purifying TREATMENT" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> Toate vârstele</li>
+                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, piele obosită, poluată</li>
+                                        <li><b>Efecte principale:</b> Curățare profundă, detoxifiere, efect de oxigenare</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Eye Perfection TREATMENT</span>
+                            <span class="accordion-price"><del>1390 lei</del> <span class="promo">1190 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/eyes.PNG" alt="Eye Perfection TREATMENT" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> Toate vârstele</li>
+                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, probleme în jurul ochilor (riduri, umflături)</li>
+                                        <li><b>Efecte principale:</b> Eliminarea ridurilor și umflăturilor, lifting</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Antioxidant BEAUTY PLAN +30</span>
+                            <span class="accordion-price"><del>1390 lei</del> <span class="promo">1190 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/facial4.jpg" alt="Antioxidant BEAUTY PLAN +30" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> 30+</li>
+                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, primele semne ale îmbătrânirii</li>
+                                        <li><b>Efecte principale:</b> Protecție antioxidantă, hidratare</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Sensations BEAUTY PLAN +40</span>
+                            <span class="accordion-price"><del>1390 lei</del> <span class="promo">1190 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/facial5.jpg" alt="Sensations BEAUTY PLAN +40" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> 40+</li>
+                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, modificări legate de vârstă</li>
+                                        <li><b>Efecte principale:</b> Complex vitaminic, regenerare</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Q10 ReSCue BEAUTY PLAN PREMIUM +60</span>
+                            <span class="accordion-price"><del>1690 lei</del> <span class="promo">1490 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/facial6.jpg" alt="Q10 ReSCue BEAUTY PLAN PREMIUM +60" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> 60+</li>
+                                        <li><b>Tip piele / Indicații:</b> Piele uscată, exigentă</li>
+                                        <li><b>Efecte principale:</b> Nutriție intensivă și regenerare</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">INFINITY BEAUTY PLAN PREMIUM +45</span>
+                            <span class="accordion-price"><del>1690 lei</del> <span class="promo">1490 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/facial7.jpg" alt="INFINITY BEAUTY PLAN PREMIUM +45" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> 45+</li>
+                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, piele stresată, modificări legate de vârstă</li>
+                                        <li><b>Efecte principale:</b> Stimularea serotoninei, protecția ADN-ului, lifting</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">AgeDefense BEAUTY PLAN +35</span>
+                            <span class="accordion-price"><del>1690 lei</del> <span class="promo">1490 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/facial8.jpg" alt="AgeDefense BEAUTY PLAN +35" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> 35+</li>
+                                        <li><b>Tip piele / Indicații:</b> Piele sensibilă, reactivă</li>
+                                        <li><b>Efecte principale:</b> Refacerea microbiomului, protecție</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Hydra Lifting BEAUTYPIN +40</span>
+                            <span class="accordion-price"><del>1480 lei</del> <span class="promo">1290 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/facial9.jpg" alt="Hydra Lifting BEAUTYPIN +40" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> 40+</li>
+                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, piele deshidratată, lăsată</li>
+                                        <li><b>Efecte principale:</b> Hidratare profundă, lifting</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Shine Stop BEAUTY PLAN</span>
+                            <span class="accordion-price"><del>1390 lei</del> <span class="promo">1190 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/facial10.jpg" alt="Shine Stop BEAUTY PLAN" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> Toate vârstele</li>
+                                        <li><b>Tip piele / Indicații:</b> Piele grasă, predispusă la acnee</li>
+                                        <li><b>Efecte principale:</b> Matifiere, controlul sebumului</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Lightening +30 BEAUTY PLAN PREMIUM</span>
+                            <span class="accordion-price"><del>1690 lei</del> <span class="promo">1490 lei</span></span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/facial11.jpg" alt="Lightening +30 BEAUTY PLAN PREMIUM" class="accordion-image">
+                                <div class="accordion-info">
+                                    <ul>
+                                        <li><b>Grupă de vârstă:</b> 30+</li>
+                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, hiperpigmentare</li>
+                                        <li><b>Efecte principale:</b> Iluminare, corectarea petelor pigmentare</li>
+                                    </ul>
+                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="treatment-card">
-                    <img src="images/facial2.jpg" alt="Tratament anti-aging" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Tratament Anti-Aging</h3>
-                        <p>Tratament specializat pentru combaterea semnelor îmbătrânirii și regenerarea pielii.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">600 lei</span>
-                            <button class="details-button" onclick="openModal('anti-aging')">Detalii</button>
-                        </div>
+            </div>
+        </section>
+
+        <!-- Modal pentru Consultație -->
+        <div id="consultation-modal" class="modal">
+            <div class="modal-content consultation-modal">
+                <div class="calendly-section">
+                    <iframe src="https://calendly.com/dimitrova-clinic/consultatie" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                        <span>DIMITROVA CLINIC</span>
+                    </div>
+                    <div class="contact-info">
+                        <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                        <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                    </div>
+                    <div class="address">
+                        <p>Republica Moldova,</p>
+                        <p>Chișinău, str.Armenească 47</p>
                     </div>
                 </div>
-                <div class="treatment-card">
-                    <img src="images/facial3.jpg" alt="Tratament hidratant intens" class="treatment-image">
-                    <div class="treatment-content">
-                        <h3>Tratament Hidratant Intens</h3>
-                        <p>Tratament pentru hidratarea profundă a pielii și restabilirea barierei hidrolipidice.</p>
-                        <div class="treatment-info">
-                            <span class="treatment-price">450 lei</span>
-                            <button class="details-button" onclick="openModal('hydrating')">Detalii</button>
-                        </div>
+
+                <div class="footer-column">
+                    <h3>Dimitrova Clinic</h3>
+                    <ul>
+                        <li><a href="#despre">Despre noi</a></li>
+                        <li><a href="#galerie">Galerie</a></li>
+                        <li><a href="#aparate">Aparate</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Serviciile centrului nostru</h3>
+                    <ul>
+                        <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                        <li><a href="dermapen.html">Peelinguri chimice</a></li>
+                        <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                        <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                        <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Urmăriți-ne...</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <h3>Scrieti în direct...</h3>
+                    <div class="messenger-links">
+                        <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Modal pentru Tratament Premium -->
-    <div id="premium-facial-modal" class="modal">
-        <div class="modal-content">
-            <img src="images/facial1.jpg" alt="Tratament facial premium" class="modal-image">
-            <div class="modal-text">
-                <h2>Tratament Facial Premium</h2>
-                <p>Tratament complex care include:</p>
-                <ul>
-                    <li>Curățare profundă</li>
-                    <li>Exfoliere cu enzime</li>
-                    <li>Seruri cu vitamine și antioxidanți</li>
-                    <li>Mască personalizată</li>
-                    <li>Masaj facial</li>
-                </ul>
-                <p>Durata: 90 minute</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
             </div>
-            <div class="modal-info">
-                <span class="modal-price">500 lei</span>
-                <button class="modal-button" onclick="openConsultationModal()">Programează</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal pentru Anti-Aging -->
-    <div id="anti-aging-modal" class="modal">
-        <div class="modal-content">
-            <img src="images/facial2.jpg" alt="Tratament anti-aging" class="modal-image">
-            <div class="modal-text">
-                <h2>Tratament Anti-Aging</h2>
-                <p>Tratament specializat care include:</p>
-                <ul>
-                    <li>Analiză a stării pielii</li>
-                    <li>Exfoliere cu acid hialuronic</li>
-                    <li>Ser cu peptizi și colagen</li>
-                    <li>Mască cu retinol</li>
-                    <li>Masaj facial lifting</li>
-                </ul>
-                <p>Durata: 120 minute</p>
-            </div>
-            <div class="modal-info">
-                <span class="modal-price">600 lei</span>
-                <button class="modal-button" onclick="openConsultationModal()">Programează</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal pentru Hidratare -->
-    <div id="hydrating-modal" class="modal">
-        <div class="modal-content">
-            <img src="images/facial3.jpg" alt="Tratament hidratant" class="modal-image">
-            <div class="modal-text">
-                <h2>Tratament Hidratant Intens</h2>
-                <p>Tratament hidratant care include:</p>
-                <ul>
-                    <li>Curățare delicată</li>
-                    <li>Exfoliere enzimatică</li>
-                    <li>Ser cu acid hialuronic</li>
-                    <li>Mască hidratantă</li>
-                    <li>Masaj facial relaxant</li>
-                </ul>
-                <p>Durata: 75 minute</p>
-            </div>
-            <div class="modal-info">
-                <span class="modal-price">450 lei</span>
-                <button class="modal-button" onclick="openConsultationModal()">Programează</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal pentru Consultație -->
-    <div id="consultation-modal" class="modal">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="https://calendly.com/dimitrova-clinic/consultatie" frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <div class="footer-logo">
-                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>DIMITROVA CLINIC</span>
-                </div>
-                <div class="contact-info">
-                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
-                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
-                </div>
-                <div class="address">
-                    <p>Republica Moldova,</p>
-                    <p>Chișinău, str.Armenească 47</p>
-                </div>
-            </div>
-
-            <div class="footer-column">
-                <h3>Dimitrova Clinic</h3>
-                <ul>
-                    <li><a href="#despre">Despre noi</a></li>
-                    <li><a href="#galerie">Galerie</a></li>
-                    <li><a href="#aparate">Aparate</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Serviciile centrului nostru</h3>
-                <ul>
-                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
-                    <li><a href="dermapen.html">Peelinguri chimice</a></li>
-                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
-                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
-                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Urmăriți-ne...</h3>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-                <h3>Scrieti în direct...</h3>
-                <div class="messenger-links">
-                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
-        </div>
-    </footer>
+        </footer>
+    </main>
 
     <script src="js/main.js"></script>
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId + '-modal').style.display = 'block';
-        }
-
         function openConsultationModal() {
             document.getElementById('consultation-modal').style.display = 'block';
         }
@@ -458,6 +882,21 @@
                 event.target.style.display = 'none';
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.accordion-item');
+            items.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                header.addEventListener('click', function() {
+                    if(item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    } else {
+                        items.forEach(i => i.classList.remove('active'));
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html> 

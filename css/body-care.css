@@ -174,19 +174,23 @@
     padding: 12px 30px;
     background: linear-gradient(45deg, #5999ee, #3d7fd9);
     color: white;
-    text-decoration: none;
     border-radius: 25px;
-    font-weight: 500;
+    text-decoration: none;
     transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     border: none;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(89, 153, 238, 0.3);
     text-align: center;
+    margin-top: 30px;
 }
 
 .modal-button:hover {
     background: linear-gradient(45deg, #3d7fd9, #2666c0);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(89, 153, 238, 0.3);
+    box-shadow: 0 6px 20px rgba(89, 153, 238, 0.4);
 }
 
 /* Consultation banner */

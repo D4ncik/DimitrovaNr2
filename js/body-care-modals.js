@@ -1,100 +1,170 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Script loaded'); // Debug
-
-    // Date pentru tratamentele corporale
-    const bodyTreatmentData = {
-        'rf-body': {
-            title: 'RF-lifting corporal',
-            description: 'Procedură avansată de lifting și tonifiere a pielii corpului folosind tehnologia RF (Radio Frequency). Stimulează producția de colagen, îmbunătățește elasticitatea pielii și reduce celulita.',
-            price: '1200 MDL',
-            image: 'images/IMG_7278.PNG'
-        },
-        'cavitation': {
-            title: 'Cavitație',
-            description: 'Tratament non-invaziv pentru reducerea grăsimii localizate și a celulitei. Utilizează ultrasunete pentru a distruge celulele de grăsime în mod natural.',
-            price: '800 MDL',
-            image: 'images/body/cavitation.jpg'
-        },
-        'lipo-laser': {
-            title: 'Lipo laser',
-            description: 'Procedură modernă de reducere a grăsimii localizate folosind tehnologia laser. Stimulează metabolismul și ajută la eliminarea grăsimii în mod natural.',
-            price: '1000 MDL',
-            image: 'images/body/lipo-laser.jpg'
-        },
-        'vacuum-therapy': {
-            title: 'Terapie cu vacuum',
-            description: 'Tratament pentru îmbunătățirea circulației sanguine și a drenajului limfatic. Ajută la reducerea celulitei și la tonifierea pielii.',
-            price: '600 MDL',
-            image: 'images/body/vacuum-therapy.jpg'
-        },
-        'biofoton': {
-            title: 'Biofoton',
-            description: 'Terapie cu lumină pentru îmbunătățirea calității pielii și stimularea proceselor naturale de regenerare. Ajută la reducerea inflamației și la accelerarea vindecării.',
-            price: '900 MDL',
-            image: 'images/body/biofoton.jpg'
-        }
-    };
-
-    // Funcție pentru deschiderea modalului
-    function openModal(treatmentId) {
-        const treatment = bodyTreatmentData[treatmentId];
-        if (!treatment) {
-            console.error('Tratamentul nu a fost găsit:', treatmentId);
-            return;
-        }
-
-        const modal = document.getElementById('treatmentModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDescription = document.getElementById('modalDescription');
-        const modalPrice = document.getElementById('modalPrice');
-
-        modalImage.src = treatment.image;
-        modalImage.alt = treatment.title;
-        modalTitle.textContent = treatment.title;
-        modalDescription.textContent = treatment.description;
-        modalPrice.textContent = treatment.price;
-
-        modal.style.display = 'flex';
-        modal.style.opacity = '0';
-        setTimeout(() => {
-            modal.style.opacity = '1';
-        }, 10);
+// Treatment data object containing all modal content
+const treatmentData = {
+    'biorepeel': {
+        title: 'BioRePeel',
+        description: 'Tratament exfoliant și regenerator pentru pielea feței.',
+        price: '800 lei',
+        image: 'images/treatments/biorepeel.jpg'
+    },
+    'biorepeel-body': {
+        title: 'BioRePeel corp',
+        description: 'Tratament exfoliant și regenerator pentru pielea corpului.',
+        price: '1200 lei',
+        image: 'images/treatments/biorepeel-body.jpg'
+    },
+    'azelaic': {
+        title: 'Azelaic',
+        description: 'Tratament pentru piele problematică și acneică.',
+        price: '600 lei',
+        image: 'images/treatments/azelaic.jpg'
+    },
+    'mandelic': {
+        title: 'Mandelic',
+        description: 'Peeling delicat pentru toate tipurile de ten.',
+        price: '500 lei',
+        image: 'images/treatments/mandelic.jpg'
+    },
+    'lactic': {
+        title: 'Lactic',
+        description: 'Peeling hidratant și iluminator.',
+        price: '450 lei',
+        image: 'images/treatments/lactic.jpg'
+    },
+    'fitic': {
+        title: 'Fitic',
+        description: 'Peeling antioxidant și protector.',
+        price: '550 lei',
+        image: 'images/treatments/fitic.jpg'
+    },
+    'peri-orbital': {
+        title: 'Peri-orbital',
+        description: 'Tratament specializat pentru zona ochilor.',
+        price: '400 lei',
+        image: 'images/treatments/peri-orbital.jpg'
+    },
+    'stop-acne': {
+        title: 'Stop Acne',
+        description: 'Tratament specializat pentru acne și piele problematică.',
+        price: '700 lei',
+        image: 'images/treatments/stop-acne.jpg'
+    },
+    '3d-lifting': {
+        title: '3D|lifting',
+        description: 'Tratament de lifting non-chirurgical.',
+        price: '900 lei',
+        image: 'images/treatments/3d-lifting.jpg'
+    },
+    'carbon': {
+        title: 'Carbon',
+        description: 'Peeling cu carbon pentru o piele radiantă.',
+        price: '650 lei',
+        image: 'images/treatments/carbon.jpg'
+    },
+    'whitening': {
+        title: 'Whitening',
+        description: 'Tratament pentru uniformizarea culorii tenului.',
+        price: '750 lei',
+        image: 'images/treatments/whitening.jpg'
+    },
+    'enzymatic-phytopeeling': {
+        title: 'Enzymatic phytopeeling',
+        description: 'Peeling natural cu enzime și extracte botanice.',
+        price: '550 lei',
+        image: 'images/treatments/enzymatic-phytopeeling.jpg'
+    },
+    'yellow-retinol': {
+        title: 'Yellow Retinol',
+        description: 'Tratament anti-aging cu retinol.',
+        price: '850 lei',
+        image: 'images/treatments/yellow-retinol.jpg'
+    },
+    'rf-body': {
+        title: 'RF-lifting corporal',
+        description: 'Procedură avansată de lifting și tonifiere a pielii corpului folosind tehnologia RF (Radio Frequency). Stimulează producția de colagen, îmbunătățește elasticitatea pielii și reduce celulita.',
+        price: '500 lei',
+        image: 'images/treatments/rf-lifting.jpg'
+    },
+    'cavitation': {
+        title: 'Cavitație',
+        description: 'Tratament non-invaziv pentru reducerea grăsimii localizate și a celulitei. Utilizează ultrasunete pentru a distruge celulele de grăsime în mod natural.',
+        price: '600 lei',
+        image: 'images/treatments/cavitatie.jpg'
+    },
+    'lipo-laser': {
+        title: 'Lipo laser',
+        description: 'Procedură modernă de reducere a grăsimii localizate folosind tehnologia laser. Stimulează metabolismul și ajută la eliminarea grăsimii în mod natural.',
+        price: '500 lei',
+        image: 'images/treatments/lipolazer.jpg'
+    },
+    'vacuum-therapy': {
+        title: 'Terapie cu vacuum',
+        description: 'Tratament pentru îmbunătățirea circulației sanguine și a drenajului limfatic. Ajută la reducerea celulitei și la tonifierea pielii.',
+        price: '600 lei',
+        image: 'images/treatments/vacuum.jpg'
+    },
+    'biofoton': {
+        title: 'Biofoton',
+        description: 'Terapie cu lumină pentru îmbunătățirea calității pielii și stimularea proceselor naturale de regenerare. Ajută la reducerea inflamației și la accelerarea vindecării.',
+        price: '500 lei',
+        image: 'images/treatments/biofoton.jpg'
     }
+};
 
-    // Funcție pentru închiderea modalului
-    function closeModal() {
-        const modal = document.getElementById('treatmentModal');
+// Function to open treatment modal
+function openTreatmentModal(treatmentId, treatmentType) {
+    const treatment = treatmentData[treatmentId];
+    if (!treatment) return;
+
+    const modal = document.getElementById('treatmentModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalPrice = document.getElementById('modalPrice');
+
+    modalImage.src = treatment.image;
+    modalImage.alt = treatment.title;
+    modalTitle.textContent = treatment.title;
+    modalDescription.textContent = treatment.description;
+    modalPrice.textContent = treatment.price;
+
+    // Adaugă etichete de ședințe pentru tratamentele program
+    const sessionLabelsData = {
+        // Adaugă aici datele pentru etichetele de ședințe, dacă este necesar
+    };
+    let container = document.getElementById('modalSessionLabels');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'modalSessionLabels';
+        container.className = 'modal-session-labels';
+        modalPrice.parentNode.insertBefore(container, modalPrice);
+    }
+    container.innerHTML = '';
+    (sessionLabelsData[treatmentId] || []).forEach(label => {
+        const span = document.createElement('span');
+        span.className = 'modal-session-label';
+        span.textContent = label;
+        container.appendChild(span);
+    });
+    if (!(treatmentId in sessionLabelsData)) {
+        container.innerHTML = '';
+    }
+    // Ascund prețul individual
+    modalPrice.style.display = (treatmentId in sessionLabelsData) ? 'none' : '';
+
+    modal.style.display = 'flex';
+    modal.style.opacity = '0';
+    setTimeout(() => {
+        modal.style.opacity = '1';
+    }, 10);
+}
+
+// Function to close modal
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
         modal.style.opacity = '0';
         setTimeout(() => {
             modal.style.display = 'none';
         }, 300);
     }
-
-    // Adăugăm event listeners când DOM-ul este încărcat
-    const detailButtons = document.querySelectorAll('.details-button');
-    detailButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const treatmentId = this.getAttribute('data-treatment');
-            if (treatmentId) {
-                openModal(treatmentId);
-            }
-        });
-    });
-
-    // Adăugăm event listener pentru închiderea modalului când se face click în afara conținutului
-    const modal = document.getElementById('treatmentModal');
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    // Adăugăm event listener pentru tasta Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-}); 
+} 

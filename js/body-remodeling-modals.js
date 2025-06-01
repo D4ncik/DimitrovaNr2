@@ -71,7 +71,55 @@ function openTreatmentModal(treatmentId) {
     modalImage.alt = treatment.title;
     modalTitle.textContent = treatment.title;
     modalDescription.textContent = treatment.description;
-    modalPrice.textContent = treatment.price;
+
+    // Prețuri pe pachete
+    const packagePrices = {
+        'vacuum-cavitatie': [
+            '10 ședințe – 4200 lei',
+            '20 ședințe – 8100 lei'
+        ],
+        'vacuum-rf': [
+            '10 ședințe – 4200 lei',
+            '20 ședințe – 8100 lei'
+        ],
+        'cavitatie-rf': [
+            '10 ședințe – 4200 lei',
+            '20 ședințe – 8100 lei'
+        ],
+        'lipolazer-package': [
+            '5 ședințe – 2250 lei',
+            '10 ședințe – 4500 lei'
+        ]
+    };
+    let container = document.getElementById('modalSessionLabels');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'modalSessionLabels';
+        container.className = 'modal-session-labels';
+        modalPrice.parentNode.insertBefore(container, modalPrice);
+    }
+    container.innerHTML = '';
+    if (packagePrices[treatmentId]) {
+        packagePrices[treatmentId].forEach(label => {
+            const span = document.createElement('span');
+            span.className = 'modal-session-label';
+            span.textContent = label;
+            span.style.color = '#3d7fd9';
+            span.style.fontSize = '0.98em';
+            span.style.fontWeight = '600';
+            span.style.lineHeight = '1.2';
+            span.style.margin = '0';
+            span.style.padding = '0';
+            span.style.textAlign = 'left';
+            span.style.display = 'block';
+            container.appendChild(span);
+        });
+        modalPrice.style.display = 'none';
+    } else {
+        container.innerHTML = '';
+        modalPrice.textContent = treatment.price;
+        modalPrice.style.display = '';
+    }
 
     modal.style.display = 'flex';
     modal.style.opacity = '0';

@@ -38,44 +38,61 @@
             width: 100%;
             border-collapse: collapse;
             margin: 30px 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: #f0f7ff;
+            box-shadow: 0 2px 15px rgba(74, 144, 226, 0.1);
             border-radius: 10px;
             overflow: hidden;
+            border: 1px solid #e1eeff;
         }
 
         .price-table th,
         .price-table td {
             padding: 15px;
             text-align: left;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e1eeff;
+        }
+
+        .price-table th {
+            background-color: #e1eeff;
+            font-weight: 600;
+            color: #2c5282;
+        }
+
+        .price-table td {
+            color: #4a5568;
         }
 
         .price-table th:last-child,
-        .price-table td.price {
+        .price-table td:last-child {
+            text-align: right;
+            padding-right: 30px;
+        }
+
+        .price-table th:nth-child(2),
+        .price-table td:nth-child(2) {
             text-align: right;
             padding-right: 30px;
         }
 
         .price {
             font-weight: 600;
-            color: #4a90e2;
+            color: #2b6cb0;
         }
 
         .discount {
-            color: #e74c3c;
+            color: #e53e3e;
             text-decoration: line-through;
             font-weight: 500;
             margin-right: 10px;
         }
 
         .current-price {
-            color: #4a90e2;
+            color: #2b6cb0;
             font-weight: bold;
         }
 
         .discount-badge {
-            background: #e74c3c;
+            background: #e53e3e;
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
@@ -84,21 +101,33 @@
 
         .service-name {
             font-weight: 500;
-            color: #333;
+            color: #2d3748;
         }
 
         .service-name a {
-            color: #333;
+            color: #2d3748;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .service-name a:hover {
-            color: #4a90e2;
+            color: #2b6cb0;
         }
 
         .duration {
-            color: #666;
+            color: #4a5568;
+        }
+
+        .price-category {
+            margin-bottom: 40px;
+        }
+
+        .price-category h3 {
+            color: #2c5282;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #90cdf4;
         }
 
         /* Responsive Design */
@@ -109,15 +138,20 @@
         }
 
         @media screen and (max-width: 768px) {
+            .prices-container {
+                padding: 0 10px;
+            }
             .price-table {
                 display: block;
                 overflow-x: auto;
-                white-space: nowrap;
+                width: 100%;
             }
 
             .price-table th,
             .price-table td {
-                padding: 12px;
+                padding: 12px 5px;
+                word-break: break-word;
+                box-sizing: border-box;
             }
 
             /* Mobile Menu Styles */
@@ -238,10 +272,11 @@
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="facial-care.html">Cosmetologie estetică</a></li>
-                            <li><a href="dermapen.html">Peelinguri chimice</a></li>
-                            <li><a href="facial-care.html">Tratamente faciale premium</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
+                            <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
                             <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
-                            <li><a href="body-care.html">Remodelare corporală</a></li>
+                            <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                            <li><a href="massage.html">Masaj</a></li>
                         </ul>
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
@@ -265,170 +300,318 @@
                     <p class="prices-subtitle">Servicii profesionale la prețuri accesibile</p>
                 </div>
 
-                <table class="price-table">
-                    <thead>
+                <div class="price-category">
+                    <h3>Cosmetologie Estetică</h3>
+                    <table class="price-table">
                         <tr>
-                            <th>Serviciu</th>
-                            <th>Durata</th>
-                            <th style="text-align:right;">Preț</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Față -->
-                        <tr>
-                            <td class="service-name"><a href="facial-care.html#hidratare-rf">Hidratare RF</a></td>
-                            <td class="duration">45 min</td>
-                            <td class="price">
-                                <span class="discount">500 lei</span>
-                                <span class="current-price">400 lei</span>
-                            </td>
+                            <th>Procedură</th>
+                            <th>Preț</th>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#curatare-faciala">Curățare Facială</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">350 lei</td>
+                            <td>Enzyme</td>
+                            <td>350 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#anti-aging">Tratamente Anti-Aging</a></td>
-                            <td class="duration">90 min</td>
-                            <td class="price">500 lei</td>
+                            <td>Carboxytherapy</td>
+                            <td>600 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#acne">Tratament Acne</a></td>
-                            <td class="duration">75 min</td>
-                            <td class="price">450 lei</td>
+                            <td>Curățare Combinată</td>
+                            <td>700 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#masca-alginata">Mască alginată</a></td>
-                            <td class="duration">45 min</td>
-                            <td class="price">400 lei</td>
+                            <td>Curățare Mecanică</td>
+                            <td>550 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#carboxi">Terapie carboxi</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">600 lei</td>
+                            <td>Curățare cu Ultrasunet</td>
+                            <td>500 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#ultrasunete">Curățare cu ultrasunete</a></td>
-                            <td class="duration">50 min</td>
-                            <td class="price">500 lei</td>
+                            <td>Masaj facial</td>
+                            <td>300 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#mecanica">Curățare mecanică</a></td>
-                            <td class="duration">75 min</td>
-                            <td class="price">550 lei</td>
+                            <td>Mască alginată</td>
+                            <td>400 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#combinata">Curățare combinată</a></td>
-                            <td class="duration">90 min</td>
-                            <td class="price">
-                                <span class="discount">800 lei</span>
-                                <span class="current-price">700 lei</span>
-                            </td>
+                            <td>RF-lifting facial</td>
+                            <td>800 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="facial-care.html#rf-lifting">RF-lifting facial</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">800 lei</td>
+                            <td>RF-lifting facial+decolteu</td>
+                            <td>1000 lei</td>
                         </tr>
-                        <tr>
-                            <td class="service-name"><a href="facial-care.html#rf-decolteu">RF-lifting față și decolteu</a></td>
-                            <td class="duration">90 min</td>
-                            <td class="price">1000 lei</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name"><a href="facial-care.html#masaj-facial">Masaj facial</a></td>
-                            <td class="duration">30 min</td>
-                            <td class="price">300 lei</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name"><a href="facial-care.html#hidratare-intensiva">Hidratare intensivă + RF</a></td>
-                            <td class="duration">75 min</td>
-                            <td class="price">900 lei</td>
-                        </tr>
+                    </table>
+                </div>
 
-                        <!-- Dermapen -->
+                <div class="price-category">
+                    <h3>Peelinguri Chimice</h3>
+                    <table class="price-table">
                         <tr>
-                            <td class="service-name"><a href="dermapen.html#dermapen-fata">Dermapen Față</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">
-                                <span class="discount">1400 lei</span>
-                                <span class="current-price">1200 lei</span>
-                            </td>
+                            <th>Procedură</th>
+                            <th>Preț</th>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="dermapen.html#dermapen-acnee">Dermapen pentru Acnee</a></td>
-                            <td class="duration">45 min</td>
-                            <td class="price">
-                                <span class="discount">1200 lei</span>
-                                <span class="current-price">1000 lei</span>
-                            </td>
+                            <td>BioRePeel</td>
+                            <td>800 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="dermapen.html#dermapen-vergeturi">Dermapen pentru Vergeturi</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">900 lei</td>
+                            <td>BioRePeel corp</td>
+                            <td>1200 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="dermapen.html#dermapen-scalp">Dermapen pentru Scalp</a></td>
-                            <td class="duration">45 min</td>
-                            <td class="price">800 lei</td>
+                            <td>Azelaic</td>
+                            <td>600 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="dermapen.html#dermapen-anti-aging">Dermapen Anti-Aging</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">600 lei</td>
+                            <td>Mandelic</td>
+                            <td>500 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="dermapen.html#dermapen-acne">Dermapen Acne</a></td>
-                            <td class="duration">45 min</td>
-                            <td class="price">550 lei</td>
+                            <td>Lactic</td>
+                            <td>450 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="dermapen.html#dermapen-pigmentare">Dermapen Pigmentare</a></td>
-                            <td class="duration">45 min</td>
-                            <td class="price">580 lei</td>
+                            <td>Fitic</td>
+                            <td>550 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="dermapen.html#dermapen-stretch-marks">Dermapen Stretch Marks</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">650 lei</td>
+                            <td>Peri-orbital</td>
+                            <td>400 lei</td>
                         </tr>
+                        <tr>
+                            <td>Stop Acne</td>
+                            <td>700 lei</td>
+                        </tr>
+                        <tr>
+                            <td>3D|lifting</td>
+                            <td>900 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Carbon</td>
+                            <td>650 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Whitening</td>
+                            <td>750 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Enzymatic phytopeeling</td>
+                            <td>550 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Yellow Retinol</td>
+                            <td>850 lei</td>
+                        </tr>
+                    </table>
+                </div>
 
-                        <!-- Body-care -->
+                <div class="price-category">
+                    <h3>Tratamente Faciale Premium</h3>
+                    <table class="price-table">
                         <tr>
-                            <td class="service-name"><a href="body-care.html#rf-lifting-corporal">RF-lifting corporal</a></td>
-                            <td class="duration">90 min</td>
-                            <td class="price">
-                                <span class="discount">1400 lei</span>
-                                <span class="current-price">1200 lei</span>
-                            </td>
+                            <th>Procedură</th>
+                            <th>Preț</th>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="body-care.html#cavitatie">Cavitație</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">
-                                <span class="discount">1000 lei</span>
-                                <span class="current-price">800 lei</span>
-                            </td>
+                            <td>RGenerin BEAUTY PLAN PREMIUM</td>
+                            <td>1390 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="body-care.html#lipo-laser">Lipo laser</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">1000 lei</td>
+                            <td>Purifying TREATMENT</td>
+                            <td>1390 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="body-care.html#vacuum">Terapie cu vacuum</a></td>
-                            <td class="duration">45 min</td>
-                            <td class="price">600 lei</td>
+                            <td>Eye Perfection TREATMENT</td>
+                            <td>1390 lei</td>
                         </tr>
                         <tr>
-                            <td class="service-name"><a href="body-care.html#biofoton">Biofoton</a></td>
-                            <td class="duration">60 min</td>
-                            <td class="price">900 lei</td>
+                            <td>Antioxidant BEAUTY PLAN +30</td>
+                            <td>1390 lei</td>
                         </tr>
-                    </tbody>
-                </table>
+                        <tr>
+                            <td>Sensations BEAUTY PLAN +40</td>
+                            <td>1390 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Q10 ReSCue BEAUTY PLAN PREMIUM +60</td>
+                            <td>1690 lei</td>
+                        </tr>
+                        <tr>
+                            <td>INFINITY BEAUTY PLAN PREMIUM +45</td>
+                            <td>1690 lei</td>
+                        </tr>
+                        <tr>
+                            <td>AgeDefense BEAUTY PLAN +35</td>
+                            <td>1690 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Hydra Lifting BEAUTYPIN +40</td>
+                            <td>1480 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Shine Stop BEAUTY PLAN</td>
+                            <td>1390 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Lightening +30 BEAUTY PLAN PREMIUM</td>
+                            <td>1690 lei</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="price-category">
+                    <h3>Mezoterapie Fracționară (Dermapen)</h3>
+                    <table class="price-table">
+                        <tr>
+                            <th>Procedură</th>
+                            <th>Preț</th>
+                        </tr>
+                        <tr>
+                            <td>DermaPen Facial</td>
+                            <td>1200 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Dermapen pentru Acnee</td>
+                            <td>1000 lei</td>
+                        </tr>
+                        <tr>
+                            <td>DermaPen Vergeturi</td>
+                            <td>1000 lei</td>
+                        </tr>
+                        <tr>
+                            <td>DermaPen Scalp</td>
+                            <td>1300 lei</td>
+                        </tr>
+                        <tr>
+                            <td>DermaPen Buze</td>
+                            <td>750 lei</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="price-category">
+                    <h3>Remodelare Corporală</h3>
+                    <table class="price-table">
+                        <tr>
+                            <th>Procedură</th>
+                            <th>Preț</th>
+                        </tr>
+                        <tr>
+                            <td>RF-lifting corporal</td>
+                            <td>500 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Cavitație</td>
+                            <td>600 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Lipo laser</td>
+                            <td>500 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Terapie cu vacuum</td>
+                            <td>600 lei</td>
+                        </tr>
+                        <tr>
+                            <td>Biofoton</td>
+                            <td>500 lei</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="price-category">
+                    <h3>Pachete de Proceduri</h3>
+                    <table class="price-table">
+                        <tr>
+                            <th>Pachet</th>
+                            <th>Preț</th>
+                            <th>Număr ședințe</th>
+                        </tr>
+                        <tr>
+                            <td>Pachet 1: Curățare + Peeling</td>
+                            <td>1400 lei</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Pachet 2: Curățare + Mască Alginată</td>
+                            <td>1150 lei</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Pachet 3: Curățare + Masaj facial</td>
+                            <td>1300 lei</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Pachet 4: 14 proceduri</td>
+                            <td>5880 lei</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>Vacuum + Cavitație</td>
+                            <td>4200 lei</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Vacuum + Cavitație</td>
+                            <td>8100 lei</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Vacuum + RF-lifting</td>
+                            <td>4200 lei</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Vacuum + RF-lifting</td>
+                            <td>8100 lei</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Cavitație + RF-lifting</td>
+                            <td>4200 lei</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Cavitație + RF-lifting</td>
+                            <td>8100 lei</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Lipolazer</td>
+                            <td>2250 lei</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Lipolazer</td>
+                            <td>4500 lei</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>DermaPen Facial - Program</td>
+                            <td>1020 lei</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>DermaPen Scalp - Program</td>
+                            <td>680 lei</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>DermaPen Vergeturi - Program</td>
+                            <td>765 lei</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>DermaPen Buze - Program</td>
+                            <td>595 lei</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </section>
     </main>

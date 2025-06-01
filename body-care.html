@@ -31,6 +31,80 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/pilings.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #234a7c;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(242, 250, 252, 0.65);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: linear-gradient(to bottom, #658698, #13283c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .benefits-list li {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: #5999ee;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
         .facial-treatments {
             padding: 120px 0 60px;
             background: #f2fafc;
@@ -46,7 +120,7 @@
         }
         .treatment-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
@@ -97,7 +171,7 @@
             padding: 10px 25px;
             background: linear-gradient(45deg, #5999ee, #3d7fd9);
             color: white;
-            border-radius: 25px;
+            border-radius: 5px;
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
@@ -231,6 +305,29 @@
             .calendly-section {
                 flex: 2;
             }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+                white-space: normal;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .benefits-list li {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .benefits-list li {
+                font-size: 0.9em;
+            }
         }
         .modal-info {
             display: flex;
@@ -244,6 +341,9 @@
             color: #5999ee;
             font-weight: bold;
             font-size: 1.3em;
+        }
+        .logo-link span {
+            color: #234a7c !important;
         }
     </style>
 </head>
@@ -274,10 +374,11 @@
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="facial-care.html">Cosmetologie estetică</a></li>
-                            <li><a href="dermapen.html">Peelinguri chimice</a></li>
-                            <li><a href="facial-care.html">Tratamente faciale premium</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
+                            <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
                             <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
-                            <li><a href="body-care.html">Remodelare corporală</a></li>
+                            <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                            <li><a href="massage.html">Masaj</a></li>
                         </ul>
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
@@ -294,50 +395,64 @@
     </header>
 
     <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Peelinguri Chimice</h1>
+                <p>Descoperă puterea transformatoare a peelingurilor chimice profesionale. Procedurile noastre sunt concepute pentru a reînnoi pielea, uniformiza textura și strălucirea, și pentru a combate semnele îmbătrânirii.</p>
+                <ul class="benefits-list">
+                    <li>Proceduri personalizate pentru fiecare tip de piele</li>
+                    <li>Produse de înaltă calitate și rezultate garantate</li>
+                    <li>Tehnici moderne și non-invazive</li>
+                    <li>Efecte vizibile imediate și de lungă durată</li>
+                    <li>Tratamente pentru toate tipurile de probleme cutanate</li>
+                </ul>
+            </div>
+        </section>
+
         <section class="facial-treatments">
             <div class="container">
                 <section class="consultation-banner">
                     <h2 data-translate="facial-consultation-title">Consultație Personalizată</h2>
                     <p data-translate="facial-consultation-desc">Vom alege împreună un tratament individual perfect pentru pielea ta</p>
-                    <div class="free-tag" data-translate="facial-consultation-free">GRATUIT</div>
+                    <button class="modal-button" onclick="openModal('consultationModal')" data-translate="facial-consultation-free">GRATUIT</button>
                 </section>
 
                 <div class="treatments-grid">
                     <!-- BioRePeel -->
                     <div class="treatment-card" data-treatment="biorepeel" role="article" aria-labelledby="biorepeel-title">
-                        <img src="images/treatments/biorepeel.jpg" alt="BioRePeel" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/biorepeel.jpg" alt="BioRePeel" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="biorepeel-title" class="ro">BioRePeel</h3>
                             <p class="ro">Tratament exfoliant și regenerator pentru pielea feței</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">800 lei</div>
-                                <button class="details-button" data-treatment="biorepeel" aria-label="Vezi detalii despre BioRePeel">Detalii</button>
+                                <button class="details-button" data-treatment="biorepeel" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- BioRePeel corp -->
                     <div class="treatment-card" data-treatment="biorepeel-body" role="article" aria-labelledby="biorepeel-body-title">
-                        <img src="images/treatments/biorepeel-body.jpg" alt="BioRePeel corp" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/biorepeel-body.jpg" alt="BioRePeel corp" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="biorepeel-body-title" class="ro">BioRePeel corp</h3>
                             <p class="ro">Tratament exfoliant și regenerator pentru pielea corpului</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">1200 lei</div>
-                                <button class="details-button" data-treatment="biorepeel-body" aria-label="Vezi detalii despre BioRePeel corp">Detalii</button>
+                                <button class="details-button" data-treatment="biorepeel-body" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Azelaic -->
                     <div class="treatment-card" data-treatment="azelaic" role="article" aria-labelledby="azelaic-title">
-                        <img src="images/treatments/azelaic.jpg" alt="Azelaic" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/NP-Azelaico.jpg" alt="Azelaic" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="azelaic-title" class="ro">Azelaic</h3>
                             <p class="ro">Tratament pentru piele problematică și acneică</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">600 lei</div>
-                                <button class="details-button" data-treatment="azelaic" aria-label="Vezi detalii despre tratamentul Azelaic">Detalii</button>
+                                <button class="details-button" data-treatment="azelaic" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -350,7 +465,7 @@
                             <p class="ro">Peeling delicat pentru toate tipurile de ten</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">500 lei</div>
-                                <button class="details-button" data-treatment="mandelic" aria-label="Vezi detalii despre tratamentul Mandelic">Detalii</button>
+                                <button class="details-button" data-treatment="mandelic" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -363,7 +478,7 @@
                             <p class="ro">Peeling hidratant și iluminator</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">450 lei</div>
-                                <button class="details-button" data-treatment="lactic" aria-label="Vezi detalii despre tratamentul Lactic">Detalii</button>
+                                <button class="details-button" data-treatment="lactic" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -376,7 +491,7 @@
                             <p class="ro">Peeling antioxidant și protector</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">550 lei</div>
-                                <button class="details-button" data-treatment="fitic" aria-label="Vezi detalii despre tratamentul Fitic">Detalii</button>
+                                <button class="details-button" data-treatment="fitic" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -389,7 +504,7 @@
                             <p class="ro">Tratament specializat pentru zona ochilor</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">400 lei</div>
-                                <button class="details-button" data-treatment="peri-orbital" aria-label="Vezi detalii despre tratamentul Peri-orbital">Detalii</button>
+                                <button class="details-button" data-treatment="peri-orbital" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -402,7 +517,7 @@
                             <p class="ro">Tratament specializat pentru acne și piele problematică</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">700 lei</div>
-                                <button class="details-button" data-treatment="stop-acne" aria-label="Vezi detalii despre tratamentul Stop Acne">Detalii</button>
+                                <button class="details-button" data-treatment="stop-acne" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -415,7 +530,7 @@
                             <p class="ro">Tratament de lifting non-chirurgical</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">900 lei</div>
-                                <button class="details-button" data-treatment="3d-lifting" aria-label="Vezi detalii despre tratamentul 3D|lifting">Detalii</button>
+                                <button class="details-button" data-treatment="3d-lifting" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -428,7 +543,7 @@
                             <p class="ro">Peeling cu carbon pentru o piele radiantă</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">650 lei</div>
-                                <button class="details-button" data-treatment="carbon" aria-label="Vezi detalii despre tratamentul Carbon">Detalii</button>
+                                <button class="details-button" data-treatment="carbon" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -441,7 +556,7 @@
                             <p class="ro">Tratament pentru uniformizarea culorii tenului</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">750 lei</div>
-                                <button class="details-button" data-treatment="whitening" aria-label="Vezi detalii despre tratamentul Whitening">Detalii</button>
+                                <button class="details-button" data-treatment="whitening" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -454,7 +569,7 @@
                             <p class="ro">Peeling natural cu enzime și extracte botanice</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">550 lei</div>
-                                <button class="details-button" data-treatment="enzymatic-phytopeeling" aria-label="Vezi detalii despre tratamentul Enzymatic phytopeeling">Detalii</button>
+                                <button class="details-button" data-treatment="enzymatic-phytopeeling" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -467,7 +582,72 @@
                             <p class="ro">Tratament anti-aging cu retinol</p>
                             <div class="treatment-info">
                                 <div class="treatment-price">850 lei</div>
-                                <button class="details-button" data-treatment="yellow-retinol" aria-label="Vezi detalii despre tratamentul Yellow Retinol">Detalii</button>
+                                <button class="details-button" data-treatment="yellow-retinol" onclick="openModal('treatmentModal', this)">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RF-lifting -->
+                    <div class="treatment-card">
+                        <img src="images/treatments/rf-lifting.jpg" alt="RF-lifting" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>RF-lifting</h3>
+                            <p>Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">500 lei</span>
+                                <button class="details-button" data-treatment="rf-body" onclick="openModal('treatmentModal', this)">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cavitație -->
+                    <div class="treatment-card">
+                        <img src="images/treatments/cavitatie.jpg" alt="Cavitație" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Cavitație</h3>
+                            <p>Tratament non-invaziv pentru reducerea grăsimii localizate.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">600 lei</span>
+                                <button class="details-button" data-treatment="cavitation" onclick="openModal('treatmentModal', this)">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vacuum -->
+                    <div class="treatment-card">
+                        <img src="images/treatments/vacuum.jpg" alt="Vacuum" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Vacuum</h3>
+                            <p>Tratament de drenaj limfatic și modelare corporală.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">600 lei</span>
+                                <button class="details-button" data-treatment="vacuum-therapy" onclick="openModal('treatmentModal', this)">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lipolazer -->
+                    <div class="treatment-card">
+                        <img src="images/treatments/lipolazer.jpg" alt="Lipolazer" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Lipolazer</h3>
+                            <p>Tratament cu laser pentru reducerea grăsimii și modelare corporală.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">500 lei</span>
+                                <button class="details-button" data-treatment="lipo-laser" onclick="openModal('treatmentModal', this)">Detalii</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Biofoton -->
+                    <div class="treatment-card">
+                        <img src="images/treatments/biofoton.jpg" alt="Biofoton" class="treatment-image">
+                        <div class="treatment-content">
+                            <h3>Biofoton</h3>
+                            <p>Tratament cu lumină pentru îmbunătățirea aspectului pielii și modelare.</p>
+                            <div class="treatment-info">
+                                <span class="treatment-price">500 lei</span>
+                                <button class="details-button" data-treatment="biofoton" onclick="openModal('treatmentModal', this)">Detalii</button>
                             </div>
                         </div>
                     </div>
@@ -536,6 +716,7 @@
                     <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
                     <li><a href="prices.html">Price list</a></li>
                     <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="massage.html">Masaj</a></li>
                 </ul>
             </div>
 

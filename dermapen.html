@@ -23,7 +23,7 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 20px;
             position: relative;
         }
 
@@ -39,29 +39,29 @@
             line-height: 1.5;
         }
         .facial-treatments {
-            padding: 60px 0 30px;
+            padding: 40px 0 30px;
             background: #f2fafc;
         }
         .treatments-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            padding: 20px;
-            max-width: 1400px;
+            gap: 24px;
+            padding: 10px 10px;
+            max-width: 1500px;
             margin: 0 auto;
             justify-content: center;
         }
         .treatment-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
-            position: relative;
-            margin-top: 15px;
+            min-width: 350px;
+            max-width: 420px;
         }
         .treatment-card:hover {
             transform: translateY(-5px);
@@ -72,11 +72,11 @@
             object-fit: cover;
         }
         .treatment-content {
-            padding: 20px;
-            position: relative;
+            padding: 22px 18px 22px 18px;
             flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
         .treatment-content h3 {
             color: #333;
@@ -90,11 +90,29 @@
         }
         .treatment-info {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
+            justify-content: space-between;
+            margin-top: 18px;
+            gap: 10px;
+        }
+        .treatment-info .details-button {
+            margin-left: auto;
+        }
+        .session-badge {
+            background: none;
+            color: #3d7fd9;
+            border-radius: 22px;
+            padding: 10px 22px;
+            font-size: 1.25em;
+            font-weight: 700;
+            display: inline-block;
+            min-width: 170px;
+            text-align: center;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            box-shadow: none;
+            margin-right: 10px;
+            white-space: nowrap;
         }
         .treatment-price {
             color: #5999ee;
@@ -106,7 +124,7 @@
             padding: 10px 25px;
             background: linear-gradient(45deg, #5999ee, #3d7fd9);
             color: white;
-            border-radius: 25px;
+            border-radius: 5px;
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
@@ -204,9 +222,9 @@
    
         .consultation-banner {
             background-color: #f8f9fa;
-            padding: 40px 20px;
+            padding: 20px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 120px;
         }
         .consultation-banner h3 {
             color: #333;
@@ -232,35 +250,30 @@
         .consultation-button:hover {
             background: #4580d0;
         }
-        @media (max-width: 1200px) {
+        @media (max-width: 1300px) {
             .treatments-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .discount-badge {
-                right: 100px;
-                top: 20px;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         @media (max-width: 900px) {
             .treatments-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .discount-badge {
-                right: 105px;
-                top: 15px;
-                font-size: 1.1em;
-            }
-        }
-        @media (max-width: 600px) {
-            .treatments-grid {
                 grid-template-columns: 1fr;
             }
-            .discount-badge {
-                position: relative;
-                right: 0;
-                top: 0;
-                display: inline-block;
-                margin-top: 10px;
+            .treatment-card {
+                min-width: 0;
+                max-width: 100%;
+            }
+            .treatment-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .session-badge {
+                width: 100%;
+                margin-right: 0;
+            }
+            .treatment-info .details-button {
+                margin-left: 0;
             }
         }
         .discount-badge {
@@ -281,6 +294,185 @@
         .discount-badge:hover {
             transform: rotate(15deg) scale(1.1);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .treatment-sessions-labels {
+            margin: 12px 0 0 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .session-label {
+            background: #3ec97c;
+            color: #fff;
+            border-radius: 18px;
+            padding: 5px 18px;
+            font-size: 1em;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+  
+        .treatment-info {
+            align-items: flex-start;
+        }
+        @media (max-width: 900px) {
+            .treatment-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .session-badges-group {
+                width: 100%;
+            }
+        }
+        .modal-session-labels {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-bottom: 8px;
+        }
+        .modal-session-label {
+            color: #3d7fd9;
+            font-size: 0.98em;
+            font-weight: 600;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+        @media (max-width: 600px) {
+            .modal-info {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-end !important;
+                flex-wrap: nowrap !important;
+                gap: 0;
+            }
+            #modalSessionLabels, .modal-session-labels {
+                margin-right: 12px !important;
+                font-size: 0.9em !important;
+                white-space: nowrap !important;
+            }
+            .modal-session-label {
+                font-size: 0.9em !important;
+                white-space: nowrap !important;
+            }
+            .modal-button {
+                padding: 10px 16px !important;
+                font-size: 0.95em !important;
+                border-radius: 18px !important;
+                min-width: 120px !important;
+                max-width: 170px !important;
+                width: auto !important;
+                box-sizing: border-box;
+                margin-left: 0 !important;
+                white-space: nowrap !important;
+                text-align: center !important;
+                vertical-align: middle !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/dermapen_terapi.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #234a7c;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(242, 250, 252, 0.65);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: linear-gradient(to bottom, #658698, #13283c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .benefits-list li {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: #5999ee;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5em;
+                white-space: normal;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .benefits-list li {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .benefits-list li {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -311,10 +503,11 @@
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="facial-care.html">Cosmetologie estetică</a></li>
-                            <li><a href="dermapen.html">Peelinguri chimice</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
                             <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
                             <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
                             <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                            <li><a href="massage.html">Masaj</a></li>
                         </ul>
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
@@ -331,6 +524,26 @@
     </header>
 
     <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Mezoterapie Fracționară</h1>
+                <p>Experimentează puterea revoluționară a mezoterapiei fracționare cu Dermapen. Această tehnologie avansată stimulează regenerarea naturală a pielii, reducând ridurile, cicatricile și semnele îmbătrânirii.</p>
+                <ul class="benefits-list">
+                    <li>Stimulare profundă a colagenului și elastinei</li>
+                    <li>Reducere eficientă a ridurilor și cicatricilor</li>
+                    <li>Procedură minim invazivă și sigură</li>
+                    <li>Recuperare rapidă și rezultate durabile</li>
+                    <li>Tratament personalizat pentru fiecare tip de piele</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="consultation-banner" style="margin-top: 120px;">
+            <h2 data-translate="facial-consultation-title">Consultație Personalizată</h2>
+            <p data-translate="facial-consultation-desc">Vom alege împreună un tratament individual perfect pentru pielea ta</p>
+            <button class="modal-button" style="margin-top: 30px;" onclick="openModal('consultationModal')" data-translate="facial-consultation-free">GRATUIT</button>
+        </section>
+
         <section class="facial-treatments">
             <div class="container">
                 <div class="section-header">
@@ -346,7 +559,7 @@
                             <h3>DermaPen Facial</h3>
                             <p>Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">1200 lei</span>
+                                <span class="session-badge">1200 lei</span>
                                 <button class="details-button" data-treatment="dermapen-face">Detalii</button>
                             </div>
                         </div>
@@ -358,7 +571,7 @@
                             <h3>DermaPen Scalp</h3>
                             <p>Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">800 lei</span>
+                                <span class="session-badge">1300 lei</span>
                                 <button class="details-button" data-treatment="dermapen-hair">Detalii</button>
                             </div>
                         </div>
@@ -370,7 +583,7 @@
                             <h3>DermaPen Vergeturi</h3>
                             <p>Tratament eficient pentru reducerea vergeturilor pe corp.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">900 lei</span>
+                                <span class="session-badge">1000 lei</span>
                                 <button class="details-button" data-treatment="dermapen-stretch">Detalii</button>
                             </div>
                         </div>
@@ -382,7 +595,7 @@
                             <h3>DermaPen Buze</h3>
                             <p>Tratament specializat pentru volumizarea și conturarea buzelor.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">700 lei</span>
+                                <span class="session-badge">750 lei</span>
                                 <button class="details-button" data-treatment="dermapen-lips">Detalii</button>
                             </div>
                         </div>
@@ -407,7 +620,10 @@
                             <h3>DermaPen Facial</h3>
                             <p>Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">1020 lei</span>
+                                <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">5 ședințe – 5100 lei</span>
+                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">8 ședințe – 8160 lei</span>
+                                </div>
                                 <button class="details-button" data-treatment="dermapen-face-program">Detalii</button>
                             </div>
                         </div>
@@ -419,7 +635,10 @@
                             <h3>DermaPen Scalp</h3>
                             <p>Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">680 lei</span>
+                                <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">5 ședințe – 5525 lei</span>
+                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">8 ședințe – 8840 lei</span>
+                                </div>
                                 <button class="details-button" data-treatment="dermapen-hair-program">Detalii</button>
                             </div>
                         </div>
@@ -431,7 +650,10 @@
                             <h3>DermaPen Vergeturi</h3>
                             <p>Tratament eficient pentru reducerea vergeturilor pe corp.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">765 lei</span>
+                                <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">5 ședințe – 4250 lei</span>
+                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">8 ședințe – 6800 lei</span>
+                                </div>
                                 <button class="details-button" data-treatment="dermapen-stretch-program">Detalii</button>
                             </div>
                         </div>
@@ -443,7 +665,9 @@
                             <h3>DermaPen Buze</h3>
                             <p>Tratament specializat pentru volumizarea și conturarea buzelor.</p>
                             <div class="treatment-info">
-                                <span class="treatment-price">595 lei</span>
+                                <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">5 ședințe – 3190 lei</span>
+                                </div>
                                 <button class="details-button" data-treatment="dermapen-lips-program">Detalii</button>
                             </div>
                         </div>
@@ -510,11 +734,12 @@
                 <h3 class="ro">Serviciile centrului nostru</h3>
                 <h3 class="ru">Наши услуги</h3>
                 <ul>
-                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
-                    <li><a href="dermapen.html">Peelinguri chimice</a></li>
-                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
-                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
-                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
+                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
+                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
+                    <li><a href="prices.html">Price list</a></li>
+                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="massage.html">Masaj</a></li>
                 </ul>
             </div>
 
