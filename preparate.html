@@ -26,36 +26,39 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 40px;
             padding: 20px;
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
         .product-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 5px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
             display: flex;
-            min-height: 300px;
+            height: 500px;
+            width: 100%;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
         }
 
         .product-image {
-            width: 40%;
+            width: 45%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
         }
 
         .product-content {
-            width: 60%;
-            padding: 20px;
+            width: 55%;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -63,14 +66,14 @@
 
         .product-content h3 {
             color: #333;
-            margin-bottom: 12px;
-            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-size: 1.6em;
         }
 
         .product-content p {
             color: #666;
-            margin-bottom: 10px;
-            font-size: 0.95em;
+            margin-bottom: 20px;
+            font-size: 1em;
             line-height: 1.5;
             flex-grow: 0;
         }
@@ -78,15 +81,16 @@
         .ingredients-list {
             list-style: none;
             padding: 0;
-            margin: 15px 15px 20px;
+            margin: 20px 0;
+            padding-right: 20px;
         }
 
         .ingredients-list li {
             color: #666;
-            font-size: 0.85em;
-            padding: 4px 0;
+            font-size: 0.95em;
+            padding: 8px 0;
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
             line-height: 1.4;
         }
 
@@ -96,8 +100,8 @@
             left: 0;
             color: #5999ee;
             font-weight: bold;
-            font-size: 1.1em;
-            top: 4px;
+            font-size: 1.2em;
+            top: 10px;
         }
 
         /* Reviews Section */
@@ -217,24 +221,60 @@
         }
 
         @media (max-width: 968px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
             .product-card {
                 flex-direction: column;
                 height: auto;
+                min-height: 600px;
             }
 
             .product-image {
                 width: 100%;
-                height: 200px;
+                height: 300px;
             }
 
             .product-content {
                 width: 100%;
+                padding: 30px;
+            }
+
+            .product-content h3 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            .product-content p {
+                font-size: 1.1em;
+                margin-bottom: 15px;
+            }
+
+            .ingredients-list {
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-card {
+                min-height: 500px;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+            .product-content {
+                padding: 25px;
+            }
+
+            .product-content h3 {
+                font-size: 1.5em;
+            }
+
+            .product-content p {
+                font-size: 1em;
+            }
+
+            .ingredients-list {
+                padding-right: 10px;
             }
         }
 
@@ -298,12 +338,15 @@
                     <img src="images/GIGI.JPG" alt="Gigi" class="product-image">
                     <div class="product-content">
                         <h3>Gigi</h3>
-                        <p>Brand italian de înaltă calitate, specializat în produse profesionale pentru cosmetologie.</p>
+                        <p>Brand italian premium cu produse specializate în tratamente anti-aging și lifting. Produsele GIGI sunt create cu tehnologia exclusivă "Bio-Energy Complex" care stimulează regenerarea celulară.</p>
                         <ul class="ingredients-list">
-                            <li>Țara de proveniență: Italia</li>
-                            <li>Produse pentru tratamente faciale profesionale</li>
-                            <li>Gamă completă de produse pentru toate tipurile de piele</li>
-                            <li>Formule cu ingrediente naturale și active</li>
+                            <li>Serul "Bio-Energy" - pentru lifting imediat și regenerare profundă</li>
+                            <li>Tratamentul "Gold Caviar" - pentru piele matură, cu extracte de caviar</li>
+                            <li>Serul "Hyaluronic Acid" - pentru hidratare intensă și umplere riduri</li>
+                            <li>Tratamentul "Vitamin C" - pentru strălucire și uniformizare ten</li>
+                            <li>Mod de utilizare: 2-3 ori pe săptămână, în cabinet</li>
+                            <li>Rezultate vizibile: după prima aplicare</li>
+                            <li>Durata tratamentului: 6-8 săptămâni</li>
                         </ul>
                     </div>
                 </div>
@@ -313,12 +356,16 @@
                     <img src="images/capuccini.webp" alt="Germaine de Capuccini" class="product-image">
                     <div class="product-content">
                         <h3>Germaine de Capuccini</h3>
-                        <p>Brand spaniol premium, recunoscut pentru inovație și eficiență în tratamentele cosmetice.</p>
+                        <p>Brand spaniol cu tehnologia inovatoare "DNA-RNA" pentru regenerare celulară. Produsele conțin extracte de plante marine și tehnologii de ultimă generație pentru rezultate vizibile.</p>
                         <ul class="ingredients-list">
-                            <li>Țara de proveniență: Spania</li>
-                            <li>Produse anti-îmbătrânire de ultimă generație</li>
-                            <li>Tratamente intensive pentru piele</li>
-                            <li>Formule cu tehnologii avansate</li>
+                            <li>Tratamentul "DNA-RNA" - pentru regenerare celulară profundă</li>
+                            <li>Serul "Marine Collagen" - pentru fermitate și elasticitate</li>
+                            <li>Tratamentul "Gold & Collagen" - pentru lifting și strălucire</li>
+                            <li>Serul "Vitamin C" - pentru uniformizare și protecție</li>
+                            <li>Mod de utilizare: 1-2 ori pe săptămână, în cabinet</li>
+                            <li>Rezultate vizibile: după 2-3 aplicări</li>
+                            <li>Durata tratamentului: 4-6 săptămâni</li>
+                            <li>Recomandat pentru: toate tipurile de piele, cu accent pe regenerare</li>
                         </ul>
                     </div>
                 </div>
@@ -328,12 +375,16 @@
                     <img src="images/casmara.jpg" alt="Casmara" class="product-image">
                     <div class="product-content">
                         <h3>Casmara</h3>
-                        <p>Brand spaniol de lux, specializat în tratamente profesionale și produse cosmetice de înaltă calitate.</p>
+                        <p>Brand spaniol cu tratamente exclusive de tip "spa facial". Produsele conțin extracte de alge marine și tehnologia "Marine DNA" pentru hidratare și lifting imediat.</p>
                         <ul class="ingredients-list">
-                            <li>Țara de proveniență: Spania</li>
-                            <li>Tratamente premium pentru față și corp</li>
-                            <li>Produse cu efecte vizibile imediate</li>
-                            <li>Formule cu ingrediente active concentrate</li>
+                            <li>Tratamentul "Marine DNA" - pentru hidratare și lifting imediat</li>
+                            <li>Masca "Gold & Collagen" - pentru strălucire și fermitate</li>
+                            <li>Serul "Hyaluronic Acid" - pentru umplere riduri</li>
+                            <li>Tratamentul "Vitamin C" - pentru uniformizare ten</li>
+                            <li>Mod de utilizare: 1 dată pe săptămână, în cabinet</li>
+                            <li>Rezultate vizibile: imediat după aplicare</li>
+                            <li>Durata tratamentului: 6-8 săptămâni</li>
+                            <li>Recomandat pentru: piele deshidratată și lipsită de strălucire</li>
                         </ul>
                     </div>
                 </div>
@@ -343,12 +394,16 @@
                     <img src="images/KLAPP.PNG" alt="Klap" class="product-image">
                     <div class="product-content">
                         <h3>Klap</h3>
-                        <p>Brand profesionist cu produse inovatoare pentru tratamente cosmetice de înaltă performanță.</p>
+                        <p>Brand italian specializat în tratamente intensive cu tehnologia "Bio-Cell" pentru regenerare profundă. Produsele conțin peptizi și factori de creștere pentru rezultate rapide.</p>
                         <ul class="ingredients-list">
-                            <li>Țara de proveniență: Italia</li>
-                            <li>Produse pentru tratamente intensive</li>
-                            <li>Formule cu efecte rapide și durabile</li>
-                            <li>Gamă completă pentru tratamente profesionale</li>
+                            <li>Tratamentul "Bio-Cell" - pentru regenerare profundă</li>
+                            <li>Serul "Growth Factors" - pentru stimulare celulară</li>
+                            <li>Tratamentul "Peptides" - pentru lifting și firming</li>
+                            <li>Serul "Hyaluronic Acid" - pentru hidratare intensă</li>
+                            <li>Mod de utilizare: 2 ori pe săptămână, în cabinet</li>
+                            <li>Rezultate vizibile: după 3-4 aplicări</li>
+                            <li>Durata tratamentului: 8-10 săptămâni</li>
+                            <li>Recomandat pentru: piele matură cu nevoie de regenerare</li>
                         </ul>
                     </div>
                 </div>
@@ -358,12 +413,16 @@
                     <img src="images/Pharmica.JPG" alt="Pharmika" class="product-image">
                     <div class="product-content">
                         <h3>Pharmika</h3>
-                        <p>Brand premium cu produse cosmetice de înaltă calitate pentru tratamente profesionale.</p>
+                        <p>Brand italian cu produse bazate pe tehnologia "Bio-Repair" pentru reparare și regenerare. Produsele conțin extracte de plante și tehnologii avansate pentru rezultate durabile.</p>
                         <ul class="ingredients-list">
-                            <li>Țara de proveniență: Italia</li>
-                            <li>Produse pentru tratamente faciale și corporale</li>
-                            <li>Formule cu ingrediente active de înaltă concentrație</li>
-                            <li>Rezultate vizibile și durabile</li>
+                            <li>Tratamentul "Bio-Repair" - pentru reparare și regenerare</li>
+                            <li>Serul "Plant Stem Cells" - pentru regenerare celulară</li>
+                            <li>Tratamentul "Anti-Aging" - pentru prevenire riduri</li>
+                            <li>Serul "Brightening" - pentru uniformizare ten</li>
+                            <li>Mod de utilizare: 1-2 ori pe săptămână, în cabinet</li>
+                            <li>Rezultate vizibile: după 2-3 aplicări</li>
+                            <li>Durata tratamentului: 6-8 săptămâni</li>
+                            <li>Recomandat pentru: toate tipurile de piele, cu accent pe prevenire</li>
                         </ul>
                     </div>
                 </div>

@@ -36,6 +36,7 @@
 
         .price-table {
             width: 100%;
+            table-layout: fixed;
             border-collapse: collapse;
             margin: 30px 0;
             background: #f0f7ff;
@@ -49,6 +50,7 @@
         .price-table td {
             padding: 15px;
             text-align: left;
+            width: 50%;
             border-bottom: 1px solid #e1eeff;
         }
 
@@ -157,11 +159,10 @@
             /* Mobile Menu Styles */
             .mobile-menu-btn {
                 display: block;
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 10px;
-                z-index: 1000;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                z-index: 1001;
             }
 
             .mobile-menu-btn span {
@@ -171,10 +172,11 @@
                 background: #333;
                 margin: 5px 0;
                 transition: 0.3s;
+                border-radius: 2px;
             }
 
             .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
+                transform: translateY(8px) rotate(45deg);
             }
 
             .mobile-menu-btn.active span:nth-child(2) {
@@ -182,7 +184,11 @@
             }
 
             .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav {
+                position: relative;
             }
 
             .nav-links {
@@ -195,7 +201,8 @@
                 background: white;
                 flex-direction: column;
                 padding: 80px 20px 20px;
-                z-index: 999;
+                z-index: 1000;
+                overflow-y: auto;
             }
 
             .nav-links.active {
@@ -204,11 +211,13 @@
 
             .nav-links > li {
                 width: 100%;
+                margin: 0;
             }
 
             .nav-links > li > a {
                 padding: 15px 0;
                 font-size: 1.2em;
+                display: block;
             }
 
             .dropdown {
@@ -217,14 +226,27 @@
                 padding: 0;
                 display: none;
                 width: 100%;
+                background: #f8f9fa;
+            }
+
+            .dropdown.active {
+                display: block;
             }
 
             .dropdown li a {
                 padding: 10px 20px;
+                display: block;
             }
 
-            .has-dropdown:hover .dropdown {
-                display: none;
+            .has-dropdown > a::after {
+                content: '\f107';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                margin-left: 5px;
+            }
+
+            .has-dropdown.active > a::after {
+                content: '\f106';
             }
         }
 
@@ -241,6 +263,21 @@
             .price-table td {
                 padding: 10px;
                 font-size: 0.9em;
+            }
+
+            .mobile-menu-btn {
+                right: 10px;
+                top: 10px;
+            }
+            
+            .mobile-menu-btn span {
+                width: 20px;
+                height: 2px;
+                margin: 4px 0;
+            }
+            
+            .nav-links {
+                padding: 60px 15px 15px;
             }
         }
     </style>
@@ -671,5 +708,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modal-handler.js"></script>
 </body>
 </html> 

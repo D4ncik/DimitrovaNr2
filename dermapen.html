@@ -93,7 +93,18 @@
             align-items: center;
             justify-content: space-between;
             margin-top: 18px;
-            gap: 10px;
+            gap: 15px;
+            flex-wrap: nowrap;
+        }
+        .treatment-price {
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+        }
+        .details-button {
+            margin-left: auto;
         }
         .treatment-info .details-button {
             margin-left: auto;
@@ -102,16 +113,13 @@
             background: none;
             color: #3d7fd9;
             border-radius: 22px;
-            padding: 10px 22px;
-            font-size: 1.25em;
+            padding: 8px 15px;
+            font-size: 1.2em;
             font-weight: 700;
             display: inline-block;
-            min-width: 170px;
-            text-align: center;
-            margin-bottom: 0;
+            text-align: left;
+            margin: 0;
             letter-spacing: 0.5px;
-            box-shadow: none;
-            margin-right: 10px;
             white-space: nowrap;
         }
         .treatment-price {
@@ -238,14 +246,18 @@
             margin-right: auto;
         }
         .consultation-button {
-            display: inline-block;
+            display: block;
             padding: 12px 30px;
             background: #5999ee;
             color: white;
             border-radius: 25px;
             text-decoration: none;
-            transition: background 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            margin: 20px auto 0;
+            width: fit-content;
         }
         .consultation-button:hover {
             background: #4580d0;
@@ -541,7 +553,7 @@
         <section class="consultation-banner" style="margin-top: 120px;">
             <h2 data-translate="facial-consultation-title">Consultație Personalizată</h2>
             <p data-translate="facial-consultation-desc">Vom alege împreună un tratament individual perfect pentru pielea ta</p>
-            <button class="modal-button" style="margin-top: 30px;" onclick="openModal('consultationModal')" data-translate="facial-consultation-free">GRATUIT</button>
+                                <button class="modal-button" style="margin-top: 30px;" onclick="openModal('consultationModal')" data-translate="facial-consultation-free">GRATUIT</button>
         </section>
 
         <section class="facial-treatments">
