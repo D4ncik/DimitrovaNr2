@@ -4,31 +4,31 @@ const bodyRemodelingData = {
         title: 'RF-lifting',
         description: 'Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență. Procedura stimulează producția de colagen și elastină, rezultând într-o piele mai fermă și mai tânără. Ideal pentru modelarea corporală și reducerea celulitei.',
         price: '800 lei',
-        image: 'images/treatments/rf-lifting.jpg'
+        image: 'images/RF-Lifting2.jpg'
     },
     'cavitatie': {
         title: 'Cavitație',
         description: 'Tratament non-invaziv pentru reducerea grăsimii localizate. Utilizează ultrasunete pentru a distruge celulele de grăsime, care sunt apoi eliminate natural din corp. Rezultate vizibile după prima procedură.',
         price: '600 lei',
-        image: 'images/treatments/cavitatie.jpg'
+        image: 'images/corp2.PNG'
     },
     'vacuum': {
         title: 'Vacuum',
         description: 'Tratament de drenaj limfatic și modelare corporală. Procedura ajută la eliminarea toxinelor, îmbunătățește circulația și reduce retenția de apă. Rezultate în modelarea siluetei și reducerea celulitei.',
         price: '500 lei',
-        image: 'images/treatments/vacuum.jpg'
+        image: 'images/corp3.PNG'
     },
     'lipolazer': {
         title: 'Lipolazer',
         description: 'Tratament cu laser pentru reducerea grăsimii și modelare corporală. Procedura stimulează metabolismul celular și ajută la eliminarea grăsimii localizate. Rezultate durabile și vizibile.',
         price: '700 lei',
-        image: 'images/treatments/lipolazer.jpg'
+        image: 'images/Lipolazer.webp'
     },
     'biofoton': {
         title: 'Biofoton',
         description: 'Tratament cu lumină pentru îmbunătățirea aspectului pielii și modelare. Procedura stimulează regenerarea celulară și îmbunătățește textura pielii. Rezultate în reducerea celulitei și modelarea siluetei.',
         price: '550 lei',
-        image: 'images/treatments/biofoton.jpg'
+        image: 'images/Biofoton.jpg'
     },
     'vacuum-cavitatie': {
         title: 'Vacuum + Cavitație',

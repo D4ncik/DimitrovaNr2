@@ -40,7 +40,7 @@ const dermapenData = {
         title: 'DermaPen Facial',
         description: 'Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen. Acest tratament ajută la reducerea ridurilor, îmbunătățirea texturii pielii și uniformizarea culorii tenului.',
         price: '1200 lei',
-        image: 'images/treatments/dermapen-face.jpg'
+        image: 'images/RF-lifiting.ARW'
     },
     'dermapen-acne': {
         title: 'Dermapen pentru Acnee',
@@ -52,19 +52,19 @@ const dermapenData = {
         title: 'DermaPen Vergeturi',
         description: 'Tratament eficient pentru reducerea vergeturilor pe corp. Procedura stimulează regenerarea pielii și îmbunătățește aspectul vergeturilor.',
         price: '1000 lei',
-        image: 'images/treatments/dermapen-stretch.jpg'
+        image: 'images/RF-Lifting2.jpg'
     },
     'dermapen-hair': {
         title: 'DermaPen Scalp',
         description: 'Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului. Procedura ajută la revitalizarea foliculilor de păr și promovează creșterea părului sănătos.',
         price: '1300 lei',
-        image: 'images/treatments/dermapen-hair.jpg'
+        image: 'images/dermapen_scalp.webp'
     },
     'dermapen-lips': {
         title: 'DermaPen Buze',
         description: 'Tratament specializat pentru volumizarea și conturarea buzelor. Procedura ajută la îmbunătățirea conturului buzelor și promovează producția de colagen.',
         price: '750 lei',
-        image: 'images/treatments/dermapen-lips.jpg'
+        image: 'images/dermapen_buze.jpeg'
     },
     'dermapen-face-program': {
         title: 'DermaPen Facial - Program',

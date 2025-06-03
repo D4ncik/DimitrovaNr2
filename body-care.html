@@ -238,15 +238,37 @@
             width: 90%;
             position: relative;
             max-height: 90vh;
-            overflow-y: auto;
+            overflow: hidden;
             margin: 5% auto;
+            box-sizing: border-box;
         }
         .modal-image {
-            width: 100%;
+            width: calc(100% + 60px);
+            margin-left: -30px;
+            margin-right: -30px;
+            margin-top: -30px;
             height: 300px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 0;
             margin-bottom: 20px;
+            display: block;
+        }
+        .modal-text {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0;
+        }
+        .modal-text h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        .modal-text p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            line-height: 1.6;
         }
         .consultation-banner {
             background: #f2fafc;
@@ -320,14 +342,14 @@
             }
 
             .hero-content h1 {
-                font-size: 2.5em;
-                white-space: normal;
+                font-size: 2.5em !important;
+                white-space: normal !important;
             }
             .hero-content p {
-                font-size: 1.1em;
+                font-size: 1.1em !important;
             }
             .benefits-list li {
-                font-size: 1em;
+                font-size: 1em !important;
             }
         }
 
@@ -347,7 +369,7 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 20px;
-            padding: 15px 0;
+            padding: 0;
             border-top: 1px solid #eee;
         }
         .modal-price {
@@ -472,7 +494,7 @@
 
                     <!-- Mandelic -->
                     <div class="treatment-card" data-treatment="mandelic" role="article" aria-labelledby="mandelic-title">
-                        <img src="images/treatments/mandelic.jpg" alt="Mandelic" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/mandelnic.webp" alt="Mandelic" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="mandelic-title" class="ro">Mandelic</h3>
                             <p class="ro">Peeling delicat pentru toate tipurile de ten</p>
@@ -485,7 +507,7 @@
 
                     <!-- Lactic -->
                     <div class="treatment-card" data-treatment="lactic" role="article" aria-labelledby="lactic-title">
-                        <img src="images/treatments/lactic.jpg" alt="Lactic" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/Lactic.webp" alt="Lactic" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="lactic-title" class="ro">Lactic</h3>
                             <p class="ro">Peeling hidratant și iluminator</p>
@@ -511,7 +533,7 @@
 
                     <!-- Peri-orbital -->
                     <div class="treatment-card" data-treatment="peri-orbital" role="article" aria-labelledby="peri-orbital-title">
-                        <img src="images/treatments/peri-orbital.jpg" alt="Peri-orbital" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/periorbital.avif" alt="Peri-orbital" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="peri-orbital-title" class="ro">Peri-orbital</h3>
                             <p class="ro">Tratament specializat pentru zona ochilor</p>
@@ -524,7 +546,7 @@
 
                     <!-- Stop Acne -->
                     <div class="treatment-card" data-treatment="stop-acne" role="article" aria-labelledby="stop-acne-title">
-                        <img src="images/treatments/stop-acne.jpg" alt="Stop Acne" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/stopAcnee.jpg" alt="Stop Acne" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="stop-acne-title" class="ro">Stop Acne</h3>
                             <p class="ro">Tratament specializat pentru acne și piele problematică</p>
@@ -537,7 +559,7 @@
 
                     <!-- 3D|lifting -->
                     <div class="treatment-card" data-treatment="3d-lifting" role="article" aria-labelledby="3d-lifting-title">
-                        <img src="images/treatments/3d-lifting.jpg" alt="3D|lifting" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/3dLifting.webp" alt="3D|lifting" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="3d-lifting-title" class="ro">3D|lifting</h3>
                             <p class="ro">Tratament de lifting non-chirurgical</p>
@@ -550,7 +572,7 @@
 
                     <!-- Carbon -->
                     <div class="treatment-card" data-treatment="carbon" role="article" aria-labelledby="carbon-title">
-                        <img src="images/treatments/carbon.jpg" alt="Carbon" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/Carbon.avif" alt="Carbon" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="carbon-title" class="ro">Carbon</h3>
                             <p class="ro">Peeling cu carbon pentru o piele radiantă</p>

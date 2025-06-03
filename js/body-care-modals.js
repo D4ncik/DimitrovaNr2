@@ -4,31 +4,31 @@ const treatmentData = {
         title: 'BioRePeel',
         description: 'Tratament exfoliant și regenerator pentru pielea feței.',
         price: '800 lei',
-        image: 'images/treatments/biorepeel.jpg'
+        image: 'images/biorepeel.jpg'
     },
     'biorepeel-body': {
         title: 'BioRePeel corp',
         description: 'Tratament exfoliant și regenerator pentru pielea corpului.',
         price: '1200 lei',
-        image: 'images/treatments/biorepeel-body.jpg'
+        image: 'images/biorepeel-body.jpg'
     },
     'azelaic': {
         title: 'Azelaic',
         description: 'Tratament pentru piele problematică și acneică.',
         price: '600 lei',
-        image: 'images/treatments/azelaic.jpg'
+        image: 'images/NP-Azelaico.jpg'
     },
     'mandelic': {
         title: 'Mandelic',
         description: 'Peeling delicat pentru toate tipurile de ten.',
         price: '500 lei',
-        image: 'images/treatments/mandelic.jpg'
+        image: 'images/mandelnic.webp'
     },
     'lactic': {
         title: 'Lactic',
         description: 'Peeling hidratant și iluminator.',
         price: '450 lei',
-        image: 'images/treatments/lactic.jpg'
+        image: 'images/Lactic.webp'
     },
     'fitic': {
         title: 'Fitic',
@@ -40,25 +40,25 @@ const treatmentData = {
         title: 'Peri-orbital',
         description: 'Tratament specializat pentru zona ochilor.',
         price: '400 lei',
-        image: 'images/treatments/peri-orbital.jpg'
+        image: 'images/periorbital.avif'
     },
     'stop-acne': {
         title: 'Stop Acne',
         description: 'Tratament specializat pentru acne și piele problematică.',
         price: '700 lei',
-        image: 'images/treatments/stop-acne.jpg'
+        image: 'images/stopAcnee.jpg'
     },
     '3d-lifting': {
         title: '3D|lifting',
         description: 'Tratament de lifting non-chirurgical.',
         price: '900 lei',
-        image: 'images/treatments/3d-lifting.jpg'
+        image: 'images/3dLifting.webp'
     },
     'carbon': {
         title: 'Carbon',
         description: 'Peeling cu carbon pentru o piele radiantă.',
         price: '650 lei',
-        image: 'images/treatments/carbon.jpg'
+        image: 'images/Carbon.avif'
     },
     'whitening': {
         title: 'Whitening',

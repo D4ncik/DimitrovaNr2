@@ -160,7 +160,7 @@
         }
         .modal-content {
             background: white;
-            padding: 30px;
+            padding: 0;
             border-radius: 15px;
             max-width: 800px;
             width: 90%;
@@ -171,18 +171,21 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            box-sizing: border-box;
         }
         .modal-image {
             width: 100%;
             height: 300px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 0;
             margin: 0;
+            display: block;
         }
         .modal-text {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            padding: 20px 30px;
         }
         .modal-text h2 {
             margin: 0;
@@ -198,7 +201,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 20px;
+            padding: 20px 30px;
             border-top: 1px solid #eee;
             margin-top: auto;
         }
@@ -566,7 +569,7 @@
                 </div>
                 <div class="treatments-grid">
                     <div class="treatment-card">
-                        <img src="images/treatments/dermapen-face.jpg" alt="DermaPen Facial" class="treatment-image">
+                        <img src="images/RF-lifiting.ARW" alt="DermaPen Facial" class="treatment-image">
                         <div class="treatment-content">
                             <h3>DermaPen Facial</h3>
                             <p>Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen.</p>
@@ -578,7 +581,7 @@
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/treatments/dermapen-hair.jpg" alt="DermaPen Scalp" class="treatment-image">
+                        <img src="images/dermapen_scalp.webp" alt="DermaPen Scalp" class="treatment-image">
                         <div class="treatment-content">
                             <h3>DermaPen Scalp</h3>
                             <p>Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.</p>
@@ -590,7 +593,7 @@
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/treatments/dermapen-stretch.jpg" alt="DermaPen Vergeturi" class="treatment-image">
+                        <img src="images/RF-Lifting2.jpg" alt="DermaPen Vergeturi" class="treatment-image">
                         <div class="treatment-content">
                             <h3>DermaPen Vergeturi</h3>
                             <p>Tratament eficient pentru reducerea vergeturilor pe corp.</p>
@@ -602,7 +605,7 @@
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/treatments/dermapen-lips.jpg" alt="DermaPen Buze" class="treatment-image">
+                        <img src="images/dermapen_buze.jpeg" alt="DermaPen Buze" class="treatment-image">
                         <div class="treatment-content">
                             <h3>DermaPen Buze</h3>
                             <p>Tratament specializat pentru volumizarea și conturarea buzelor.</p>

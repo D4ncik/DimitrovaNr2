@@ -215,7 +215,7 @@
             width: 90%;
             position: relative;
             box-sizing: border-box;
-            overflow-x: hidden;
+            overflow: hidden;
             max-height: 90vh;
             overflow-y: auto;
         }
@@ -242,11 +242,15 @@
             border: none;
         }
         .modal-image {
-            width: 100%;
+            width: calc(100% + 60px);
+            margin-left: -30px;
+            margin-right: -30px;
+            margin-top: -30px;
             height: 300px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 0;
             margin-bottom: 20px;
+            display: block;
         }
         .consultation-banner {
             background: #f2fafc;
@@ -281,6 +285,7 @@
         }
         .modal-text {
             margin-bottom: 20px;
+            padding: 0 30px;
         }
         .modal-text h2 {
             color: #333;
@@ -296,7 +301,7 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 20px;
-            padding-top: 20px;
+            padding: 20px 30px 0 30px;
             border-top: 1px solid #eee;
         }
         .modal-price {
@@ -520,7 +525,7 @@
 
                 <div class="treatments-grid">
                     <div class="treatment-card">
-                        <img src="images/IMG_6067.jpg" alt="Enzyme" class="treatment-image">
+                        <img src="images/IMG_7277.PNG" alt="Enzyme" class="treatment-image">
                         <div class="treatment-content">
                             <h3>Enzyme</h3>
                             <p>Tratament exfoliant natural care elimină celulele moarte și îmbunătățește textura pielii.</p>
@@ -544,7 +549,7 @@
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/combined.jpg" alt="Curățare Combinată" class="treatment-image">
+                        <img src="images/combination.jpg" alt="Curățare Combinată" class="treatment-image">
                         <div class="treatment-content">
                             <h3>Curățare Combinată</h3>
                             <p>Procedură complexă care combină mai multe tehnici pentru o curățare profundă și eficientă.</p>
@@ -556,7 +561,7 @@
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/mechanical.jpg" alt="Curățare Mecanică" class="treatment-image">
+                        <img src="images/curatare_mecanica.jpg" alt="Curățare Mecanică" class="treatment-image">
                         <div class="treatment-content">
                             <h3>Curățare Mecanică</h3>
                             <p>Curățare manuală profesională pentru eliminarea impurităților și a punctelor negre.</p>
@@ -568,7 +573,7 @@
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/ultrasonic.jpg" alt="Curățare cu Ultrasunet" class="treatment-image">
+                        <img src="images/dermapen.jpg" alt="Curățare cu Ultrasunet" class="treatment-image">
                         <div class="treatment-content">
                             <h3>Curățare cu Ultrasunet</h3>
                             <p>Curățare delicată și non-invazivă folosind tehnologia ultrasunetelor.</p>
@@ -580,7 +585,7 @@
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/facial-massage.jpg" alt="Masaj facial" class="treatment-image">
+                        <img src="images/IMG_7288.PNG" alt="Masaj facial" class="treatment-image">
                         <div class="treatment-content">
                             <h3>Masaj facial</h3>
                             <p>Masaj relaxant și tonifiant pentru stimularea circulației și tonifierea musculaturii.</p>

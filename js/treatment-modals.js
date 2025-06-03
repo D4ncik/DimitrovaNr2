@@ -40,25 +40,25 @@ const treatmentData = {
         title: 'Curățare cu ultrasunete',
         description: 'Curățare delicată și reînnoire a pielii folosind tehnologia ultrasunetelor. Elimină impuritățile și stimulează regenerarea celulară.',
         price: '500 MDL',
-        image: 'images/ultrasonic.jpg'
+        image: 'images/dermapen.jpg'
     },
     'mechanical-cleansing': {
         title: 'Curățare mecanică',
         description: 'Curățare profundă a porilor folosind tehnici manuale specializate. Elimină punctele negre și impuritățile adânci.',
         price: '550 MDL',
-        image: 'images/mechanical.jpg'
+        image: 'images/curatare_mecanica.jpg'
     },
     'combined-cleansing': {
         title: 'Curățare combinată',
         description: 'Îngrijire ideală pentru tenul problematic, combinând mai multe tehnici de curățare și tratament pentru rezultate optime.',
         price: '700 MDL',
-        image: 'images/combined.jpg'
+        image: 'images/combination.jpg'
     },
     'rf-lifting': {
         title: 'RF-lifting facial',
         description: 'Lifting și întinerirea pielii folosind radiofrecvență. Stimulează producția de colagen și elastină pentru o piele mai fermă și mai tânără.',
         price: '800 MDL',
-        image: 'images/rf-lifting.jpg'
+        image: 'images/dermapen.jpg'
     },
     'rf-decollete': {
         title: 'RF-lifting față și decolteu',
@@ -70,7 +70,7 @@ const treatmentData = {
         title: 'Masaj facial',
         description: 'Relaxare și tonifiere a mușchilor faciali prin tehnici specializate de masaj. Îmbunătățește circulația și elasticitatea pielii.',
         price: '300 MDL',
-        image: 'images/facial-massage.jpg'
+        image: 'images/IMG_7288.PNG'
     },
     'intensive-hydration-rf': {
         title: 'Hidratare intensivă + RF',
