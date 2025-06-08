@@ -333,19 +333,6 @@
         justify-content: center;
     }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 74px;
-        left: 0;
-        width: 100%;
-        background-color: var(--white);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        border-top: 1px solid #ddd;
-        z-index: 999;
-    }
 }
 
 @media (max-width: 480px) {

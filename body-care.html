@@ -154,16 +154,13 @@
             font-size: 1.1em;
         }
         .treatment-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-top: auto;
             padding-top: 15px;
             border-top: 1px solid #eee;
         }
         .modal-info {
             margin-top: 20px;
-            padding-top: 20px;
+            padding-top: 40px;
             border-top: 1px solid #eee;
             display: flex;
             justify-content: space-between;
@@ -178,6 +175,8 @@
             color: #5999ee;
             font-weight: bold;
             font-size: 1.3em;
+            margin: 0;
+            flex-grow: 1;
         }
         .details-button {
             display: inline-block;
@@ -200,6 +199,9 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(89, 153, 238, 0.3);
         }
+        .modal-buttons {
+            margin: 0;
+        }
         .modal-button {
             display: inline-block;
             padding: 8px 20px;
@@ -209,7 +211,7 @@
             text-decoration: none;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: normal;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(89, 153, 238, 0.3);
@@ -364,19 +366,6 @@
                 font-size: 0.9em;
             }
         }
-        .modal-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding: 0;
-            border-top: 1px solid #eee;
-        }
-        .modal-price {
-            color: #5999ee;
-            font-weight: bold;
-            font-size: 1.3em;
-        }
         .logo-link span {
             color: #234a7c !important;
         }
@@ -520,7 +509,7 @@
 
                     <!-- Fitic -->
                     <div class="treatment-card" data-treatment="fitic" role="article" aria-labelledby="fitic-title">
-                        <img src="images/treatments/fitic.jpg" alt="Fitic" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/Fitic.webp" alt="Fitic" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="fitic-title" class="ro">Fitic</h3>
                             <p class="ro">Peeling antioxidant și protector</p>
@@ -585,7 +574,7 @@
 
                     <!-- Whitening -->
                     <div class="treatment-card" data-treatment="whitening" role="article" aria-labelledby="whitening-title">
-                        <img src="images/treatments/whitening.jpg" alt="Whitening" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/whitening.webp" alt="Whitening" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="whitening-title" class="ro">Whitening</h3>
                             <p class="ro">Tratament pentru uniformizarea culorii tenului</p>
@@ -598,7 +587,7 @@
 
                     <!-- Enzymatic phytopeeling -->
                     <div class="treatment-card" data-treatment="enzymatic-phytopeeling" role="article" aria-labelledby="enzymatic-phytopeeling-title">
-                        <img src="images/treatments/enzymatic-phytopeeling.jpg" alt="Enzymatic phytopeeling" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/pharmica.jpeg" alt="Enzymatic phytopeeling" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="enzymatic-phytopeeling-title" class="ro">Enzymatic phytopeeling</h3>
                             <p class="ro">Peeling natural cu enzime și extracte botanice</p>
@@ -611,7 +600,7 @@
 
                     <!-- Yellow Retinol -->
                     <div class="treatment-card" data-treatment="yellow-retinol" role="article" aria-labelledby="yellow-retinol-title">
-                        <img src="images/treatments/yellow-retinol.jpg" alt="Yellow Retinol" class="treatment-image" loading="lazy" width="320" height="200">
+                        <img src="images/yellowretinol.webp" alt="Yellow Retinol" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
                             <h3 id="yellow-retinol-title" class="ro">Yellow Retinol</h3>
                             <p class="ro">Tratament anti-aging cu retinol</p>
@@ -622,70 +611,7 @@
                         </div>
                     </div>
 
-                    <!-- RF-lifting -->
-                    <div class="treatment-card">
-                        <img src="images/treatments/rf-lifting.jpg" alt="RF-lifting" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>RF-lifting</h3>
-                            <p>Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">500 lei</span>
-                                <button class="details-button" data-treatment="rf-body" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cavitație -->
-                    <div class="treatment-card">
-                        <img src="images/treatments/cavitatie.jpg" alt="Cavitație" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Cavitație</h3>
-                            <p>Tratament non-invaziv pentru reducerea grăsimii localizate.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">600 lei</span>
-                                <button class="details-button" data-treatment="cavitation" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Vacuum -->
-                    <div class="treatment-card">
-                        <img src="images/treatments/vacuum.jpg" alt="Vacuum" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Vacuum</h3>
-                            <p>Tratament de drenaj limfatic și modelare corporală.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">600 lei</span>
-                                <button class="details-button" data-treatment="vacuum-therapy" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lipolazer -->
-                    <div class="treatment-card">
-                        <img src="images/treatments/lipolazer.jpg" alt="Lipolazer" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Lipolazer</h3>
-                            <p>Tratament cu laser pentru reducerea grăsimii și modelare corporală.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">500 lei</span>
-                                <button class="details-button" data-treatment="lipo-laser" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Biofoton -->
-                    <div class="treatment-card">
-                        <img src="images/treatments/biofoton.jpg" alt="Biofoton" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Biofoton</h3>
-                            <p>Tratament cu lumină pentru îmbunătățirea aspectului pielii și modelare.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">500 lei</span>
-                                <button class="details-button" data-treatment="biofoton" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>

@@ -308,18 +308,24 @@
             color: #5999ee;
             font-weight: bold;
             font-size: 1.3em;
+            flex-grow: 1;
+            margin: 0;
+        }
+        .modal-buttons {
+            margin: 0;
         }
         .modal-button {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 10px 20px;
             background: linear-gradient(45deg, #5999ee, #3d7fd9);
             color: white;
             border-radius: 25px;
             text-decoration: none;
             transition: all 0.3s ease;
             font-weight: 600;
+            font-size: 0.9em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: normal;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(89, 153, 238, 0.3);
@@ -450,6 +456,20 @@
             .nav-links {
                 padding: 60px 15px 15px;
             }
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        body {
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -621,7 +641,7 @@
                     </div>
 
                     <div class="treatment-card">
-                        <img src="images/rf-decollete.jpg" alt="RF-lifting facial+decolteu" class="treatment-image">
+                        <img src="images/RF+decolteu.jpg" alt="RF-lifting facial+decolteu" class="treatment-image">
                         <div class="treatment-content">
                             <h3>RF-lifting facial+decolteu</h3>
                             <p>Tratament complet de lifting pentru față și decolteu pentru un efect de întinerire uniform.</p>
@@ -700,7 +720,6 @@
     <div id="treatmentBookingModal" class="modal">
         <div class="modal-content consultation-modal">
             <div class="calendly-section">
-                <iframe id="bookingIframe" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -739,6 +758,7 @@
                     <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
                     <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
                     <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                         <li><a href="massage.html">Masaj</a></li>
                 </ul>
             </div>
 

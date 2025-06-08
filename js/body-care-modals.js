@@ -64,19 +64,19 @@ const treatmentData = {
         title: 'Whitening',
         description: 'Tratament pentru uniformizarea culorii tenului.',
         price: '750 lei',
-        image: 'images/treatments/whitening.jpg'
+        image: 'images/whitening.webp'
     },
     'enzymatic-phytopeeling': {
         title: 'Enzymatic phytopeeling',
         description: 'Peeling natural cu enzime și extracte botanice.',
         price: '550 lei',
-        image: 'images/treatments/enzymatic-phytopeeling.jpg'
+        image: 'images/Pharmica.jpg'
     },
     'yellow-retinol': {
         title: 'Yellow Retinol',
         description: 'Tratament anti-aging cu retinol.',
         price: '850 lei',
-        image: 'images/treatments/yellow-retinol.jpg'
+        image: 'images/yellowretinol.webp'
     },
     'rf-body': {
         title: 'RF-lifting corporal',
@@ -84,30 +84,7 @@ const treatmentData = {
         price: '500 lei',
         image: 'images/treatments/rf-lifting.jpg'
     },
-    'cavitation': {
-        title: 'Cavitație',
-        description: 'Tratament non-invaziv pentru reducerea grăsimii localizate și a celulitei. Utilizează ultrasunete pentru a distruge celulele de grăsime în mod natural.',
-        price: '600 lei',
-        image: 'images/treatments/cavitatie.jpg'
-    },
-    'lipo-laser': {
-        title: 'Lipo laser',
-        description: 'Procedură modernă de reducere a grăsimii localizate folosind tehnologia laser. Stimulează metabolismul și ajută la eliminarea grăsimii în mod natural.',
-        price: '500 lei',
-        image: 'images/treatments/lipolazer.jpg'
-    },
-    'vacuum-therapy': {
-        title: 'Terapie cu vacuum',
-        description: 'Tratament pentru îmbunătățirea circulației sanguine și a drenajului limfatic. Ajută la reducerea celulitei și la tonifierea pielii.',
-        price: '600 lei',
-        image: 'images/treatments/vacuum.jpg'
-    },
-    'biofoton': {
-        title: 'Biofoton',
-        description: 'Terapie cu lumină pentru îmbunătățirea calității pielii și stimularea proceselor naturale de regenerare. Ajută la reducerea inflamației și la accelerarea vindecării.',
-        price: '500 lei',
-        image: 'images/treatments/biofoton.jpg'
-    }
+   
 };
 
 // Function to open treatment modal

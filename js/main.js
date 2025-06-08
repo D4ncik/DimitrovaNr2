@@ -185,14 +185,16 @@ document.addEventListener('DOMContentLoaded', function() {
     updateContent(savedLang);
 
     // Add scroll event listener for hero shadow effect
-    window.addEventListener('scroll', function() {
-        const scrollPosition = window.scrollY;
-        if (scrollPosition > 50) {
-            heroSection.classList.add('scrolled');
-        } else {
-            heroSection.classList.remove('scrolled');
-        }
-    });
+    if (heroSection) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 50) {
+                heroSection.classList.add('scrolled');
+            } else {
+                heroSection.classList.remove('scrolled');
+            }
+        });
+    }
 
     // --- MENIU MOBIL ȘI DROPDOWN UNIFICAT ---
     // Selectori meniuri
