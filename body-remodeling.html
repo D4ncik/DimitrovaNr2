@@ -12,6 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+        }
+        .header, .nav, .nav-links, .nav-links a {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.01em;
+        }
         .body-treatments {
             padding: 40px 0 30px;
             background: #f2fafc;
@@ -24,6 +34,94 @@
             max-width: 1200px;
             margin: 0 auto;
             justify-content: center;
+        }
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .package-card.new-design {
+            background: #fff;
+            border-radius: 0;
+            box-shadow: 0 2px 8px rgba(89,153,238,0.07);
+            padding: 0;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.25s, border 0.25s, background 0.25s, transform 0.25s;
+            width: 100%;
+            min-width: 400px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .package-card.new-design:hover {
+            box-shadow: 0 8px 32px rgba(89,153,238,0.18);
+            border: 2px solid #fff;
+            background: rgba(255,255,255,0.96);
+            transform: translateY(-4px) scale(1.01);
+            z-index: 2;
+        }
+        .package-card.new-design .treatment-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 0;
+            flex-shrink: 0;
+        }
+        .package-card.new-design .treatment-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0;
+            display: block;
+        }
+        .package-card.new-design .badge-group {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            z-index: 3;
+            flex-wrap: wrap;
+        }
+        .package-card.new-design .badge {
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.5);
+            color: #222;
+            font-size: 0.88em;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            border: 1.5px solid #fff;
+            padding: 3px 10px;
+            box-shadow: 0 2px 8px rgba(89,153,238,0.07);
+            white-space: nowrap;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .package-card.new-design h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            font-size: 1.1em;
+            margin-bottom: 0.2em;
+            color: #222;
+            text-align: center;
+        }
+        .package-card.new-design .treatment-content {
+            padding: 12px 6px 2px 6px;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
         }
         .treatment-card {
             background: white;
@@ -260,6 +358,16 @@
             .treatments-grid {
                 grid-template-columns: 1fr;
             }
+            .packages-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+                padding: 10px !important;
+            }
+            .package-card.new-design {
+                min-width: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
         }
 
         .hero-section {
@@ -437,66 +545,71 @@
                     <h2>Tratamente Corporale</h2>
                 </div>
                 <div class="treatments-grid">
-                    <div class="treatment-card">
-                        <img src="images/RF-Lifting2.jpg" alt="RF-lifting" class="treatment-image">
+                    <div class="treatment-card new-design" data-treatment="rf-lifting">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('rf-lifting')">
+                            <img src="images/RF-lifting1.jpg" alt="RF-lifting" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 500 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>RF-lifting</h3>
-                            <p>Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">500 lei</span>
-                                <button class="details-button" data-treatment="rf-lifting">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/corp2.PNG" alt="Cavitație" class="treatment-image">
+                    <div class="treatment-card new-design" data-treatment="cavitatie">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('cavitatie')">
+                            <img src="images/corp2.PNG" alt="Cavitație" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 600 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Cavitație</h3>
-                            <p>Tratament non-invaziv pentru reducerea grăsimii localizate.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">600 lei</span>
-                                <button class="details-button" data-treatment="cavitatie">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/corp3.PNG" alt="Vacuum" class="treatment-image">
+                    <div class="treatment-card new-design" data-treatment="vacuum">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('vacuum')">
+                            <img src="images/corp3.PNG" alt="Vacuum" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 600 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Vacuum</h3>
-                            <p>Tratament de drenaj limfatic și modelare corporală.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">600 lei</span>
-                                <button class="details-button" data-treatment="vacuum">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/Lipolazer.webp" alt="Lipolazer" class="treatment-image">
+                    <div class="treatment-card new-design" data-treatment="lipolazer">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('lipolazer')">
+                            <img src="images/Lipolazer.webp" alt="Lipolazer" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 500 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Lipolazer</h3>
-                            <p>Tratament cu laser pentru reducerea grăsimii și modelare corporală.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">500 lei</span>
-                                <button class="details-button" data-treatment="lipolazer">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/Biofoton.jpg" alt="Biofoton" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Biofoton</h3>
-                            <p>Tratament cu lumină pentru îmbunătățirea aspectului pielii și modelare.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">500 lei</span>
-                                <button class="details-button" data-treatment="biofoton">Detalii</button>
+                    <div class="treatment-card new-design" data-treatment="biofoton">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('biofoton')">
+                            <img src="images/Biofoton.jpg" alt="Biofoton" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 500 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
+                        <div class="treatment-content">
+                            <h3>Biofoton</h3>
+                        </div>
                     </div>
-                    <div class="treatment-card" style="background:linear-gradient(135deg,#f2fafc 60%,#e9f2ff 100%);border:2px solid #3d7fd9;box-shadow:0 2px 12px rgba(61,127,217,0.07);display:flex;align-items:center;justify-content:center;min-height:220px;">
+                    <div class="treatment-card new-design" style="background:linear-gradient(135deg,#f2fafc 60%,#e9f2ff 100%);border:2px solid #3d7fd9;box-shadow:0 2px 12px rgba(61,127,217,0.07);display:flex;align-items:center;justify-content:center;min-height:220px;">
                         <div style="width:100%;text-align:center;padding:30px 10px;">
                             <span style="display:block;font-size:1.5em;font-weight:700;color:#3d7fd9;margin-bottom:10px;">Reducere -10%</span>
                             <span style="font-size:1.1em;color:#234a7c;font-weight:500;">după două proceduri consecutive</span>
@@ -513,64 +626,60 @@
                     <div class="discount-badge">-30%</div>
                     <p>Beneficiați de 30% reducere la pachetele de tratamente</p>
                 </div>
-                <div class="treatments-grid">
-                    <div class="treatment-card">
-                        <img src="images/treatments/vacuum-cavitatie.jpg" alt="Vacuum + Cavitație" class="treatment-image">
+                <div class="packages-grid">
+                    <div class="package-card new-design" data-treatment="vacuum-cavitatie">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('vacuum-cavitatie')">
+                            <img src="images/treatments/vacuum-cavitatie.jpg" alt="Vacuum + Cavitație" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">10 ședințe – 4200 lei</span>
+                                <span class="badge badge-left">20 ședințe – 8100 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Vacuum + Cavitație</h3>
-                            <p>Pachet combinat pentru rezultate optime în modelarea corporală.</p>
-                            <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
-                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">10 ședințe – 4200 lei</span>
-                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">20 ședințe – 8100 lei</span>
-                            </div>
-                            <div class="treatment-info" style="justify-content: flex-end;">
-                                <button class="details-button" data-treatment="vacuum-cavitatie">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/treatments/vacuum-rf.jpg" alt="Vacuum + RF-lifting" class="treatment-image">
+                    <div class="package-card new-design" data-treatment="vacuum-rf">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('vacuum-rf')">
+                            <img src="images/treatments/vacuum-rf.jpg" alt="Vacuum + RF-lifting" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">10 ședințe – 4200 lei</span>
+                                <span class="badge badge-left">20 ședințe – 8100 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Vacuum + RF-lifting</h3>
-                            <p>Pachet pentru firmare și modelare corporală.</p>
-                            <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
-                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">10 ședințe – 4200 lei</span>
-                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">20 ședințe – 8100 lei</span>
-                            </div>
-                            <div class="treatment-info" style="justify-content: flex-end;">
-                                <button class="details-button" data-treatment="vacuum-rf">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/treatments/cavitatie-rf.jpg" alt="Cavitație + RF-lifting" class="treatment-image">
+                    <div class="package-card new-design" data-treatment="cavitatie-rf">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('cavitatie-rf')">
+                            <img src="images/treatments/cavitatie-rf.jpg" alt="Cavitație + RF-lifting" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">10 ședințe – 4200 lei</span>
+                                <span class="badge badge-left">20 ședințe – 8100 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Cavitație + RF-lifting</h3>
-                            <p>Pachet pentru reducerea grăsimii și firmare.</p>
-                            <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
-                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">10 ședințe – 4200 lei</span>
-                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">20 ședințe – 8100 lei</span>
-                            </div>
-                            <div class="treatment-info" style="justify-content: flex-end;">
-                                <button class="details-button" data-treatment="cavitatie-rf">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/treatments/lipolazer-package.jpg" alt="Lipolazer" class="treatment-image">
+                    <div class="package-card new-design" data-treatment="lipolazer-package">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('lipolazer-package')">
+                            <img src="images/treatments/lipolazer-package.jpg" alt="Lipolazer" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">5 ședințe – 2250 lei</span>
+                                <span class="badge badge-left">10 ședințe – 4500 lei</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Lipolazer</h3>
-                            <p>Pachet de tratamente cu Lipolazer pentru rezultate optime.</p>
-                            <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
-                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">5 ședințe – 2250 lei</span>
-                                <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;display:block;">10 ședințe – 4500 lei</span>
-                            </div>
-                            <div class="treatment-info" style="justify-content: flex-end;">
-                                <button class="details-button" data-treatment="lipolazer-package">Detalii</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -583,13 +692,15 @@
             <img id="modalImage" class="modal-image" src="" alt="">
             <div class="modal-text">
                 <h2 id="modalTitle"></h2>
-                <p id="modalDescription"></p>
+                <div id="modalDescription"></div>
             </div>
-            <div class="modal-info">
-                <p id="modalPrice" class="modal-price"></p>
-                <div class="modal-buttons">
-                    <button class="modal-button" onclick="window.open('https://dimitrovaclinic.setmore.com', '_blank')">Programează-te</button>
-                </div>
+        </div>
+    </div>
+
+    <div id="consultationModal" class="modal">
+        <div class="modal-content consultation-modal">
+            <div class="calendly-section">
+                <iframe src="https://dimitrovaclinic.setmore.com/services/4ba81d76-0b52-4fab-b388-4cdb76e4e921" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>

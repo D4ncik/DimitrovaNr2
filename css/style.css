@@ -26,8 +26,8 @@
 }
 
 body {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     font-style: normal;
     line-height: 1.6;
     color: var(--text-color);
@@ -106,7 +106,7 @@ body[data-lang="ru"] {
 }
 
 .logo span {
-    font-family: 'RevauxGO0d', serif;
+    font-family: 'RevauxGO0d', serif !important;
     font-size: 3.6rem;
     font-weight: 400;
     padding-left: 35px;
@@ -363,9 +363,8 @@ body[data-lang="ru"] {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 60px 0 20px;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 700;
-    font-style: normal;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
 }
 
 .footer-content {
@@ -734,27 +733,26 @@ body[data-lang="ru"] {
     }
 }
 
-.details-button{
+.details-button {
     display: inline-block;
-    padding: 8px 20px;
-    background: linear-gradient(45deg, #5999ee, #3d7fd9);
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 0.95em;
-    min-width: 100px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(89, 153, 238, 0.2);
+    padding: 10px 20px !important;
+    background: rgba(255,255,255,0.6) !important;
+    color: #2666c0 !important;
+    border: 2px solid #fff !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    transition: all 0.3s !important;
+    text-align: center !important;
+    margin-top: auto !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 10px rgba(89,153,238,0.07) !important;
+    backdrop-filter: blur(1.5px) !important;
 }
 
 .details-button:hover {
-    background: linear-gradient(45deg, #3d7fd9, #2666c0);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(89, 153, 238, 0.3);
+    background: rgba(255,255,255,0.92) !important;
+    color: #133a6c !important;
+    border-color: #89b4f1 !important;
 }
 
 /* Modal Styles */
@@ -2035,10 +2033,11 @@ body.lightbox-open {
 }
 
 .package-price {
-    color: #28a745; /* O culoare distinctă pentru preț */
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
+    color: #5999ee;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .package-card .details-button {
@@ -2155,7 +2154,7 @@ body.lightbox-open {
     background: #ff4444;
     color: white;
     padding: 8px 15px;
-    border-radius: 20px;
+    border-radius: 0px;
     font-weight: bold;
     font-size: 1.2em;
     transform: rotate(15deg);
@@ -2341,4 +2340,87 @@ body.lightbox-open {
     .packages-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Card tratament nou design */
+.treatment-card.new-design {
+    background: #fff;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(89,153,238,0.07);
+    padding: 0;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.25s, border 0.25s, background 0.25s, transform 0.25s;
+    width: 310px;
+    min-width: 310px;
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.treatment-card.new-design:hover {
+    box-shadow: 0 8px 32px rgba(89,153,238,0.18);
+    border: 2px solid #fff;
+    background: rgba(255,255,255,0.96);
+    transform: translateY(-4px) scale(1.01);
+    z-index: 2;
+}
+.treatment-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+    border-radius: 0;
+    flex-shrink: 0;
+}
+.treatment-card.new-design .treatment-image {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+}
+.badge-group {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 3;
+}
+.badge {
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.5);
+    color: #222;
+    font-size: 0.88em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    border: 1.5px solid #fff;
+    padding: 3px 10px;
+    box-shadow: 0 2px 8px rgba(89,153,238,0.07);
+    white-space: nowrap;
+    transition: background 0.2s;
+    display: inline-block;
+}
+.badge-left, .badge-right {
+    position: static;
+}
+.treatment-card.new-design h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    margin-bottom: 0.2em;
+    color: #222;
+    text-align: center;
+}
+.treatment-card.new-design .treatment-content {
+    padding: 12px 6px 2px 6px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }

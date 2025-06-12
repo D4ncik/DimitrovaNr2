@@ -12,6 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+        }
+        .header, .nav, .nav-links, .nav-links a {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.01em;
+        }
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/masaj2.jpg');
             background-size: cover;
@@ -110,6 +120,147 @@
             margin-right: 10px;
             font-size: 1.2em;
         }
+
+        .treatments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            padding: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .treatment-card.new-design {
+            background: #fff;
+            border-radius: 0;
+            box-shadow: 0 2px 8px rgba(89,153,238,0.07);
+            padding: 0;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.25s, border 0.25s, background 0.25s, transform 0.25s;
+            width: 100%;
+            min-width: 0;
+            max-width: 370px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .treatment-card.new-design:hover {
+            box-shadow: 0 8px 32px rgba(89,153,238,0.18);
+            border: 2px solid #fff;
+            background: rgba(255,255,255,0.96);
+            transform: translateY(-4px) scale(1.01);
+            z-index: 2;
+        }
+        .treatment-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 0;
+            flex-shrink: 0;
+        }
+        .treatment-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 0;
+            display: block;
+        }
+        .badge-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 16px;
+            z-index: 3;
+        }
+        .badge.badge-right {
+            margin-top: 0;
+            font-size: 0.98em;
+            padding: 4px 18px;
+            min-width: 120px;
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 2px 8px rgba(89,153,238,0.07);
+        }
+        .badge {
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.7);
+            color: #222;
+            font-size: 0.98em;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            border: 1.5px solid #fff;
+            padding: 4px 12px;
+            white-space: nowrap;
+            transition: background 0.2s;
+            display: inline-block;
+            margin: 0;
+        }
+        .treatment-content {
+            padding: 0;
+            min-height: 0;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+        }
+        .treatment-content h3 {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            font-size: 1.15em !important;
+            color: #222 !important;
+            margin: 0 !important;
+            text-align: center;
+            width: 100%;
+        }
+        @media (max-width: 900px) {
+            .treatments-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            #consultationModal .modal-content.consultation-modal {
+                max-width: 98vw;
+                height: 90vh;
+                max-height: 90vh;
+            }
+        }
+        @media (max-width: 600px) {
+            .treatments-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 10px;
+            }
+            .treatment-card.new-design {
+                max-width: 100%;
+                min-width: 0;
+            }
+            .treatment-image-wrapper, .treatment-image {
+                height: 110px;
+            }
+            #consultationModal .modal-content.consultation-modal {
+                width: 99vw;
+                max-width: 99vw;
+                height: 95vh;
+                max-height: 95vh;
+            }
+        }
+        .modal-text h2 {
+            color: #222 !important;
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 1.6em !important;
+            margin: 0 0 12px 0 !important;
+            text-align: left !important;
+        }
     </style>
 </head>
 <body>
@@ -174,7 +325,94 @@
                 </ul>
             </div>
         </section>
+        <section class="massage-treatments" style="background: #f2fafc; padding: 60px 0 40px;">
+            <div class="container">
+                <div class="section-header" style="text-align:center; margin-bottom:40px;">
+                    <h2 style="font-size:2.2em; font-weight:600; color:#2c3e50;">Tipuri de masaj</h2>
+                </div>
+                <div class="treatments-grid">
+                    <!-- Masaj clasic -->
+                    <div class="treatment-card new-design" data-treatment="masaj-clasic">
+                        <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-clasic')">
+                            <img src="images/clasicmassage.jpg" alt="Masaj clasic" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Masaj clasic (relaxant)</h3>
+                        </div>
+                    </div>
+                    <!-- Masaj terapeutic -->
+                    <div class="treatment-card new-design" data-treatment="masaj-terapeutic">
+                        <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-terapeutic')">
+                            <img src="images/masajterapeutic.jpg" alt="Masaj terapeutic" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Masaj terapeutic</h3>
+                        </div>
+                    </div>
+                    <!-- Masaj anticelulitic -->
+                    <div class="treatment-card new-design" data-treatment="masaj-anticelulitic">
+                        <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-anticelulitic')">
+                            <img src="images/masajanticelular.jpg" alt="Masaj anticelulitic" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Masaj anticelulitic</h3>
+                        </div>
+                    </div>
+                    <!-- Masaj vacuum -->
+                    <div class="treatment-card new-design" data-treatment="masaj-vacuum">
+                        <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-vacuum')">
+                            <img src="images/masajvacum.jpeg" alt="Masaj vacuum" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Masaj vacuum</h3>
+                        </div>
+                    </div>
+                    <!-- Masaj cu miere -->
+                    <div class="treatment-card new-design" data-treatment="masaj-miere">
+                        <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-miere')">
+                            <img src="images/masajmiere.jpg" alt="Masaj cu miere" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Masaj cu miere</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <div id="massageModal" class="modal">
+        <div class="modal-content">
+            <img id="massageModalImage" class="modal-image" src="" alt="">
+            <div class="modal-text">
+                <h2 id="massageModalTitle"></h2>
+                <div id="massageModalDescription"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="consultationModal" class="modal">
+        <div class="modal-content consultation-modal">
+            <div class="calendly-section">
+                <iframe src="https://dimitrovaclinic.setmore.com/services/4ba81d76-0b52-4fab-b388-4cdb76e4e921" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
@@ -233,5 +471,101 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+    // Modal data pentru fiecare tip de masaj
+    const massageData = {
+        'masaj-clasic': {
+            title: 'Masaj clasic (relaxant)',
+            image: 'images/clasicmassage.jpg',
+            description: 'Masajul clasic este ideal pentru relaxare, reducerea stresului și îmbunătățirea circulației.',
+            details: [
+                'Detensionează musculatura',
+                'Stimulează circulația sanguină',
+                'Reduce oboseala și stresul',
+                'Îmbunătățește starea generală de bine'
+            ],
+            time: '60 min (general); 40 min (zonal)',
+            price: '500 lei (general); 400 lei (zonal)'
+        },
+        'masaj-terapeutic': {
+            title: 'Masaj terapeutic',
+            image: 'images/masajterapeutic.jpg',
+            description: 'Masajul terapeutic este recomandat pentru recuperare, dureri musculare sau afecțiuni ale spatelui.',
+            details: [
+                'Ameliorează durerile musculare',
+                'Ajută la recuperarea după efort sau accidentări',
+                'Îmbunătățește mobilitatea articulară',
+                'Personalizat pentru fiecare client'
+            ],
+            time: '60 min (general); 40 min (zonal)',
+            price: '550 lei (general); 450 lei (zonal)'
+        },
+        'masaj-anticelulitic': {
+            title: 'Masaj anticelulitic',
+            image: 'images/masajanticelular.jpg',
+            description: 'Masajul anticelulitic ajută la reducerea aspectului de coajă de portocală și la remodelarea corporală.',
+            details: [
+                'Stimulează drenajul limfatic',
+                'Reduce depozitele de grăsime',
+                'Îmbunătățește textura pielii',
+                'Efect vizibil după câteva ședințe'
+            ],
+            time: '60 min (general); 30 min (zonal)',
+            price: '500 lei (general); 350 lei (zonal)'
+        },
+        'masaj-vacuum': {
+            title: 'Masaj vacuum',
+            image: 'images/masajvacum.jpeg',
+            description: 'Masajul vacuum este eficient pentru drenaj limfatic și reducerea celulitei.',
+            details: [
+                'Activează circulația limfatică',
+                'Ajută la eliminarea toxinelor',
+                'Reduce retenția de apă',
+                'Efect rapid și localizat'
+            ],
+            time: '30 min (zonal)',
+            price: '300 lei (zonal)'
+        },
+        'masaj-miere': {
+            title: 'Masaj cu miere',
+            image: 'images/masajmiere.jpg',
+            description: 'Masajul cu miere este recomandat pentru detoxifiere și relaxarea spatelui.',
+            details: [
+                'Detoxifică pielea și țesuturile',
+                'Stimulează circulația',
+                'Are efect calmant și relaxant',
+                'Ideal pentru zona spatelui'
+            ],
+            time: '40 min (spate)',
+            price: '350 lei (spate)'
+        }
+    };
+
+    function openMassageModal(massageId) {
+        const data = massageData[massageId];
+        if (!data) return;
+        document.getElementById('massageModalImage').src = data.image;
+        document.getElementById('massageModalImage').alt = data.title;
+        document.getElementById('massageModalTitle').textContent = data.title;
+        let descHtml = `<p>${data.description}</p>`;
+        if (data.details && data.details.length) {
+            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            descHtml += '</ul>';
+        }
+        descHtml += `<div style='margin-top:18px;'><p style='margin-bottom:4px;'><strong>Timp:</strong> ${data.time}</p><p><strong>Preț:</strong> ${data.price}</p></div>`;
+        document.getElementById('massageModalDescription').innerHTML = descHtml;
+        document.getElementById('massageModal').style.display = 'flex';
+        document.getElementById('massageModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('massageModal').style.opacity = '1';
+        }, 10);
+    }
+    window.onclick = function(event) {
+        if (event.target.classList && event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+    </script>
 </body>
 </html> 

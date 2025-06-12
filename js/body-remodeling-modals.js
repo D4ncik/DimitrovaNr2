@@ -3,56 +3,119 @@ const bodyRemodelingData = {
     'rf-lifting': {
         title: 'RF-lifting',
         description: 'Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență. Procedura stimulează producția de colagen și elastină, rezultând într-o piele mai fermă și mai tânără. Ideal pentru modelarea corporală și reducerea celulitei.',
-        price: '800 lei',
-        image: 'images/RF-Lifting2.jpg'
+        price: '1 h / 500 lei',
+        image: 'images/RF-lifting1.jpg',
+        details: [
+            'Stimulează producția de colagen și elastină',
+            'Efect de lifting vizibil',
+            'Reduce celulita și tonifică pielea',
+            'Fără durere, fără recuperare',
+            'Rezultate de lungă durată'
+        ]
     },
     'cavitatie': {
         title: 'Cavitație',
         description: 'Tratament non-invaziv pentru reducerea grăsimii localizate. Utilizează ultrasunete pentru a distruge celulele de grăsime, care sunt apoi eliminate natural din corp. Rezultate vizibile după prima procedură.',
-        price: '600 lei',
-        image: 'images/corp2.PNG'
+        price: '1 h / 600 lei',
+        image: 'images/corp2.PNG',
+        details: [
+            'Reduce grăsimea localizată',
+            'Stimulează drenajul limfatic',
+            'Rezultate rapide și vizibile',
+            'Fără intervenție chirurgicală',
+            'Îmbunătățește conturul corporal'
+        ]
     },
     'vacuum': {
         title: 'Vacuum',
         description: 'Tratament de drenaj limfatic și modelare corporală. Procedura ajută la eliminarea toxinelor, îmbunătățește circulația și reduce retenția de apă. Rezultate în modelarea siluetei și reducerea celulitei.',
-        price: '500 lei',
-        image: 'images/corp3.PNG'
+        price: '1 h / 600 lei',
+        image: 'images/corp3.PNG',
+        details: [
+            'Drenaj limfatic eficient',
+            'Reduce retenția de apă',
+            'Îmbunătățește circulația',
+            'Reduce celulita',
+            'Remodelează silueta'
+        ]
     },
     'lipolazer': {
         title: 'Lipolazer',
         description: 'Tratament cu laser pentru reducerea grăsimii și modelare corporală. Procedura stimulează metabolismul celular și ajută la eliminarea grăsimii localizate. Rezultate durabile și vizibile.',
-        price: '700 lei',
-        image: 'images/Lipolazer.webp'
+        price: '1 h / 500 lei',
+        image: 'images/Lipolazer.webp',
+        details: [
+            'Reduce grăsimea localizată',
+            'Stimulează metabolismul celular',
+            'Rezultate rapide și vizibile',
+            'Fără durere',
+            'Modelare corporală eficientă'
+        ]
     },
     'biofoton': {
         title: 'Biofoton',
         description: 'Tratament cu lumină pentru îmbunătățirea aspectului pielii și modelare. Procedura stimulează regenerarea celulară și îmbunătățește textura pielii. Rezultate în reducerea celulitei și modelarea siluetei.',
-        price: '550 lei',
-        image: 'images/Biofoton.jpg'
+        price: '1 h / 500 lei',
+        image: 'images/Biofoton.jpg',
+        details: [
+            'Stimulează regenerarea celulară',
+            'Îmbunătățește textura pielii',
+            'Reduce celulita',
+            'Modelare corporală',
+            'Rezultate vizibile rapid'
+        ]
     },
     'vacuum-cavitatie': {
         title: 'Vacuum + Cavitație',
         description: 'Pachet combinat pentru rezultate optime în modelarea corporală. Combină beneficiile drenajului limfatic cu reducerea grăsimii localizate. Rezultate vizibile și durabile în modelarea siluetei.',
-        price: '770 lei',
-        image: 'images/treatments/vacuum-cavitatie.jpg'
+        price: '',
+        image: 'images/treatments/vacuum-cavitatie.jpg',
+        details: [
+            'Drenaj limfatic și reducere grăsime',
+            'Rezultate rapide și vizibile',
+            'Modelare corporală eficientă',
+            'Reducere celulită',
+            'Fără recuperare'
+        ]
     },
     'vacuum-rf': {
         title: 'Vacuum + RF-lifting',
         description: 'Pachet pentru firmare și modelare corporală. Combină drenajul limfatic cu liftingul prin radiofrecvență pentru rezultate optime în modelarea siluetei și reducerea celulitei.',
-        price: '910 lei',
-        image: 'images/treatments/vacuum-rf.jpg'
+        price: '',
+        image: 'images/treatments/vacuum-rf.jpg',
+        details: [
+            'Drenaj limfatic și lifting',
+            'Reduce celulita',
+            'Tonifiere și fermitate',
+            'Rezultate rapide',
+            'Fără durere'
+        ]
     },
     'cavitatie-rf': {
         title: 'Cavitație + RF-lifting',
         description: 'Pachet pentru reducerea grăsimii și firmare. Combină beneficiile cavitației cu liftingul prin radiofrecvență pentru rezultate optime în modelarea corporală.',
-        price: '980 lei',
-        image: 'images/treatments/cavitatie-rf.jpg'
+        price: '',
+        image: 'images/treatments/cavitatie-rf.jpg',
+        details: [
+            'Reducere grăsime și lifting',
+            'Modelare corporală',
+            'Rezultate rapide și vizibile',
+            'Fără recuperare',
+            'Tonifiere intensă'
+        ]
     },
     'lipolazer-package': {
         title: 'Lipolazer',
         description: 'Pachet de tratamente cu Lipolazer pentru rezultate optime. Procedura stimulează metabolismul celular și ajută la eliminarea grăsimii localizate. Rezultate durabile și vizibile în modelarea siluetei.',
-        price: '490 lei',
-        image: 'images/treatments/lipolazer-package.jpg'
+        price: '',
+        image: 'images/treatments/lipolazer-package.jpg',
+        details: [
+            'Stimulare metabolism',
+            'Reducere grăsime localizată',
+            'Rezultate rapide',
+            'Modelare corporală',
+            'Fără durere'
+        ]
     }
 };
 
@@ -65,15 +128,21 @@ function openTreatmentModal(treatmentId) {
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
-    const modalPrice = document.getElementById('modalPrice');
 
     modalImage.src = treatment.image;
     modalImage.alt = treatment.title;
     modalTitle.textContent = treatment.title;
-    modalDescription.textContent = treatment.description;
-
-    // Prețuri pe pachete
-    const packagePrices = {
+    
+    let descHtml = `<p>${treatment.description}</p>`;
+    
+    if (treatment.details && treatment.details.length) {
+        descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+        treatment.details.forEach(item => descHtml += `<li>${item}</li>`);
+        descHtml += '</ul>';
+    }
+    
+    // Adaug ședințele pentru pachete la sfârșit, după lista de beneficii
+    const packageSessions = {
         'vacuum-cavitatie': [
             '10 ședințe – 4200 lei',
             '20 ședințe – 8100 lei'
@@ -91,35 +160,17 @@ function openTreatmentModal(treatmentId) {
             '10 ședințe – 4500 lei'
         ]
     };
-    let container = document.getElementById('modalSessionLabels');
-    if (!container) {
-        container = document.createElement('div');
-        container.id = 'modalSessionLabels';
-        container.className = 'modal-session-labels';
-        modalPrice.parentNode.insertBefore(container, modalPrice);
-    }
-    container.innerHTML = '';
-    if (packagePrices[treatmentId]) {
-        packagePrices[treatmentId].forEach(label => {
-            const span = document.createElement('span');
-            span.className = 'modal-session-label';
-            span.textContent = label;
-            span.style.color = '#3d7fd9';
-            span.style.fontSize = '0.98em';
-            span.style.fontWeight = '600';
-            span.style.lineHeight = '1.2';
-            span.style.margin = '0';
-            span.style.padding = '0';
-            span.style.textAlign = 'left';
-            span.style.display = 'block';
-            container.appendChild(span);
+    
+    if (packageSessions[treatmentId]) {
+        descHtml += '<div style="margin: 15px 0; padding: 10px; background: #f8f9fa; border-radius: 5px;">';
+        descHtml += '<strong style="color: #333; display: block; margin-bottom: 5px;">Opțiuni de pachete:</strong>';
+        packageSessions[treatmentId].forEach(session => {
+            descHtml += `<div style="color: #333; font-weight: 600; margin: 3px 0;">${session}</div>`;
         });
-        modalPrice.style.display = 'none';
-    } else {
-        container.innerHTML = '';
-        modalPrice.textContent = treatment.price;
-        modalPrice.style.display = '';
+        descHtml += '</div>';
     }
+    
+    modalDescription.innerHTML = descHtml;
 
     modal.style.display = 'flex';
     modal.style.opacity = '0';

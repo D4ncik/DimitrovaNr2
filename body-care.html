@@ -31,6 +31,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+        }
+        .header, .nav, .nav-links, .nav-links a {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.01em;
+        }
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/pilings.png');
             background-size: cover;
@@ -442,194 +452,187 @@
                 </section>
 
                 <div class="treatments-grid">
-                    <!-- BioRePeel -->
-                    <div class="treatment-card" data-treatment="biorepeel" role="article" aria-labelledby="biorepeel-title">
-                        <img src="images/biorepeel.jpg" alt="BioRePeel" class="treatment-image" loading="lazy" width="320" height="200">
-                        <div class="treatment-content">
-                            <h3 id="biorepeel-title" class="ro">BioRePeel</h3>
-                            <p class="ro">Tratament exfoliant și regenerator pentru pielea feței</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">800 lei</div>
-                                <button class="details-button" data-treatment="biorepeel" onclick="openModal('treatmentModal', this)">Detalii</button>
+                    <!-- Card 1: BioRePeel -->
+                    <div class="treatment-card" data-treatment="biorepeel">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('biorepeel')">
+                            <img src="images/biorepeel.webp" alt="BioRePeel" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 800 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- BioRePeel corp -->
-                    <div class="treatment-card" data-treatment="biorepeel-body" role="article" aria-labelledby="biorepeel-body-title">
-                        <img src="images/biorepeel-body.jpg" alt="BioRePeel corp" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
-                            <h3 id="biorepeel-body-title" class="ro">BioRePeel corp</h3>
-                            <p class="ro">Tratament exfoliant și regenerator pentru pielea corpului</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">1200 lei</div>
-                                <button class="details-button" data-treatment="biorepeel-body" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
+                            <h3>BioRePeel</h3>
                         </div>
                     </div>
-
-                    <!-- Azelaic -->
-                    <div class="treatment-card" data-treatment="azelaic" role="article" aria-labelledby="azelaic-title">
-                        <img src="images/NP-Azelaico.jpg" alt="Azelaic" class="treatment-image" loading="lazy" width="320" height="200">
-                        <div class="treatment-content">
-                            <h3 id="azelaic-title" class="ro">Azelaic</h3>
-                            <p class="ro">Tratament pentru piele problematică și acneică</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">600 lei</div>
-                                <button class="details-button" data-treatment="azelaic" onclick="openModal('treatmentModal', this)">Detalii</button>
+                    <!-- Card 2: BioRePeel corp -->
+                    <div class="treatment-card" data-treatment="biorepeel-body">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('biorepeel-body')">
+                            <img src="images/biorepeelbody.jpg" alt="BioRePeel corp" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 1200 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Mandelic -->
-                    <div class="treatment-card" data-treatment="mandelic" role="article" aria-labelledby="mandelic-title">
-                        <img src="images/mandelnic.webp" alt="Mandelic" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
-                            <h3 id="mandelic-title" class="ro">Mandelic</h3>
-                            <p class="ro">Peeling delicat pentru toate tipurile de ten</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">500 lei</div>
-                                <button class="details-button" data-treatment="mandelic" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
+                            <h3>BioRePeel corp</h3>
                         </div>
                     </div>
-
-                    <!-- Lactic -->
-                    <div class="treatment-card" data-treatment="lactic" role="article" aria-labelledby="lactic-title">
-                        <img src="images/Lactic.webp" alt="Lactic" class="treatment-image" loading="lazy" width="320" height="200">
-                        <div class="treatment-content">
-                            <h3 id="lactic-title" class="ro">Lactic</h3>
-                            <p class="ro">Peeling hidratant și iluminator</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">450 lei</div>
-                                <button class="details-button" data-treatment="lactic" onclick="openModal('treatmentModal', this)">Detalii</button>
+                    <!-- Card 3: Azelaic -->
+                    <div class="treatment-card" data-treatment="azelaic">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('azelaic')">
+                            <img src="images/azelaic.jpg" alt="Azelaic" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 600 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Fitic -->
-                    <div class="treatment-card" data-treatment="fitic" role="article" aria-labelledby="fitic-title">
-                        <img src="images/Fitic.webp" alt="Fitic" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
-                            <h3 id="fitic-title" class="ro">Fitic</h3>
-                            <p class="ro">Peeling antioxidant și protector</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">550 lei</div>
-                                <button class="details-button" data-treatment="fitic" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
+                            <h3>Azelaic</h3>
                         </div>
                     </div>
-
-                    <!-- Peri-orbital -->
-                    <div class="treatment-card" data-treatment="peri-orbital" role="article" aria-labelledby="peri-orbital-title">
-                        <img src="images/periorbital.avif" alt="Peri-orbital" class="treatment-image" loading="lazy" width="320" height="200">
-                        <div class="treatment-content">
-                            <h3 id="peri-orbital-title" class="ro">Peri-orbital</h3>
-                            <p class="ro">Tratament specializat pentru zona ochilor</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">400 lei</div>
-                                <button class="details-button" data-treatment="peri-orbital" onclick="openModal('treatmentModal', this)">Detalii</button>
+                    <!-- Card 4: Mandelic -->
+                    <div class="treatment-card" data-treatment="mandelic">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('mandelic')">
+                            <img src="images/mandelic.png" alt="Mandelic" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 500 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Stop Acne -->
-                    <div class="treatment-card" data-treatment="stop-acne" role="article" aria-labelledby="stop-acne-title">
-                        <img src="images/stopAcnee.jpg" alt="Stop Acne" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
-                            <h3 id="stop-acne-title" class="ro">Stop Acne</h3>
-                            <p class="ro">Tratament specializat pentru acne și piele problematică</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">700 lei</div>
-                                <button class="details-button" data-treatment="stop-acne" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
+                            <h3>Mandelic</h3>
                         </div>
                     </div>
-
-                    <!-- 3D|lifting -->
-                    <div class="treatment-card" data-treatment="3d-lifting" role="article" aria-labelledby="3d-lifting-title">
-                        <img src="images/3dLifting.webp" alt="3D|lifting" class="treatment-image" loading="lazy" width="320" height="200">
-                        <div class="treatment-content">
-                            <h3 id="3d-lifting-title" class="ro">3D|lifting</h3>
-                            <p class="ro">Tratament de lifting non-chirurgical</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">900 lei</div>
-                                <button class="details-button" data-treatment="3d-lifting" onclick="openModal('treatmentModal', this)">Detalii</button>
+                    <!-- Card 5: Lactic -->
+                    <div class="treatment-card" data-treatment="lactic">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('lactic')">
+                            <img src="images/Lactic.webp" alt="Lactic" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 450 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Carbon -->
-                    <div class="treatment-card" data-treatment="carbon" role="article" aria-labelledby="carbon-title">
-                        <img src="images/Carbon.avif" alt="Carbon" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
-                            <h3 id="carbon-title" class="ro">Carbon</h3>
-                            <p class="ro">Peeling cu carbon pentru o piele radiantă</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">650 lei</div>
-                                <button class="details-button" data-treatment="carbon" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
+                            <h3>Lactic</h3>
                         </div>
                     </div>
-
-                    <!-- Whitening -->
-                    <div class="treatment-card" data-treatment="whitening" role="article" aria-labelledby="whitening-title">
-                        <img src="images/whitening.webp" alt="Whitening" class="treatment-image" loading="lazy" width="320" height="200">
-                        <div class="treatment-content">
-                            <h3 id="whitening-title" class="ro">Whitening</h3>
-                            <p class="ro">Tratament pentru uniformizarea culorii tenului</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">750 lei</div>
-                                <button class="details-button" data-treatment="whitening" onclick="openModal('treatmentModal', this)">Detalii</button>
+                    <!-- Card 6: Fitic -->
+                    <div class="treatment-card" data-treatment="fitic">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('fitic')">
+                            <img src="images/fitic.jpg" alt="Fitic" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 550 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Enzymatic phytopeeling -->
-                    <div class="treatment-card" data-treatment="enzymatic-phytopeeling" role="article" aria-labelledby="enzymatic-phytopeeling-title">
-                        <img src="images/pharmica.jpeg" alt="Enzymatic phytopeeling" class="treatment-image" loading="lazy" width="320" height="200">
                         <div class="treatment-content">
-                            <h3 id="enzymatic-phytopeeling-title" class="ro">Enzymatic phytopeeling</h3>
-                            <p class="ro">Peeling natural cu enzime și extracte botanice</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">550 lei</div>
-                                <button class="details-button" data-treatment="enzymatic-phytopeeling" onclick="openModal('treatmentModal', this)">Detalii</button>
-                            </div>
+                            <h3>Fitic</h3>
                         </div>
                     </div>
-
-                    <!-- Yellow Retinol -->
-                    <div class="treatment-card" data-treatment="yellow-retinol" role="article" aria-labelledby="yellow-retinol-title">
-                        <img src="images/yellowretinol.webp" alt="Yellow Retinol" class="treatment-image" loading="lazy" width="320" height="200">
-                        <div class="treatment-content">
-                            <h3 id="yellow-retinol-title" class="ro">Yellow Retinol</h3>
-                            <p class="ro">Tratament anti-aging cu retinol</p>
-                            <div class="treatment-info">
-                                <div class="treatment-price">850 lei</div>
-                                <button class="details-button" data-treatment="yellow-retinol" onclick="openModal('treatmentModal', this)">Detalii</button>
+                    <!-- Card 7: Peri-orbital -->
+                    <div class="treatment-card" data-treatment="peri-orbital">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('peri-orbital')">
+                            <img src="images/periorbital.jpg" alt="Peri-orbital" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 400 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
+                        <div class="treatment-content">
+                            <h3>Peri-orbital</h3>
+                        </div>
                     </div>
-
-                    
+                    <!-- Card 8: Stop Acne -->
+                    <div class="treatment-card" data-treatment="stop-acne">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('stop-acne')">
+                            <img src="images/stopAcnee.jpg" alt="Stop Acne" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 700 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Stop Acne</h3>
+                        </div>
+                    </div>
+                    <!-- Card 9: 3D|lifting -->
+                    <div class="treatment-card" data-treatment="3d-lifting">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('3d-lifting')">
+                            <img src="images/3dLifting.webp" alt="3D|lifting" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 900 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>3D|lifting</h3>
+                        </div>
+                    </div>
+                    <!-- Card 10: Carbon -->
+                    <div class="treatment-card" data-treatment="carbon">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('carbon')">
+                            <img src="images/carbon1.jpg" alt="Carbon" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 650 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Carbon</h3>
+                        </div>
+                    </div>
+                    <!-- Card 11: Whitening -->
+                    <div class="treatment-card" data-treatment="whitening">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('whitening')">
+                            <img src="images/whitening.webp" alt="Whitening" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 750 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Whitening</h3>
+                        </div>
+                    </div>
+                    <!-- Card 12: Enzymatic phytopeeling -->
+                    <div class="treatment-card" data-treatment="enzymatic-phytopeeling">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('enzymatic-phytopeeling')">
+                            <img src="images/phytopeeling.jpg" alt="Enzymatic phytopeeling" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 550 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Enzymatic phytopeeling</h3>
+                        </div>
+                    </div>
+                    <!-- Card 13: Yellow Retinol -->
+                    <div class="treatment-card" data-treatment="yellow-retinol">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('yellow-retinol')">
+                            <img src="images/yellowretinol.jpg" alt="Yellow Retinol" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 850 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Yellow Retinol</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal pentru tratamente -->
+    <!-- Modal pentru detalii tratament -->
     <div id="treatmentModal" class="modal">
         <div class="modal-content">
             <img id="modalImage" class="modal-image" src="" alt="">
             <div class="modal-text">
                 <h2 id="modalTitle"></h2>
-                <p id="modalDescription"></p>
-            </div>
-            <div class="modal-info">
-                <p id="modalPrice" class="modal-price"></p>
-                <div class="modal-buttons">
-                    <button class="modal-button" onclick="window.open('https://dimitrovaclinic.setmore.com', '_blank')">Programează-te</button>
-                </div>
+                <div id="modalDescription"></div>
             </div>
         </div>
     </div>
@@ -703,5 +706,171 @@
     <script src="js/main.js"></script>
     <script src="js/body-care-modals.js"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script>
+    const treatmentsData = {
+        biorepeel: {
+            title: 'BioRePeel',
+            image: 'images/biorepeel.webp',
+            description: 'Peeling inovator pentru regenerare și revitalizare intensă.',
+            details: [
+                'Stimulează producția de colagen',
+                'Îmbunătățește textura pielii',
+                'Reduce petele pigmentare',
+                'Efect anti-aging vizibil'
+            ]
+        },
+        'biorepeel-body': {
+            title: 'BioRePeel corp',
+            image: 'images/biorepeelbody.jpg',
+            description: 'Peeling profesional pentru corp, cu efect de reîntinerire.',
+            details: [
+                'Exfoliere profundă',
+                'Uniformizează culoarea pielii',
+                'Reduce vergeturile',
+                'Piele mai netedă și catifelată'
+            ]
+        },
+        azelaic: {
+            title: 'Azelaic',
+            image: 'images/azelaic.jpg',
+            description: 'Peeling cu acid azelaic pentru ten acneic și problematic.',
+            details: [
+                'Reduce inflamațiile',
+                'Reglează secreția de sebum',
+                'Previne apariția acneei',
+                'Îmbunătățește aspectul porilor'
+            ]
+        },
+        mandelic: {
+            title: 'Mandelic',
+            image: 'images/mandelic.png',
+            description: 'Peeling blând cu acid mandelic pentru toate tipurile de ten.',
+            details: [
+                'Exfoliere delicată',
+                'Potrivit pentru piele sensibilă',
+                'Uniformizează nuanța tenului',
+                'Efect anti-aging ușor'
+            ]
+        },
+        lactic: {
+            title: 'Lactic',
+            image: 'images/Lactic.webp',
+            description: 'Peeling hidratant și iluminator.',
+            details: [
+                'Hidratează intens',
+                'Iluminează tenul',
+                'Reduce petele pigmentare',
+                'Potrivit pentru piele sensibilă'
+            ]
+        },
+        fitic: {
+            title: 'Fitic',
+            image: 'images/fitic.jpg',
+            description: 'Peeling antioxidant și protector.',
+            details: [
+                'Protejează împotriva radicalilor liberi',
+                'Uniformizează nuanța pielii',
+                'Efect calmant',
+                'Potrivit pentru piele sensibilă'
+            ]
+        },
+        'peri-orbital': {
+            title: 'Peri-orbital',
+            image: 'images/periorbital.jpg',
+            description: 'Tratament specializat pentru zona ochilor.',
+            details: [
+                'Reduce cearcănele',
+                'Îmbunătățește fermitatea pielii',
+                'Efect de iluminare',
+                'Potrivit pentru piele sensibilă'
+            ]
+        },
+        'stop-acne': {
+            title: 'Stop Acne',
+            image: 'images/stopAcnee.jpg',
+            description: 'Tratament specializat pentru acnee și piele problematică.',
+            details: [
+                'Reduce inflamațiile',
+                'Previne apariția coșurilor',
+                'Reglează secreția de sebum',
+                'Îmbunătățește textura pielii'
+            ]
+        },
+        '3d-lifting': {
+            title: '3D|lifting',
+            image: 'images/3dLifting.webp',
+            description: 'Tratament de lifting non-chirurgical.',
+            details: [
+                'Efect de lifting vizibil',
+                'Stimulează colagenul',
+                'Îmbunătățește fermitatea pielii',
+                'Rezultate rapide'
+            ]
+        },
+        carbon: {
+            title: 'Carbon',
+            image: 'images/carbon1.jpg',
+            description: 'Peeling cu carbon pentru o piele radiantă.',
+            details: [
+                'Curăță porii în profunzime',
+                'Reduce excesul de sebum',
+                'Îmbunătățește luminozitatea tenului',
+                'Efect de detoxifiere'
+            ]
+        },
+        whitening: {
+            title: 'Whitening',
+            image: 'images/whitening.webp',
+            description: 'Tratament pentru uniformizarea culorii tenului.',
+            details: [
+                'Reduce petele pigmentare',
+                'Uniformizează nuanța pielii',
+                'Efect de iluminare',
+                'Potrivit pentru toate tipurile de ten'
+            ]
+        },
+        'enzymatic-phytopeeling': {
+            title: 'Enzymatic phytopeeling',
+            image: 'images/phytopeeling.jpg',
+            description: 'Peeling natural cu enzime și extracte botanice.',
+            details: [
+                'Exfoliere blândă',
+                'Stimulează regenerarea pielii',
+                'Reduce inflamațiile',
+                'Potrivit pentru piele sensibilă'
+            ]
+        },
+        'yellow-retinol': {
+            title: 'Yellow Retinol',
+            image: 'images/yellowretinol.jpg',
+            description: 'Peeling cu retinol pentru efect anti-aging intens.',
+            details: [
+                'Reduce ridurile',
+                'Stimulează colagenul',
+                'Îmbunătățește textura pielii',
+                'Rezultate vizibile rapid'
+            ]
+        }
+    };
+    function openTreatmentModal(treatmentId) {
+        const data = treatmentsData[treatmentId];
+        if (!data) return;
+        document.getElementById('modalImage').src = data.image;
+        document.getElementById('modalImage').alt = data.title;
+        document.getElementById('modalTitle').textContent = data.title;
+        let descHtml = `<p>${data.description}</p>`;
+        if (data.details && data.details.length) {
+            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            descHtml += '</ul>';
+        }
+        document.getElementById('modalDescription').innerHTML = descHtml;
+        document.getElementById('treatmentModal').style.display = 'flex';
+        document.getElementById('treatmentModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('treatmentModal').style.opacity = '1';
+        }, 10);
+    }
+    </script>
 </body>
 </html>

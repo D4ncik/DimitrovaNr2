@@ -5,12 +5,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacte - Dimitrova.Clinic</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contacte.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+    <style>
+        body, .header, .nav, .nav-links, .nav-links a, .dropdown a, .contact-section h1, .intro-text, .info-card h2, .info-item p, .info-item a, .form-group label, .contact-form h2, .footer, .footer-content, .footer-column, .footer-logo, .footer-logo span, .footer h3, .footer ul, .footer a, .footer-bottom, .contact-info, .address, .social-links, .messenger-links {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            font-style: normal !important;
+        }
+        .nav-links a, .dropdown a {
+            font-weight: 300 !important;
+        }
+        .header, .nav, .nav-links {
+            font-weight: 300 !important;
+            letter-spacing: 0.01em;
+        }
+        .contact-section h1, .intro-text, .info-card h2, .info-item p, .info-item a, .form-group label, .contact-form h2 {
+            font-weight: 300 !important;
+        }
+        .footer, .footer-content, .footer-column, .footer-logo, .footer-logo span, .footer h3, .footer ul, .footer a, .footer-bottom, .contact-info, .address, .social-links, .messenger-links {
+            font-weight: 300 !important;
+        }
+        .contact-section {
+            padding: 120px 20px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contact-section h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .intro-text {
+            text-align: center;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .info-card h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .info-item i {
+            color: #5999ee;
+            font-size: 1.5em;
+            margin-right: 15px;
+            width: 25px;
+        }
+        .info-item p,
+        .info-item a {
+            color: #666;
+            margin: 0;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        .info-item a:hover {
+            color: #5999ee;
+        }
+        .map-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 300px;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .contact-form h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #5999ee;
+        }
+        .submit-button {
+            background: linear-gradient(45deg, #5999ee, #3d7fd9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .submit-button:hover {
+            background: linear-gradient(45deg, #3d7fd9, #2666c0);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(89, 153, 238, 0.3);
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        @media (max-width: 480px) {
+            .contact-section {
+                padding: 80px 15px 40px;
+            }
+            .contact-section h1 {
+                font-size: 1.8em;
+            }
+            .intro-text {
+                font-size: 1em;
+            }
+            .info-card,
+            .contact-form {
+                padding: 20px;
+            }
+            .info-card h2,
+            .contact-form h2 {
+                font-size: 1.5em;
+            }
+            .info-item i {
+                font-size: 1.3em;
+            }
+            .info-item p,
+            .info-item a {
+                font-size: 1em;
+            }
+            .form-group label {
+                font-size: 0.9em;
+            }
+            .form-group input,
+            .form-group textarea {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+            .submit-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">

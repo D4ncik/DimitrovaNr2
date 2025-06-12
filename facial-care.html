@@ -11,6 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+        }
+        .header, .nav, .nav-links, .nav-links a {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.01em;
+        }
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/cosmet_estetic.jpg');
             background-size: cover;
@@ -342,6 +352,37 @@
         body {
             overflow-x: hidden;
         }
+
+        .package-card.new-design {
+            padding: 0 !important;
+            border-radius: 0 !important;
+            overflow: hidden !important;
+        }
+        .package-card.new-design .treatment-image-wrapper,
+        .package-card.new-design .treatment-image {
+            border-radius: 0 !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+                display: block;
+        }
+        .package-card.new-design h3 {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            font-size: 1.1em !important;
+            color: #222 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.2em !important;
+            text-align: center;
+        }
+        .package-card.new-design .treatment-content {
+            padding: 0 6px 2px 6px !important;
+            margin-top: 0 !important;
+            text-align: center;
+        }
+        .package-card.new-design .treatment-image-wrapper {
+            margin-bottom: 0 !important;
+        }
     </style>
 </head>
 <body>
@@ -408,118 +449,122 @@
 
         <section class="facial-treatments">
             <div class="container">
-                <section class="consultation-banner">
-                    <h2 data-translate="facial-consultation-title">Consultație Personalizată</h2>
-                    <p data-translate="facial-consultation-desc">Vom alege împreună un tratament individual perfect pentru pielea ta</p>
-                    <button class="modal-button" style="margin-top: 30px;" onclick="openModal('consultationModal')" data-translate="facial-consultation-free">GRATUIT</button>
-                </section>
-
                 <div class="treatments-grid">
-                    <div class="treatment-card">
+                    <!-- Card 1: Enzyme -->
+                    <div class="treatment-card new-design" data-treatment="enzyme">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('enzyme')">
                         <img src="images/IMG_7277.PNG" alt="Enzyme" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 350 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Enzyme</h3>
-                            <p>Tratament exfoliant natural care elimină celulele moarte și îmbunătățește textura pielii.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">350 lei</span>
-                                <button class="details-button" data-treatment="enzyme" onclick="openModal('treatmentModal')">Detalii</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="treatment-card">
+                    <!-- Card 2: Carboxytherapy -->
+                    <div class="treatment-card new-design" data-treatment="carboxytherapy">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('carboxytherapy')">
                         <img src="images/carboxytherapy.jpg" alt="Carboxytherapy" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 600 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Carboxytherapy</h3>
-                            <p>Tratament cu dioxid de carbon pentru îmbunătățirea culorii tenului și luminozitate.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">600 lei</span>
-                                <button class="details-button" data-treatment="carboxytherapy" onclick="openModal('treatmentModal')">Detalii</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="treatment-card">
+                    <!-- Card 3: Curățare Combinată -->
+                    <div class="treatment-card new-design" data-treatment="combinata">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('combinata')">
                         <img src="images/combination.jpg" alt="Curățare Combinată" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 700 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Curățare Combinată</h3>
-                            <p>Procedură complexă care combină mai multe tehnici pentru o curățare profundă și eficientă.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">700 lei</span>
-                                <button class="details-button" data-treatment="combined-cleansing" onclick="openModal('treatmentModal')">Detalii</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="treatment-card">
+                    <!-- Card 4: Curățare Mecanică -->
+                    <div class="treatment-card new-design" data-treatment="mecanica">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('mecanica')">
                         <img src="images/curatare_mecanica.jpg" alt="Curățare Mecanică" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 550 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Curățare Mecanică</h3>
-                            <p>Curățare manuală profesională pentru eliminarea impurităților și a punctelor negre.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">550 lei</span>
-                                <button class="details-button" data-treatment="mechanical-cleansing" onclick="openModal('treatmentModal')">Detalii</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="treatment-card">
+                    <!-- Card 5: Curățare cu Ultrasunet -->
+                    <div class="treatment-card new-design" data-treatment="ultrasunet">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('ultrasunet')">
                         <img src="images/dermapen.jpg" alt="Curățare cu Ultrasunet" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>Curățare cu Ultrasunet</h3>
-                            <p>Curățare delicată și non-invazivă folosind tehnologia ultrasunetelor.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">500 lei</span>
-                                <button class="details-button" data-treatment="ultrasonic-cleansing" onclick="openModal('treatmentModal')">Detalii</button>
+                            <div class="badge-group">
+                                <span class="badge badge-left">1,5 h / 900 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
+                        <div class="treatment-content">
+                            <h3>Curățare cu ultrasunet</h3>
                     </div>
-
-                    <div class="treatment-card">
+                    </div>
+                    <!-- Card 6: Masaj facial -->
+                    <div class="treatment-card new-design" data-treatment="masaj">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('masaj')">
                         <img src="images/IMG_7288.PNG" alt="Masaj facial" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 300 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Masaj facial</h3>
-                            <p>Masaj relaxant și tonifiant pentru stimularea circulației și tonifierea musculaturii.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">300 lei</span>
-                                <button class="details-button" data-treatment="facial-massage" onclick="openModal('treatmentModal')">Detalii</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="treatment-card">
+                    <!-- Card 7: Mască alginată -->
+                    <div class="treatment-card new-design" data-treatment="alginata">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('alginata')">
                         <img src="images/IMG_6767.PNG" alt="Mască alginată" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 400 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>Mască alginată</h3>
-                            <p>Tratament hidratant și calmant cu efect imediat de strângere și tonifiere.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">400 lei</span>
-                                <button class="details-button" data-treatment="alginate-mask" onclick="openModal('treatmentModal')">Detalii</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="treatment-card">
+                    <!-- Card 8: RF-lifting facial -->
+                    <div class="treatment-card new-design" data-treatment="rf-lifting">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('rf-lifting')">
                         <img src="images/RF-lifiting.ARW" alt="RF-lifting facial" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 800 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>RF-lifting facial</h3>
-                            <p>Tratament de lifting non-chirurgical folosind radiofrecvență pentru întinerirea pielii.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">800 lei</span>
-                                <button class="details-button" data-treatment="rf-lifting" onclick="openModal('treatmentModal')">Detalii</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="treatment-card">
+                    <!-- Card 9: RF-lifting facial+decolteu -->
+                    <div class="treatment-card new-design" data-treatment="rf-decolteu">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('rf-decolteu')">
                         <img src="images/RF+decolteu.jpg" alt="RF-lifting facial+decolteu" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 1000 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>RF-lifting facial+decolteu</h3>
-                            <p>Tratament complet de lifting pentru față și decolteu pentru un efect de întinerire uniform.</p>
-                            <div class="treatment-info">
-                                <span class="treatment-price">1000 lei</span>
-                                <button class="details-button" data-treatment="rf-decollete" onclick="openModal('treatmentModal')">Detalii</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -534,51 +579,59 @@
                 </div>
                 <div class="packages-grid">
                     <!-- Pachet 1 -->
-                    <div class="package-card">
-                        <div class="package-tag">Revitalizare</div>
-                        <img src="images/curatare_piling.jpeg" alt="Curățare + Peeling" class="package-image">
-                        <div class="package-content">
+                    <div class="package-card new-design" data-package="curatare-peeling">
+                        <div class="treatment-image-wrapper" onclick="openPackageModal('curatare-peeling')">
+                            <img src="images/curatare_piling.jpeg" alt="Curățare + Peeling" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 1400 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
                             <h3>Pachet: Curățare + Peeling</h3>
-                            <p>Revitalizează-ți tenul cu pachetul nostru de curățare facială profesională urmată de un peeling chimic personalizat. Această combinație puternică elimină impuritățile, reduce petele pigmentare și stimulează regenerarea celulară, lăsându-ți pielea netedă, luminoasă și vizibil întinerită.</p>
-                            <div class="package-price">1400 lei</div>
-                            <button class="details-button" onclick="openModal('consultationModal')">Programează-te</button>
                         </div>
                     </div>
                     <!-- Pachet 2 -->
-                    <div class="package-card">
-                        <div class="package-tag">Hidratare</div>
-                        <img src="images/curatare_masca.jpeg" alt="Curățare + Mască Alginată" class="package-image">
-                        <div class="package-content">
+                    <div class="package-card new-design" data-package="curatare-masca">
+                        <div class="treatment-image-wrapper" onclick="openPackageModal('curatare-masca')">
+                            <img src="images/curatare_masca.jpeg" alt="Curățare + Mască Alginată" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 1150 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
                             <h3>Pachet: Curățare + Mască Alginată</h3>
-                            <p>Oferă-i tenului tău o doză dublă de îngrijire. Pachetul include o curățare profundă pentru a elimina impuritățile, urmată de o mască alginată bogată în minerale ce hidratează intens, calmează iritațiile și oferă un efect de lifting instantaneu, pentru un ten proaspăt și radiant.</p>
-                            <div class="package-price">1150 lei</div>
-                            <button class="details-button" onclick="openModal('consultationModal')">Programează-te</button>
                         </div>
                     </div>
                     <!-- Pachet 3 -->
-                    <div class="package-card">
-                        <div class="package-tag">Relaxare</div>
-                        <img src="images/curatare_masaj.jpg" alt="Curățare + Masaj Facial" class="package-image">
-                        <div class="package-content">
+                    <div class="package-card new-design" data-package="curatare-masaj">
+                        <div class="treatment-image-wrapper" onclick="openPackageModal('curatare-masaj')">
+                            <img src="images/curatare_masaj.jpg" alt="Curățare + Masaj Facial" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 1300 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
                             <h3>Pachet: Curățare + Masaj Facial</h3>
-                            <p>Experimentează relaxarea supremă și beneficii vizibile pentru piele. Acest pachet combină o curățare facială expertă cu un masaj facial ce nu doar destinde, ci și stimulează circulația sângelui și producția de colagen, îmbunătățind elasticitatea și fermitatea tenului.</p>
-                            <div class="package-price">1300 lei</div>
-                            <button class="details-button" onclick="openModal('consultationModal')">Programează-te</button>
                         </div>
                     </div>
                     <!-- Pachet 4 -->
-                    <div class="package-card">
-                        <div class="package-tag">Transformare</div>
-                        <img src="images/premium_facial.png" alt="Pachet Premium" class="package-image">
-                        <div class="package-content">
+                    <div class="package-card new-design" data-package="premium-14">
+                        <div class="treatment-image-wrapper" onclick="openPackageModal('premium-14')">
+                            <img src="images/premium_facial.png" alt="Pachet Premium" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">14 șed. / 5880 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
                             <h3>Pachet Premium: 14 Proceduri</h3>
-                            <p>Angajează-te într-o transformare completă a pielii cu pachetul nostru suprem. Acesta include un program complex de 14 proceduri atent selecționate, de la curățări și peelinguri, la tratamente intensive de hidratare și anti-aging. Soluția ideală pentru rezultate spectaculoase și de lungă durată.</p>
-                            <div class="package-price">5880 lei</div>
-                            <button class="details-button" onclick="openModal('consultationModal')">Programează-te</button>
                         </div>
                     </div>
                 </div>
-            </div>
+</div>
         </section>
     </main>
 
@@ -587,13 +640,7 @@
             <img id="modalImage" class="modal-image" src="" alt="">
             <div class="modal-text">
                 <h2 id="modalTitle"></h2>
-                <p id="modalDescription"></p>
-            </div>
-            <div class="modal-info">
-                <p id="modalPrice" class="modal-price"></p>
-                <div class="modal-buttons">
-                    <button class="modal-button" id="bookingButton" onclick="closeModal('treatmentModal'); openModal('treatmentBookingModal')">Programează-te</button>
-                </div>
+                <div id="modalDescription"></div>
             </div>
         </div>
     </div>
@@ -609,6 +656,16 @@
     <div id="treatmentBookingModal" class="modal">
         <div class="modal-content consultation-modal">
             <div class="calendly-section">
+            </div>
+        </div>
+    </div>
+
+    <div id="packageModal" class="modal" onclick="if(event.target===this) closePackageModal()">
+        <div class="modal-content">
+            <img id="packageModalImage" class="modal-image" src="" alt="">
+            <div class="modal-text">
+                <h2 id="packageModalTitle"></h2>
+                <div id="packageModalDescription"></div>
             </div>
         </div>
     </div>
@@ -675,45 +732,211 @@
     <script src="js/modal-handler.js"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Adăugăm event listener pentru butoanele de detalii
-        document.querySelectorAll('.details-button').forEach(button => {
-            button.addEventListener('click', function() {
-                const treatment = this.getAttribute('data-treatment');
-                // Setăm URL-ul pentru iframe-ul de programare în funcție de tratament
-                let bookingUrl = '';
-                switch(treatment) {
-                    case 'enzyme':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/ffe53077-3b3c-41c7-ac91-b8ae7c3e2a83';
-                        break;
-                    case 'carboxytherapy':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/8f65d2f3-fbd6-4b7f-8247-770fde03b94c';
-                        break;
-                    case 'combined-cleansing':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/41bdd709-7281-450e-979f-d0f05b8090e0';
-                        break;
-                    case 'mechanical-cleansing':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/41bdd709-7281-450e-979f-d0f05b8090e0';
-                        break;
-                    case 'ultrasonic-cleansing':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/41bdd709-7281-450e-979f-d0f05b8090e0';
-                        break;
-                    case 'facial-massage':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/41bdd709-7281-450e-979f-d0f05b8090e0';
-                        break;
-                    case 'alginate-mask':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/41bdd709-7281-450e-979f-d0f05b8090e0';
-                        break;
-                    case 'rf-lifting':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/ffe53077-3b3c-41c7-ac91-b8ae7c3e2a83';
-                        break;
-                    case 'rf-decollete':
-                        bookingUrl = 'https://dimitrovaclinic.setmore.com/services/8f65d2f3-fbd6-4b7f-8247-770fde03b94c';
-                        break;
-                }
-                document.getElementById('bookingIframe').src = bookingUrl;
-            });
-        });
+    // Datele pentru fiecare tratament (exemplu, poți completa cu descrieri detaliate și liste)
+    const treatmentsData = {
+        enzyme: {
+            title: 'Enzyme',
+            image: 'images/IMG_7277.PNG',
+            price: '1 h / 350 MDL',
+            description: 'Tratament enzimatic pentru curățare profundă și revitalizare a pielii.',
+            details: [
+                'Curăță delicat celulele moarte',
+                'Stimulează regenerarea celulară',
+                'Potrivit pentru toate tipurile de ten',
+                'Reduce inflamațiile și roșeața'
+            ]
+        },
+        carboxytherapy: {
+            title: 'Carboxytherapy',
+            image: 'images/carboxytherapy.jpg',
+            price: '1 h / 600 MDL',
+            description: 'Terapie inovatoare cu dioxid de carbon pentru oxigenarea și revitalizarea pielii.',
+            details: [
+                'Îmbunătățește circulația sângelui',
+                'Stimulează producția de colagen',
+                'Redă luminozitatea tenului',
+                'Efect anti-aging vizibil'
+            ]
+        },
+        combinata: {
+            title: 'Curățare Combinată',
+            image: 'images/combination.jpg',
+            price: '1 h / 700 MDL',
+            description: 'Curățare facială complexă ce combină mai multe tehnici pentru rezultate optime.',
+            details: [
+                'Curățare mecanică și chimică',
+                'Elimină punctele negre și impuritățile',
+                'Calmează și hidratează pielea',
+                'Recomandat pentru ten mixt sau problematic'
+            ]
+        },
+        mecanica: {
+            title: 'Curățare Mecanică',
+            image: 'images/curatare_mecanica.jpg',
+            price: '1 h / 550 MDL',
+            description: 'Curățare manuală profundă pentru eliminarea impurităților și a punctelor negre.',
+            details: [
+                'Deschide porii și elimină excesul de sebum',
+                'Reduce riscul de acnee',
+                'Piele mai curată și mai netedă',
+                'Include mască calmantă la final'
+            ]
+        },
+        ultrasunet: {
+            title: 'Curățare cu ultrasunet',
+            image: 'images/dermapen.jpg',
+            price: '1,5 h / 900 MDL',
+            description: 'Curățare blândă cu ultrasunete pentru un ten luminos și sănătos.',
+            details: [
+                'Elimină impuritățile fără iritații',
+                'Stimulează microcirculația',
+                'Ideal pentru piele sensibilă',
+                'Rezultate vizibile după prima ședință'
+            ]
+        },
+        masaj: {
+            title: 'Masaj facial',
+            image: 'images/IMG_7288.PNG',
+            price: '1 h / 300 MDL',
+            description: 'Masaj facial relaxant pentru tonifiere și revitalizare.',
+            details: [
+                'Stimulează circulația și drenajul limfatic',
+                'Îmbunătățește elasticitatea pielii',
+                'Reduce tensiunea musculară',
+                'Efect de lifting natural'
+            ]
+        },
+        alginata: {
+            title: 'Mască alginată',
+            image: 'images/IMG_6767.PNG',
+            price: '1 h / 400 MDL',
+            description: 'Mască profesională cu alge pentru hidratare intensă și calmare.',
+            details: [
+                'Hidratează profund și calmează',
+                'Reduce roșeața și iritațiile',
+                'Potrivită după tratamente agresive',
+                'Piele mai luminoasă și catifelată'
+            ]
+        },
+        'rf-lifting': {
+            title: 'RF-lifting facial',
+            image: 'images/RF-lifiting.ARW',
+            price: '1 h / 800 MDL',
+            description: 'Tratament de lifting facial cu radiofrecvență pentru fermitate și rejuvenare.',
+            details: [
+                'Stimulează producția de colagen',
+                'Efect de lifting vizibil',
+                'Fără durere, fără recuperare',
+                'Rezultate de lungă durată'
+            ]
+        },
+        'rf-decolteu': {
+            title: 'RF-lifting facial+decolteu',
+            image: 'images/RF+decolteu.jpg',
+            price: '1 h / 1000 MDL',
+            description: 'Lifting cu radiofrecvență pentru față și decolteu.',
+            details: [
+                'Tratează laxitatea pielii',
+                'Îmbunătățește textura și tonusul',
+                'Ideal pentru zona gâtului și decolteului',
+                'Rezultate vizibile rapid'
+            ]
+        }
+    };
+
+    function openTreatmentModal(treatmentId) {
+        const data = treatmentsData[treatmentId];
+        if (!data) return;
+        document.getElementById('modalImage').src = data.image;
+        document.getElementById('modalImage').alt = data.title;
+        document.getElementById('modalTitle').textContent = data.title;
+        let descHtml = `<p>${data.description}</p>`;
+        if (data.details && data.details.length) {
+            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            descHtml += '</ul>';
+        }
+        document.getElementById('modalDescription').innerHTML = descHtml;
+        document.getElementById('treatmentModal').style.display = 'flex';
+        document.getElementById('treatmentModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('treatmentModal').style.opacity = '1';
+        }, 10);
+    }
+
+    const packagesData = {
+        'curatare-peeling': {
+            title: 'Pachet: Curățare + Peeling',
+            image: 'images/curatare_piling.jpeg',
+            description: 'Revitalizează-ți tenul cu pachetul nostru de curățare facială profesională urmată de un peeling chimic personalizat.',
+            details: [
+                'Elimină impuritățile și celulele moarte',
+                'Reduce petele pigmentare',
+                'Stimulează regenerarea celulară',
+                'Piele netedă, luminoasă și întinerită'
+            ]
+        },
+        'curatare-masca': {
+            title: 'Pachet: Curățare + Mască Alginată',
+            image: 'images/curatare_masca.jpeg',
+            description: 'Oferă-i tenului tău o doză dublă de îngrijire cu curățare profundă și mască alginată bogată în minerale.',
+            details: [
+                'Hidratează intens și calmează iritațiile',
+                'Efect de lifting instantaneu',
+                'Piele proaspătă și radiantă',
+                'Ideal pentru ten sensibil sau deshidratat'
+            ]
+        },
+        'curatare-masaj': {
+            title: 'Pachet: Curățare + Masaj Facial',
+            image: 'images/curatare_masaj.jpg',
+            description: 'Experimentează relaxarea supremă și beneficii vizibile pentru piele.',
+            details: [
+                'Curățare facială expertă',
+                'Masaj facial pentru stimularea circulației',
+                'Îmbunătățește elasticitatea și fermitatea tenului',
+                'Efect de relaxare și revitalizare'
+            ]
+        },
+        'premium-14': {
+            title: 'Pachet Premium: 14 Proceduri',
+            image: 'images/premium_facial.png',
+            description: 'Transformare completă a pielii cu un program complex de 14 proceduri atent selecționate.',
+            details: [
+                'Curățări și peelinguri profesionale',
+                'Tratamente intensive de hidratare și anti-aging',
+                'Rezultate spectaculoase și de lungă durată',
+                'Ideal pentru o schimbare vizibilă a tenului'
+            ]
+        }
+    };
+
+    function openPackageModal(packageId) {
+        const data = packagesData[packageId];
+        if (!data) return;
+        document.getElementById('packageModalImage').src = data.image;
+        document.getElementById('packageModalImage').alt = data.title;
+        document.getElementById('packageModalTitle').textContent = data.title;
+        let descHtml = `<p>${data.description}</p>`;
+        if (data.details && data.details.length) {
+            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            descHtml += '</ul>';
+        }
+        document.getElementById('packageModalDescription').innerHTML = descHtml;
+        document.getElementById('packageModal').style.display = 'flex';
+        document.getElementById('packageModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('packageModal').style.opacity = '1';
+        }, 10);
+    }
+
+    function closePackageModal() {
+        document.getElementById('packageModal').style.display = 'none';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closePackageModal();
     });
     </script>
 </body>

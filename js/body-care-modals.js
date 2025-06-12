@@ -70,13 +70,13 @@ const treatmentData = {
         title: 'Enzymatic phytopeeling',
         description: 'Peeling natural cu enzime și extracte botanice.',
         price: '550 lei',
-        image: 'images/Pharmica.jpg'
+        image: 'images/phytopeeling.jpg'
     },
     'yellow-retinol': {
         title: 'Yellow Retinol',
         description: 'Tratament anti-aging cu retinol.',
         price: '850 lei',
-        image: 'images/yellowretinol.webp'
+        image: 'images/yellowretinol.jpg'
     },
     'rf-body': {
         title: 'RF-lifting corporal',
