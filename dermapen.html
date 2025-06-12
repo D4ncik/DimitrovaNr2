@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proceduri Dermapen - Dimitrova.Clinic</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style-fixes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -204,11 +203,17 @@
             padding: 20px 30px;
             border-top: 1px solid #eee;
             margin-top: auto;
+            gap: 20px;
         }
         .modal-price {
             color: #5999ee;
             font-weight: bold;
             font-size: 1.3em;
+            margin: 0;
+            flex-grow: 1;
+        }
+        .modal-buttons {
+            margin: 0;
         }
         .modal-button {
             display: inline-block;
@@ -279,12 +284,13 @@
                 max-width: 100%;
             }
             .treatment-info {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
                 gap: 10px;
             }
             .session-badge {
-                width: 100%;
+                width: auto;
                 margin-right: 0;
             }
             .treatment-info .details-button {
@@ -333,8 +339,9 @@
         }
         @media (max-width: 900px) {
             .treatment-info {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
                 gap: 10px;
             }
             .session-badges-group {
@@ -361,9 +368,15 @@
                 display: flex !important;
                 flex-direction: row !important;
                 align-items: center !important;
-                justify-content: flex-end !important;
+                justify-content: space-between !important;
                 flex-wrap: nowrap !important;
-                gap: 0;
+                gap: 15px !important;
+                padding: 15px 20px !important;
+            }
+            .modal-price {
+                margin: 0 !important;
+                flex-grow: 1 !important;
+                font-size: 1.2em !important;
             }
             #modalSessionLabels, .modal-session-labels {
                 margin-right: 12px !important;
@@ -374,7 +387,7 @@
                 font-size: 0.9em !important;
                 white-space: nowrap !important;
             }
-            .modal-button {
+            .modal .modal-button {
                 padding: 10px 16px !important;
                 font-size: 0.95em !important;
                 border-radius: 18px !important;
@@ -487,6 +500,14 @@
             }
             .benefits-list li {
                 font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .consultation-banner .modal-button {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     </style>

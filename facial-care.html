@@ -339,135 +339,6 @@
             color: #234a7c !important;
         }
 
-        /* Mobile Menu Styles */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1000;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 5px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        @media screen and (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-                position: absolute;
-                right: 20px;
-                top: 5px;
-                z-index: 1001;
-            }
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 80px 20px 20px;
-                z-index: 1000;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links > li {
-                width: 100%;
-                margin: 0;
-            }
-
-            .nav-links > li > a {
-                padding: 15px 0;
-                font-size: 1.2em;
-                display: block;
-            }
-
-            .dropdown {
-                position: static;
-                box-shadow: none;
-                padding: 0;
-                display: none;
-                width: 100%;
-                background: #f8f9fa;
-            }
-
-            .dropdown.active {
-                display: block;
-            }
-
-            .dropdown li a {
-                padding: 10px 20px;
-                display: block;
-            }
-
-            .nav-links .has-dropdown > a::after {
-                display: none;
-            }
-            .mobile-nav .has-dropdown > a::after {
-                content: '\f107';
-                font-family: 'Font Awesome 5 Free';
-                font-weight: 900;
-                margin-left: 5px;
-            }
-
-            .has-dropdown.active > a::after {
-                content: '\f106';
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .mobile-menu-btn {
-                right: 10px;
-                top: 0px;
-            }
-            
-            .mobile-menu-btn span {
-                width: 20px;
-                height: 2px;
-                margin: 4px 0;
-            }
-            
-            .nav-links {
-                padding: 60px 15px 15px;
-            }
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            justify-content: center;
-        }
-
         body {
             overflow-x: hidden;
         }
@@ -655,38 +526,56 @@
             </div>
         </section>
 
-        <section class="packages-section">
+        <section class="packages-section" style="padding: 80px 0; background: #f2fafc;">
             <div class="container">
-                <h2 class="packages-title">Pachete Proceduri</h2>
-                <p class="packages-subtitle">Alegeți un pachet pentru un preț avantajos</p>
+                <div class="title-container" style="text-align: center; margin-bottom: 50px;">
+                    <h2 class="packages-title" style="font-size: 2.8em; color: #2c3e50; margin-bottom: 15px; font-weight: 600;">Pachete Avantajoase</h2>
+                    <p class="packages-subtitle" style="font-size: 1.2em; color: #666; max-width: 700px; margin: auto;">Investește în frumusețea ta cu pachetele noastre special concepute pentru rezultate complete.</p>
+                </div>
                 <div class="packages-grid">
+                    <!-- Pachet 1 -->
                     <div class="package-card">
-                        <div class="package-tag">Ofertă</div>
-                        <h3>Pachet 1: Curățare + Peeling</h3>
-                        <p>Combinație ideală pentru reînnoirea și curățarea profundă a pielii.</p>
-                        <div class="package-price">1400 lei</div>
-                        <button class="details-button" onclick="openModal('consultationModal')">Programează</button>
+                        <div class="package-tag">Revitalizare</div>
+                        <img src="images/curatare_piling.jpeg" alt="Curățare + Peeling" class="package-image">
+                        <div class="package-content">
+                            <h3>Pachet: Curățare + Peeling</h3>
+                            <p>Revitalizează-ți tenul cu pachetul nostru de curățare facială profesională urmată de un peeling chimic personalizat. Această combinație puternică elimină impuritățile, reduce petele pigmentare și stimulează regenerarea celulară, lăsându-ți pielea netedă, luminoasă și vizibil întinerită.</p>
+                            <div class="package-price">1400 lei</div>
+                            <button class="details-button" onclick="openModal('consultationModal')">Programează-te</button>
+                        </div>
                     </div>
+                    <!-- Pachet 2 -->
                     <div class="package-card">
-                        <div class="package-tag">Ofertă</div>
-                        <h3>Pachet 2: Curățare + Mască Alginată</h3>
-                        <p>Pentru curățare și hidratare intensă cu efect calmant.</p>
-                        <div class="package-price">1150 lei</div>
-                        <button class="details-button" onclick="openModal('consultationModal')">Programează</button>
+                        <div class="package-tag">Hidratare</div>
+                        <img src="images/curatare_masca.jpeg" alt="Curățare + Mască Alginată" class="package-image">
+                        <div class="package-content">
+                            <h3>Pachet: Curățare + Mască Alginată</h3>
+                            <p>Oferă-i tenului tău o doză dublă de îngrijire. Pachetul include o curățare profundă pentru a elimina impuritățile, urmată de o mască alginată bogată în minerale ce hidratează intens, calmează iritațiile și oferă un efect de lifting instantaneu, pentru un ten proaspăt și radiant.</p>
+                            <div class="package-price">1150 lei</div>
+                            <button class="details-button" onclick="openModal('consultationModal')">Programează-te</button>
+                        </div>
                     </div>
+                    <!-- Pachet 3 -->
                     <div class="package-card">
-                        <div class="package-tag">Ofertă</div>
-                        <h3>Pachet 3: Curățare + Masaj facial</h3>
-                        <p>Curățare profundă combinată cu relaxare și tonifiere musculară.</p>
-                        <div class="package-price">1300 lei</div>
-                        <button class="details-button" onclick="openModal('consultationModal')">Programează</button>
+                        <div class="package-tag">Relaxare</div>
+                        <img src="images/curatare_masaj.jpg" alt="Curățare + Masaj Facial" class="package-image">
+                        <div class="package-content">
+                            <h3>Pachet: Curățare + Masaj Facial</h3>
+                            <p>Experimentează relaxarea supremă și beneficii vizibile pentru piele. Acest pachet combină o curățare facială expertă cu un masaj facial ce nu doar destinde, ci și stimulează circulația sângelui și producția de colagen, îmbunătățind elasticitatea și fermitatea tenului.</p>
+                            <div class="package-price">1300 lei</div>
+                            <button class="details-button" onclick="openModal('consultationModal')">Programează-te</button>
+                        </div>
                     </div>
+                    <!-- Pachet 4 -->
                     <div class="package-card">
-                        <div class="package-tag">Ofertă</div>
-                        <h3>Pachet 4: 14 proceduri</h3>
-                        <p>Pachet extins pentru un tratament complet și de durată.</p>
-                        <div class="package-price">5880 lei</div>
-                        <button class="details-button" onclick="openModal('consultationModal')">Programează</button>
+                        <div class="package-tag">Transformare</div>
+                        <img src="images/premium_facial.png" alt="Pachet Premium" class="package-image">
+                        <div class="package-content">
+                            <h3>Pachet Premium: 14 Proceduri</h3>
+                            <p>Angajează-te într-o transformare completă a pielii cu pachetul nostru suprem. Acesta include un program complex de 14 proceduri atent selecționate, de la curățări și peelinguri, la tratamente intensive de hidratare și anti-aging. Soluția ideală pentru rezultate spectaculoase și de lungă durată.</p>
+                            <div class="package-price">5880 lei</div>
+                            <button class="details-button" onclick="openModal('consultationModal')">Programează-te</button>
+                        </div>
                     </div>
                 </div>
             </div>

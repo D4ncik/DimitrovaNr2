@@ -190,6 +190,20 @@
         .details-button:hover {
             background-color: #4a8ad9;
         }
+        @media (max-width: 768px) {
+            .offer-card {
+                flex-direction: column;
+            }
+            .offer-image {
+                width: 100%;
+                height: auto;
+                border-radius: 15px 15px 0 0;
+            }
+            .offer-details {
+                width: 100%;
+                border-radius: 0 0 15px 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -257,7 +271,7 @@
                 <div class="offer-content">
                     <h2 class="offer-title">Ofertă lunii</h2>
                     <div class="offer-card">
-                        <img src="images/offer.jpg" alt="Ofertă specială" class="offer-image">
+                        <img src="images/premiumfacial.webp" alt="Ofertă specială" class="offer-image">
                         <div class="offer-details">
                             <h3>Pachet Premium Facial</h3>
                             <p class="offer-description">Tratament facial complet + Peeling chimic + Mezoterapie</p>
@@ -319,6 +333,14 @@
                             <h3 class="service-title">Remodelare corporală</h3>
                             <p class="service-description">Tratamente specializate pentru conturarea și tonifierea corpului, cu rezultate vizibile.</p>
                             <a href="body-remodeling.html" class="details-button">Detalii</a>
+                        </div>
+                    </div>
+                    <div class="service-card last-row">
+                        <img src="images/massage2.jpg" alt="Masaj" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Masaj</h3>
+                            <p class="service-description">Tehnici de masaj pentru relaxare, detensionare și îmbunătățirea circulației, adaptate nevoilor tale.</p>
+                            <a href="massage.html" class="details-button">Detalii</a>
                         </div>
                     </div>
                 </div>
