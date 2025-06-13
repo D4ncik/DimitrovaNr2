@@ -1727,13 +1727,6 @@ body.lightbox-open {
     }
 }
 
-/* Ajustăm stilul de hover pentru before-after container dacă este necesar, 
-   dar probabil regula de mai sus este suficientă */
-.gallery-item.before-after-container:hover .after-image {
-    /* Putem adauga aici un stil de hover specific daca dorim, 
-       momentan lasam necomentat doar pentru a contracara potentialul efect nedorit de la regula generala */
-    /* transform: none; */
-}
 
 .intro-text {
     font-family: 'Noto Sans', sans-serif;
@@ -2040,9 +2033,6 @@ body.lightbox-open {
     text-align: center;
 }
 
-.package-card .details-button {
-    /* Reutilizăm stilul existent pentru butoane */
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -2360,11 +2350,11 @@ body.lightbox-open {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 0px solid transparent;
 }
 .treatment-card.new-design:hover {
     box-shadow: 0 8px 32px rgba(89,153,238,0.18);
-    border: 2px solid #fff;
+    border: 0px solid #fff;
     background: rgba(255,255,255,0.96);
     transform: translateY(-4px) scale(1.01);
     z-index: 2;

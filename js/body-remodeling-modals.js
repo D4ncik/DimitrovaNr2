@@ -126,11 +126,134 @@ function openTreatmentModal(treatmentId) {
 
     const modal = document.getElementById('treatmentModal');
     const modalImage = document.getElementById('modalImage');
+    let beforeAfterImages = null;
+    let currentImgIdx = 0;
+    // Imagini before/after pentru tratamentele speciale
+    if (treatmentId === 'rf-lifting') {
+        beforeAfterImages = [
+            'images/RF-lifting1.jpg',
+            'images/RF-lifting2.jpg'
+        ];
+    } else if (treatmentId === 'cavitatie') {
+        beforeAfterImages = [
+            'images/corp2.PNG',
+            'images/cavitatie-after.jpg'
+        ];
+    }
+
+    if (beforeAfterImages) {
+        modalImage.src = beforeAfterImages[0];
+        modalImage.alt = treatment.title + ' Before';
+        // Adaug butoane de navigare absolut pe lateralul imaginii
+        let nav = document.getElementById('modalImgNav');
+        if (!nav) {
+            nav = document.createElement('div');
+            nav.id = 'modalImgNav';
+            nav.style.position = 'absolute';
+            nav.style.top = '0';
+            nav.style.left = '0';
+            nav.style.width = '100%';
+            nav.style.height = modalImage.offsetHeight + 'px';
+            nav.style.pointerEvents = 'none';
+            modalImage.parentNode.insertBefore(nav, modalImage.nextSibling);
+        }
+        nav.innerHTML = '';
+        // Buton stânga
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = '‹';
+        prevBtn.style.position = 'absolute';
+        prevBtn.style.left = '16px';
+        prevBtn.style.top = '50%';
+        prevBtn.style.transform = 'translateY(-50%)';
+        prevBtn.style.fontSize = '2.2em';
+        prevBtn.style.background = 'rgba(255,255,255,0.85)';
+        prevBtn.style.border = 'none';
+        prevBtn.style.cursor = 'pointer';
+        prevBtn.style.color = '#5999ee';
+        prevBtn.style.borderRadius = '50%';
+        prevBtn.style.width = '48px';
+        prevBtn.style.height = '48px';
+        prevBtn.style.display = 'flex';
+        prevBtn.style.alignItems = 'center';
+        prevBtn.style.justifyContent = 'center';
+        prevBtn.style.boxShadow = '0 2px 8px rgba(89,153,238,0.13)';
+        prevBtn.disabled = true;
+        // Buton dreapta
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = '›';
+        nextBtn.style.position = 'absolute';
+        nextBtn.style.right = '16px';
+        nextBtn.style.top = '50%';
+        nextBtn.style.transform = 'translateY(-50%)';
+        nextBtn.style.fontSize = '2.2em';
+        nextBtn.style.background = 'rgba(255,255,255,0.85)';
+        nextBtn.style.border = 'none';
+        nextBtn.style.cursor = 'pointer';
+        nextBtn.style.color = '#5999ee';
+        nextBtn.style.borderRadius = '50%';
+        nextBtn.style.width = '48px';
+        nextBtn.style.height = '48px';
+        nextBtn.style.display = 'flex';
+        nextBtn.style.alignItems = 'center';
+        nextBtn.style.justifyContent = 'center';
+        nextBtn.style.boxShadow = '0 2px 8px rgba(89,153,238,0.13)';
+        nav.appendChild(prevBtn);
+        nav.appendChild(nextBtn);
+        // Poziționez nav peste containerul imaginii
+        nav.style.height = `${modalImage.offsetHeight}px`;
+        nav.style.pointerEvents = 'none';
+        prevBtn.style.pointerEvents = 'auto';
+        nextBtn.style.pointerEvents = 'auto';
+
+        // Măresc modalul dacă e nevoie (elimin scroll orizontal)
+        const modalContent = modalImage.closest('.modal-content');
+        if (modalContent) {
+            modalContent.style.maxWidth = '1000px';
+            modalContent.style.width = '95vw';
+        }
+
+        // Autoplay la 3 secunde
+        let autoplay = setInterval(() => {
+            if (currentImgIdx < beforeAfterImages.length - 1) {
+                currentImgIdx++;
+            } else {
+                currentImgIdx = 0;
+            }
+            modalImage.src = beforeAfterImages[currentImgIdx];
+            prevBtn.disabled = currentImgIdx === 0;
+            nextBtn.disabled = currentImgIdx === beforeAfterImages.length - 1;
+        }, 3000);
+        // Oprește autoplay dacă utilizatorul apasă pe săgeți
+        prevBtn.onclick = function() {
+            clearInterval(autoplay);
+            if (currentImgIdx > 0) {
+                currentImgIdx--;
+                modalImage.src = beforeAfterImages[currentImgIdx];
+                prevBtn.disabled = currentImgIdx === 0;
+                nextBtn.disabled = currentImgIdx === beforeAfterImages.length - 1;
+            }
+        };
+        nextBtn.onclick = function() {
+            clearInterval(autoplay);
+            if (currentImgIdx < beforeAfterImages.length - 1) {
+                currentImgIdx++;
+                modalImage.src = beforeAfterImages[currentImgIdx];
+                prevBtn.disabled = currentImgIdx === 0;
+                nextBtn.disabled = currentImgIdx === beforeAfterImages.length - 1;
+            }
+        };
+        nextBtn.disabled = beforeAfterImages.length <= 1;
+    } else {
+        modalImage.src = treatment.image;
+        modalImage.alt = treatment.title;
+        // Elimină navigarea dacă există
+        const nav = document.getElementById('modalImgNav');
+        if (nav) nav.remove();
+    }
+    
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
 
-    modalImage.src = treatment.image;
-    modalImage.alt = treatment.title;
     modalTitle.textContent = treatment.title;
     
     let descHtml = `<p>${treatment.description}</p>`;

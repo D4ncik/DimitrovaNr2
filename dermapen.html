@@ -48,44 +48,79 @@
             line-height: 1.5;
         }
         .facial-treatments {
-            padding: 40px 0 30px;
+            padding: 120px 0 60px;
             background: #f2fafc;
+            width: 100%;
+            overflow-x: hidden;
         }
         .treatments-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            padding: 10px 10px;
-            max-width: 1500px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
             margin: 0 auto;
             justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
         }
         .treatment-card {
             background: white;
             border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            min-width: 350px;
-            max-width: 420px;
+            height: 340px !important;
+            display: flex !important;
+            flex-direction: column !important;
         }
         .treatment-card:hover {
             transform: translateY(-5px);
         }
+        .treatment-image-wrapper {
+            position: relative !important;
+            flex: 1 1 auto !important;
+            display: flex !important;
+            align-items: flex-end !important;
+        }
         .treatment-image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .badge-group {
+            position: absolute !important;
+            left: 0;
+            right: 0;
+            bottom: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 2;
+        }
+        .badge {
+            background: rgba(255, 255, 255, 0.9) !important;
+            color: #333 !important;
+            padding: 8px 12px !important;
+            border-radius: 20px !important;
+            font-size: 0.9em !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            backdrop-filter: blur(10px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        }
+        .badge:hover {
+            background: rgba(255, 255, 255, 1) !important;
+            transform: translateY(-2px) !important;
+        }
+        .badge-left, .badge-right {
+            flex: 1;
         }
         .treatment-content {
-            padding: 22px 18px 22px 18px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 8px 8px 0 8px !important;
+            text-align: center !important;
+            flex: none !important;
         }
         .treatment-content h3 {
             color: #333;
@@ -99,37 +134,11 @@
         }
         .treatment-info {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-top: 18px;
-            gap: 15px;
-            flex-wrap: nowrap;
-        }
-        .treatment-price {
-            margin: 0;
-            padding: 0;
-            line-height: 1;
-            display: flex;
             align-items: center;
-        }
-        .details-button {
-            margin-left: auto;
-        }
-        .treatment-info .details-button {
-            margin-left: auto;
-        }
-        .session-badge {
-            background: none;
-            color: #3d7fd9;
-            border-radius: 22px;
-            padding: 8px 15px;
-            font-size: 1.2em;
-            font-weight: 700;
-            display: inline-block;
-            text-align: left;
-            margin: 0;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
         }
         .treatment-price {
             color: #5999ee;
@@ -166,43 +175,95 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
+            overflow: auto;
         }
         .modal-content {
             background: white;
-            padding: 0;
+            margin: 5% auto;
+            padding: 30px;
             border-radius: 15px;
             max-width: 800px;
             width: 90%;
             position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
             max-height: 90vh;
             overflow-y: auto;
-            margin: 5% auto;
+        }
+        .consultation-modal {
+            margin: 2% auto;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            box-sizing: border-box;
+            width: 95%;
+            max-width: 1200px;
+            height: 95vh;
+        }
+        .calendly-section {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .calendly-section iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         .modal-image {
-            width: 100%;
+            width: calc(100% + 60px);
+            margin-left: -30px;
+            margin-right: -30px;
+            margin-top: -30px;
             height: 300px;
             object-fit: cover;
             border-radius: 0;
-            margin: 0;
+            margin-bottom: 20px;
             display: block;
         }
+        .consultation-banner {
+            background: #f2fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(89, 153, 238, 0.1);
+        }
+        .consultation-banner h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .consultation-banner p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .free-tag {
+            display: inline-block;
+            background: #5999ee;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .free-tag:hover {
+            background: #4788dd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(89, 153, 238, 0.2);
+        }
         .modal-text {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            padding: 20px 30px;
+            margin-bottom: 20px;
+            padding: 0 30px;
         }
         .modal-text h2 {
-            margin: 0;
             color: #333;
-            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-size: 1.5em;
         }
         .modal-text p {
-            margin: 0;
             color: #666;
             line-height: 1.6;
         }
@@ -210,32 +271,32 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 30px;
+            margin-top: 20px;
+            padding: 20px 30px 0 30px;
             border-top: 1px solid #eee;
-            margin-top: auto;
-            gap: 20px;
         }
         .modal-price {
-            color: #5999ee;
+            color: #333;
             font-weight: bold;
             font-size: 1.3em;
-            margin: 0;
             flex-grow: 1;
+            margin: 0;
         }
         .modal-buttons {
             margin: 0;
         }
         .modal-button {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 10px 20px;
             background: linear-gradient(45deg, #5999ee, #3d7fd9);
             color: white;
             border-radius: 25px;
             text-decoration: none;
             transition: all 0.3s ease;
             font-weight: 600;
+            font-size: 0.9em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: normal;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(89, 153, 238, 0.3);
@@ -245,174 +306,52 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(89, 153, 238, 0.4);
         }
-   
-        .consultation-banner {
-            background-color: #f8f9fa;
-            padding: 20px;
+        .logo-link span {
+            color: #234a7c !important;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .treatment-card.new-design {
+            padding: 0 !important;
+            border-radius: 0 !important;
+            overflow: hidden !important;
+            height: 400px !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        .treatment-card.new-design .treatment-image-wrapper {
+            border-radius: 0 !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            flex: 1 1 auto !important;
+            display: flex !important;
+            align-items: flex-end !important;
+        }
+        .treatment-card.new-design .treatment-image {
+            border-radius: 0 !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .treatment-card.new-design .treatment-content {
+            padding: 8px 8px 0 8px !important;
+            margin-top: 0 !important;
+            text-align: center !important;
+        }
+        .treatment-card.new-design h3 {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            font-size: 1.1em !important;
+            color: #222 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.2em !important;
             text-align: center;
-            margin-top: 120px;
-        }
-        .consultation-banner h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .consultation-banner p {
-            color: #666;
-            margin-bottom: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .consultation-button {
-            display: block;
-            padding: 12px 30px;
-            background: #5999ee;
-            color: white;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            margin: 20px auto 0;
-            width: fit-content;
-        }
-        .consultation-button:hover {
-            background: #4580d0;
-        }
-        @media (max-width: 1300px) {
-            .treatments-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 900px) {
-            .treatments-grid {
-                grid-template-columns: 1fr;
-            }
-            .treatment-card {
-                min-width: 0;
-                max-width: 100%;
-            }
-            .treatment-info {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                gap: 10px;
-            }
-            .session-badge {
-                width: auto;
-                margin-right: 0;
-            }
-            .treatment-info .details-button {
-                margin-left: 0;
-            }
-        }
-        .discount-badge {
-            position: absolute;
-            top: 25px;
-            right: 95px;
-            background: #ff4444;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 1.2em;
-            transform: rotate(15deg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 2;
-        }
-        .discount-badge:hover {
-            transform: rotate(15deg) scale(1.1);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        .treatment-sessions-labels {
-            margin: 12px 0 0 0;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .session-label {
-            background: #3ec97c;
-            color: #fff;
-            border-radius: 18px;
-            padding: 5px 18px;
-            font-size: 1em;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 4px;
-            letter-spacing: 0.5px;
-        }
-  
-        .treatment-info {
-            align-items: flex-start;
-        }
-        @media (max-width: 900px) {
-            .treatment-info {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                gap: 10px;
-            }
-            .session-badges-group {
-                width: 100%;
-            }
-        }
-        .modal-session-labels {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            margin-bottom: 8px;
-        }
-        .modal-session-label {
-            color: #3d7fd9;
-            font-size: 0.98em;
-            font-weight: 600;
-            line-height: 1.2;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-        @media (max-width: 600px) {
-            .modal-info {
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                flex-wrap: nowrap !important;
-                gap: 15px !important;
-                padding: 15px 20px !important;
-            }
-            .modal-price {
-                margin: 0 !important;
-                flex-grow: 1 !important;
-                font-size: 1.2em !important;
-            }
-            #modalSessionLabels, .modal-session-labels {
-                margin-right: 12px !important;
-                font-size: 0.9em !important;
-                white-space: nowrap !important;
-            }
-            .modal-session-label {
-                font-size: 0.9em !important;
-                white-space: nowrap !important;
-            }
-            .modal .modal-button {
-                padding: 10px 16px !important;
-                font-size: 0.95em !important;
-                border-radius: 18px !important;
-                min-width: 120px !important;
-                max-width: 170px !important;
-                width: auto !important;
-                box-sizing: border-box;
-                margin-left: 0 !important;
-                white-space: nowrap !important;
-                text-align: center !important;
-                vertical-align: middle !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
         }
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/dermapen_terapi.webp');
@@ -520,6 +459,28 @@
                 margin-right: auto;
             }
         }
+
+        .treatment-card.new-design .badge {
+            background: rgba(255,255,255,0.5) !important;
+            color: #222 !important;
+            font-size: 0.88em !important;
+            font-family: 'Open Sans', sans-serif !important;
+            font-weight: 300 !important;
+            border: 1.5px solid #fff !important;
+            padding: 3px 16px !important;
+            min-width: 80px !important;
+            max-width: 140px !important;
+            height: 32px !important;
+            box-shadow: 0 2px 8px rgba(89,153,238,0.07) !important;
+            white-space: nowrap !important;
+            border-radius: 9999px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            backdrop-filter: blur(10px) !important;
+            transition: background 0.2s !important;
+            margin: 0 4px !important;
+        }
     </style>
 </head>
 <body>
@@ -599,50 +560,55 @@
                     <p class="ru">Продвинутые процедуры для регенерации и улучшения внешнего вида кожи</p>
                 </div>
                 <div class="treatments-grid">
-                    <div class="treatment-card new-design">
-                        <img src="images/RF-lifiting.ARW" alt="DermaPen Facial" class="treatment-image">
-                        <div class="badge-group">
-                             <span class="badge badge-left">1 h / 1200 MDL</span>
-                                <span class="badge badge-right">Programează-te</span>
+                    <div class="treatment-card new-design" data-treatment="dermapen-facial">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-facial')">
+                            <img src="images/RF-lifiting.ARW" alt="DermaPen Facial" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 1200 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
                         </div>
                         <div class="treatment-content">
                             <h3>DermaPen Facial</h3>
-    
                         </div>
                     </div>
-                    <div class="treatment-card">
-                        <img src="images/dermapen_scalp.webp" alt="DermaPen Scalp" class="treatment-image">
+
+                    <div class="treatment-card new-design" data-treatment="dermapen-scalp">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-scalp')">
+                            <img src="images/dermapen_scalp.webp" alt="DermaPen Scalp" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 1300 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>DermaPen Scalp</h3>
-                            <p>Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.</p>
-                            <div class="treatment-info">
-                                <span class="session-badge">1300 lei</span>
-                                <button class="details-button" data-treatment="dermapen-hair">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/RF-Lifting2.jpg" alt="DermaPen Vergeturi" class="treatment-image">
+                    <div class="treatment-card new-design" data-treatment="dermapen-vergeturi">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-vergeturi')">
+                            <img src="images/RF-Lifting2.jpg" alt="DermaPen Vergeturi" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 1000 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>DermaPen Vergeturi</h3>
-                            <p>Tratament eficient pentru reducerea vergeturilor pe corp.</p>
-                            <div class="treatment-info">
-                                <span class="session-badge">1000 lei</span>
-                                <button class="details-button" data-treatment="dermapen-stretch">Detalii</button>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/dermapen_buze.jpeg" alt="DermaPen Buze" class="treatment-image">
+                    <div class="treatment-card new-design" data-treatment="dermapen-buze">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-buze')">
+                            <img src="images/dermapen_buze.jpeg" alt="DermaPen Buze" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 750 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
                         <div class="treatment-content">
                             <h3>DermaPen Buze</h3>
-                            <p>Tratament specializat pentru volumizarea și conturarea buzelor.</p>
-                            <div class="treatment-info">
-                                <span class="session-badge">750 lei</span>
-                                <button class="details-button" data-treatment="dermapen-lips">Detalii</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -659,62 +625,55 @@
                     <p class="ru">Получите скидку 15% на программы лечения</p>
                 </div>
                 <div class="treatments-grid">
-                    <div class="treatment-card">
-                        <img src="images/dermapenfacial.webp" alt="DermaPen Facial" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>DermaPen Facial</h3>
-                            <p>Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen.</p>
-                            <div class="treatment-info">
-                                <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
-                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">5 ședințe – 5100 lei</span>
-                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">8 ședințe – 8160 lei</span>
-                                </div>
-                                <button class="details-button" data-treatment="dermapen-face-program">Detalii</button>
+                    <div class="treatment-card new-design" data-treatment="dermapen-facial-program">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-facial-program')">
+                            <img src="images/dermapenfacial.webp" alt="DermaPen Facial Program" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">5-8 ședințe</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>DermaPen Facial Program</h3>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/dermapenscalp.avif" alt="DermaPen Scalp" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>DermaPen Scalp</h3>
-                            <p>Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.</p>
-                            <div class="treatment-info">
-                                <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
-                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">5 ședințe – 5525 lei</span>
-                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">8 ședințe – 8840 lei</span>
-                                </div>
-                                <button class="details-button" data-treatment="dermapen-hair-program">Detalii</button>
+                    <div class="treatment-card new-design" data-treatment="dermapen-scalp-program">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-scalp-program')">
+                            <img src="images/dermapenscalp.avif" alt="DermaPen Scalp Program" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">5-8 ședințe</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>DermaPen Scalp Program</h3>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/dermapenvergeturi.webp" alt="DermaPen Vergeturi" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>DermaPen Vergeturi</h3>
-                            <p>Tratament eficient pentru reducerea vergeturilor pe corp.</p>
-                            <div class="treatment-info">
-                                <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
-                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">5 ședințe – 4250 lei</span>
-                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">8 ședințe – 6800 lei</span>
-                                </div>
-                                <button class="details-button" data-treatment="dermapen-stretch-program">Detalii</button>
+                    <div class="treatment-card new-design" data-treatment="dermapen-vergeturi-program">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-vergeturi-program')">
+                            <img src="images/dermapenvergeturi.webp" alt="DermaPen Vergeturi Program" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">5-8 ședințe</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>DermaPen Vergeturi Program</h3>
                         </div>
                     </div>
 
-                    <div class="treatment-card">
-                        <img src="images/dermapen_buze.jpeg" alt="DermaPen Buze" class="treatment-image">
-                        <div class="treatment-content">
-                            <h3>DermaPen Buze</h3>
-                            <p>Tratament specializat pentru volumizarea și conturarea buzelor.</p>
-                            <div class="treatment-info">
-                                <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
-                                    <span style="color:#3d7fd9;font-size:0.98em;font-weight:600;line-height:1.2;">5 ședințe – 3190 lei</span>
-                                </div>
-                                <button class="details-button" data-treatment="dermapen-lips-program">Detalii</button>
+                    <div class="treatment-card new-design" data-treatment="dermapen-buze-program">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-buze-program')">
+                            <img src="images/dermapen_buze.jpeg" alt="DermaPen Buze Program" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">5 ședințe</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>DermaPen Buze Program</h3>
                         </div>
                     </div>
                 </div>
@@ -731,9 +690,6 @@
             </div>
             <div class="modal-info">
                 <p id="modalPrice" class="modal-price"></p>
-                <div class="modal-buttons">
-                    <button class="modal-button" onclick="window.open('https://dimitrovaclinic.setmore.com', '_blank')">Programează-te</button>
-                </div>
             </div>
         </div>
     </div>
@@ -811,7 +767,177 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/dermapen-modals.js"></script>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script>
+        // Data pentru tratamentele Dermapen
+        const treatmentsData = {
+            'dermapen-facial': {
+                title: 'DermaPen Facial',
+                image: 'images/RF-lifiting.ARW',
+                price: '1 h / 1200 MDL',
+                description: 'Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen și elastină.',
+                details: [
+                    'Stimulează regenerarea celulară profundă',
+                    'Reduce ridurile fine și cicatricile',
+                    'Îmbunătățește textura și tonusul pielii',
+                    'Procedură minim invazivă și sigură',
+                    'Rezultate vizibile după 3-4 ședințe'
+                ],
+                showPrice: false
+            },
+            'dermapen-scalp': {
+                title: 'DermaPen Scalp',
+                image: 'images/dermapen_scalp.webp',
+                price: '1 h / 1300 MDL',
+                description: 'Tratament inovator pentru stimularea creșterii părului și îmbunătățirea sănătății scalpului.',
+                details: [
+                    'Stimulează foliculii de păr',
+                    'Îmbunătățește circulația în scalp',
+                    'Reduce căderea părului',
+                    'Promovează creșterea părului nou',
+                    'Tratament eficient pentru alopecie'
+                ],
+                showPrice: false
+            },
+            'dermapen-vergeturi': {
+                title: 'DermaPen Vergeturi',
+                image: 'images/RF-Lifting2.jpg',
+                price: '1 h / 1000 MDL',
+                description: 'Tratament eficient pentru reducerea vergeturilor pe corp prin stimularea regenerării celulare.',
+                details: [
+                    'Reduce aspectul vergeturilor',
+                    'Stimulează producția de colagen',
+                    'Îmbunătățește elasticitatea pielii',
+                    'Potrivit pentru vergeturi noi și vechi',
+                    'Rezultate progresive și durabile'
+                ],
+                showPrice: false
+            },
+            'dermapen-buze': {
+                title: 'DermaPen Buze',
+                image: 'images/dermapen_buze.jpeg',
+                price: '1 h / 750 MDL',
+                description: 'Tratament specializat pentru volumizarea și conturarea buzelor prin micro-needling.',
+                details: [
+                    'Volumizează și conturează buzele',
+                    'Reduce ridurile fine din jurul gurii',
+                    'Stimulează producția de colagen',
+                    'Rezultate naturale și durabile',
+                    'Procedură rapidă și sigură'
+                ],
+                showPrice: false
+            },
+            'dermapen-facial-program': {
+                title: 'DermaPen Facial Program',
+                image: 'images/dermapenfacial.webp',
+                price: '5 ședințe – 5100 lei / 8 ședințe – 8160 lei',
+                description: 'Program complet de tratament facial cu DermaPen pentru rezultate optime și de lungă durată.',
+                details: [
+                    '5 sau 8 ședințe personalizate',
+                    'Stimulare profundă a colagenului',
+                    'Reducere semnificativă a ridurilor',
+                    'Îmbunătățirea texturii pielii',
+                    'Rezultate vizibile și durabile'
+                ],
+                showPrice: true
+            },
+            'dermapen-scalp-program': {
+                title: 'DermaPen Scalp Program',
+                image: 'images/dermapenscalp.avif',
+                price: '5 ședințe – 5525 lei / 8 ședințe – 8840 lei',
+                description: 'Program specializat pentru tratarea problemelor de scalp și stimularea creșterii părului.',
+                details: [
+                    '5 sau 8 ședințe de tratament',
+                    'Stimulare intensivă a foliculilor',
+                    'Îmbunătățirea sănătății scalpului',
+                    'Reducerea căderii părului',
+                    'Promovarea creșterii părului nou'
+                ],
+                showPrice: true
+            },
+            'dermapen-vergeturi-program': {
+                title: 'DermaPen Vergeturi Program',
+                image: 'images/dermapenvergeturi.webp',
+                price: '5 ședințe – 4250 lei / 8 ședințe – 6800 lei',
+                description: 'Program complet pentru reducerea vergeturilor și îmbunătățirea aspectului pielii corpului.',
+                details: [
+                    '5 sau 8 ședințe de tratament',
+                    'Reducere semnificativă a vergeturilor',
+                    'Stimulare intensivă a regenerării',
+                    'Îmbunătățirea elasticității pielii',
+                    'Rezultate vizibile și durabile'
+                ],
+                showPrice: true
+            },
+            'dermapen-buze-program': {
+                title: 'DermaPen Buze Program',
+                image: 'images/dermapen_buze.jpeg',
+                price: '5 ședințe – 3190 lei',
+                description: 'Program specializat pentru volumizarea și conturarea buzelor prin tehnica DermaPen.',
+                details: [
+                    '5 ședințe de tratament',
+                    'Volumizare și conturare buze',
+                    'Reducerea ridurilor fine',
+                    'Stimularea producției de colagen',
+                    'Rezultate naturale și durabile'
+                ],
+                showPrice: true
+            }
+        };
+
+        function openTreatmentModal(treatmentId) {
+            const data = treatmentsData[treatmentId];
+            if (!data) return;
+            document.getElementById('modalImage').src = data.image;
+            document.getElementById('modalImage').alt = data.title;
+            document.getElementById('modalTitle').textContent = data.title;
+            let descHtml = `<p>${data.description}</p>`;
+            if (data.details && data.details.length) {
+                descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+                data.details.forEach(item => descHtml += `<li>${item}</li>`);
+                descHtml += '</ul>';
+            }
+            document.getElementById('modalDescription').innerHTML = descHtml;
+            
+            // Afișează prețul doar pentru programele de tratament
+            const modalInfo = document.querySelector('.modal-info');
+            if (data.showPrice) {
+                document.getElementById('modalPrice').textContent = data.price;
+                modalInfo.style.display = 'flex';
+            } else {
+                modalInfo.style.display = 'none';
+            }
+            
+            document.getElementById('treatmentModal').style.display = 'flex';
+            document.getElementById('treatmentModal').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('treatmentModal').style.opacity = '1';
+            }, 10);
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Închidere modal cu Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal('treatmentModal');
+                closeModal('consultationModal');
+            }
+        });
+
+        // Închidere modal la click în afara conținutului
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

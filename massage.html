@@ -131,6 +131,12 @@
             justify-content: center;
         }
         .treatment-card.new-design {
+            height: 400px !important;
+            max-width: 290px !important;
+            min-width: 0 !important;
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
             background: #fff;
             border-radius: 0;
             box-shadow: 0 2px 8px rgba(89,153,238,0.07);
@@ -138,49 +144,45 @@
             margin-bottom: 10px;
             overflow: hidden;
             transition: box-shadow 0.25s, border 0.25s, background 0.25s, transform 0.25s;
-            width: 100%;
-            min-width: 0;
-            max-width: 370px;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: 'Open Sans', sans-serif;
-            display: flex;
-            flex-direction: column;
             cursor: pointer;
-            border: 2px solid transparent;
+            border: 0px solid transparent;
         }
         .treatment-card.new-design:hover {
             box-shadow: 0 8px 32px rgba(89,153,238,0.18);
-            border: 2px solid #fff;
+            border: 0px solid #fff;
             background: rgba(255,255,255,0.96);
             transform: translateY(-4px) scale(1.01);
             z-index: 2;
         }
         .treatment-image-wrapper {
-            position: relative;
+            position: relative !important;
+            flex: 1 1 auto !important;
+            display: flex !important;
+            align-items: flex-end !important;
+            height: auto !important;
+            max-height: none !important;
             width: 100%;
-            height: 150px;
             overflow: hidden;
             border-radius: 0;
             flex-shrink: 0;
         }
         .treatment-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 0;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            min-height: 0 !important;
+            max-height: none !important;
             display: block;
         }
         .badge-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            position: absolute;
+            position: absolute !important;
             left: 0;
             right: 0;
-            bottom: 16px;
-            z-index: 3;
+            bottom: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 2;
         }
         .badge.badge-right {
             margin-top: 0;
@@ -197,7 +199,7 @@
             font-size: 0.98em;
             font-family: 'Open Sans', sans-serif;
             font-weight: 300;
-            border: 1.5px solid #fff;
+            border: 1.5px solid #fff !important;
             padding: 4px 12px;
             white-space: nowrap;
             transition: background 0.2s;
@@ -205,23 +207,20 @@
             margin: 0;
         }
         .treatment-content {
-            padding: 0;
-            min-height: 0;
-            text-align: center;
+            padding: 8px 8px 0 8px !important;
+            text-align: center !important;
+            flex: none !important;
+            height: auto !important;
+            min-height: 0 !important;
+            display: block !important;
+            align-items: unset !important;
+            justify-content: unset !important;
             font-family: 'Open Sans', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 48px;
         }
         .treatment-content h3 {
-            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-            font-weight: 300 !important;
-            font-size: 1.15em !important;
-            color: #222 !important;
-            margin: 0 !important;
-            text-align: center;
-            width: 100%;
+            color: #333 !important;
+            margin-bottom: 10px !important;
+            font-size: 1.3em !important;
         }
         @media (max-width: 900px) {
             .treatments-grid {
@@ -336,7 +335,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-clasic')">
                             <img src="images/clasicmassage.jpg" alt="Masaj clasic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -348,7 +347,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-terapeutic')">
                             <img src="images/masajterapeutic.jpg" alt="Masaj terapeutic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -360,7 +359,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-anticelulitic')">
                             <img src="images/masajanticelular.jpg" alt="Masaj anticelulitic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -372,7 +371,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-vacuum')">
                             <img src="images/masajvacum.jpeg" alt="Masaj vacuum" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -384,11 +383,23 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-miere')">
                             <img src="images/masajmiere.jpg" alt="Masaj cu miere" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
                             <h3>Masaj cu miere</h3>
+                        </div>
+                    </div>
+                    <!-- Masaj sportiv -->
+                    <div class="treatment-card new-design" data-treatment="masaj-sportiv">
+                        <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-sportiv')">
+                            <img src="images/masajsportiv.webp" alt="Masaj sportiv" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Masaj sportiv</h3>
                         </div>
                     </div>
                 </div>
@@ -538,6 +549,19 @@
             ],
             time: '40 min (spate)',
             price: '350 lei (spate)'
+        },
+        'masaj-sportiv': {
+            title: 'Masaj sportiv',
+            image: 'images/masajsportiv.webp',
+            description: 'Masajul sportiv este recomandat pentru pregătirea fizică și îmbunătățirea performanței.',
+            details: [
+                'Îmbunătățește flexibilitatea și mobilitatea',
+                'Ajută la eliminarea toxinelor',
+                'Reduce oboseala musculară',
+                'Îmbunătățește performanța sportivă'
+            ],
+            time: '60 min (general); 40 min (zonal)',
+            price: '550 lei (general); 450 lei (zonal)'
         }
     };
 

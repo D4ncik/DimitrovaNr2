@@ -18,9 +18,6 @@
     margin-bottom: 10px;
     overflow: hidden;
     transition: box-shadow 0.25s, border 0.25s, background 0.25s, transform 0.25s;
-    width: 310px;
-    min-width: 310px;
-    max-width: 310px;
     margin-left: auto;
     margin-right: auto;
     font-family: 'Open Sans', sans-serif;
@@ -28,8 +25,6 @@
     flex-direction: column;
     cursor: pointer;
     border: 2px solid transparent;
-    height: 230px;
-    max-height: 230px;
 }
 
 .treatment-card:hover {
@@ -42,17 +37,11 @@
 
 .treatment-image-wrapper {
     position: relative;
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 0;
     flex-shrink: 0;
-    max-height: 150px;
 }
 
 .treatment-image {
     width: 100%;
-    height: 150px;
     object-fit: cover;
     border-radius: 0;
     display: block;
