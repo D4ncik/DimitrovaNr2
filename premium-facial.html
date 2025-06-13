@@ -376,37 +376,43 @@
         }
         .accordion-body {
             display: none;
-            background: #fff;
-            border-top: 1px solid #e6f0fa;
-            padding: 0 28px 28px 28px;
-            animation: fadeIn 0.4s;
+            padding: 0;
         }
         .accordion-item.active .accordion-body {
             display: block;
         }
         .accordion-content {
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: flex-start;
-            margin-top: 18px;
-            min-height: 300px;
+            flex-wrap: nowrap;
+            gap: 0;
+            align-items: center;
+            margin-top: 0;
+            min-height: 340px;
             position: relative;
+            padding: 0;
+            height: 100%;
         }
         .accordion-image {
-            width: 280px;
-            height: 200px;
+            width: 100%;
+            max-width: 420px;
+            height: 90%;
+            min-height: 240px;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(89,153,238,0.08);
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0 32px 0 16px;
+            display: flex;
+            align-self: center;
+            padding: 0;
         }
-        .accordion-info {
-            flex: 1;
-            min-width: 280px;
+        .accordion-info, .accordion-info.retinol-grid {
             display: flex;
             flex-direction: column;
-            min-height: 300px;
+            min-width: 280px;
+            flex: 1;
+            min-height: 340px;
             position: relative;
+            justify-content: flex-start;
         }
         .accordion-info ul {
             margin-bottom: 18px;
@@ -421,7 +427,7 @@
             color: #333;
             font-weight: 600;
         }
-        .details-button {
+        .details-button, .details-button.retinol-btn {
             display: inline-block;
             padding: 10px 25px;
             background: linear-gradient(45deg, #5999ee, #3d7fd9);
@@ -437,8 +443,9 @@
             text-align: center;
             box-shadow: 0 4px 15px rgba(89, 153, 238, 0.2);
             position: absolute;
-            bottom: 0;
-            right: 0;
+            bottom: 24px;
+            right: 32px;
+            margin: 0;
         }
         .details-button:hover {
             background: linear-gradient(45deg, #3d7fd9, #2666c0);
@@ -466,11 +473,24 @@
             }
             .accordion-content {
                 flex-direction: column;
-                align-items: flex-start;
+                height: auto;
+                min-height: 180px;
             }
             .accordion-image {
                 width: 100%;
+                max-width: 100%;
                 height: 180px;
+                min-height: 120px;
+                margin: 0 0 12px 0;
+            }
+            .accordion-info, .accordion-info.retinol-grid {
+                min-height: 180px;
+            }
+            .details-button, .details-button.retinol-btn {
+                position: static;
+                margin-top: 18px;
+                right: auto;
+                left: auto;
             }
         }
         @keyframes fadeIn {
@@ -526,6 +546,75 @@
             .benefits-list li {
                 font-size: 0.9em;
             }
+        }
+        .accordion-info.retinol-grid {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            align-items: flex-start;
+            min-width: 0;
+            min-height: 0;
+            position: relative;
+            padding-bottom: 18px;
+        }
+        .accordion-info.retinol-grid > div {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+        .details-button.retinol-btn {
+            position: absolute;
+            bottom: 24px;
+            right: 32px;
+            min-width: 120px;
+            font-size: 1.13em;
+            padding: 10px 25px;
+            margin: 0;
+        }
+        @media (max-width: 900px) {
+            .accordion-info.retinol-grid {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .details-button.retinol-btn {
+                position: static;
+                margin: 18px auto 12px auto;
+                right: auto;
+                left: auto;
+            }
+        }
+        .accordion-info purifying-btn-fix {
+            display: flex;
+            flex-direction: column;
+            min-width: 280px;
+            flex: 1;
+            min-height: 340px;
+            position: relative;
+            justify-content: flex-start;
+        }
+        .details-button purifying-btn {
+            position: absolute;
+            bottom: 24px;
+            right: 32px;
+            min-width: 120px;
+            font-size: 1.13em;
+            padding: 10px 25px;
+            margin: 0;
+        }
+        .ocean-miracle-grid {
+            position: relative;
+            padding-bottom: 110px;
+        }
+        .ocean-miracle-grid > div:last-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 260px;
+        }
+        .ocean-miracle-grid .details-button.retinol-btn {
+            margin-top: auto;
+            align-self: flex-end;
+            position: static;
+            padding-right: 18px !important;
         }
     </style>
 </head>
@@ -599,176 +688,96 @@
                     <span style="color:#2a6edb;font-size:1.1em;font-weight:700;display:block;margin-bottom:2px;">Cura din 4 proceduri -10%</span>
                 </section>
                 <div class="accordion-treatments">
-                    <!-- Exemplu de item, restul se adaugă la fel -->
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span class="accordion-title">RGenerin BEAUTY PLAN PREMIUM</span>
+                            <span class="accordion-title">RGenerin</span>
                             <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
                             <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
                         </button>
                         <div class="accordion-body">
                             <div class="accordion-content">
-                                <img src="images/beauty2.ARW" alt="RGenerin BEAUTY PLAN PREMIUM" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> 30+</li>
-                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, riduri mimice</li>
-                                        <li><b>Efecte principale:</b> Alternativă la botox, netezire</li>
+                                <img src="images/regenering.jpg" alt="RGenerin" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Potrivit pentru toate tipurile de piele, inclusiv pentru pielea mixtă de peste 40 de ani. Ideal pentru pielea foarte uscată sau extrem de deshidratată, până la pielea normală sau mixtă, datorită unui cocktail exclusiv de ingrediente active nutritive și echilibrante.</li>
                                     </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li><b>EFECT BOTOX:</b> inhibă și atenuează contracțiile musculare cauzate de expresiile faciale și îmbunătățește relaxarea ulterioară a acestora.</li>
+                                            <li><b>REÎNNOIRE:</b> exfoliază straturile exterioare ale pielii, eliminând celulele îmbătrânite și stimulează intens regenerarea celulară.</li>
+                                            <li><b>UMPLERE:</b> crește nivelul de acid hialuronic, colagen și elastină din piele și îmbunătățește hidratarea pielii, umplând ridurile din interior, ceea ce reduce imediat lungimea și adâncimea lor pe termen mediu și lung.</li>
+                                            <li><b>EFECT GLOBAL ANTI-ÎMBĂTRÂNIRE:</b> sporește hidratarea și nivelul de lipide în piele, oferind în același timp nutrienții esențiali la nivel celular.</li>
+                                        </ul>
+                            </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li><b>FAȚĂ RELAXATĂ, FĂRĂ TENSIUNE</b>, ridurile normale și cele de expresie sunt netezite.</li>
+                                            <li><b>MICRORELIEF NETED:</b> duce la o îmbunătățire generală a aspectului pielii.</li>
+                                            <li><b>RIDURI "UMPLUTE":</b> piele densificată, hidratată, fermă și netedă.</li>
+                                            <li><b>PIELE ÎNTINERITĂ:</b> elasticitate și fermitate facială sporite.</li>
+                                        </ul>
+                                    </div>
+                                    <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span class="accordion-title">Purifying TREATMENT</span>
-                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
-                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
-                        </button>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <img src="images/purify.PNG" alt="Purifying TREATMENT" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> Toate vârstele</li>
-                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, piele obosită, poluată</li>
-                                        <li><b>Efecte principale:</b> Curățare profundă, detoxifiere, efect de oxigenare</li>
-                                    </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            <span class="accordion-title">Eye Perfection TREATMENT</span>
-                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
-                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
-                        </button>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <img src="images/eyes.PNG" alt="Eye Perfection TREATMENT" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> Toate vârstele</li>
-                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, probleme în jurul ochilor (riduri, umflături)</li>
-                                        <li><b>Efecte principale:</b> Eliminarea ridurilor și umflăturilor, lifting</li>
-                                    </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            <span class="accordion-title">Antioxidant BEAUTY PLAN +30</span>
+                            <span class="accordion-title">Nacar</span>
                             <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1690 lei</span>
                             <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
                         </button>
                         <div class="accordion-body">
                             <div class="accordion-content">
-                                <img src="images/facial4.jpg" alt="Antioxidant BEAUTY PLAN +30" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> 30+</li>
-                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, primele semne ale îmbătrânirii</li>
-                                        <li><b>Efecte principale:</b> Protecție antioxidantă, hidratare</li>
+                                <img src="images/nacar.jpg" alt="Nacar" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Pentru pielea matură cu pete pigmentare, care necesită o întinerire intensă și iluminare.</li>
+                                            <li>Pentru pielea ternă și flască, care necesită întărire și uniformizare a tonului.</li>
                                     </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Iluminarea și uniformizarea tonului;</li>
+                                            <li>reînnoirea pielii;</li>
+                                            <li>îndepărtarea acumulărilor superficiale de melanină;</li>
+                                            <li>prevenirea producerii excesive de melanină;</li>
+                                            <li>strălucirea și luminozitatea pielii;</li>
+                                            <li>protecția și combaterea îmbătrânirii celulare.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Piele cu 97% mai strălucitoare*</li>
+                                            <li>Petele pigmentare reduse cu 95%*</li>
+                                            <li>Riduri cu 85% mai puține**</li>
+                                            <li>Piele reînnoită, cu ton uniform și deschis</li>
+                                        </ul>
+                                        <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span class="accordion-title">Sensations BEAUTY PLAN +40</span>
-                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
-                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
-                        </button>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <img src="images/facial5.jpg" alt="Sensations BEAUTY PLAN +40" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> 40+</li>
-                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, modificări legate de vârstă</li>
-                                        <li><b>Efecte principale:</b> Complex vitaminic, regenerare</li>
-                                    </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            <span class="accordion-title">Q10 ReSCue BEAUTY PLAN PREMIUM +60</span>
-                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1690 lei</span>
-                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
-                        </button>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <img src="images/facial6.jpg" alt="Q10 ReSCue BEAUTY PLAN PREMIUM +60" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> 60+</li>
-                                        <li><b>Tip piele / Indicații:</b> Piele uscată, exigentă</li>
-                                        <li><b>Efecte principale:</b> Nutriție intensivă și regenerare</li>
-                                    </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            <span class="accordion-title">INFINITY BEAUTY PLAN PREMIUM +45</span>
-                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1690 lei</span>
-                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
-                        </button>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <img src="images/facial7.jpg" alt="INFINITY BEAUTY PLAN PREMIUM +45" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> 45+</li>
-                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, piele stresată, modificări legate de vârstă</li>
-                                        <li><b>Efecte principale:</b> Stimularea serotoninei, protecția ADN-ului, lifting</li>
-                                    </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            <span class="accordion-title">AgeDefense BEAUTY PLAN +35</span>
-                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1690 lei</span>
-                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
-                        </button>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <img src="images/facial8.jpg" alt="AgeDefense BEAUTY PLAN +35" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> 35+</li>
-                                        <li><b>Tip piele / Indicații:</b> Piele sensibilă, reactivă</li>
-                                        <li><b>Efecte principale:</b> Refacerea microbiomului, protecție</li>
-                                    </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            <span class="accordion-title">Hydra Lifting BEAUTYPIN +40</span>
+                            <span class="accordion-title">Hydra Lifting</span>
                             <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1490 lei</span>
                             <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
                         </button>
                         <div class="accordion-body">
                             <div class="accordion-content">
-                                <img src="images/facial9.jpg" alt="Hydra Lifting BEAUTYPIN +40" class="accordion-image">
+                                <img src="images/hidra_lifting.jpg" alt="Hydra Lifting" class="accordion-image">
                                 <div class="accordion-info">
                                     <ul>
                                         <li><b>Grupă de vârstă:</b> 40+</li>
@@ -782,19 +791,160 @@
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span class="accordion-title">Shine Stop BEAUTY PLAN</span>
+                            <span class="accordion-title">Infinity</span>
+                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1690 lei</span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/infinity.jpg" alt="Infinity" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Creat pentru pielea matură, care are nevoie de îngrijire intensivă cu efect de întinerire.</li>
+                                            <li>Recomandat în special pentru combaterea lipsei de fermitate și a pielii lăsate, inclusiv în zona gâtului, și a ridurilor, inclusiv a celor de expresie profund marcate.</li>
+                                    </ul>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Protecția ADN-ului prin prevenirea scurtării telomerilor.</li>
+                                            <li>Maximizarea beneficiilor somnului de calitate pentru piele.</li>
+                                            <li>Stimularea sintezei de serotonină — "hormonul fericirii".</li>
+                                            <li>Suprimarea contracțiilor involuntare ale mușchilor feței cauzate de stresul cronic.</li>
+                                            <li>Creșterea productivității proceselor celulare, îmbunătățirea capacităților de regenerare, refacere și energizare ale pielii.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Încetinirea procesului de îmbătrânire și prevenirea apariției semnelor acestuia.</li>
+                                            <li>Reducerea cearcănelor și a pungilor de sub ochi. Fața are un aspect vizibil relaxat.</li>
+                                            <li>Reducerea ridurilor și relaxarea trăsăturilor.</li>
+                                            <li>Reconturarea ovalului feței.</li>
+                                            <li>Netezirea ridurilor, inclusiv a celor de expresie, și prevenirea apariției unora noi. Stare generală de bine.</li>
+                                            <li>Ten luminos, cu un aspect vizibil întinerit.</li>
+                                        </ul>
+                                        <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Retinol proAGE</span>
+                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1590 lei</span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/retinolpro.jpg" alt="Retinol proAGE" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Potrivit pentru toate tipurile de piele, indiferent de expunerea anterioară la retinoizi.</li>
+                                            <li>Recomandat pentru toate grupele de vârstă, inclusiv pentru persoanele tinere începând cu vârsta de 30 de ani, pentru prevenirea apariției semnelor timpurii ale îmbătrânirii, precum și pentru persoanele de vârstă matură, cu semne mai avansate de îmbătrânire a pielii.</li>
+                                            <li><b style='color:#c00'>Evitați utilizarea retinoizilor în timpul sarcinii și alăptării.</b></li>
+                                    </ul>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li><b>ANTI-AGE GLOBAL:</b> reduce vizibil toate semnele îmbătrânirii.</li>
+                                            <li><b>TRANSFORMATOR:</b> reînnoiește epiderma și reconstruiește derma pentru o transformare radicală, care redă pielii frumusețea sa naturală.</li>
+                                            <li><b>RETEXTURIZARE:</b> reduce ridurile în progresie geometrică, îmbunătățește textura pielii.</li>
+                                            <li><b>ILUMINARE:</b> uniformizează tonul pielii și combate lipsa de strălucire.</li>
+                                            <li><b>FORTIFICARE:</b> stimulează sinteza de colagen și elastină, îmbunătățind fermitatea și elasticitatea pielii.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Aspect mai proaspăt și întinerit.</li>
+                                            <li>Îmbunătățire vizibilă a semnelor îmbătrânirii.</li>
+                                            <li>Piele reînnoită, mai catifelată și netedă.</li>
+                                            <li>Piele mai rezistentă, suplă și fermă.</li>
+                                            <li>Ten uniform și luminos.</li>
+                                        </ul>
+                                        <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Q10 Rescue</span>
+                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1690 lei</span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/Q10.jpg" alt="Q10 Rescue" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Creat ca procedură intensivă (de șoc) pentru refacerea pielii foarte mature (60+), sau ca tratament suplimentar pentru pielea matură (45+) — epuizată, uscată, lipsită de viață și/sau ternă.</li>
+                                            <li>Potrivit pentru persoanele care observă sau încep să observe dezechilibre (tipice pentru menopauză, înainte sau după).</li>
+                                    </ul>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li><b>RESTAURATOARE:</b> restabilește funcționarea optimă a pielii, readucând rata metabolismului caracteristică tinereții.</li>
+                                            <li><b>ENERGIZANTĂ:</b> oferă pielii un aport crescut de energie exact acolo unde este necesar pentru reactivare.</li>
+                                            <li><b>RE-ECHILIBRANTĂ:</b> reglează dezechilibrele pielii foarte mature, atenuând efectele scăderii nivelurilor hormonale și ale endorfinelor.</li>
+                                            <li><b>HRĂNITOARE:</b> furnizează pielii nutrienții necesari pentru o stare ideală, redându-i senzația de confort.</li>
+                                            <li><b>ANTI-ÎMBĂTRÂNIRE:</b> acționează asupra tuturor semnelor îmbătrânirii, având un efect restructurant vizibil, combatând fermitatea scăzută a pielii și ridurile pronunțate, reducând numărul și adâncimea acestora.</li>
+                                        </ul>
+                            </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li><b>PIELE INTENS HRĂNITĂ ȘI HIDRATATĂ</b>, senzația de confort este restabilită.</li>
+                                            <li><b>RIDURILE SUNT NETEZITE.</b> Pielea devine vizibil mai fermă și mai elastică.</li>
+                                            <li><b>TEN REVITALIZAT ȘI STRĂLUCITOR.</b> Ton uniform. Chipul capătă un aspect plin de viață.</li>
+                                            <li><b>NIVELURILE DE TINEREȚE ALE PIELII SUNT RESTABILITE.</b> Piele vizibil întinerită.</li>
+                                        </ul>
+                                    </div>
+                                    <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Goji</span>
                             <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
                             <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
                         </button>
                         <div class="accordion-body">
                             <div class="accordion-content">
-                                <img src="images/facial10.jpg" alt="Shine Stop BEAUTY PLAN" class="accordion-image">
+                                <img src="images/godji.jpg" alt="Goji" class="accordion-image">
                                 <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> Toate vârstele</li>
-                                        <li><b>Tip piele / Indicații:</b> Piele grasă, predispusă la acnee</li>
-                                        <li><b>Efecte principale:</b> Matifiere, controlul sebumului</li>
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Formulă unisex pentru pielea tânără și pielea cu primele semne de îmbătrânire.</li>
                                     </ul>
+                                    </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Echilibrează balanța naturală a pielii feței și o protejează împotriva factorilor agresivi, prevenind apariția semnelor de îmbătrânire.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Energizare, fortifiere și creșterea elasticității pielii feței.</li>
+                                            <li>Un ten hidratat, echilibrat, întinerit și plin de viață.</li>
+                                        </ul>
+                                    </div>
                                     <button class="details-button" onclick="openConsultationModal()">Programează</button>
                                 </div>
                             </div>
@@ -802,20 +952,237 @@
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span class="accordion-title">Lightening +30 BEAUTY PLAN PREMIUM</span>
+                            <span class="accordion-title">Purifying</span>
+                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/hidra_lifting.jpg" alt="Purifying" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Potrivit pentru toate tipurile de piele, inclusiv pentru pielea delicată, reactivă și deteriorată.</li>
+                                            <li>Recomandat și celor care doresc o igienă de calitate și o eficiență crescută a tratamentelor ulterioare sau a produselor de îngrijire de acasă.</li>
+                                            <li>Formulă unisex. Utilizabil pe tot parcursul anului.</li>
+                                    </ul>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li><b>DETOXIFIERE – acțiune dublă</b></li>
+                                            <li><b>Externă:</b> Ajută la îndepărtarea tuturor impurităților acumulate în piele, fără a folosi echipamente.</li>
+                                            <li><b>Internă:</b> Elimină toxinele produse de celulele pielii și reduce formarea acestora în viitor.</li>
+                                            <li><b>OXIGENARE INTELIGENTĂ:</b></li>
+                                            <li>Livrează oxigen pur direct în celulă.</li>
+                                            <li>Stimulează respirația celulară.</li>
+                                            <li>Stimulează respirația pielii.</li>
+                                            <li>Reprogramează celulele, crescând metabolismul acestora cu 100%.</li>
+                                        </ul>
+                            </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Intensitatea absorbției de oxigen de către celule crește de 3 ori.</li>
+                                            <li>Diviziunea celulară crește cu 20%.</li>
+                                            <li>Pielea este curățată în profunzime și strălucește de curățenie și prospețime.</li>
+                                        </ul>
+                                    </div>
+                                    <button class="details-button purifying-btn" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Ocean Miracle</span>
+                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1490 lei</span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/ocean miracle.jpg" alt="Ocean Miracle" class="accordion-image">
+                                <div class="accordion-info retinol-grid ocean-miracle-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Potrivit pentru toate tipurile de piele, chiar și pentru pielea sensibilă, datorită formulelor cu biocomponente care oferă o îngrijire delicată.</li>
+                                    </ul>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Hidratare intensă timp de 24 de ore.</li>
+                                            <li>Activarea a 14 gene responsabile de întărirea pielii.</li>
+                                            <li>Detoxifierea celulelor și încetinirea procesului de îmbătrânire celulară.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Întinerire vizibilă a pielii după 15 zile de utilizare a liniei "Miracolul Oceanului":</li>
+                                            <li>tonus crescut cu 85%,</li>
+                                            <li>elasticitate crescută cu 90%,</li>
+                                            <li>hidratare prelungită cu 70%.*</li>
+                                            <li style="font-size:0.93em;color:#888;margin-top:4px;">*conform rezultatelor testelor de utilizare realizate pe consumatori.</li>
+                                        </ul>
+                                        <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Age Defense</span>
                             <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1690 lei</span>
                             <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
                         </button>
                         <div class="accordion-body">
                             <div class="accordion-content">
-                                <img src="images/facial11.jpg" alt="Lightening +30 BEAUTY PLAN PREMIUM" class="accordion-image">
-                                <div class="accordion-info">
-                                    <ul>
-                                        <li><b>Grupă de vârstă:</b> 30+</li>
-                                        <li><b>Tip piele / Indicații:</b> Toate tipurile, hiperpigmentare</li>
-                                        <li><b>Efecte principale:</b> Iluminare, corectarea petelor pigmentare</li>
+                                <img src="images/agedefence.jpg" alt="Age Defense" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Produs recomandat pentru toate tipurile de piele.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Creșterea capacității de protecție a primului strat de barieră al pielii.</li>
+                                            <li>Crearea unui scut protector împotriva poluării și prevenirea oxidării celulelor.</li>
+                                            <li>Îmbunătățirea capacităților biosenzoriale ale pielii.</li>
+                                            <li>Stimularea sintezei de colagen și creșterea coeziunii keratinocitelor.</li>
+                                            <li>Accelerarea procesului de reînnoire celulară.</li>
+                                            <li>Combinație optimă între hidratare și hrănire.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Încetinirea procesului de îmbătrânire și corectarea semnelor deja existente.</li>
+                                            <li>Redobândirea fermității, echilibrului, tonusului, hidratării și hrănirii pielii mature.</li>
+                                            <li>Piele catifelată, de calitate superioară, cu un număr redus de riduri și cu adâncime minimă.</li>
+                                            <li>Ten sănătos, protejat și radiant.</li>
+                                        </ul>
+                                        <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Skin Sensations</span>
+                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/skin_sensation.jpg" alt="Skin Sensations" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Produs recomandat pentru toate tipurile de piele care au nevoie de regenerare, inclusiv pentru pielea delicată și sensibilă;</li>
+                                            <li>sau pentru acele tipuri de piele care simt că crema obișnuită nu mai este potrivită sau nu oferă rezultatele dorite.</li>
+                                            <li>Aceasta se poate datora lipsei unor elemente esențiale, precum oligoelementele și vitaminele conținute în această linie de produse.</li>
                                     </ul>
-                                    <button class="details-button" onclick="openConsultationModal()">Programează</button>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Complex inovator multivitaminic și formulă remineralizantă.</li>
+                                            <li>Crește imediat tonusul vital al pielii, efect comparabil cu mezoterapia cu vitamine.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Previne apariția primelor semne de îmbătrânire.</li>
+                                            <li>Redă strălucirea naturală a pielii feței.</li>
+                                            <li>Îi oferă vitalitate și luminozitate.</li>
+                                        </ul>
+                                        <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Shine Stop</span>
+                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/shinestop.jpg" alt="Shine Stop" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Pentru îngrijirea pielii mixte, grase și/sau predispuse la acnee, precum și pentru pielea cu imperfecțiuni cauzate de secreția excesivă de sebum: piele îngroșată, pori dilatați, textură neregulată, coșuri, puncte negre, luciu gras, comedoane.</li>
+                                            <li>Potrivit și pentru pielea expusă unui mediu puternic poluat.</li>
+                                    </ul>
+                                </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Îngrijire specială de curățare.</li>
+                                            <li>Sistem inteligent cu liposomi.</li>
+                                            <li>Reglare selectivă a sebumului.</li>
+                                            <li>Hidratare profundă.</li>
+                                            <li>Efect matifiant.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Piele echilibrată, matifiată, curată, fără erupții, reînnoită și cu aspect tânăr.</li>
+                                        </ul>
+                                        <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-title">Eye Perfection</span>
+                            <span class="accordion-price" style="color:#5999ee;font-weight:bold;font-size:1.25em;">1390 lei</span>
+                            <span class="accordion-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <img src="images/eye_perfection.jpg" alt="Eye Perfection" class="accordion-image">
+                                <div class="accordion-info retinol-grid">
+                                    <div>
+                                        <b>Indicații:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Pentru orice tip de piele din zona perioculară, în special pentru pielea atonică, cu riduri mimice, cercuri întunecate și umflături sub ochi.</li>
+                                            <li>Ca îngrijire preventivă — începând cu vârsta de 30 de ani, pentru prevenirea apariției semnelor de îmbătrânire menționate mai sus.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Acțiune:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Întinerirea pielii, întărirea vaselor de sânge și strălucirea conturului ochilor.</li>
+                                            <li>Împotriva cercurilor întunecate și "pungilor" de sub ochi.</li>
+                                            <li>Împotriva ridurilor mimice ("laba gâștii" și "ridurile mândriei").</li>
+                                            <li>Împotriva oboselii și stresului acumulate.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Rezultate:</b>
+                                        <ul style="margin-top:8px;">
+                                            <li>Pielea conturului ochilor devine întinerită, netedă, luminoasă și strălucitoare, iar organismul se relaxează și se simte odihnit datorită conceptului holistic — rezultat vizibil și palpabil după prima procedură.</li>
+                                        </ul>
+                                        <button class="details-button retinol-btn" onclick="openConsultationModal()">Programează</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -907,9 +1274,11 @@
             items.forEach(item => {
                 const header = item.querySelector('.accordion-header');
                 header.addEventListener('click', function() {
-                    if(item.classList.contains('active')) {
+                    if (item.classList.contains('active')) {
+                        // Dacă e deja deschis, îl închidem
                         item.classList.remove('active');
                     } else {
+                        // Închidem toate și deschidem doar pe acesta
                         items.forEach(i => i.classList.remove('active'));
                         item.classList.add('active');
                     }

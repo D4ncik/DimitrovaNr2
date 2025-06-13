@@ -265,12 +265,13 @@
         }
         .modal-content {
             background: white;
-            padding: 30px;
+            padding: 18px 18px 18px 18px;
             border-radius: 15px;
-            max-width: 800px;
+            max-width: 900px;
             width: 90%;
             position: relative;
-            max-height: 90vh;
+            max-height: 98vh;
+            min-height: 420px;
             overflow: hidden;
             margin: 5% auto;
             box-sizing: border-box;
@@ -279,29 +280,80 @@
             width: calc(100% + 60px);
             margin-left: -30px;
             margin-right: -30px;
-            margin-top: -30px;
+            margin-top: -18px;
             height: 300px;
             object-fit: cover;
             border-radius: 0;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             display: block;
         }
         .modal-text {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 8px;
             padding: 0;
         }
         .modal-text h2 {
             color: #333;
-            margin-bottom: 10px;
-            font-size: 1.5em;
+            margin-bottom: 4px;
+            font-size: 1.25em;
+            margin-top: 0;
         }
-        .modal-text p {
+        .modal-text p, .modal-text ul, .modal-text li {
             color: #666;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            line-height: 1.6;
+            margin-bottom: 8px;
+            font-size: 0.98em;
+            line-height: 1.5;
+        }
+        .modal-text ul {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        /* Stil pentru gridul cu 3 coloane din modalContent */
+        .modal-text .modal-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.92em;
+        }
+        .modal-text .modal-3col h3 {
+            font-size: 1em;
+            margin-bottom: 6px;
+        }
+        .modal-text .modal-3col p {
+            font-size: 0.92em;
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 10px 4px 10px 4px;
+                min-height: 320px;
+                max-width: 99vw;
+            }
+            .modal-image {
+                height: 200px;
+                margin-left: -10px;
+                margin-right: -10px;
+                margin-top: -10px;
+            }
+            .modal-text h2 {
+                font-size: 1.05em;
+            }
+            .modal-text p, .modal-text ul, .modal-text li {
+                font-size: 0.92em;
+            }
+            .modal-text .modal-3col {
+                font-size: 0.85em;
+                gap: 6px;
+            }
+            .modal-text .modal-3col h3 {
+                font-size: 0.95em;
+            }
+            .modal-text .modal-3col p {
+                font-size: 0.85em;
+            }
         }
         .consultation-banner {
             background: #f2fafc;
@@ -399,6 +451,35 @@
         }
         .logo-link span {
             color: #234a7c !important;
+        }
+        /* --- MODIFICĂRI PENTRU MOBIL/TABLETĂ --- */
+        @media (max-width: 1024px) {
+            .hero-section {
+                background-attachment: scroll;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                min-height: 420px;
+                height: auto;
+            }
+            .hero-section::before {
+                background: rgba(242, 250, 252, 0.53); /* overlay și mai transparent pentru a vedea imaginea mai bine */
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-section {
+                background-size: 240% auto;
+                min-height: 320px;
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+            .hero-section::before {
+                background: rgba(242, 250, 252, 0.521); /* overlay foarte subtil */
+            }
         }
     </style>
 </head>
@@ -732,13 +813,23 @@
         biorepeel: {
             title: 'BioRePeel',
             image: 'images/biorepeel.webp',
-            description: 'Peeling inovator pentru regenerare și revitalizare intensă.',
-            details: [
-                'Stimulează producția de colagen',
-                'Îmbunătățește textura pielii',
-                'Reduce petele pigmentare',
-                'Efect anti-aging vizibil'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+Acest peeling a demonstrat rezultate uimitoare pe față. Nu doar că exfoliază, dar și distruge bacteriile care provoacă acneea, elimină hiperpigmentarea, accelerează schimbul celular și reduce cheratoza.
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Biorevitalizare, exfoliere, biostimulare</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Uscăciune, deshidratare, acnee/post-acnee (chiar și în fază activă), modificări legate de vârstă, pigmentare, cicatrici, pori dilatați</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Hidratare, lifting, îmbunătățirea texturii pielii, iluminare, reducerea porilor</p>
+    </div>
+</div>`
         },
         'biorepeel-body': {
             title: 'BioRePeel corp',
@@ -754,112 +845,243 @@
         azelaic: {
             title: 'Azelaic',
             image: 'images/azelaic.jpg',
-            description: 'Peeling cu acid azelaic pentru ten acneic și problematic.',
-            details: [
-                'Reduce inflamațiile',
-                'Reglează secreția de sebum',
-                'Previne apariția acneei',
-                'Îmbunătățește aspectul porilor'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Acțiune antibacteriană și antiinflamatoare:</b> Luptă eficient împotriva bacteriilor și inflamațiilor, îmbunătățind starea pielii.</p>
+<p><b>Antioxidant natural:</b> Protejează pielea de radicalii liberi și de îmbătrânirea prematură.</p>
+<p><b>Normalizarea funcționării glandelor sebacee:</b> Reglează producția de sebum, prevenind pielea grasă și blocarea porilor.</p>
+<p><b>Corectarea pigmentării:</b> Reduce manifestările pigmentare, uniformizând tonul pielii.</p>
+<p><b>Normalizarea procesului de keratinizare:</b> Îmbunătățește procesele de exfoliere și reînnoire a pielii, accelerând regenerarea acesteia.</p>
+<p><b>Utilizare pe tot parcursul anului:</b> Potrivit pentru utilizare în orice sezon, oferind îngrijire completă.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Antibacterian, antiinflamator, antioxidant</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Acnee, post-acnee, demodex, melasmă, rozacee, dermatită seboreică</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Reducerea inflamației, normalizarea sebumului, ton uniform al pielii</p>
+    </div>
+</div>`
         },
         mandelic: {
             title: 'Mandelic',
             image: 'images/mandelic.png',
-            description: 'Peeling blând cu acid mandelic pentru toate tipurile de ten.',
-            details: [
-                'Exfoliere delicată',
-                'Potrivit pentru piele sensibilă',
-                'Uniformizează nuanța tenului',
-                'Efect anti-aging ușor'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Exfoliere delicată:</b> Exfoliază eficient celulele moarte, uniformizând microrelieful pielii.</p>
+<p><b>Reducerea luciului gras și a porilor dilatați:</b> Reglează activitatea glandelor sebacee, reduce excesul de sebum și micșorează porii dilatați.</p>
+<p><b>Tratamentul acneei și cuperozei:</b> Combate acneea și ajută la diminuarea manifestărilor cuperozei, îmbunătățind sănătatea pielii.</p>
+<p><b>Stimularea producerii de colagen și elastină:</b> Stimulează sinteza colagenului și elastinei, îmbunătățind fermitatea și elasticitatea pielii.</p>
+<p><b>Protecție împotriva îmbătrânirii:</b> Stabilizează membranele celulare, protejând celulele de deteriorări și de îmbătrânirea prematură.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Exfoliere blândă, reducerea porilor, stimularea colagenului</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Ten gras, acnee, cuperoză, riduri fine, pigmentare</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Netezire, reducerea comedoanelor, relief uniform, îmbunătățirea metabolismului</p>
+    </div>
+</div>`
         },
         lactic: {
             title: 'Lactic',
             image: 'images/Lactic.webp',
-            description: 'Peeling hidratant și iluminator.',
-            details: [
-                'Hidratează intens',
-                'Iluminează tenul',
-                'Reduce petele pigmentare',
-                'Potrivit pentru piele sensibilă'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Hidratare și refacerea barierei cutanate:</b> Hidratează intens pielea și reface bariera epidermică, îmbunătățind funcțiile sale de protecție.</p>
+<p><b>Exfoliere:</b> Elimină eficient celulele moarte, îmbunătățind textura pielii și favorizând reînnoirea acesteia.</p>
+<p><b>Stimularea producerii de colagen și elastină:</b> Stimulează sinteza colagenului și elastinei, îmbunătățind fermitatea și elasticitatea pielii.</p>
+<p><b>Prevenirea inflamațiilor:</b> Contribuie la prevenirea inflamațiilor și calmează pielea iritată.</p>
+<p><b>Albire și blocarea tirozinazei:</b> Are proprietăți de albire, reducând pigmentarea și blocând activitatea tirozinazei.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Hidratare, albire, colagenogeneză</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Ten uscat și tern, modificări legate de vârstă, pigmentare</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Lifting, strălucire, albire, prevenirea inflamațiilor</p>
+    </div>
+</div>`
         },
         fitic: {
             title: 'Fitic',
             image: 'images/fitic.jpg',
-            description: 'Peeling antioxidant și protector.',
-            details: [
-                'Protejează împotriva radicalilor liberi',
-                'Uniformizează nuanța pielii',
-                'Efect calmant',
-                'Potrivit pentru piele sensibilă'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Exfoliere delicată:</b> Curăță eficient pielea, îndepărtând celulele moarte fără a provoca iritații.</p>
+<p><b>Inhibarea sintezei tirozinazei:</b> Încetinește producția de pigment, estompând petele pigmentare și uniformizând tonul pielii.</p>
+<p><b>Normalizarea activității glandelor sebacee:</b> Reglează secreția de sebum, eliminând luciul gras și îmbunătățind textura pielii.</p>
+<p><b>Efect de lifting:</b> Asigură un efect de tonifiere, îmbunătățind conturul feței și oferind fermitate pielii.</p>
+<p><b>Acțiune antibacteriană:</b> Distruge microorganismele patogene, îmbunătățind starea pielii și prevenind inflamațiile.</p>
+<p><b>Utilizare pe tot parcursul anului:</b> Potrivit pentru utilizare în orice sezon, oferind o îngrijire completă a pielii.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Exfoliere, inhibarea tirozinazei, efect antibacterian</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Ten gras, pigmentare, ton neuniform, modificări legate de vârstă</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Reducerea sebumului, iluminare, îmbunătățirea structurii pielii</p>
+    </div>
+</div>`
         },
         'peri-orbital': {
             title: 'Peri-orbital',
             image: 'images/periorbital.jpg',
-            description: 'Tratament specializat pentru zona ochilor.',
-            details: [
-                'Reduce cearcănele',
-                'Îmbunătățește fermitatea pielii',
-                'Efect de iluminare',
-                'Potrivit pentru piele sensibilă'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Activarea sistemului imunitar:</b> Întărește protecția naturală a pielii, sporindu-i rezistența la factorii externi.</p>
+<p><b>Hidratare și netezire:</b> Hidratează intens pielea, îmbunătățindu-i textura și eliminând senzația de uscăciune.</p>
+<p><b>Corectarea ridurilor:</b> Elimină ridurile fine și reduce adâncimea celor pronunțate din jurul ochilor.</p>
+<p><b>Reducerea umflăturilor:</b> Luptă eficient împotriva edemelor, redând prospețimea și confortul pielii.</p>
+<p><b>Efect de lifting:</b> Oferă un efect de tonifiere, îmbunătățind conturul zonei din jurul ochilor.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Hidratare, lifting, activarea protecției imunitare</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Riduri în jurul ochilor, umflături, deshidratare, piele ternă</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Netezire, reducerea umflăturilor, lifting, aspect odihnit</p>
+    </div>
+</div>`
         },
         'stop-acne': {
             title: 'Stop Acne',
             image: 'images/stopAcnee.jpg',
-            description: 'Tratament specializat pentru acnee și piele problematică.',
-            details: [
-                'Reduce inflamațiile',
-                'Previne apariția coșurilor',
-                'Reglează secreția de sebum',
-                'Îmbunătățește textura pielii'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Utilizare pe tot parcursul anului:</b> Peeling-ul de generația a 4-a este potrivit pentru utilizare în orice perioadă a anului, asigurând un tratament delicat.</p>
+<p><b>Soluție pentru pielea problematică:</b> Luptă eficient împotriva excesului de sebum, elimină acneea și previne reapariția acesteia.</p>
+<p><b>Restabilirea glandelor sebacee:</b> Tratează și restabilește funcționarea glandelor sebacee, normalizând secreția acestora.</p>
+<p><b>Acțiune antiseptică:</b> Distruge microorganismele patogene, prevenind inflamațiile și iritațiile.</p>
+<p><b>Efect antiinflamator:</b> Reduce inflamațiile și diminuă roșeața, îmbunătățind starea generală a pielii.</p>
+<p><b>Protecție antioxidantă:</b> Neutralizează radicalii liberi, prevenind deteriorarea celulelor pielii.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Antiseptic, antioxidant, regenerare</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Acnee, piele grasă și inflamată, comedoane</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Piele curată, reducerea inflamațiilor, normalizarea sebumului</p>
+    </div>
+</div>`
         },
         '3d-lifting': {
             title: '3D|lifting',
             image: 'images/3dLifting.webp',
-            description: 'Tratament de lifting non-chirurgical.',
-            details: [
-                'Efect de lifting vizibil',
-                'Stimulează colagenul',
-                'Îmbunătățește fermitatea pielii',
-                'Rezultate rapide'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Utilizare pe tot parcursul anului:</b> Peeling-ul de generația a 4-a este potrivit pentru utilizare în orice sezon.</p>
+<p><b>Curățare delicată:</b> Asigură o exfoliere blândă și o curățare profundă a pielii, fără a o deteriora.</p>
+<p><b>Reglarea activității glandelor sebacee:</b> Normalizează producția de sebum, eliminând luciul gras și îmbunătățind textura pielii.</p>
+<p><b>Iluminarea pielii:</b> Suprimă sinteza tirozinazei, contribuind la estomparea petelor pigmentare și uniformizarea tonului feței.</p>
+<p><b>Efect de lifting:</b> Are un efect de fermitate, îmbunătățind contururile feței.</p>
+<p><b>Acțiune antimicrobiană:</b> Distruge microorganismele patogene, prevenind inflamațiile și iritațiile.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Iluminare, efect anti-îmbătrânire, reglarea sebumului</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Pigmentare, piele ternă, luciu gras, modificări legate de vârstă</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Întinerire, ton uniform, lifting, reducerea sebumului</p>
+    </div>
+</div>`
         },
         carbon: {
             title: 'Carbon',
             image: 'images/carbon1.jpg',
-            description: 'Peeling cu carbon pentru o piele radiantă.',
-            details: [
-                'Curăță porii în profunzime',
-                'Reduce excesul de sebum',
-                'Îmbunătățește luminozitatea tenului',
-                'Efect de detoxifiere'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Revitalizare și hidratare:</b> Concentratul peptidic completează complexul de peeling cu carbon, crescând capacitatea de reținere a hidratării pielii și oferind hidratare de lungă durată.</p>
+<p><b>Efect antioxidant:</b> Crește activitatea antioxidantă a celulelor, încetinește procesul de îmbătrânire și îmbunătățește culoarea pielii.</p>
+<p><b>Relaxarea musculară:</b> Argireline relaxează în siguranță mușchii, reducând ridurile faciale fără a bloca expresiile faciale.</p>
+<p><b>Comandarea colagenului:</b> Peptidele Replexium® restabilesc aranjamentul corect al fibrelor de colagen, crescând fermitatea și densitatea pielii.</p>
+<p><b>Hidratare tridimensională:</b> PatcH2O Patch Molecular Complex oferă hidratare instantanee și de lungă durată pielii, protejând-o de uscare.</p>
+<p><b>Întinerirea petelor:</b> Componenta pe bază de lipozomi a X50 Antiaging D.T.I. stimulează sinteza colagenului și elastinei, întinerind pielea din interior spre exterior.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Hidratare, protecție antioxidantă, revitalizare</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Riduri, piele ternă și deshidratată, piele grasă, pigmentare</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Ton uniform, creșterea fermității, reducerea porilor, strălucire</p>
+    </div>
+</div>`
         },
         whitening: {
             title: 'Whitening',
             image: 'images/whitening.webp',
-            description: 'Tratament pentru uniformizarea culorii tenului.',
-            details: [
-                'Reduce petele pigmentare',
-                'Uniformizează nuanța pielii',
-                'Efect de iluminare',
-                'Potrivit pentru toate tipurile de ten'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Efect de albire:</b> Luminează pielea prin eliminarea petelor de vârstă de diferite origini.</p>
+<p><b>Protecție antioxidantă:</b> Neutralizează efectele radicalilor liberi, protejând pielea de îmbătrânirea prematură.</p>
+<p><b>Tone Evened Out:</b> Ajută la obținerea unui ton uniform și radiant al pielii.</p>
+<p><b>Anti-fotoîmbătrânire:</b> Protejează pielea de efectele razelor ultraviolete, reducând riscul de pete întunecate.</p>
+</div>
+<div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Iluminare, întărire, potrivit pentru piele sensibilă</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Pigmentare, ton tern, piele sensibilă</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Efect de piele de porțelan: netezime, culoare uniformă și deschisă</p>
+    </div>
+</div>`
         },
         'enzymatic-phytopeeling': {
             title: 'Enzymatic phytopeeling',
             image: 'images/phytopeeling.jpg',
-            description: 'Peeling natural cu enzime și extracte botanice.',
-            details: [
-                'Exfoliere blândă',
-                'Stimulează regenerarea pielii',
-                'Reduce inflamațiile',
-                'Potrivit pentru piele sensibilă'
-            ]
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Curățare fără uscare excesivă:</b> Curăță eficient pielea de impurități fără a provoca uscăciune sau a-i perturba echilibrul natural.</p>
+<p><b>Îndepărtarea secrețiilor glandelor sebacee:</b> Îndepărtează excesul de sebum și normalizează glandele sebacee, prevenind strălucirea uleioasă.</p>
+<p><b>Eliminarea celulelor moarte ale pielii:</b> Exfoliază celulele moarte ale pielii pentru a îmbunătăți textura pielii și a promova reînnoirea pielii.</p>
+<p><b>Stimularea microcirculației:</b> Îmbunătățește circulația sângelui prin furnizarea de nutrienți și oxigen celulelor pielii.</p>
+<p><b>Pregătirea ingredientelor active:</b> Pregătește pielea pentru primirea ingredientelor active, îmbunătățind absorbția și eficacitatea acestora.</p>
+<p><b>Rezultat:</b> Piele curată, proaspătă și hidratată, cu un ton uniform și o textură îmbunătățită.</p>
+</div>`
         },
         'yellow-retinol': {
             title: 'Yellow Retinol',
@@ -879,11 +1101,9 @@
         document.getElementById('modalImage').src = data.image;
         document.getElementById('modalImage').alt = data.title;
         document.getElementById('modalTitle').textContent = data.title;
-        let descHtml = `<p>${data.description}</p>`;
-        if (data.details && data.details.length) {
-            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-            data.details.forEach(item => descHtml += `<li>${item}</li>`);
-            descHtml += '</ul>';
+        let descHtml = '';
+        if (data.modalContent) {
+            descHtml += data.modalContent;
         }
         document.getElementById('modalDescription').innerHTML = descHtml;
         document.getElementById('treatmentModal').style.display = 'flex';
