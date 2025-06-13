@@ -28,12 +28,14 @@
         }
         .treatments-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
             justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
         }
         .packages-grid {
             display: grid;
@@ -130,6 +132,9 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
             height: 400px !important;
+            width: 100% !important;
+            min-width: 0 !important;
+            max-width: none !important;
             display: flex !important;
             flex-direction: column !important;
         }
@@ -472,6 +477,35 @@
                 font-size: 0.9em;
             }
         }
+
+        @media (max-width: 1024px) {
+            .hero-section {
+                background-attachment: scroll;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                min-height: 420px;
+                height: auto;
+            }
+            .hero-section::before {
+                background: rgba(242, 250, 252, 0.53);
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-section {
+                background-size: 282% auto;
+                min-height: 320px;
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+            .hero-section::before {
+                background: rgba(242, 250, 252, 0.521);
+            }
+        }
     </style>
 </head>
 <body>
@@ -549,7 +583,7 @@
                     <h2>Tratamente Corporale</h2>
                 </div>
                 <div class="treatments-grid">
-                    <div class="treatment-card new-design" data-treatment="rf-lifting" style="min-width:520px;max-width:600px;">
+                    <div class="treatment-card new-design" data-treatment="rf-lifting">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('rf-lifting')">
                             <div style="display: flex; width: 100%; height: 100%; position: relative;">
                                 <img src="images/RF-lifting1.jpg" alt="RF-lifting Before" class="treatment-image" style="width: 50%; border-right: 2px solid #e0e0e0;">
@@ -565,7 +599,7 @@
                         </div>
                     </div>
 
-                    <div class="treatment-card new-design" data-treatment="cavitatie" style="min-width:520px;max-width:600px;">
+                    <div class="treatment-card new-design" data-treatment="cavitatie">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('cavitatie')">
                             <div style="display: flex; width: 100%; height: 100%; position: relative;">
                                 <img src="images/corp2.PNG" alt="Cavitație Before" class="treatment-image" style="width: 50%; border-right: 2px solid #e0e0e0;">
