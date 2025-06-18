@@ -166,48 +166,53 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(89, 153, 238, 0.3);
         }
+        /* Stiluri pentru modalul de programare */
         .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 1000;
-            overflow: auto;
-        }
-        .modal-content {
-            background: white;
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 800px;
-            width: 90%;
-            position: relative;
-            box-sizing: border-box;
-            overflow: hidden;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        .consultation-modal {
-            margin: 2% auto;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
             padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .modal-content.consultation-modal {
+            width: 100%;
+            max-width: 1000px;
+            height: 80vh;
+            background: transparent;
+            border: none;
+            overflow: hidden;
+            position: relative;
             display: flex;
             flex-direction: column;
-            width: 95%;
-            max-width: 1200px;
-            height: 95vh;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
         }
+        
         .calendly-section {
+            flex: 1;
             width: 100%;
             height: 100%;
-            position: relative;
+            overflow: hidden;
         }
+        
         .calendly-section iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             border: none;
@@ -283,7 +288,9 @@
             margin: 0;
         }
         .modal-buttons {
-            margin: 0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
         .modal-button {
             display: inline-block;
@@ -354,16 +361,16 @@
             text-align: center;
         }
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/dermapen_terapi.webp');
+            background: linear-gradient(to bottom, #658698, #13283c);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            height: 100vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #234a7c;
+            color: #ffffff;
             padding: 0 20px;
             position: relative;
         }
@@ -375,7 +382,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(242, 250, 252, 0.65);
+            
             z-index: 1;
         }
 
@@ -389,17 +396,18 @@
             font-size: 3.5em;
             margin-bottom: 30px;
             font-weight: 600;
-            background: linear-gradient(to bottom, #658698, #13283c);
+            background: linear-gradient(to bottom, #ffffff, #f4f4f4);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             white-space: nowrap;
         }
 
+ 
         .hero-content p {
-            font-size: 1.4em;
+            font-size: 1.0em;
             line-height: 1.6;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 30px;
         }
 
@@ -412,9 +420,9 @@
         }
 
         .benefits-list li {
-            font-size: 1.2em;
+            font-size: 1.0em;
             margin-bottom: 15px;
-            color: #333;
+            color: #ffffff;
             display: flex;
             align-items: center;
         }
@@ -429,26 +437,26 @@
 
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.5em;
-                white-space: normal;
+                font-size: 2.5em !important;
+                white-space: normal !important;
             }
             .hero-content p {
-                font-size: 1.1em;
+                font-size: 1em !important;
             }
             .benefits-list li {
-                font-size: 1em;
+                font-size: 0.95em !important;
             }
         }
 
         @media (max-width: 480px) {
             .hero-content h1 {
-                font-size: 2em;
+                font-size: 2em !important;
             }
             .hero-content p {
-                font-size: 1em;
+                font-size: 1em !important;
             }
             .benefits-list li {
-                font-size: 0.9em;
+                font-size: 0.9em !important;
             }
         }
 
@@ -510,6 +518,24 @@
                 background: rgba(242, 250, 252, 0.521);
             }
         }
+        .modal-links {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .modal-link {
+            display: inline-block;
+            color: #5999ee;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .modal-link:hover {
+            color: #3d7fd9;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -532,9 +558,63 @@
                         <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="preparate.html">Preparate</a></li>
-                            <li><a href="gallery.html">Galerie</a></li>
+                            <li><a href="gallery.html">Rezultate</a></li>
+                              <li><a href="despre_companie.html">Despre companie</a></li>
                         </ul>
                     </li>
+                   <!-- This is the correct HTML structure that should be used on ALL pages -->
+<!-- Replace the existing symptoms menu structure with this on each page -->
+
+<li class="symptoms-dropdown-trigger">
+    <a href="#simptome" id="symptomsTab">Simptome <i class="fas fa-chevron-down"></i></a>
+</li>
+
+<!-- Add this dropdown structure right after the header, before main content -->
+<div id="symptomsDropdown" class="symptoms-dropdown-menu">
+    <div class="symptoms-dropdown-columns">
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Față</div>
+            <ul>
+             <li><a href="acnee.html">Acnee / Coșuri</a></li>
+                    <li><a href="post-acnee.html">Post-acnee / Cicatrici</a></li>
+                    <li><a href="pori-dilatati.html">Pori dilatați</a></li>
+                    <li><a href="ten-gras.html">Ten gras / Seboree</a></li>
+                    <li><a href="deshidratare.html">Deshidratare și descuamare</a></li>
+                    <li><a href="ten-tern.html">Ten tern / lipsit de strălucire</a></li>
+                    <li><a href="pigmentare.html">Pigmentare / pete pigmentare</a></li>
+                    <li><a href="cuperoza.html">Cuperoză / rețea vasculară vizibilă</a></li>
+                    <li><a href="riduri.html">Riduri</a></li>
+                    <li><a href="pierdere-tonusului.html">Pierderea fermității și a tonusului</a></li>
+                    <li><a href="riduri-cercuri-sub-ochi.html">Riduri / Cercuri întunecate sub ochi</a></li>
+                    <li><a href="barbie-dubla.html">Bărbie dublă</a></li>
+                    <li><a href="relaxare-oval.html">Relaxarea ovalului facial / ptoză</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Buze</div>
+            <ul>
+               <li><a href="tratamente-buze.html">Deshidratarea buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Riduri fine în jurul buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Volum insuficient</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Corp</div>
+            <ul>
+                  <li><a href="vergeturi.html">Vergeturi (striae)</a></li>
+                    <li><a href="celulita.html">Celulită / Depozite locale de grăsime</a></li>
+                    <li><a href="lasare-piele.html">Lăsarea pielii după slăbire</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Scalp</div>
+            <ul>
+                <li><a href="#">Căderea părului</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
                     <li class="has-dropdown">
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
@@ -549,9 +629,9 @@
                     <li><a href="prices.html">Prețuri</a></li>
                     <li><a href="contacte.html">Contacte</a></li>
                     <li class="has-dropdown language-selector">
-                        <a href="#" class="current-lang" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
-                            <li><a href="#" class="alt-lang" data-lang="ru">RU</a></li>
+                            <li><a href="#" data-lang="ru">RU</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -568,8 +648,7 @@
                     <li>Stimulare profundă a colagenului și elastinei</li>
                     <li>Reducere eficientă a ridurilor și cicatricilor</li>
                     <li>Procedură minim invazivă și sigură</li>
-                    <li>Recuperare rapidă și rezultate durabile</li>
-                    <li>Tratament personalizat pentru fiecare tip de piele</li>
+               
                 </ul>
             </div>
         </section>
@@ -591,7 +670,7 @@
                 <div class="treatments-grid">
                     <div class="treatment-card new-design" data-treatment="dermapen-facial">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-facial')">
-                            <img src="images/RF-lifiting.ARW" alt="DermaPen Facial" class="treatment-image">
+                            <img src="images/IMG_0680.JPG" alt="DermaPen Facial" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 1200 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -617,7 +696,7 @@
 
                     <div class="treatment-card new-design" data-treatment="dermapen-vergeturi">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-vergeturi')">
-                            <img src="images/RF-Lifting2.jpg" alt="DermaPen Vergeturi" class="treatment-image">
+                            <img src="images/IMG_0683.JPG" alt="DermaPen Vergeturi" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 1000 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -630,7 +709,7 @@
 
                     <div class="treatment-card new-design" data-treatment="dermapen-buze">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-buze')">
-                            <img src="images/dermapen_buze.jpeg" alt="DermaPen Buze" class="treatment-image">
+                            <img src="images/IMG_0681.JPG" alt="DermaPen Buze" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 750 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -638,6 +717,19 @@
                         </div>
                         <div class="treatment-content">
                             <h3>DermaPen Buze</h3>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card new-design" data-treatment="dermapen-maini">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-maini')">
+                            <img src="images/IMG_0682.JPG" alt="DermaPen mâini" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 900 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>DermaPen mâini</h3>
                         </div>
                     </div>
                 </div>
@@ -649,7 +741,7 @@
                 <div class="section-header">
                     <h2 class="ro">Mezoterapie programe</h2>
                     <h2 class="ru">Программы мезотерапии</h2>
-                    <div class="discount-badge">-15%</div>
+                  
                     <p class="ro">Beneficiați de 15% reducere la programele de tratament</p>
                     <p class="ru">Получите скидку 15% на программы лечения</p>
                 </div>
@@ -695,7 +787,7 @@
 
                     <div class="treatment-card new-design" data-treatment="dermapen-buze-program">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('dermapen-buze-program')">
-                            <img src="images/dermapen_buze.jpeg" alt="DermaPen Buze Program" class="treatment-image">
+                            <img src="images/IMG_0681.JPG" alt="DermaPen Buze Program" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">5 ședințe</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -716,6 +808,9 @@
             <div class="modal-text">
                 <h2 id="modalTitle"></h2>
                 <p id="modalDescription"></p>
+                <div class="modal-links">
+                    <a href="#" id="modalResultsLink" class="modal-link">Vezi rezultate</a>
+                </div>
             </div>
             <div class="modal-info">
                 <p id="modalPrice" class="modal-price"></p>
@@ -726,7 +821,7 @@
     <div id="consultationModal" class="modal">
         <div class="modal-content consultation-modal">
             <div class="calendly-section">
-                <iframe src="https://dimitrovaclinic.setmore.com" style="width:100%;height:750px;border:none;"></iframe>
+                <iframe src="https://dimitrovaclinic.setmore.com/services/4ba81d76-0b52-4fab-b388-4cdb76e4e921" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -735,63 +830,55 @@
         <div class="footer-content">
             <div class="footer-column">
                 <div class="footer-logo">
-                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>Dimitrova.Clinic</span>
+                    <img src="images/logo_footer.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
                 </div>
                 <div class="contact-info">
-                    <a href="tel:+37360049402" class="ro"><i class="fas fa-phone"></i> +373 60 049 402</a>
-                    <a href="tel:+37360049402" class="ru"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
                     <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
                 </div>
                 <div class="address">
-                    <p class="ro">Republica Moldova,</p>
-                    <p class="ru">Республика Молдова,</p>
-                    <p class="ro">Chișinău, str.Armenească 47</p>
-                    <p class="ru">Кишинёв, ул. Армянская 47</p>
+                    <p>Republica Moldova,</p>
+                    <p>Chișinău, str.Armenească 47</p>
                 </div>
             </div>
 
             <div class="footer-column">
-                <h3 class="ro">Dimitrova Clinic</h3>
-                <h3 class="ru">Dimitrova Clinic</h3>
+                <h3>Dimitrova Clinic</h3>
                 <ul>
-                    <li><a href="#despre" class="ro">Despre noi</a><a href="#despre" class="ru">О нас</a></li>
-                    <li><a href="#galerie" class="ro">Galerie</a><a href="#galerie" class="ru">Галерея</a></li>
+                    <li><a href="preparate.html">Preparate</a></li>
+                    <li><a href="gallery.html">Galerie</a></li>
+                    <li><a href="despre_companie.html">Despre companie</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
-                <h3 class="ro">Serviciile centrului nostru</h3>
-                <h3 class="ru">Наши услуги</h3>
+                <h3>Serviciile centrului nostru</h3>
                 <ul>
-                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
-                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
-                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
-                    <li><a href="prices.html">Price list</a></li>
-                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                    <li><a href="body-care.html">Peelinguri chimice</a></li>
+                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
                     <li><a href="massage.html">Masaj</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
-                <h3 class="ro">Urmăriți-ne...</h3>
-                <h3 class="ru">Следите за нами...</h3>
+                <h3>Urmăriți-ne...</h3>
                 <div class="social-links">
                     <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
                 </div>
-                <h3 class="ro">Scrieti în direct...</h3>
-                <h3 class="ru">Напишите нам...</h3>
+                <h3>Scrieti în direct...</h3>
                 <div class="messenger-links">
                     <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
                 </div>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p class="ro">&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
-            <p class="ru">&copy; 2024 Dimitrova.Clinic. Все права защищены.</p>
+            <p>&copy; 2024 Dimitrova Clinic  Toate drepturile rezervate.</p>
         </div>
     </footer>
 
@@ -801,14 +888,19 @@
         const treatmentsData = {
             'dermapen-facial': {
                 title: 'DermaPen Facial',
-                image: 'images/RF-lifiting.ARW',
+                image: 'images/IMG_0680.JPG',
                 price: '1 h / 1200 MDL',
-                description: 'Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen și elastină.',
+                description: 'Procedură avansată de micro-needling pentru față care stimulează producția naturală de colagen și elastină. În funcție de tipul și necesitățile tenului dumneavoastră, alegem un mezococktail personalizat, menit să ofere rezultatele dorite în mod eficient și sigur.',
                 details: [
                     'Stimulează regenerarea celulară profundă',
+                    'Efect Anti-Age (anti-îmbătrânire)',
                     'Reduce ridurile fine și cicatricile',
                     'Îmbunătățește textura și tonusul pielii',
-                    'Procedură minim invazivă și sigură',
+                    'Minimizează porii dilatați',
+                    'Redă strălucirea naturală a pielii',
+                     'Hidratează în profunzime',
+                    'Accelerează regenerarea celulară',
+                    'Reduce cearcănele și pungile sub ochi',
                     'Rezultate vizibile după 3-4 ședințe'
                 ],
                 showPrice: false
@@ -829,7 +921,7 @@
             },
             'dermapen-vergeturi': {
                 title: 'DermaPen Vergeturi',
-                image: 'images/RF-Lifting2.jpg',
+                image: 'images/IMG_0683.JPG',
                 price: '1 h / 1000 MDL',
                 description: 'Tratament eficient pentru reducerea vergeturilor pe corp prin stimularea regenerării celulare.',
                 details: [
@@ -843,7 +935,7 @@
             },
             'dermapen-buze': {
                 title: 'DermaPen Buze',
-                image: 'images/dermapen_buze.jpeg',
+                image: 'images/IMG_0681.JPG',
                 price: '1 h / 750 MDL',
                 description: 'Tratament specializat pentru volumizarea și conturarea buzelor prin micro-needling.',
                 details: [
@@ -910,6 +1002,20 @@
                     'Rezultate naturale și durabile'
                 ],
                 showPrice: true
+            },
+            'dermapen-maini': {
+                title: 'DermaPen mâini',
+                image: 'images/IMG_0682.JPG',
+                price: '1 h / 900 MDL',
+                description: 'Tratament cu micro-needling pentru rejuvenarea și îmbunătățirea aspectului pielii mâinilor.',
+                details: [
+                    'Reduce petele pigmentare',
+                    'Îmbunătățește textura pielii',
+                    'Stimulează producția de colagen',
+                    'Rejuvenare vizibilă a mâinilor',
+                    'Rezultate naturale și durabile'
+                ],
+                showPrice: false
             }
         };
 
@@ -927,10 +1033,26 @@
             }
             document.getElementById('modalDescription').innerHTML = descHtml;
             
+            // Actualizează link-ul către galerie în funcție de tratament
+            const resultsLink = document.getElementById('modalResultsLink');
+            const galleryLinks = {
+                'dermapen-facial': 'gallery.html#facial',
+                'dermapen-scalp': 'gallery.html#scalp',
+                'dermapen-vergeturi': 'gallery.html#vergeturi',
+                'dermapen-buze': 'gallery.html#buze',
+                'dermapen-facial-program': 'gallery.html#facial',
+                'dermapen-scalp-program': 'gallery.html#scalp',
+                'dermapen-vergeturi-program': 'gallery.html#vergeturi',
+                'dermapen-buze-program': 'gallery.html#buze',
+                'dermapen-maini': 'gallery.html#maini'
+            };
+            resultsLink.href = galleryLinks[treatmentId] || '#';
+            resultsLink.style.display = galleryLinks[treatmentId] ? 'inline-block' : 'none';
+            
             // Afișează prețul doar pentru programele de tratament
             const modalInfo = document.querySelector('.modal-info');
             if (data.showPrice) {
-            document.getElementById('modalPrice').textContent = data.price;
+                document.getElementById('modalPrice').textContent = data.price;
                 modalInfo.style.display = 'flex';
             } else {
                 modalInfo.style.display = 'none';
@@ -944,7 +1066,12 @@
         }
 
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex';
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 10);
         }
 
         function closeModal(modalId) {

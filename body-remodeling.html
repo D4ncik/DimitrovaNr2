@@ -401,7 +401,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(242, 250, 252, 0.65);
+       
             z-index: 1;
         }
 
@@ -415,17 +415,18 @@
             font-size: 3.5em;
             margin-bottom: 30px;
             font-weight: 600;
-            background: linear-gradient(to bottom, #658698, #13283c);
+            background: linear-gradient(to bottom, #ffffff, #ffffff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             white-space: nowrap;
         }
 
+    
         .hero-content p {
-            font-size: 1.4em;
+            font-size: 1.0em;
             line-height: 1.6;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 30px;
         }
 
@@ -438,9 +439,9 @@
         }
 
         .benefits-list li {
-            font-size: 1.2em;
+            font-size: 1.0em;
             margin-bottom: 15px;
-            color: #333;
+            color: #ffffff;
             display: flex;
             align-items: center;
         }
@@ -455,26 +456,26 @@
 
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.5em;
-                white-space: normal;
+                font-size: 2.5em !important;
+                white-space: normal !important;
             }
             .hero-content p {
-                font-size: 1.1em;
+                font-size: 1em !important;
             }
             .benefits-list li {
-                font-size: 1em;
+                font-size: 0.95em !important;
             }
         }
 
         @media (max-width: 480px) {
             .hero-content h1 {
-                font-size: 2em;
+                font-size: 2em !important;
             }
             .hero-content p {
-                font-size: 1em;
+                font-size: 1em !important;
             }
             .benefits-list li {
-                font-size: 0.9em;
+                font-size: 0.9em !important;
             }
         }
 
@@ -495,13 +496,21 @@
                 background: rgba(242, 250, 252, 0.53);
             }
         }
+        .hero-section {
+    background: linear-gradient(to bottom, #658698, #13283c);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+    position: relative;
+}
         @media (max-width: 480px) {
-            .hero-section {
-                background-size: 282% auto;
-                min-height: 320px;
-                padding-top: 40px;
-                padding-bottom: 40px;
-            }
             .hero-section::before {
                 background: rgba(242, 250, 252, 0.521);
             }
@@ -528,9 +537,63 @@
                         <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="preparate.html">Preparate</a></li>
-                            <li><a href="gallery.html">Galerie</a></li>
+                            <li><a href="gallery.html">Rezultate</a></li>
+                            <li><a href="despre_companie.html">Despre companie</a></li>
                         </ul>
                     </li>
+                    <!-- This is the correct HTML structure that should be used on ALL pages -->
+<!-- Replace the existing symptoms menu structure with this on each page -->
+
+<li class="symptoms-dropdown-trigger">
+    <a href="#simptome" id="symptomsTab">Simptome <i class="fas fa-chevron-down"></i></a>
+</li>
+
+<!-- Add this dropdown structure right after the header, before main content -->
+<div id="symptomsDropdown" class="symptoms-dropdown-menu">
+    <div class="symptoms-dropdown-columns">
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Față</div>
+            <ul>
+          <li><a href="acnee.html">Acnee / Coșuri</a></li>
+                    <li><a href="post-acnee.html">Post-acnee / Cicatrici</a></li>
+                    <li><a href="pori-dilatati.html">Pori dilatați</a></li>
+                    <li><a href="ten-gras.html">Ten gras / Seboree</a></li>
+                    <li><a href="deshidratare.html">Deshidratare și descuamare</a></li>
+                    <li><a href="ten-tern.html">Ten tern / lipsit de strălucire</a></li>
+                    <li><a href="pigmentare.html">Pigmentare / pete pigmentare</a></li>
+                    <li><a href="cuperoza.html">Cuperoză / rețea vasculară vizibilă</a></li>
+                    <li><a href="riduri.html">Riduri</a></li>
+                    <li><a href="pierdere-tonusului.html">Pierderea fermității și a tonusului</a></li>
+                    <li><a href="riduri-cercuri-sub-ochi.html">Riduri / Cercuri întunecate sub ochi</a></li>
+                    <li><a href="barbie-dubla.html">Bărbie dublă</a></li>
+                    <li><a href="relaxare-oval.html">Relaxarea ovalului facial / ptoză</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Buze</div>
+            <ul>
+    <li><a href="tratamente-buze.html">Deshidratarea buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Riduri fine în jurul buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Volum insuficient</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Corp</div>
+            <ul>
+                <li><a href="vergeturi.html">Vergeturi (striae)</a></li>
+                    <li><a href="celulita.html">Celulită / Depozite locale de grăsime</a></li>
+                    <li><a href="lasare-piele.html">Lăsarea pielii după slăbire</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Scalp</div>
+            <ul>
+                <li><a href="#">Căderea părului</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
                     <li class="has-dropdown">
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
@@ -544,10 +607,9 @@
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
                     <li><a href="contacte.html">Contacte</a></li>
-                    <li class="language-selector">
-                        <a href="#"><i class="fas fa-globe"></i> RO <i class="fas fa-chevron-down"></i></a>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
-                            <li><a href="#" data-lang="ro">RO</a></li>
                             <li><a href="#" data-lang="ru">RU</a></li>
                         </ul>
                     </li>
@@ -565,8 +627,7 @@
                     <li>Proceduri non-invazive și sigure</li>
                     <li>Rezultate vizibile și de lungă durată</li>
                     <li>Tratamente personalizate pentru fiecare client</li>
-                    <li>Tehnologii de ultimă generație</li>
-                    <li>Experiență profesională și rezultate garantate</li>
+                  
                 </ul>
             </div>
         </section>
@@ -585,10 +646,8 @@
                 <div class="treatments-grid">
                     <div class="treatment-card new-design" data-treatment="rf-lifting">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('rf-lifting')">
-                            <div style="display: flex; width: 100%; height: 100%; position: relative;">
-                                <img src="images/RF-lifting1.jpg" alt="RF-lifting Before" class="treatment-image" style="width: 50%; border-right: 2px solid #e0e0e0;">
-                                <img src="images/RF-lifting2.jpg" alt="RF-lifting After" class="treatment-image" style="width: 50%;">
-                            </div>
+                                <img src="images/IMG_0698.JPG" alt="RF-lifting Before" class="treatment-image" style="width: 50%; border-right: 2px solid #e0e0e0;">
+                            
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 lei</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -601,10 +660,8 @@
 
                     <div class="treatment-card new-design" data-treatment="cavitatie">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('cavitatie')">
-                            <div style="display: flex; width: 100%; height: 100%; position: relative;">
-                                <img src="images/corp2.PNG" alt="Cavitație Before" class="treatment-image" style="width: 50%; border-right: 2px solid #e0e0e0;">
-                                <img src="images/cavitatie-after.jpg" alt="Cavitație After" class="treatment-image" style="width: 50%;">
-                            </div>
+                                <img src="images/IMG_0700.JPG" alt="Cavitație Before" class="treatment-image" style="width: 50%; border-right: 2px solid #e0e0e0;">
+                        
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 600 lei</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -617,7 +674,7 @@
 
                     <div class="treatment-card new-design" data-treatment="vacuum">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('vacuum')">
-                            <img src="images/corp3.PNG" alt="Vacuum" class="treatment-image">
+                            <img src="images/IMG_8693.PNG" alt="Vacuum" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 600 lei</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -643,7 +700,7 @@
 
                     <div class="treatment-card new-design" data-treatment="biofoton">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('biofoton')">
-                            <img src="images/Biofoton.jpg" alt="Biofoton" class="treatment-image">
+                            <img src="images/IMG_0702.JPG" alt="Biofoton" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 lei</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -673,10 +730,11 @@
                 <div class="packages-grid">
                     <div class="package-card new-design" data-treatment="vacuum-cavitatie">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('vacuum-cavitatie')">
-                            <img src="images/treatments/vacuum-cavitatie.jpg" alt="Vacuum + Cavitație" class="treatment-image">
+                            <img src="images/IMG_0698.JPG" alt="Vacuum + Cavitație" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-left">10 ședințe – 4200 lei</span>
-                                <span class="badge badge-left">20 ședințe – 8100 lei</span>
+                                    <span class="badge badge-left">5 ședințe – 4200 lei</span>
+                                <span class="badge badge-left">7 ședințe – 5880 lei</span>
+                                   <span class="badge badge-left">10 ședințe – 8100 lei</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
@@ -687,24 +745,26 @@
 
                     <div class="package-card new-design" data-treatment="vacuum-rf">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('vacuum-rf')">
-                            <img src="images/treatments/vacuum-rf.jpg" alt="Vacuum + RF-lifting" class="treatment-image">
+                            <img src="images/Rf-LifitngNew.jpg" alt="Vacuum + RF-lifting" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-left">10 ședințe – 4200 lei</span>
-                                <span class="badge badge-left">20 ședințe – 8100 lei</span>
+                                <span class="badge badge-left">5 ședințe – 2500 lei</span>
+                                <span class="badge badge-left">7 ședințe – 3150 lei</span>
+                                  <span class="badge badge-left">10 ședințe – 4500 lei</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
-                            <h3>Vacuum + RF-lifting</h3>
+                            <h3>RF-lifting</h3>
                         </div>
                     </div>
 
                     <div class="package-card new-design" data-treatment="cavitatie-rf">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('cavitatie-rf')">
-                            <img src="images/treatments/cavitatie-rf.jpg" alt="Cavitație + RF-lifting" class="treatment-image">
+                            <img src="images/IMG_0699.JPG" alt="Cavitație + RF-lifting" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-left">10 ședințe – 4200 lei</span>
-                                <span class="badge badge-left">20 ședințe – 8100 lei</span>
+                                <span class="badge badge-left">5 ședințe – 4200 lei</span>
+                                <span class="badge badge-left">7 ședințe – 5880 lei</span>
+                                   <span class="badge badge-left">10 ședințe – 8100 lei</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
@@ -715,7 +775,7 @@
 
                     <div class="package-card new-design" data-treatment="lipolazer-package">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('lipolazer-package')">
-                            <img src="images/treatments/lipolazer-package.jpg" alt="Lipolazer" class="treatment-image">
+                            <img src="images/Lipolazer.webp" alt="Lipolazer" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">5 ședințe – 2250 lei</span>
                                 <span class="badge badge-left">10 ședințe – 4500 lei</span>
@@ -753,8 +813,8 @@
         <div class="footer-content">
             <div class="footer-column">
                 <div class="footer-logo">
-                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>DIMITROVA CLINIC</span>
+                    <img src="images/logo_footer.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
                 </div>
                 <div class="contact-info">
                     <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
@@ -769,20 +829,19 @@
             <div class="footer-column">
                 <h3>Dimitrova Clinic</h3>
                 <ul>
-                    <li><a href="#despre">Despre noi</a></li>
-                    <li><a href="#galerie">Galerie</a></li>
-                    <li><a href="#aparate">Aparate</a></li>
+                    <li><a href="preparate.html">Preparate</a></li>
+                    <li><a href="gallery.html">Galerie</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
                 <h3>Serviciile centrului nostru</h3>
                 <ul>
-                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
-                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
-                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
-                    <li><a href="prices.html">Price list</a></li>
-                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                    <li><a href="body-care.html">Peelinguri chimice</a></li>
+                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
                     <li><a href="massage.html">Masaj</a></li>
                 </ul>
             </div>
@@ -801,7 +860,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+            <p>&copy; 2024 Dimitrova Clinic  Toate drepturile rezervate.</p>
         </div>
     </footer>
 

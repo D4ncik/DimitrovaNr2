@@ -4,7 +4,7 @@ const bodyRemodelingData = {
         title: 'RF-lifting',
         description: 'Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență. Procedura stimulează producția de colagen și elastină, rezultând într-o piele mai fermă și mai tânără. Ideal pentru modelarea corporală și reducerea celulitei.',
         price: '1 h / 500 lei',
-        image: 'images/RF-lifting1.jpg',
+        image: 'images/IMG_0699.JPG',
         details: [
             'Stimulează producția de colagen și elastină',
             'Efect de lifting vizibil',
@@ -30,7 +30,7 @@ const bodyRemodelingData = {
         title: 'Vacuum',
         description: 'Tratament de drenaj limfatic și modelare corporală. Procedura ajută la eliminarea toxinelor, îmbunătățește circulația și reduce retenția de apă. Rezultate în modelarea siluetei și reducerea celulitei.',
         price: '1 h / 600 lei',
-        image: 'images/corp3.PNG',
+        image: 'images/IMG_8693.PNG',
         details: [
             'Drenaj limfatic eficient',
             'Reduce retenția de apă',
@@ -56,7 +56,7 @@ const bodyRemodelingData = {
         title: 'Biofoton',
         description: 'Tratament cu lumină pentru îmbunătățirea aspectului pielii și modelare. Procedura stimulează regenerarea celulară și îmbunătățește textura pielii. Rezultate în reducerea celulitei și modelarea siluetei.',
         price: '1 h / 500 lei',
-        image: 'images/Biofoton.jpg',
+        image: 'images/IMG_0702.JPG',
         details: [
             'Stimulează regenerarea celulară',
             'Îmbunătățește textura pielii',
@@ -69,7 +69,7 @@ const bodyRemodelingData = {
         title: 'Vacuum + Cavitație',
         description: 'Pachet combinat pentru rezultate optime în modelarea corporală. Combină beneficiile drenajului limfatic cu reducerea grăsimii localizate. Rezultate vizibile și durabile în modelarea siluetei.',
         price: '',
-        image: 'images/treatments/vacuum-cavitatie.jpg',
+        image: 'images/IMG_0699.JPG',
         details: [
             'Drenaj limfatic și reducere grăsime',
             'Rezultate rapide și vizibile',
@@ -82,7 +82,7 @@ const bodyRemodelingData = {
         title: 'Vacuum + RF-lifting',
         description: 'Pachet pentru firmare și modelare corporală. Combină drenajul limfatic cu liftingul prin radiofrecvență pentru rezultate optime în modelarea siluetei și reducerea celulitei.',
         price: '',
-        image: 'images/treatments/vacuum-rf.jpg',
+        image: 'images/Rf-LifitngNew.jpg',
         details: [
             'Drenaj limfatic și lifting',
             'Reduce celulita',
@@ -95,7 +95,7 @@ const bodyRemodelingData = {
         title: 'Cavitație + RF-lifting',
         description: 'Pachet pentru reducerea grăsimii și firmare. Combină beneficiile cavitației cu liftingul prin radiofrecvență pentru rezultate optime în modelarea corporală.',
         price: '',
-        image: 'images/treatments/cavitatie-rf.jpg',
+        image: 'images/IMG_0699.JPG',
         details: [
             'Reducere grăsime și lifting',
             'Modelare corporală',
@@ -108,7 +108,7 @@ const bodyRemodelingData = {
         title: 'Lipolazer',
         description: 'Pachet de tratamente cu Lipolazer pentru rezultate optime. Procedura stimulează metabolismul celular și ajută la eliminarea grăsimii localizate. Rezultate durabile și vizibile în modelarea siluetei.',
         price: '',
-        image: 'images/treatments/lipolazer-package.jpg',
+        image: 'images/Lipolazer.webp',
         details: [
             'Stimulare metabolism',
             'Reducere grăsime localizată',
@@ -128,18 +128,18 @@ function openTreatmentModal(treatmentId) {
     const modalImage = document.getElementById('modalImage');
     let beforeAfterImages = null;
     let currentImgIdx = 0;
-    // Imagini before/after pentru tratamentele speciale
-    if (treatmentId === 'rf-lifting') {
-        beforeAfterImages = [
-            'images/RF-lifting1.jpg',
-            'images/RF-lifting2.jpg'
-        ];
-    } else if (treatmentId === 'cavitatie') {
-        beforeAfterImages = [
-            'images/corp2.PNG',
-            'images/cavitatie-after.jpg'
-        ];
-    }
+    // // Imagini before/after pentru tratamentele speciale
+    // if (treatmentId === 'rf-lifting') {
+    //     beforeAfterImages = [
+    //         'images/IMG_0698.JPG',
+    //         'images/RF-lifting2.jpg'
+    //     ];
+    // } else if (treatmentId === 'cavitatie') {
+    //     beforeAfterImages = [
+    //         'images/corp2.PNG',
+    //         'images/cavitatie-after.jpg'
+    //     ];
+    // }
 
     if (beforeAfterImages) {
         modalImage.src = beforeAfterImages[0];
@@ -267,16 +267,19 @@ function openTreatmentModal(treatmentId) {
     // Adaug ședințele pentru pachete la sfârșit, după lista de beneficii
     const packageSessions = {
         'vacuum-cavitatie': [
-            '10 ședințe – 4200 lei',
-            '20 ședințe – 8100 lei'
+            '5 ședințe – 4200 lei',
+            '7 ședințe – 5880 lei',
+             '10 ședințe – 8100 lei'
         ],
         'vacuum-rf': [
-            '10 ședințe – 4200 lei',
-            '20 ședințe – 8100 lei'
+              '5 ședințe – 2500 lei',
+            '7 ședințe – 3150 lei',
+             '10 ședințe – 4500 lei'
         ],
         'cavitatie-rf': [
-            '10 ședințe – 4200 lei',
-            '20 ședințe – 8100 lei'
+              '5 ședințe – 4200 lei',
+            '7 ședințe – 5880 lei',
+             '10 ședințe – 8100 lei'
         ],
         'lipolazer-package': [
             '5 ședințe – 2250 lei',

@@ -16,26 +16,28 @@
         body {
             font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
             font-weight: 300 !important;
+            overflow-x: hidden;
         }
+        
         .header, .nav, .nav-links, .nav-links a {
             font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
             font-weight: 300 !important;
             letter-spacing: 0.01em;
         }
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/masaj2.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #234a7c;
-            padding: 0 20px;
-            position: relative;
-        }
+    background: linear-gradient(to bottom, #658698, #13283c);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+    position: relative;
+}
 
         .hero-section::before {
             content: '';
@@ -44,7 +46,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(242, 250, 252, 0.65);
+        
             z-index: 1;
         }
 
@@ -58,7 +60,7 @@
             font-size: 3.5em;
             margin-bottom: 30px;
             font-weight: 600;
-            background: linear-gradient(to bottom, #658698, #13283c);
+            background: linear-gradient(to bottom, #fbfbfb, #ffffff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -86,10 +88,10 @@
                 white-space: normal !important;
             }
             .hero-content p {
-                font-size: 1.1em !important;
+                font-size: 1em !important;
             }
             .benefits-list li {
-                font-size: 1em !important;
+                font-size: 0.95em !important;
             }
         }
 
@@ -114,10 +116,11 @@
             }
         }
 
+
         .hero-content p {
-            font-size: 1.4em;
+            font-size: 1.0em;
             line-height: 1.6;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 30px;
         }
 
@@ -130,9 +133,9 @@
         }
 
         .benefits-list li {
-            font-size: 1.2em;
+            font-size: 1.0em;
             margin-bottom: 15px;
-            color: #333;
+            color: #ffffff;
             display: flex;
             align-items: center;
         }
@@ -284,6 +287,57 @@
             margin: 0 0 12px 0 !important;
             text-align: left !important;
         }
+        
+        /* Stiluri pentru modalul de programare */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .modal-content.consultation-modal {
+            width: 100%;
+            max-width: 1000px;
+            height: 80vh;
+            background: transparent;
+            border: none;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: none;
+            border-radius: 0;
+        }
+        
+        .calendly-section {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .calendly-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -306,8 +360,12 @@
                         <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="preparate.html">Preparate</a></li>
-                            <li><a href="gallery.html">Galerie</a></li>
+                            <li><a href="gallery.html">Rezultate</a></li>
+                             <li><a href="despre_companie.html">Despre companie</a></li>
                         </ul>
+                    </li>
+                    <li class="symptoms-dropdown-trigger">
+                        <a href="#simptome" id="symptomsTab">Simptome <i class="fas fa-chevron-down"></i></a>
                     </li>
                     <li class="has-dropdown">
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
@@ -321,11 +379,10 @@
                         </ul>
                     </li>
                     <li><a href="prices.html">Prețuri</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="language-selector">
-                        <a href="#"><i class="fas fa-globe"></i> RO <i class="fas fa-chevron-down"></i></a>
+                    <li><a href="contacte.html">Contacte</a></li>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
-                            <li><a href="#" data-lang="ro">RO</a></li>
                             <li><a href="#" data-lang="ru">RU</a></li>
                         </ul>
                     </li>
@@ -343,8 +400,7 @@
                     <li>Reducerea stresului și tensiunii musculare</li>
                     <li>Îmbunătățirea circulației sanguine</li>
                     <li>Alinierea posturii și reducerea durerilor</li>
-                    <li>Relaxare profundă și revitalizare</li>
-                    <li>Tehnici personalizate pentru fiecare client</li>
+              
                 </ul>
             </div>
         </section>
@@ -359,7 +415,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-clasic')">
                             <img src="images/clasicmassage.jpg" alt="Masaj clasic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -371,7 +427,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-terapeutic')">
                             <img src="images/masajterapeutic.jpg" alt="Masaj terapeutic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -383,7 +439,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-anticelulitic')">
                             <img src="images/masajanticelular.jpg" alt="Masaj anticelulitic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -395,7 +451,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-vacuum')">
                             <img src="images/masajvacum.jpeg" alt="Masaj vacuum" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -407,7 +463,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-miere')">
                             <img src="images/masajmiere.jpg" alt="Masaj cu miere" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -419,7 +475,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-sportiv')">
                             <img src="images/masajsportiv.webp" alt="Masaj sportiv" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); document.getElementById('consultationModal').style.display = 'flex';">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -444,7 +500,52 @@
     <div id="consultationModal" class="modal">
         <div class="modal-content consultation-modal">
             <div class="calendly-section">
-                <iframe src="https://dimitrovaclinic.setmore.com/services/4ba81d76-0b52-4fab-b388-4cdb76e4e921" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://dimitrovaclinic.setmore.com/" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="symptomsDropdown" class="symptoms-dropdown-menu">
+        <div class="symptoms-dropdown-columns">
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Față</div>
+                <ul>
+          <li><a href="acnee.html">Acnee / Coșuri</a></li>
+                    <li><a href="post-acnee.html">Post-acnee / Cicatrici</a></li>
+                    <li><a href="pori-dilatati.html">Pori dilatați</a></li>
+                    <li><a href="ten-gras.html">Ten gras / Seboree</a></li>
+                    <li><a href="deshidratare.html">Deshidratare și descuamare</a></li>
+                    <li><a href="ten-tern.html">Ten tern / lipsit de strălucire</a></li>
+                    <li><a href="pigmentare.html">Pigmentare / pete pigmentare</a></li>
+                    <li><a href="cuperoza.html">Cuperoză / rețea vasculară vizibilă</a></li>
+                    <li><a href="riduri.html">Riduri</a></li>
+                    <li><a href="pierdere-tonusului.html">Pierderea fermității și a tonusului</a></li>
+                    <li><a href="riduri-cercuri-sub-ochi.html">Riduri / Cercuri întunecate sub ochi</a></li>
+                    <li><a href="barbie-dubla.html">Bărbie dublă</a></li>
+                    <li><a href="relaxare-oval.html">Relaxarea ovalului facial / ptoză</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Buze</div>
+                <ul>
+                 <li><a href="tratamente-buze.html">Deshidratarea buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Riduri fine în jurul buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Volum insuficient</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Corp</div>
+                <ul>
+                  <li><a href="vergeturi.html">Vergeturi (striae)</a></li>
+                    <li><a href="celulita.html">Celulită / Depozite locale de grăsime</a></li>
+                    <li><a href="lasare-piele.html">Lăsarea pielii după slăbire</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Scalp</div>
+                <ul>
+                    <li><a href="#">Căderea părului</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -453,8 +554,8 @@
         <div class="footer-content">
             <div class="footer-column">
                 <div class="footer-logo">
-                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>DIMITROVA CLINIC</span>
+                    <img src="images/logo_footer.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
                 </div>
                 <div class="contact-info">
                     <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
@@ -469,20 +570,19 @@
             <div class="footer-column">
                 <h3>Dimitrova Clinic</h3>
                 <ul>
-                    <li><a href="#despre">Despre noi</a></li>
-                    <li><a href="#galerie">Galerie</a></li>
-                    <li><a href="#aparate">Aparate</a></li>
+                    <li><a href="preparate.html">Preparate</a></li>
+                    <li><a href="gallery.html">Galerie</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
                 <h3>Serviciile centrului nostru</h3>
                 <ul>
-                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
-                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
-                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
-                    <li><a href="prices.html">Price list</a></li>
-                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                    <li><a href="body-care.html">Peelinguri chimice</a></li>
+                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
                     <li><a href="massage.html">Masaj</a></li>
                 </ul>
             </div>
@@ -501,7 +601,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+            <p>&copy; 2024 Dimitrova Clinic  Toate drepturile rezervate.</p>
         </div>
     </footer>
 

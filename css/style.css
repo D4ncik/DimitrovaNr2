@@ -63,7 +63,8 @@ body[data-lang="ru"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.1rem 2px;
+    padding-left: 0.1rem;
+    padding-right: 8px;
     margin: 0 auto;
     min-height: 35px;
     gap: 16px;
@@ -113,6 +114,7 @@ body[data-lang="ru"] {
 
     background: linear-gradient(to bottom, #658698, #13283c);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
@@ -140,6 +142,10 @@ body[data-lang="ru"] {
     padding: 0;
     align-items: center;
     justify-content: flex-end;
+}
+
+.nav-links li, .nav-links a {
+    white-space: nowrap;
 }
 
 .nav-links a {
@@ -279,6 +285,10 @@ body[data-lang="ru"] {
     }
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 @media screen and (max-width: 768px) {
     .mobile-menu-btn {
         display: block;
@@ -342,25 +352,55 @@ body[data-lang="ru"] {
 }
 
 @media (max-width: 480px) {
-    .mobile-menu-btn {
-        right: 10px;
-        top: 10px;
-        width: 28px;
-        height: 28px;
-    }
-    .mobile-menu-btn span {
-        width: 18px;
-        height: 2.5px;
-        margin: 4px auto;
-    }
     .nav-links {
-        padding: 24px 10px 10px 10px;
+        padding: 8px 10px 6px 10px;
+    }
+}
+
+.hero-section {
+    padding-top: 80px;
+    padding-bottom: 0;
+}
+
+/* Responsive Mega Menu */
+@media screen and (max-width: 992px) {
+    .has-mega-menu .dropdown {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        background-color: #f8f8f8;
+        border-top: 1px solid #eee;
+    }
+
+    .has-mega-menu.active .dropdown {
+        display: block;
+    }
+
+    .mega-menu-wrapper {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .mega-menu-column {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .mega-menu-column h4 {
+        padding-bottom: 5px;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 10px;
     }
 }
 
 /* Footer Styles */
 .footer {
     background-color: var(--primary-color);
+color: var(--white);
+padding: 60px 0 20px;
+font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+font-weight: 300 !important;
     color: var(--white);
     padding: 60px 0 20px;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
@@ -396,14 +436,16 @@ body[data-lang="ru"] {
 .footer-logo span {
     color: var(--white);
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 300;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
 }
 
 .footer h3 {
     color: var(--white);
     font-size: 1.2rem;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: 300;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
 }
 
 .footer ul {
@@ -420,6 +462,8 @@ body[data-lang="ru"] {
     color: var(--white);
     text-decoration: none;
     transition: opacity 0.3s ease;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
 }
 
 .footer a:hover {
@@ -437,11 +481,15 @@ body[data-lang="ru"] {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
 }
 
 .address p {
     margin: 5px 0;
     font-size: 0.9rem;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
 }
 
 .social-links, .messenger-links {
@@ -453,6 +501,8 @@ body[data-lang="ru"] {
 .social-links a, .messenger-links a {
     font-size: 1.5rem;
     transition: transform 0.3s ease;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
 }
 
 .social-links a:hover, .messenger-links a:hover {
@@ -464,6 +514,8 @@ body[data-lang="ru"] {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
 }
 
 /* Responsive Footer */
@@ -736,9 +788,9 @@ body[data-lang="ru"] {
 .details-button {
     display: inline-block;
     padding: 10px 20px !important;
-    background: rgba(255,255,255,0.6) !important;
-    color: #2666c0 !important;
-    border: 2px solid #fff !important;
+    background: #2666c0 !important;
+    color: #ffffff !important;
+    border: 0px !important;
     border-radius: 8px !important;
     text-decoration: none !important;
     transition: all 0.3s !important;
@@ -750,9 +802,8 @@ body[data-lang="ru"] {
 }
 
 .details-button:hover {
-    background: rgba(255,255,255,0.92) !important;
-    color: #133a6c !important;
-    border-color: #89b4f1 !important;
+    background: #133a6c !important;
+    color: #ffffff !important;
 }
 
 /* Modal Styles */
@@ -919,15 +970,34 @@ body[data-lang="ru"] {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 60px 20px;
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     position: relative;
     z-index: 3;
+    text-align: center;
 }
+
+.hero-content h1 {
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 40px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 25px 4px;
+    }
+}
+
 
 .hero-subtitle {
     font-size: 1.2rem;
@@ -935,7 +1005,7 @@ body[data-lang="ru"] {
     margin-bottom: 1rem;
     max-width: 500px;
     min-height: 1.6em;
-    font-family: 'Noto Sans', sans-serif;
+    font-family:'Open Sans', sans-serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -956,7 +1026,7 @@ body[data-lang="ru"] {
     color: var(--text-color);
     max-width: 500px;
     min-height: 3.2em;
-    font-family: 'Noto Sans', sans-serif;
+    font-family:'Open Sans', sans-serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -1720,6 +1790,76 @@ body.lightbox-open {
     cursor: default;
 }
 
+/* Stiluri specifice pentru modalul Carboxytherapy */
+.carboxy-modal {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.carboxy-modal-images {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.carboxy-modal-images img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.carboxy-modal-content {
+    padding: 15px;
+}
+
+.carboxy-modal-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.carboxy-modal-description {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #555;
+}
+
+.carboxy-modal-list {
+    list-style-type: none;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.carboxy-modal-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.carboxy-modal-list li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 600px) {
+    .carboxy-modal-images {
+        flex-direction: column;
+    }
+    
+    .carboxy-modal-images img {
+        width: 100%;
+        height: 200px;
+    }
+}
+
 /* Ajustări pentru responsive */
 @media (max-width: 768px) {
     .gallery-item.before-after-container {
@@ -1748,71 +1888,94 @@ body.lightbox-open {
 }
 
 .monthly-offer {
-    background: rgba(89, 153, 238, 0.2); /* Fundal albastru simplu */
-    padding: 40px 0; /* Am ajustat padding-ul */
-    border-radius: 0;
-    text-align: center;
-    margin: 0;
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.offer-carousel {
     position: relative;
-    overflow: hidden;
-    box-shadow: none; /* Fără umbră pe elementul principal */
-    animation: none; /* Fără animație pe elementul principal */
-}
-
-.monthly-offer::before {
-    /* Eliminăm complet stilurile de pe pseudo-element */
-    content: none;
-}
-
-.offer-content {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 20px; /* Ajustat padding-ul */
-    position: relative;
-    z-index: 2;
-    /* Aplicăm animația de licărire pe conținut folosind drop-shadow */
-    filter: drop-shadow(0 0 8px rgba(89, 153, 238, 0.3));
-    animation: content-glow 3s ease-in-out infinite;
+    overflow: hidden;
 }
 
-/* Definirea animației de licărire pe conținut */
-@keyframes content-glow {
-    0% {
-        filter: drop-shadow(0 0 8px rgba(89, 153, 238, 0.3));
+.offer-carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.offer-card {
+    flex: 0 0 100%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #5999ee;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    color: #e83e8c;
+}
+
+.prev-arrow {
+    left: -40px;
+}
+
+.next-arrow {
+    right: -40px;
+}
+
+@media (max-width: 1200px) {
+    .carousel-arrow {
+        font-size: 1.5rem;
     }
-    50% {
-        filter: drop-shadow(0 0 15px rgba(89, 153, 238, 0.6));
+    
+    .prev-arrow {
+        left: -30px;
     }
-    100% {
-        filter: drop-shadow(0 0 8px rgba(89, 153, 238, 0.3));
+    
+    .next-arrow {
+        right: -30px;
     }
 }
 
-.monthly-offer h2 {
-    color: #333;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-    font-family: 'Noto Sans', sans-serif; /* Setăm fontul cardurilor */
-    font-weight: 700; /* Setăm greutatea fontului */
-    font-style: normal; /* Setăm stilul fontului */
-}
-
-.monthly-offer p {
-    color: #666;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    font-family: 'Noto Sans', sans-serif; /* Setăm fontul cardurilor */
-    font-weight: 700; /* Setăm greutatea fontului */
-    font-style: normal; /* Setăm stilul fontului */
+@media (max-width: 768px) {
+    .carousel-arrow {
+        font-size: 1.2rem;
+    }
+    
+    .prev-arrow {
+        left: -25px;
+    }
+    
+    .next-arrow {
+        right: -25px;
+    }
 }
 
 .monthly-offer .offer-price {
     font-size: 2rem;
     color: #e83e8c;
-    font-weight: 700; /* Setăm greutatea fontului la 700 (Bold) */
+    font-weight: 700;
     margin: 1rem 0;
-    font-family: 'Noto Sans', sans-serif; /* Setăm fontul Noto Sans */
-    font-style: normal; /* Asigurăm stil normal */
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
 }
 
 .monthly-offer .offer-button {
@@ -1823,594 +1986,1377 @@ body.lightbox-open {
     text-decoration: none;
     border-radius: 25px;
     transition: all 0.3s ease;
-    font-family: 'Noto Sans', sans-serif; /* Setăm fontul Noto Sans */
-    font-weight: 700; /* Setăm greutatea fontului la 700 (Bold) */
-    font-style: normal; /* Asigurăm stil normal */
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
-.monthly-offer .offer-button:hover {
-    background-color: #d63384;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
-}
-
-/* ... restul stilurilor pentru oferta lunii (offer-card, offer-image, etc.) ... */
-.offer-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Umbră standard pentru card */
-    display: flex;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.offer-image {
-    width: 40%;
-    object-fit: cover;
-}
-
-.offer-details {
-    padding: 40px;
-    width: 60%;
-}
-
-.offer-details h3 {
-    color: #333;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-}
-
-.offer-description {
-    color: #666;
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.offer-price {
-    color: #2ecc71;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.offer-original {
-    color: #999;
-    text-decoration: line-through;
-    margin-bottom: 30px;
-}
-
-@media (max-width: 768px) {
-    .offer-card {
-        flex-direction: column;
-    }
-
-    .offer-image {
-        width: 100%;
-        height: 250px;
-    }
-
-    .offer-details {
-        width: 100%;
-        padding: 30px;
-    }
-}
-
-.modal-content .service-details {
-    padding: 20px;
-    background: white;
-}
-
-.modal-content .service-description {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.modal-content .service-price {
-    font-size: 1.2em;
-    color: #2ecc71;
-    margin-bottom: 20px;
-}
-
-.modal-content .booking-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #5999ee;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.modal-content .booking-button:hover {
-    background: #4a8ad8;
-}
-
-/* Adăugăm un stil pentru a centra ultimele două elemente când nu umplu rândul */
-/* Folosim last-child-of-type(2) pentru a ținti al 4-lea și al 5-lea element când sunt 5 în total */
-.services-grid .service-card:nth-last-child(2):nth-child(4),
-.services-grid .service-card:nth-last-child(2):nth-child(4) ~ .service-card:last-child {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.ingredients-list li {
-    color: #666;
-    font-size: 0.85em;
-    padding: 4px 0;
-    position: relative;
-    padding-left: 30px;
-    line-height: 1.4;
-}
-
-.ingredients-list li:before {
-    content: '•';
-}
-
-/* Stiluri pentru noua sectiune Pachete Proceduri */
-.packages-section {
-    padding: 60px 0;
-    background: #e9ecef; /* Un fundal ușor diferit */
-    text-align: center;
-}
-
-.packages-title {
-    color: #333;
-    font-size: 2.2em;
-    margin-bottom: 15px;
-}
-
-.packages-subtitle {
-    color: #666;
-    font-size: 1.1em;
-    margin-bottom: 40px;
-}
-
-.packages-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    justify-content: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 10px;
-}
-
-.package-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    padding: 25px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.package-card:hover {
-    transform: translateY(-5px);
-}
-
-.package-tag {
-    position: absolute;
-    top: -15px;
-    right: 15px;
-    background-color: #e83e8c;
-    color: white;
-    padding: 7px 18px;
-    border-radius: 20px;
-    font-size: 1em;
-    font-weight: bold;
-    z-index: 10;
-    transition: transform 0.3s ease;
-}
-
-.package-tag:hover {
-    transform: scale(1.15);
-}
-
-.package-card h3 {
-    color: #333;
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    margin-top: 0;
-}
-
-.package-card p {
-    color: #666;
-    font-size: 1em;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-.package-price {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #5999ee;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .packages-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Animații pentru secțiuni */
-.services-section,
-.about-section,
-.monthly-offer,
-.packages-section {
-    opacity: 0.3;
-    transform: translateY(30px);
-    transition: all 0.5s ease-out;
-}
-
-.services-section.visible,
-.about-section.visible,
-.monthly-offer.visible,
-.packages-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Staggered animation pentru carduri */
-.service-card {
-    opacity: 0.3;
-    transform: translateY(20px);
-    transition: all 0.4s ease-out;
-}
-
-.service-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.service-card:nth-child(1) { transition-delay: 0.05s; }
-.service-card:nth-child(2) { transition-delay: 0.1s; }
-.service-card:nth-child(3) { transition-delay: 0.15s; }
-.service-card:nth-child(4) { transition-delay: 0.2s; }
-.service-card:nth-child(5) { transition-delay: 0.25s; }
-
-/* Animație pentru titluri */
-.section-header {
-    opacity: 0.3;
-    transform: translateY(20px);
-    transition: all 0.4s ease-out;
-}
-
-.section-header.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Animație pentru oferta lunii */
-/* Stilurile generale de animație (fade-in/slide-up) sunt aplicate prin selectorul de mai sus */
-
-/* Animație pentru pachete */
-.package-card {
-    opacity: 0.3;
-    transform: translateY(20px);
-    transition: all 0.4s ease-out;
-}
-
-.package-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.package-card:nth-child(1) { transition-delay: 0.05s; }
-.package-card:nth-child(2) { transition-delay: 0.1s; }
-.package-card:nth-child(3) { transition-delay: 0.15s; }
-.package-card:nth-child(4) { transition-delay: 0.2s; }
-.package-card:nth-child(5) { transition-delay: 0.25s; }
-
-/* Animații pentru carduri de tratamente */
-.treatment-card {
-    opacity: 0.3;
-    transform: translateY(20px);
-    transition: all 0.4s ease-out;
-}
-
-.treatment-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Adăugăm întârzieri pentru animația staggered a cardurilor de tratamente */
-.treatment-card:nth-child(1) { transition-delay: 0.05s; }
-.treatment-card:nth-child(2) { transition-delay: 0.1s; }
-.treatment-card:nth-child(3) { transition-delay: 0.15s; }
-.treatment-card:nth-child(4) { transition-delay: 0.2s; }
-.treatment-card:nth-child(5) { transition-delay: 0.25s; }
-.treatment-card:nth-child(6) { transition-delay: 0.3s; }
-.treatment-card:nth-child(7) { transition-delay: 0.35s; }
-.treatment-card:nth-child(8) { transition-delay: 0.4s; }
-.treatment-card:nth-child(9) { transition-delay: 0.45s; }
-.treatment-card:nth-child(10) { transition-delay: 0.5s; }
-.treatment-card:nth-child(11) { transition-delay: 0.55s; }
-.treatment-card:nth-child(12) { transition-delay: 0.6s; }
-.treatment-card:nth-child(13) { transition-delay: 0.65s; }
-
-.discount-badge {
-    position: absolute;
-    top: 25px;
-    right: 95px;
-    background: #ff4444;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 0px;
-    font-weight: bold;
-    font-size: 1.2em;
-    transform: rotate(15deg);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 2;
-}
-
-.discount-badge:hover {
-    transform: rotate(15deg) scale(1.1);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-@media (max-width: 1200px) {
-    .treatments-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .treatments-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Ajustări pentru ecrane mai mici */
-@media (max-width: 768px) {
-    .section-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centrează conținutul pe axa transversală (vertical pe column) */
-        text-align: center; /* Centrează textul pe axa principală (orizontal pe column) */
-        padding-top: 20px !important; /* Ajustează padding-ul superior */
-        padding-bottom: 20px !important; /* Ajustează padding-ul inferior */
-        position: relative; /* Adăugat pentru a permite poziționarea absolută a etichetei în interior */
-    }
-
-    .section-header h2 {
-        margin-bottom: 5px !important; /* Reduce spațiul sub titlu */
-        position: relative; /* Adăugat pentru a ajuta la poziționarea etichetei relativ la titlu */
-        z-index: 1; /* Asigură că titlul rămâne deasupra */
-        margin-right: 0 !important; /* Eliminăm margin-right */
-        font-size: 1.5em !important; /* Mărim dimensiunea fontului titlului */
-    }
-
-    .discount-badge {
-        position: absolute !important; /* Revenim la poziționare absolută pe mobil */
-        top: 0px !important; /* Ajustează poziția de sus */
-        right: 10% !important; /* Ajustează poziția din dreapta */
-        transform: rotate(15deg) scale(0.8) !important; /* Păstrăm rotația și micșorăm eticheta */
-        font-size: 1em !important; /* Ajustează dimensiunea fontului */
-        padding: 6px 12px !important; /* Ajustează padding-ul */
-        margin-top: 0 !important; /* Elimină margin-top */
-        margin-left: 0 !important; /* Elimină margin-left */
-        margin-right: 0 !important; /* Elimină margin-right */
-    }
-
-    .section-header p {
-        margin-top: 5px !important; /* Adaugă spațiu deasupra paragrafului */
-        font-size: 1em !important; /* Micșorăm textul secundar pe mobil */
-        padding: 0 10px !important; /* Adăugăm padding lateral pentru a preveni suprapunerea */
-    }
-}
-
-@media (max-width: 480px) {
-    .section-header h2 {
-        font-size: 1.3em !important; /* Reducem și mai mult dimensiunea fontului titlului pentru ecrane foarte mici */
-        margin-right: 0 !important; /* Eliminăm margin-right */
-    }
-
-    .discount-badge {
-        font-size: 0.8em !important; /* Ajustează dimensiunea fontului pentru ecrane foarte mici */
-        padding: 4px 8px !important; /* Ajustează padding-ul pentru ecrane foarte mici */
-        top: 5px !important; /* Ajustează poziția de sus */
-        right: 5% !important; /* Ajustează poziția din dreapta */
-        transform: rotate(15deg) scale(0.7) !important; /* Micșorează eticheta și mai mult */
-    }
-
-    .section-header p {
-        font-size: 0.9em !important; /* Micșorăm și mai mult textul secundar */
-        padding: 0 5px !important; /* Ajustăm padding-ul */
-    }
-}
-
-/* Ajustăm stilurile containerului specific pentru secțiunea de pachete */
-.packages-section .container {
-    max-width: 1400px; /* Increased max-width for this specific container */
-    padding: 0 10px; /* Reduced horizontal padding for this specific container */
-}
-
-.packages-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    justify-content: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 10px;
-}
-.package-card {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.package-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-.package-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+/* --- MENIU SIMPTOME ORIZONTAL --- */
+.symptoms-dropdown-menu {
     display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 80px;
+    width: 100vw;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    z-index: 9999;
+    padding: 32px 0 24px 0;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-top: 1px solid #eaeaea;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
+    visibility: hidden;
 }
 
-.package-content {
-    padding: 25px;
+.symptoms-dropdown-menu.active {
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto;
+    visibility: visible;
+}
+
+/* Adaug un wrapper pentru a asigura poziționarea corectă */
+.symptoms-dropdown-wrapper {
+    position: relative;
+    z-index: 9999;
+}
+
+.symptoms-dropdown-columns {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    justify-content: center;
+    gap: 140px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.package-content h3 {
-    font-size: 1.6em;
-    color: #333;
-    margin-bottom: 15px;
+.symptoms-col {
+    min-width: 180px;
+    max-width: 220px;
 }
 
-.package-content p {
-    font-size: 1em;
-    color: #666;
-    line-height: 1.6;
-    flex-grow: 1;
-    margin-bottom: 20px;
-}
-
-.package-price {
-    font-size: 1.8em;
-    font-weight: bold;
+.symptoms-col-title {
+    font-weight: 700;
     color: #5999ee;
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 1.15em;
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
 }
 
-.package-card .details-button {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.1em;
+.symptoms-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.package-tag {
-    position: absolute;
-    top: 15px;
-    right: -1px;
-    background: linear-gradient(45deg, #5999ee, #3d7fd9);
-    color: white;
-    padding: 6px 15px;
-    font-weight: bold;
-    font-size: 0.9em;
-    border-radius: 25px 0 0 25px;
-    box-shadow: -2px 2px 10px rgba(0,0,0,0.1);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.symptoms-col ul li {
+    margin-bottom: 8px;
 }
 
-.packages-grid {
+.symptoms-col ul li a {
+    color: #222;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.2s;
+    padding: 2px 0 2px 0;
+    display: block;
+    border-radius: 6px;
+}
+
+.symptoms-col ul li a:hover {
+    color: #5999ee;
+    background: #f3f7ff;
+}
+
+/* Buze ca un bloc întreg */
+.symptoms-col-title:contains('Buze') + ul,
+.symptoms-col:nth-child(2) ul {
+    background: #f3f7ff;
+    border-radius: 10px;
+    padding: 8px 0 8px 0;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(89,153,238,0.07);
+}
+.symptoms-col:nth-child(2) ul li {
+    margin-bottom: 0;
+    border-bottom: 1px solid #e0e7f8;
+}
+.symptoms-col:nth-child(2) ul li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .symptoms-dropdown-columns {
+        gap: 18px;
+    }
+    .symptoms-col {
+        min-width: 120px;
+        max-width: 160px;
+    }
+}
+@media (max-width: 600px) {
+    .symptoms-dropdown-columns {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+    }
+    .symptoms-col {
+        min-width: 100%;
+        max-width: 100%;
+        margin-bottom: 18px;
+    }
+}
+/* --- FINAL MENIU SIMPTOME --- */
+
+.symptoms-col:first-child {
+    min-width: 540px;
+    max-width: 700px;
+}
+
+.symptoms-col:first-child ul {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 80px;
+    min-width: 520px;
+    max-width: 700px;
+    margin-left: 0;
+}
+
+.symptoms-col:first-child .symptoms-col-title {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+/* Stiluri pentru cartonașele de tratament (facial-care, dermapen, etc) */
+.treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.treatment-card {
+    height: 400px !important;
+    max-width: 290px !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #fff !important;
+    border-radius: 0 !important;
+    box-shadow: 0 2px 8px rgba(89,153,238,0.07) !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    transition: transform 0.25s ease !important;
+    border: 2px solid transparent !important;
+    cursor: pointer !important;
+}
+
+.treatment-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 32px rgba(89,153,238,0.18) !important;
+    border: 2px solid #fff !important;
+    background: rgba(255,255,255,0.96) !important;
+    z-index: 2 !important;
+}
+
+.treatment-image-wrapper {
+    position: relative !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    width: 100% !important;
+    height: 220px !important;
+    overflow: hidden !important;
+}
+
+.treatment-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    display: block !important;
+}
+
+.badge-group {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 12px !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    z-index: 2 !important;
+    padding: 0 8px !important;
+}
+
+.badge {
+    border-radius: 9999px !important;
+    background: rgba(255,255,255,0.5) !important;
+    color: #222 !important;
+    font-size: 0.88em !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 300 !important;
+    border: 1.5px solid #fff !important;
+    padding: 3px 10px !important;
+    box-shadow: 0 2px 8px rgba(89,153,238,0.07) !important;
+    white-space: nowrap !important;
+    transition: background 0.2s !important;
+    display: inline-block !important;
+}
+
+.badge:hover {
+    background: rgba(255,255,255,0.8) !important;
+}
+
+.treatment-content {
+    padding: 8px 8px 0 8px !important;
+    text-align: center !important;
+    flex: none !important;
+    min-height: unset !important;
+}
+
+.treatment-content h3 {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 1.3em !important;
+    color: #333 !important;
+    margin: 0 0 10px 0 !important;
+    text-align: center !important;
+}
+
+/* Stiluri pentru pachete (package-card) */
+.package-card {
+    height: 450px !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #fff !important;
+    border-radius: 0 !important;
+    box-shadow: 0 2px 8px rgba(89,153,238,0.07) !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    transition: transform 0.25s ease !important;
+    border: 2px solid transparent !important;
+    cursor: pointer !important;
+}
+
+.package-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 32px rgba(89,153,238,0.18) !important;
+    border: 2px solid #fff !important;
+    background: rgba(255,255,255,0.96) !important;
+    z-index: 2 !important;
+}
+
+.package-card .treatment-image-wrapper {
+    position: relative !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    width: 100% !important;
+    height: 300px !important;
+    overflow: hidden !important;
+}
+
+.package-card .treatment-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    display: block !important;
+}
+
+.package-card .treatment-content {
+    padding: 15px !important;
+    text-align: center !important;
+    flex: none !important;
+}
+
+.package-card .treatment-content h3 {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 1.4em !important;
+    color: #222 !important;
+    margin: 0 0 10px 0 !important;
+    text-align: center !important;
+}
+
+/* Media query pentru responsive */
+@media (max-width: 1100px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, minmax(0, 450px)) !important;
+        gap: 20px !important;
+    }
 }
 
 @media (max-width: 992px) {
     .packages-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 400px)) !important;
+    }
+    
+    .package-card {
+        height: 400px !important;
+    }
+    
+    .package-card .treatment-image-wrapper {
+        height: 250px !important;
     }
 }
 
-/* Card tratament nou design */
-.treatment-card.new-design {
-    background: #fff;
-    border-radius: 0;
-    box-shadow: 0 2px 8px rgba(89,153,238,0.07);
-    padding: 0;
-    margin-bottom: 10px;
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: minmax(0, 400px) !important;
+        max-width: 400px !important;
+    }
+    
+    .package-card {
+        height: 380px !important;
+    }
+    
+    .package-card .treatment-image-wrapper {
+        height: 220px !important;
+    }
+}
+
+/* Price Table Styles */
+.prices-section {
+    padding: 120px 0 80px;
+}
+.prices-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.prices-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.prices-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+.prices-subtitle {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.price-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background: #f0f7ff;
+    box-shadow: 0 2px 15px rgba(74, 144, 226, 0.1);
+    border-radius: 10px;
     overflow: hidden;
-    transition: box-shadow 0.25s, border 0.25s, background 0.25s, transform 0.25s;
-    width: 310px;
-    min-width: 310px;
-    max-width: 310px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Open Sans', sans-serif;
-    display: flex;
+    border: 1px solid #e1eeff;
+}
+
+.price-table th,
+.price-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e1eeff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.price-table th {
+    background-color: #e1eeff;
+    font-weight: 600;
+    color: #2c5282;
+}
+
+.price-table td {
+    color: #4a5568;
+}
+
+.price-table th:last-child,
+.price-table td:last-child {
+    text-align: right;
+    padding-right: 30px;
+}
+
+.price-table th:nth-child(2),
+.price-table td:nth-child(2) {
+    text-align: right;
+    padding-right: 30px;
+}
+
+.price {
+    font-weight: 600;
+    color: #2b6cb0;
+}
+
+.discount {
+    color: #e53e3e;
+    text-decoration: line-through;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.current-price {
+    color: #2b6cb0;
+    font-weight: bold;
+}
+
+.discount-badge {
+    background: #e53e3e;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.service-name {
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.service-name a {
+    color: #2d3748;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.service-name a:hover {
+    color: #2b6cb0;
+}
+
+.duration {
+    color: #4a5568;
+}
+
+.price-category {
+    margin-bottom: 40px;
+}
+
+.price-category h3 {
+    color: #2c5282;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #90cdf4;
+}
+
+/* WRAPPER SPECIAL PENTRU TABELUL CU SCROLL */
+.table-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(74, 144, 226, 0.1);
+}
+
+.table-scroll-wrapper .price-table {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    min-width: 600px;
+}
+
+/* Stilizare scrollbar pentru wrapper */
+.table-scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #5999ee;
+    border-radius: 4px;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #4785d9;
+}
+
+/* Responsive Design - SOLUȚIE COMPLETĂ PENTRU TABELE NORMALE */
+@media screen and (max-width: 1024px) {
+    .price-table {
+        font-size: 0.95em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .prices-container {
+        padding: 0 15px;
+    }
+    
+    /* RESETARE COMPLETĂ PENTRU TOATE TABELELE NORMALE */
+    .price-table {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        table-layout: auto !important;
+        display: table !important;
+        overflow: visible !important;
+        margin: 20px 0 !important;
+        font-size: 0.9em !important;
+    }
+
+    /* TOATE CELULELE - RESETARE COMPLETĂ */
+    .price-table th,
+    .price-table td {
+        padding: 12px 8px !important;
+        word-break: break-word !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        text-align: left !important;
+        writing-mode: horizontal-tb !important;
+        text-orientation: mixed !important;
+        box-sizing: border-box !important;
+        vertical-align: top !important;
+    }
+
+    /* PRIMA COLOANĂ - ÎNTOTDEAUNA STÂNGA */
+    .price-table th:first-child,
+    .price-table td:first-child {
+        width: 60% !important;
+        text-align: left !important;
+        padding-left: 12px !important;
+    }
+
+    /* A DOUA COLOANĂ - CENTRU SAU DREAPTA */
+    .price-table th:nth-child(2),
+    .price-table td:nth-child(2) {
+        width: 25% !important;
+        text-align: center !important;
+        padding: 12px 4px !important;
+    }
+
+    /* A TREIA COLOANĂ - DREAPTA */
+    .price-table th:nth-child(3),
+    .price-table td:nth-child(3) {
+        width: 25% !important;
+        text-align: center !important;
+        padding: 12px 4px !important;
+    }
+
+    /* ULTIMA COLOANĂ - ÎNTOTDEAUNA DREAPTA */
+    .price-table th:last-child,
+    .price-table td:last-child {
+        text-align: right !important;
+        padding-right: 12px !important;
+    }
+
+    /* PENTRU TABELE CU DOAR 2 COLOANE */
+    .price-table tr th:first-child:nth-last-child(2),
+    .price-table tr td:first-child:nth-last-child(2) {
+        width: 65% !important;
+    }
+
+    .price-table tr th:last-child:nth-child(2),
+    .price-table tr td:last-child:nth-child(2) {
+        width: 35% !important;
+    }
+
+    /* EXCEPȚIE: TABELUL CU SCROLL RĂMÂNE CUM E */
+    .table-scroll-wrapper .price-table {
+        width: 100% !important;
+        min-width: 600px !important;
+        table-layout: fixed !important;
+        margin: 0 !important;
+    }
+
+    .table-scroll-wrapper .price-table th,
+    .table-scroll-wrapper .price-table td {
+        white-space: nowrap !important;
+        padding: 12px 15px !important;
+    }
+
+    .table-scroll-wrapper .price-table th:first-child,
+    .table-scroll-wrapper .price-table td:first-child {
+        width: 300px !important;
+        min-width: 300px !important;
+    }
+
+    .table-scroll-wrapper .price-table th:nth-child(2),
+    .table-scroll-wrapper .price-table td:nth-child(2) {
+        width: 150px !important;
+        min-width: 150px !important;
+        text-align: center !important;
+    }
+
+    .table-scroll-wrapper .price-table th:nth-child(3),
+    .table-scroll-wrapper .price-table td:nth-child(3) {
+        width: 150px !important;
+        min-width: 150px !important;
+        text-align: center !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .prices-title {
+        font-size: 2em;
+    }
+
+    .prices-subtitle {
+        font-size: 1.1em;
+    }
+
+    .prices-container {
+        padding: 0 10px;
+    }
+
+    .price-table {
+        font-size: 0.85em !important;
+        margin: 15px 0 !important;
+    }
+
+    .price-table th,
+    .price-table td {
+        padding: 10px 6px !important;
+    }
+
+    .price-table th:first-child,
+    .price-table td:first-child {
+        padding-left: 8px !important;
+    }
+
+    .price-table th:last-child,
+    .price-table td:last-child {
+        padding-right: 8px !important;
+    }
+
+    /* TABELUL CU SCROLL PE TELEFOANE MICI */
+    .table-scroll-wrapper .price-table {
+        min-width: 500px !important;
+    }
+
+    .table-scroll-wrapper .price-table th:first-child,
+    .table-scroll-wrapper .price-table td:first-child {
+        width: 250px !important;
+        min-width: 250px !important;
+    }
+
+    .table-scroll-wrapper .price-table th:nth-child(2),
+    .table-scroll-wrapper .price-table td:nth-child(2) {
+        width: 125px !important;
+        min-width: 125px !important;
+    }
+
+    .table-scroll-wrapper .price-table th:nth-child(3),
+    .table-scroll-wrapper .price-table td:nth-child(3) {
+        width: 125px !important;
+        min-width: 125px !important;
+    }
+}
+
+
+/* --- MENIU SIMPTOME RESPONSIVE --- */
+.symptoms-dropdown-menu {
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 60px;
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  padding: 32px 0 24px 0;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-top: 1px solid #eaeaea;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+}
+
+.symptoms-dropdown-menu.active {
+  opacity: 1;
+  transform: scaleY(1);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.symptoms-dropdown-columns {
+  display: flex;
+  justify-content: center;
+  gap: 140px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.symptoms-col {
+  min-width: 180px;
+  max-width: 220px;
+}
+
+.symptoms-col-title {
+  font-weight: 700;
+  color: #5999ee;
+  font-size: 1.15em;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+
+.symptoms-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.symptoms-col ul li {
+  margin-bottom: 8px;
+}
+
+.symptoms-col ul li a {
+  color: #222;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.2s;
+  padding: 2px 0 2px 0;
+  display: block;
+  border-radius: 6px;
+}
+
+.symptoms-col ul li a:hover {
+  color: #5999ee;
+  background: #f3f7ff;
+}
+
+/* Stiluri speciale pentru coloana Față */
+.symptoms-col:first-child {
+  min-width: 540px;
+  max-width: 700px;
+}
+
+.symptoms-col:first-child ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+  min-width: 520px;
+  max-width: 700px;
+  margin-left: 0;
+}
+
+.symptoms-col:first-child .symptoms-col-title {
+  grid-column: span 2;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* Stiluri speciale pentru coloana Buze */
+.symptoms-col:nth-child(2) ul {
+  background: #f3f7ff;
+  border-radius: 10px;
+  padding: 8px 0 8px 0;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(89, 153, 238, 0.07);
+}
+
+.symptoms-col:nth-child(2) ul li {
+  margin-bottom: 0;
+  border-bottom: 1px solid #e0e7f8;
+}
+
+.symptoms-col:nth-child(2) ul li:last-child {
+  border-bottom: none;
+}
+
+/* --- RESPONSIVE PENTRU TABLETĂ --- */
+@media (max-width: 1200px) {
+  .symptoms-dropdown-columns {
+    gap: 60px;
+    padding: 0 15px;
+  }
+
+  .symptoms-col:first-child {
+    min-width: 400px;
+    max-width: 500px;
+  }
+
+  .symptoms-col:first-child ul {
+    gap: 0 40px;
+    min-width: 380px;
+    max-width: 480px;
+  }
+
+  .symptoms-col {
+    min-width: 140px;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    min-height: 55px; /* Și mai subțire pe tabletă */
+  }
+
+  .header .container {
+    min-height: 55px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  .logo span {
+    font-size: 2rem;
+    padding-left: 15px;
+  }
+
+  .symptoms-dropdown-menu {
+    top: 55px;
+  }
+
+  .nav-links {
+    padding-top: 55px;
+  }
+  .symptoms-dropdown-menu {
+    top: 60px;
+    padding: 20px 0 15px 0;
+    overflow-y: auto;
+    max-height: 80vh;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .symptoms-dropdown-columns {
     flex-direction: column;
-    cursor: pointer;
-    border: 0px solid transparent;
-}
-.treatment-card.new-design:hover {
-    box-shadow: 0 8px 32px rgba(89,153,238,0.18);
-    border: 0px solid #fff;
-    background: rgba(255,255,255,0.96);
-    transform: translateY(-4px) scale(1.01);
-    z-index: 2;
-}
-.treatment-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 170px;
-    overflow: hidden;
-    border-radius: 0;
-    flex-shrink: 0;
-}
-.treatment-card.new-design .treatment-image {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 0;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .symptoms-col:first-child {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .symptoms-col:first-child ul {
     display: block;
+    min-width: 100%;
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .symptoms-col {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  .symptoms-col-title {
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  .symptoms-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .symptoms-col ul li a {
+    padding: 8px 10px;
+    display: block;
+    background: #f8f9fa;
+    border-radius: 6px;
+  }
+
+  .symptoms-col ul li a:hover {
+    background: #f3f7ff;
+  }
+
+  .symptoms-col:nth-child(2) ul {
+    background: #f3f7ff;
+    border-radius: 10px;
+    padding: 8px 0 8px 0;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(89, 153, 238, 0.07);
+  }
+
+  .symptoms-col:nth-child(2) ul li {
+    margin-bottom: 0;
+    border-bottom: 1px solid #e0e7f8;
+  }
+
+  .symptoms-col:nth-child(2) ul li:last-child {
+    border-bottom: none;
+  }
 }
-.badge-group {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 14px;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    z-index: 3;
+
+@media (max-width: 768px) {
+  .header {
+    min-height: 50px; /* Foarte subțire pe mobil */
+  }
+
+  .header .container {
+    min-height: 50px;
+    padding: 0 10px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .logo span {
+    font-size: 1.8rem;
+    padding-left: 12px;
+  }
+
+  .symptoms-dropdown-menu {
+    top: 50px;
+  }
+
+  .nav-links {
+    padding-top: 50px;
+  }
+
+  .mobile-menu-btn {
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+  }
+
+  .mobile-menu-btn span {
+    width: 20px;
+    height: 2px;
+    margin: 2px 0;
+  }
+  .symptoms-dropdown-menu {
+    top: 50px;
+    padding: 15px 0 12px 0;
+    border-radius: 0 0 8px 8px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .symptoms-dropdown-columns {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+    padding: 0 15px;
+  }
+
+  .symptoms-col {
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .symptoms-col:first-child {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .symptoms-col:first-child ul {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .symptoms-col:first-child .symptoms-col-title {
+    grid-column: unset;
+    text-align: left;
+    margin-bottom: 12px;
+  }
+
+  .symptoms-col-title {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #5999ee;
+  }
+
+  .symptoms-col ul li {
+    margin-bottom: 6px;
+  }
+
+  .symptoms-col ul li a {
+    font-size: 0.9em;
+    padding: 6px 8px;
+    border-radius: 4px;
+  }
+
+  /* Stiluri speciale pentru Buze pe mobil */
+  .symptoms-col:nth-child(2) ul {
+    background: #f3f7ff;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .symptoms-col:nth-child(2) ul li {
+    margin-bottom: 8px;
+    border-bottom: none;
+  }
+
+  .symptoms-col:nth-child(2) ul li a {
+    padding: 8px 10px;
+  }
 }
-.badge {
-    border-radius: 9999px;
-    background: rgba(255,255,255,0.5);
-    color: #222;
-    font-size: 0.88em;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    border: 1.5px solid #fff;
-    padding: 3px 10px;
-    box-shadow: 0 2px 8px rgba(89,153,238,0.07);
-    white-space: nowrap;
-    transition: background 0.2s;
-    display: inline-block;
-}
-.badge-left, .badge-right {
-    position: static;
-}
-.treatment-card.new-design h3 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+
+@media (max-width: 480px) {
+  .header {
+    min-height: 45px; /* Foarte subțire pe telefoane mici */
+  }
+
+  .header .container {
+    min-height: 45px;
+    padding: 0 8px;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+
+  .logo span {
+    font-size: 1.5rem;
+    padding-left: 10px;
+  }
+
+  .symptoms-dropdown-menu {
+    top: 45px;
+  }
+
+  .nav-links {
+    padding-top: 45px;
+  }
+
+  .mobile-menu-btn {
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    right: 8px;
+  }
+
+  .mobile-menu-btn span {
+    width: 18px;
+    height: 2px;
+    margin: 2px 0;
+  }
+  .symptoms-dropdown-menu {
+    top: 45px;
+    padding: 12px 0 10px 0;
+    max-height: 60vh;
+  }
+
+  .symptoms-dropdown-columns {
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .symptoms-col {
+    margin-bottom: 12px;
+  }
+
+  .symptoms-col-title {
     font-size: 1em;
-    margin-bottom: 0.2em;
-    color: #222;
-    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .symptoms-col ul li {
+    margin-bottom: 4px;
+  }
+
+  .symptoms-col ul li a {
+    font-size: 0.85em;
+    padding: 5px 6px;
+  }
 }
-.treatment-card.new-design .treatment-content {
-    padding: 12px 6px 2px 6px;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
+
+/* FIX PENTRU HEADER SUBȚIRE */
+.header {
+  position: relative;
+  min-height: 60px; /* Redus de la 80px */
+  background-color: var(--white);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  position: relative;
+  min-height: 60px; /* Redus de la 80px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Logo mai mic */
+.logo img {
+  height: 50px; /* Redus de la 90px */
+  width: auto;
+}
+
+.logo span {
+  font-size: 2.2rem; /* Redus de la 3.6rem */
+  padding-left: 20px; /* Redus de la 35px */
+}
+
+/* Ajustări pentru meniul de simptome */
+.symptoms-dropdown-menu {
+  top: 60px; /* Ajustat pentru header-ul mai mic */
+}
+
+/* Butonul mobil ajustat */
+.mobile-menu-btn {
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px; /* Redus puțin */
+  height: 35px; /* Redus puțin */
+  padding: 6px;
+}
+
+.mobile-menu-btn span {
+  width: 22px;
+  height: 2.5px;
+  margin: 2.5px 0;
+}
+
+.nav {
+  position: relative;
+}
+
+/* Ascunde meniul normal pe mobil */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* CORECTĂRI PENTRU MENIUL MOBIL GENERAL --- */
+@media (max-width: 992px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 55px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  .nav-links > li {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-links > li > a {
+    padding: 15px 20px;
+    display: block;
+    font-size: 1.1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Dropdown-uri în meniul mobil */
+  .dropdown {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+    background-color: #f8f9fa;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .dropdown.open {
+    display: block;
+  }
+
+  .dropdown li {
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .dropdown li:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown li a {
+    padding: 12px 30px;
+    font-size: 1rem;
+    background: none;
+  }
+
+  .dropdown li a:hover {
+    background-color: #e9ecef;
+  }
+
+  /* Sub-dropdown-uri */
+  .dropdown .dropdown {
+    background-color: #e9ecef;
+  }
+
+  .dropdown .dropdown li a {
+    padding: 10px 40px;
+    font-size: 0.95rem;
+  }
+
+  /* Butonul mobil - FIX PENTRU POZIȚIONARE */
+  .mobile-menu-btn {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    width: 35px;
+    height: 35px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: #333;
+    margin: 2.5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+  }
+
+  .mobile-menu-btn.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    padding-top: 50px;
+  }
+
+  /* Responsive pentru butonul mobil */
+  .mobile-menu-btn {
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+  }
+
+  .mobile-menu-btn span {
+    width: 22px;
+    height: 2.5px;
+    margin: 2.5px 0;
+  }
+
+  .mobile-menu-btn.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+
+  .mobile-menu-btn.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    padding-top: 45px;
+  }
+
+  .nav-links > li > a {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+
+  .dropdown li a {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+  }
+
+  .dropdown .dropdown li a {
+    padding: 8px 35px;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive pentru butonul mobil */
+  .mobile-menu-btn {
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+  }
+
+  .mobile-menu-btn span {
+    width: 20px;
+    height: 2px;
+    margin: 2px 0;
+  }
+
+  .mobile-menu-btn.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .mobile-menu-btn.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+/* Responsive pentru butonul mobil */
+@media (max-width: 992px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .header .container {
+    position: relative;
+  }
 }

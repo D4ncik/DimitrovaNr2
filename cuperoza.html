@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cuperoză / rețea vasculară vizibilă - Dimitrova.Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/symptoms-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            overflow-x: hidden;
+        }
+        .header, .nav, .nav-links, .nav-links a {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.01em;
+        }
+        .logo-link span {
+            color: #234a7c !important;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background: linear-gradient(to bottom, #658698, #13283c);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: linear-gradient(to bottom, #ffffff, #fbfbfb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content p {
+            font-size: 1.0em;
+            line-height: 1.6;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .benefits-list li {
+            font-size: 1.0em;
+            margin-bottom: 15px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: #5999ee;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .facial-treatments {
+            padding: 120px 0 60px;
+            background: #f2fafc;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Media Queries pentru Hero Section */
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+                background-position: center center;
+                background-size: cover;
+                min-height: 100vh;
+                padding: 80px 15px 40px;
+            }
+            .hero-content h1 {
+                font-size: 2.5em !important;
+                white-space: normal !important;
+                color: #234a7c !important;
+                background: none !important;
+                -webkit-background-clip: unset !important;
+                background-clip: unset !important;
+            }
+            .hero-content p {
+                font-size: 1em !important;
+                color: #333 !important;
+            }
+            .benefits-list li {
+                font-size: 0.95em !important;
+                color: #333 !important;
+            }
+            .hero-section::before {
+                background: rgba(242, 250, 252, 0.6);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                background-attachment: scroll;
+                background-position: center center;
+                background-size: 455% auto;
+                min-height: 100vh;
+                padding: 60px 10px 30px;
+            }
+            .hero-content h1 {
+                font-size: 2em !important;
+                color: #234a7c !important;
+                background: none !important;
+                -webkit-background-clip: unset !important;
+                background-clip: unset !important;
+            }
+            .hero-content p {
+                font-size: 1em !important;
+                color: #333 !important;
+            }
+            .benefits-list li {
+                font-size: 0.9em !important;
+                color: #333 !important;
+            }
+            .hero-section::before {
+                background: rgba(242, 250, 252, 0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>DIMITROVA CLINIC</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="preparate.html">Preparate</a></li>
+                            <li><a href="gallery.html">Rezultate</a></li>
+                            <li><a href="despre_companie.html">Despre companie</a></li>
+                        </ul>
+                    </li>
+                    <li class="symptoms-dropdown-trigger">
+                        <a href="#simptome" id="symptomsTab">Simptome <i class="fas fa-chevron-down"></i></a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
+                            <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                            <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                            <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                            <li><a href="massage.html">Masaj</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prices.html">Prețuri</a></li>
+                    <li><a href="contacte.html">Contacte</a></li>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#" data-lang="ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="symptomsDropdown" class="symptoms-dropdown-menu">
+        <div class="symptoms-dropdown-columns">
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Față</div>
+                <ul>
+                    <li><a href="acnee.html">Acnee / Coșuri</a></li>
+                    <li><a href="post-acnee.html">Post-acnee / Cicatrici</a></li>
+                    <li><a href="pori-dilatati.html">Pori dilatați</a></li>
+                    <li><a href="ten-gras.html">Ten gras / Seboree</a></li>
+                    <li><a href="deshidratare.html">Deshidratare și descuamare</a></li>
+                    <li><a href="ten-tern.html">Ten tern / lipsit de strălucire</a></li>
+                    <li><a href="pigmentare.html">Pigmentare / pete pigmentare</a></li>
+                    <li><a href="cuperoza.html">Cuperoză / rețea vasculară vizibilă</a></li>
+                    <li><a href="riduri.html">Riduri</a></li>
+                    <li><a href="pierdere-tonusului.html">Pierderea fermității și a tonusului</a></li>
+                    <li><a href="riduri-cercuri-sub-ochi.html">Riduri / Cercuri întunecate sub ochi</a></li>
+                    <li><a href="barbie-dubla.html">Bărbie dublă</a></li>
+                    <li><a href="relaxare-oval.html">Relaxarea ovalului facial / ptoză</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Buze</div>
+                <ul>
+                <li><a href="tratamente-buze.html">Deshidratarea buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Riduri fine în jurul buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Volum insuficient</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Corp</div>
+                <ul>
+             <li><a href="vergeturi.html">Vergeturi (striae)</a></li>
+                    <li><a href="celulita.html">Celulită / Depozite locale de grăsime</a></li>
+                    <li><a href="lasare-piele.html">Lăsarea pielii după slăbire</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Scalp</div>
+                <ul>
+                    <li><a href="#">Căderea părului</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Cuperoză / rețea vasculară vizibilă</h1>
+                <p>Tratamente specializate pentru reducerea cuperozei și a rețelei vasculare vizibile. Soluții delicate și eficiente pentru o piele calmă, uniformă și fără roșeață.</p>
+                <ul class="benefits-list">
+                    <li>Reducerea roșeții și a inflamațiilor</li>
+                 
+                    <li>Calmarea și protejarea pielii sensibile</li>
+      
+                </ul>
+            </div>
+        </section>
+
+        <section class="facial-treatments">
+            <div class="container">
+                <div class="treatments-grid">
+                    <!-- Card 1: Mască alginată -->
+                    <div class="treatment-card new-design" data-treatment="alginata">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('alginata')">
+                            <img src="images/IMG_0645.PNG" alt="Mască alginată" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 400 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Mască alginată</h3>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Carboxytherapy -->
+                    <div class="treatment-card new-design" data-treatment="carboxytherapy">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('carboxytherapy')">
+                            <img src="images/IMG_8447.ARW" alt="Carboxytherapy" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 600 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Carboxytherapy</h3>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Masaj facial -->
+                    <div class="treatment-card new-design" data-treatment="masaj">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('masaj')">
+                            <img src="images/IMG_7288.PNG" alt="Masaj facial" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 300 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Masaj facial</h3>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Enzyme -->
+                    <div class="treatment-card new-design" data-treatment="enzyme">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('enzyme')">
+                            <img src="images/IMG_0657.JPG" alt="Enzyme" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 350 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Enzyme</h3>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Lactic Peeling -->
+                    <div class="treatment-card new-design" data-treatment="lactic-peeling">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('lactic-peeling')">
+                            <img src="images/Lactic.webp" alt="Lactic Peeling" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 700 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>Lactic Peeling</h3>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: RF-lifting facial -->
+                    <div class="treatment-card new-design" data-treatment="rf-lifting">
+                        <div class="treatment-image-wrapper" onclick="openTreatmentModal('rf-lifting')">
+                            <img src="images/RF-lifiting.ARW" alt="RF-lifting facial" class="treatment-image">
+                            <div class="badge-group">
+                                <span class="badge badge-left">1 h / 800 MDL</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                            </div>
+                        </div>
+                        <div class="treatment-content">
+                            <h3>RF-lifting facial</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="treatmentModal" class="modal">
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="/placeholder.svg" alt="">
+            <div class="modal-text">
+                <h2 id="modalTitle"></h2>
+                <div id="modalDescription"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="consultationModal" class="modal">
+        <div class="modal-content consultation-modal">
+            <div class="calendly-section">
+                <iframe src="https://dimitrovaclinic.setmore.com/services/4ba81d76-0b52-4fab-b388-4cdb76e4e921" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="treatmentBookingModal" class="modal">
+        <div class="modal-content consultation-modal">
+            <div class="calendly-section">
+            </div>
+        </div>
+    </div>
+
+    <div id="packageModal" class="modal" onclick="if(event.target===this) closePackageModal()">
+        <div class="modal-content">
+            <img id="packageModalImage" class="modal-image" src="/placeholder.svg" alt="">
+            <div class="modal-text">
+                <h2 id="packageModalTitle"></h2>
+                <div id="packageModalDescription"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo_footer.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                </div>
+                <div class="address">
+                    <p>Republica Moldova,</p>
+                    <p>Chișinău, str.Armenească 47</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Dimitrova Clinic</h3>
+                <ul>
+                    <li><a href="preparate.html">Preparate</a></li>
+                    <li><a href="gallery.html">Galerie</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Serviciile centrului nostru</h3>
+                <ul>
+                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                    <li><a href="body-care.html">Peelinguri chimice</a></li>
+                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                    <li><a href="massage.html">Masaj</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Urmăriți-ne...</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <h3>Scrieti în direct...</h3>
+                <div class="messenger-links">
+                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dimitrova Clinic  Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/treatment-modals.js"></script>
+    <script src="js/booking-handler.js"></script>
+    <script src="js/modal-handler.js"></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script>
+    // Datele pentru tratamentele specifice cuperoză
+    const treatmentsData = {
+        'alginata': {
+            title: 'Mască alginată',
+            image: 'images/IMG_0645.PNG',
+            price: '1 h / 400 MDL',
+            description: 'Mască calmantă cu alge pentru reducerea roșeții și protejarea pielii sensibile.',
+            details: [
+                'Calmează iritațiile și roșeața',
+                'Întărește pereții vasculari',
+                'Hidratează și protejează',
+                'Potrivită pentru piele sensibilă',
+                'Efect anti-inflamator'
+            ]
+        },
+        'carboxytherapy': {
+            title: 'Carboxytherapy',
+            image: 'images/IMG_8447.ARW',
+            price: '1 h / 600 MDL',
+            description: 'Terapie cu CO2 pentru îmbunătățirea microcirculației și reducerea cuperozei.',
+            details: [
+                'Îmbunătățește microcirculația',
+                'Întărește pereții vasculari',
+                'Reduce roșeața și inflamațiile',
+                'Oxigenează pielea',
+                'Efect de calmare'
+            ]
+        },
+        'masaj': {
+            title: 'Masaj facial',
+            image: 'images/IMG_7288.PNG',
+            price: '1 h / 300 MDL',
+            description: 'Masaj delicat pentru stimularea drenajului limfatic și calmarea pielii.',
+            details: [
+                'Stimulează drenajul limfatic',
+                'Reduce tensiunea și stresul',
+                'Îmbunătățește circulația',
+                'Calmează pielea sensibilă',
+                'Relaxare profundă'
+            ]
+        },
+        'enzyme': {
+            title: 'Enzyme',
+            image: 'images/IMG_0657.JPG',
+            price: '1 h / 350 MDL',
+            description: 'Tratament enzimatic delicat pentru piele sensibilă cu cuperoză.',
+            details: [
+                'Exfoliere foarte delicată',
+                'Nu iritează pielea sensibilă',
+                'Calmează și hidratează',
+                'Stimulează regenerarea',
+                'Potrivit pentru cuperoză'
+            ]
+        },
+        'lactic-peeling': {
+            title: 'Lactic Peeling',
+            image: 'images/Lactic.webp',
+            price: '1 h / 700 MDL',
+            description: 'Peeling delicat cu acid lactic pentru piele sensibilă cu cuperoză.',
+            details: [
+                'Exfoliere foarte blândă',
+                'Hidratează în profunzime',
+                'Calmează iritațiile',
+                'Potrivit pentru piele sensibilă',
+                'Îmbunătățește textura'
+            ]
+        },
+        'rf-lifting': {
+            title: 'RF-lifting facial',
+            image: 'images/RF-lifiting.ARW',
+            price: '1 h / 800 MDL',
+            description: 'Tratament cu radiofrecvență pentru întărirea vaselor și fermitate.',
+            details: [
+                'Întărește pereții vasculari',
+                'Îmbunătățește tonusul pielii',
+                'Stimulează colagenul',
+                'Fără iritații',
+                'Rezultate progresive'
+            ]
+        }
+    };
+
+    function openTreatmentModal(treatmentId) {
+        const data = treatmentsData[treatmentId];
+        if (!data) return;
+        document.getElementById('modalImage').src = data.image;
+        document.getElementById('modalImage').alt = data.title;
+        document.getElementById('modalTitle').textContent = data.title;
+        let descHtml = `<p>${data.description}</p>`;
+        if (data.details && data.details.length) {
+            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            descHtml += '</ul>';
+        }
+        document.getElementById('modalDescription').innerHTML = descHtml;
+        document.getElementById('treatmentModal').style.display = 'flex';
+        document.getElementById('treatmentModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('treatmentModal').style.opacity = '1';
+        }, 10);
+    }
+
+    const packagesData = {
+        'calmare-protectie': {
+            title: 'Pachet Calmare și Protecție',
+            image: 'images/calmare_protectie.jpg',
+            description: 'Program de 6 ședințe pentru calmarea și protejarea pielii cu cuperoză.',
+            details: [
+                '3 ședințe Mască alginată',
+                '2 ședințe Enzyme',
+                '1 ședință Masaj facial',
+                'Îngrijire specializată pentru piele sensibilă',
+                'Reducerea roșeții și iritațiilor'
+            ]
+        },
+        'intarire-vasculara': {
+            title: 'Pachet Întărire Vasculară',
+            image: 'images/intarire_vasculara.jpg',
+            description: 'Program complet de 8 ședințe pentru întărirea vaselor și reducerea cuperozei.',
+            details: [
+                '3 ședințe Carboxytherapy',
+                '2 ședințe RF-lifting',
+                '2 ședințe Lactic Peeling',
+                '1 ședință Mască alginată',
+                'Întărirea pereților vasculari'
+            ]
+        }
+    };
+
+    function openPackageModal(packageId) {
+        const data = packagesData[packageId];
+        if (!data) return;
+        document.getElementById('packageModalImage').src = data.image;
+        document.getElementById('packageModalImage').alt = data.title;
+        document.getElementById('packageModalTitle').textContent = data.title;
+        let descHtml = `<p>${data.description}</p>`;
+        if (data.details && data.details.length) {
+            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            descHtml += '</ul>';
+        }
+        document.getElementById('packageModalDescription').innerHTML = descHtml;
+        document.getElementById('packageModal').style.display = 'flex';
+        document.getElementById('packageModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('packageModal').style.opacity = '1';
+        }, 10);
+    }
+
+    function closePackageModal() {
+        document.getElementById('packageModal').style.display = 'none';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closePackageModal();
+    });
+    </script>
+</body>
+</html>

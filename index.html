@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimitrova.Clinic - Clinica de Cosmetologie</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+      .hero-content {
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+      .hero-title, .hero-subtitle, .hero-description {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -251,8 +262,12 @@
                         <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="preparate.html">Preparate</a></li>
-                            <li><a href="gallery.html">Galerie</a></li>
+                            <li><a href="gallery.html">Rezultate</a></li>
+                             <li><a href="despre_companie.html">Despre companie</a></li>
                         </ul>
+                    </li>
+                    <li class="symptoms-dropdown-trigger">
+                        <a href="#simptome" id="symptomsTab">Simptome <i class="fas fa-chevron-down"></i></a>
                     </li>
                     <li class="has-dropdown">
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
@@ -278,6 +293,51 @@
         </div>
     </header>
 
+    <div id="symptomsDropdown" class="symptoms-dropdown-menu">
+        <div class="symptoms-dropdown-columns">
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Față</div>
+                <ul>
+                    <li><a href="acnee.html">Acnee / Coșuri</a></li>
+                    <li><a href="post-acnee.html">Post-acnee / Cicatrici</a></li>
+                    <li><a href="pori-dilatati.html">Pori dilatați</a></li>
+                    <li><a href="ten-gras.html">Ten gras / Seboree</a></li>
+                    <li><a href="deshidratare.html">Deshidratare și descuamare</a></li>
+                    <li><a href="ten-tern.html">Ten tern / lipsit de strălucire</a></li>
+                    <li><a href="pigmentare.html">Pigmentare / pete pigmentare</a></li>
+                    <li><a href="cuperoza.html">Cuperoză / rețea vasculară vizibilă</a></li>
+                    <li><a href="riduri.html">Riduri</a></li>
+                    <li><a href="pierdere-tonusului.html">Pierderea fermității și a tonusului</a></li>
+                    <li><a href="riduri-cercuri-sub-ochi.html">Riduri / Cercuri întunecate sub ochi</a></li>
+                    <li><a href="barbie-dubla.html">Bărbie dublă</a></li>
+                    <li><a href="relaxare-oval.html">Relaxarea ovalului facial / ptoză</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Buze</div>
+                <ul>
+                    <li><a href="tratamente-buze.html">Deshidratarea buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Riduri fine în jurul buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Volum insuficient</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Corp</div>
+                <ul>
+                    <li><a href="vergeturi.html">Vergeturi (striae)</a></li>
+                    <li><a href="celulita.html">Celulită / Depozite locale de grăsime</a></li>
+                    <li><a href="lasare-piele.html">Lăsarea pielii după slăbire</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Scalp</div>
+                <ul>
+                    <li><a href="#">Căderea părului</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <main>
         <section class="hero">
             <div class="hero-content">
@@ -295,15 +355,45 @@
             <div class="container">
                 <div class="offer-content">
                     <h2 class="offer-title">Ofertă lunii</h2>
-                    <div class="offer-card">
-                        <img src="images/premiumfacial.webp" alt="Ofertă specială" class="offer-image">
-                        <div class="offer-details">
-                            <h3>Pachet Premium Facial</h3>
-                            <p class="offer-description">Tratament facial complet + Peeling chimic + Mezoterapie</p>
-                            <p class="offer-price">Preț special: 1500 lei</p>
-                            <p class="offer-original">Preț normal: 2000 lei</p>
-                            <a href="#" class="cta-button" onclick="openModal('bookingModal'); return false;">Programează-te acum</a>
+                    <div class="offer-carousel">
+                        <button class="carousel-arrow prev-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="offer-carousel-container">
+                            <div class="offer-card">
+                                <img src="images/premiumfacial.webp" alt="Ofertă specială" class="offer-image">
+                                <div class="offer-details">
+                                    <h3>Pachet Premium Facial</h3>
+                                    <p class="offer-description">Tratament facial complet + Peeling chimic + Mezoterapie</p>
+                                    <p class="offer-price">Preț special: 1500 lei</p>
+                                    <p class="offer-original">Preț normal: 2000 lei</p>
+                                    <a href="#" class="cta-button" onclick="openModal('bookingModal'); return false;">Programează-te acum</a>
+                                </div>
+                            </div>
+                            <div class="offer-card">
+                                <img src="images/premiumfacial.webp" alt="Ofertă specială" class="offer-image">
+                                <div class="offer-details">
+                                    <h3>Pachet Premium Facial</h3>
+                                    <p class="offer-description">Tratament facial complet + Peeling chimic + Mezoterapie</p>
+                                    <p class="offer-price">Preț special: 1500 lei</p>
+                                    <p class="offer-original">Preț normal: 2000 lei</p>
+                                    <a href="#" class="cta-button" onclick="openModal('bookingModal'); return false;">Programează-te acum</a>
+                                </div>
+                            </div>
+                            <div class="offer-card">
+                                <img src="images/premiumfacial.webp" alt="Ofertă specială" class="offer-image">
+                                <div class="offer-details">
+                                    <h3>Pachet Premium Facial</h3>
+                                    <p class="offer-description">Tratament facial complet + Peeling chimic + Mezoterapie</p>
+                                    <p class="offer-price">Preț special: 1500 lei</p>
+                                    <p class="offer-original">Preț normal: 2000 lei</p>
+                                    <a href="#" class="cta-button" onclick="openModal('bookingModal'); return false;">Programează-te acum</a>
+                                </div>
+                            </div>
                         </div>
+                        <button class="carousel-arrow next-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -437,6 +527,8 @@
     </div>
 
     <script src="js/main.js"></script>
+      <script src="js/main-fixed.js"></script>
+      
     <script src="js/modal-handler.js"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>

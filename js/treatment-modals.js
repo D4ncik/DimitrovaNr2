@@ -97,11 +97,21 @@ function openTreatmentModal(treatmentId, treatmentType) {
     const modalDescription = document.getElementById('modalDescription');
     const modalPrice = document.getElementById('modalPrice');
 
-    modalImage.src = treatment.image;
-    modalImage.alt = treatment.title;
-    modalTitle.textContent = treatment.title;
-    modalDescription.textContent = treatment.description;
-    modalPrice.textContent = treatment.price;
+    if (treatmentId === 'carboxytherapy' && treatment.modalContent) {
+        // Ascunde imaginea standard și inserează conținutul custom (imaginile + textul)
+        modalImage.style.display = 'none';
+        modalTitle.textContent = treatment.title;
+        modalDescription.innerHTML = treatment.modalContent;
+        if (modalPrice) modalPrice.textContent = treatment.price || '';
+    } else {
+        // Standard pentru restul tratamentelor
+        modalImage.style.display = 'block';
+        modalImage.src = treatment.image;
+        modalImage.alt = treatment.title;
+        modalTitle.textContent = treatment.title;
+        modalDescription.textContent = treatment.description;
+        if (modalPrice) modalPrice.textContent = treatment.price || '';
+    }
 
     modal.style.display = 'flex';
     modal.style.opacity = '0';
@@ -151,3 +161,167 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 });
+
+
+// Actualizare pentru modalContent-ul tratamentului Carboxytherapy
+const updatedCarboxytherapyModal = `
+<div class="carboxy-modal">
+    <div class="carboxy-modal-images">
+        <img src="images/IMG_7444.JPG" alt="Carboxytherapy Before">
+        <img src="images/IMG_7282.JPG" alt="Carboxytherapy After">
+    </div>
+    <div class="carboxy-modal-content">
+        <h2 class="carboxy-modal-title">Carboxytherapy</h2>
+        <p class="carboxy-modal-description">
+            <b>Terapie inovatoare cu dioxid de carbon pentru oxigenarea și revitalizarea pielii.</b>
+        </p>
+        <ul class="carboxy-modal-list">
+            <li>Îmbunătățește circulația sângelui</li>
+            <li>Stimulează producția de colagen</li>
+            <li>Redă luminozitatea tenului</li>
+            <li>Efect anti-aging vizibil</li>
+            <li>Reduce ridurile fine</li>
+            <li>Îmbunătățește textura pielii</li>
+        </ul>
+    </div>
+</div>
+`
+
+// Actualizare pentru modalContent-ul tratamentului Peri-orbital
+const updatedPeriOrbitalModal = `
+<div class="peri-orbital-modal-images">
+    <img src="images/IMG_7472.JPG" alt="Peri-orbital Before">
+    <img src="images/IMG_7444.JPG" alt="Peri-orbital After">
+</div>
+<div style="padding: 0 30px;">
+    <h2 style="text-align: center; color: #5999ee; margin-bottom: 15px; font-size: 1.8em; margin-top: 0;">Peri-orbital</h2>
+    <div style="font-size: 1em; line-height: 1.6; margin-bottom: 15px; color: #555; text-align: left;">
+        <p><b>Activarea sistemului imunitar:</b> Întărește protecția naturală a pielii, sporindu-i rezistența la factorii externi.</p>
+        <p><b>Hidratare și netezire:</b> Hidratează intens pielea, îmbunătățindu-i textura și eliminând senzația de uscăciune.</p>
+        <p><b>Corectarea ridurilor:</b> Elimină ridurile fine și reduce adâncimea celor pronunțate din jurul ochilor.</p>
+        <p><b>Reducerea umflăturilor:</b> Luptă eficient împotriva edemelor, redând prospețimea și confortul pielii.</p>
+        <p><b>Efect de lifting:</b> Oferă un efect de tonifiere, îmbunătățind conturul zonei din jurul ochilor.</p>
+    </div>
+    <div class='modal-3col' style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; text-align: center; font-size: 0.9em;">
+        <div>
+            <h3 style="color: #2c3e50; font-size: 1em; margin-bottom: 8px;">Acțiuni principale</h3>
+            <p style="font-size: 0.9em; color: #666; margin: 0;">Hidratare, lifting, activarea protecției imunitare</p>
+        </div>
+        <div>
+            <h3 style="color: #2c3e50; font-size: 1em; margin-bottom: 8px;">Indicații</h3>
+            <p style="font-size: 0.9em; color: #666; margin: 0;">Riduri în jurul ochilor, umflături, deshidratare, piele ternă</p>
+        </div>
+        <div>
+            <h3 style="color: #2c3e50; font-size: 1em; margin-bottom: 8px;">Rezultate</h3>
+            <p style="font-size: 0.9em; color: #666; margin: 0;">Netezire, reducerea umflăturilor, lifting, aspect odihnit</p>
+        </div>
+    </div>
+</div>
+`
+
+// Funcție pentru aplicarea actualizărilor
+function updateModalContents(treatmentsData) {
+  // Pentru facial-care.html - actualizează Carboxytherapy
+  if (typeof treatmentsData !== "undefined" && treatmentsData.carboxytherapy) {
+    treatmentsData.carboxytherapy.modalContent = updatedCarboxytherapyModal
+  }
+
+  // Pentru body-care.html - actualizează Peri-orbital
+  if (typeof treatmentsData !== "undefined" && treatmentsData["peri-orbital"]) {
+    treatmentsData["peri-orbital"].modalContent = updatedPeriOrbitalModal
+  }
+}
+
+// Aplică actualizările când documentul este încărcat
+document.addEventListener("DOMContentLoaded", () => {
+  // Assuming treatmentsData is available globally or fetched elsewhere
+  // You might need to fetch or define treatmentsData here
+  // Example:
+  // fetchTreatmentsData().then(data => {
+  //     updateModalContents(data);
+  // });
+  // For now, let's assume it's defined elsewhere and just call the function if it exists
+  if (typeof treatmentsData !== "undefined") {
+    updateModalContents(treatmentsData)
+  }
+
+  // Adaugă stilurile CSS
+  const styleSheet = document.createElement("style")
+  styleSheet.textContent = `
+        /* Include aici stilurile din modal-before-after-styles.css */
+        .carboxy-modal {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .carboxy-modal-images {
+            display: flex;
+            width: calc(100% + 60px);
+            margin: -30px -30px 20px -30px;
+            padding: 0;
+            height: 300px;
+        }
+
+        .carboxy-modal-images img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            margin: 0;
+        }
+
+        .carboxy-modal-images img:first-child {
+            border-radius: 15px 0 0 0;
+        }
+
+        .carboxy-modal-images img:last-child {
+            border-radius: 0 15px 0 0;
+        }
+
+        .carboxy-modal-content {
+            padding: 0 30px 15px 30px;
+        }
+
+        .peri-orbital-modal-images {
+            display: flex;
+            width: calc(100% + 60px);
+            margin: -30px -30px 20px -30px;
+            padding: 0;
+            height: 300px;
+        }
+
+        .peri-orbital-modal-images img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            margin: 0;
+        }
+
+        .peri-orbital-modal-images img:first-child {
+            border-radius: 15px 0 0 0;
+        }
+
+        .peri-orbital-modal-images img:last-child {
+            border-radius: 0 15px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            .carboxy-modal-images,
+            .peri-orbital-modal-images {
+                width: calc(100% + 20px);
+                margin: -10px -10px 15px -10px;
+                height: 250px;
+            }
+            
+            .carboxy-modal-content {
+                padding: 0 10px 10px 10px;
+            }
+        }
+    `
+  document.head.appendChild(styleSheet)
+})
+
+// Export pentru utilizare
+window.updateModalContents = updateModalContents

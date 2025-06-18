@@ -42,19 +42,19 @@
             letter-spacing: 0.01em;
         }
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/pilings.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #234a7c;
-            padding: 0 20px;
-            position: relative;
-        }
+    background: linear-gradient(to bottom, #658698, #13283c);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+    position: relative;
+}
 
         .hero-section::before {
             content: '';
@@ -63,7 +63,6 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(242, 250, 252, 0.65);
             z-index: 1;
         }
 
@@ -77,7 +76,7 @@
             font-size: 3.5em;
             margin-bottom: 30px;
             font-weight: 600;
-            background: linear-gradient(to bottom, #658698, #13283c);
+            background: linear-gradient(to bottom, #ffffff, #fbfbfb);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -85,9 +84,9 @@
         }
 
         .hero-content p {
-            font-size: 1.4em;
+            font-size: 1.0em;
             line-height: 1.6;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 30px;
         }
 
@@ -100,9 +99,9 @@
         }
 
         .benefits-list li {
-            font-size: 1.2em;
+            font-size: 1.0em;
             margin-bottom: 15px;
-            color: #333;
+            color: #ffffff;
             display: flex;
             align-items: center;
         }
@@ -431,22 +430,22 @@
                 white-space: normal !important;
             }
             .hero-content p {
-                font-size: 1.1em !important;
+                font-size: 1em !important;
             }
             .benefits-list li {
-                font-size: 1em !important;
+                font-size: 0.95em !important;
             }
         }
 
         @media (max-width: 480px) {
             .hero-content h1 {
-                font-size: 2em;
+                font-size: 2em !important;
             }
             .hero-content p {
-                font-size: 1em;
+                font-size: 1em !important;
             }
             .benefits-list li {
-                font-size: 0.9em;
+                font-size: 0.9em !important;
             }
         }
         .logo-link span {
@@ -503,9 +502,59 @@
                         <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="preparate.html">Preparate</a></li>
-                            <li><a href="gallery.html">Galerie</a></li>
+                            <li><a href="gallery.html">Rezultate</a></li>
+                            <li><a href="despre_companie.html">Despre companie</a></li>
                         </ul>
                     </li>
+                    <li class="symptoms-dropdown-trigger">
+    <a href="#simptome" id="symptomsTab">Simptome <i class="fas fa-chevron-down"></i></a>
+</li>
+
+<!-- Add this dropdown structure right after the header, before main content -->
+<div id="symptomsDropdown" class="symptoms-dropdown-menu">
+    <div class="symptoms-dropdown-columns">
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Față</div>
+            <ul>
+               <li><a href="acnee.html">Acnee / Coșuri</a></li>
+                    <li><a href="post-acnee.html">Post-acnee / Cicatrici</a></li>
+                    <li><a href="pori-dilatati.html">Pori dilatați</a></li>
+                    <li><a href="ten-gras.html">Ten gras / Seboree</a></li>
+                    <li><a href="deshidratare.html">Deshidratare și descuamare</a></li>
+                    <li><a href="ten-tern.html">Ten tern / lipsit de strălucire</a></li>
+                    <li><a href="pigmentare.html">Pigmentare / pete pigmentare</a></li>
+                    <li><a href="cuperoza.html">Cuperoză / rețea vasculară vizibilă</a></li>
+                    <li><a href="riduri.html">Riduri</a></li>
+                    <li><a href="pierdere-tonusului.html">Pierderea fermității și a tonusului</a></li>
+                    <li><a href="riduri-ochi.html">Riduri / Cercuri întunecate sub ochi</a></li>
+                    <li><a href="barbie-dubla.html">Bărbie dublă</a></li>
+                    <li><a href="relaxare-oval.html">Relaxarea ovalului facial / ptoză</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Buze</div>
+            <ul>
+                 <li><a href="tratamente-buze.html">Deshidratarea buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Riduri fine în jurul buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Volum insuficient</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Corp</div>
+            <ul>
+                  <li><a href="vergeturi.html">Vergeturi (striae)</a></li>
+                    <li><a href="celulita.html">Celulită / Depozite locale de grăsime</a></li>
+                    <li><a href="lasare-piele.html">Lăsarea pielii după slăbire</a></li>
+            </ul>
+        </div>
+        <div class="symptoms-col">
+            <div class="symptoms-col-title">Scalp</div>
+            <ul>
+                <li><a href="#">Căderea părului</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
                     <li class="has-dropdown">
                         <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
@@ -534,11 +583,10 @@
         <section class="hero-section">
             <div class="hero-content">
                 <h1>Peelinguri Chimice</h1>
-                <p>Descoperă puterea transformatoare a peelingurilor chimice profesionale. Procedurile noastre sunt concepute pentru a reînnoi pielea, uniformiza textura și strălucirea, și pentru a combate semnele îmbătrânirii.</p>
+                <p>Descoperă puterea transformatoare a peelingurilor chimice profesionale.</p>
                 <ul class="benefits-list">
                     <li>Proceduri personalizate pentru fiecare tip de piele</li>
                     <li>Produse de înaltă calitate și rezultate garantate</li>
-                    <li>Tehnici moderne și non-invazive</li>
                     <li>Efecte vizibile imediate și de lungă durată</li>
                     <li>Tratamente pentru toate tipurile de probleme cutanate</li>
                 </ul>
@@ -557,7 +605,7 @@
                     <!-- Card 1: BioRePeel -->
                     <div class="treatment-card" data-treatment="biorepeel">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('biorepeel')">
-                            <img src="images/biorepeel.webp" alt="BioRePeel" class="treatment-image">
+                            <img src="images/biorepeel3.jpg" alt="BioRePeel" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 800 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -570,7 +618,7 @@
                     <!-- Card 2: BioRePeel corp -->
                     <div class="treatment-card" data-treatment="biorepeel-body">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('biorepeel-body')">
-                            <img src="images/biorepeelbody.jpg" alt="BioRePeel corp" class="treatment-image">
+                            <img src="images/IMG_0686.JPG" alt="BioRePeel corp" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 1200 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -635,7 +683,10 @@
                     <!-- Card 7: Peri-orbital -->
                     <div class="treatment-card" data-treatment="peri-orbital">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('peri-orbital')">
-                            <img src="images/periorbital.jpg" alt="Peri-orbital" class="treatment-image">
+                            <div style="display: flex; width: 100%; height: 100%;">
+                                <img src="images/IMG_7444.jpg" alt="Peri-orbital Before" class="treatment-image" style="width: 50%; object-fit: cover;">
+                                <img src="images/IMG_7282.JPG" alt="Peri-orbital After" class="treatment-image" style="width: 50%; object-fit: cover;">
+                            </div>
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 400 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -661,7 +712,7 @@
                     <!-- Card 9: 3D|lifting -->
                     <div class="treatment-card" data-treatment="3d-lifting">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('3d-lifting')">
-                            <img src="images/3dLifting.webp" alt="3D|lifting" class="treatment-image">
+                            <img src="images/IMG_8447.ARW" alt="3D|lifting" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 900 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -687,7 +738,7 @@
                     <!-- Card 11: Whitening -->
                     <div class="treatment-card" data-treatment="whitening">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('whitening')">
-                            <img src="images/whitening.webp" alt="Whitening" class="treatment-image">
+                            <img src="images/IMG_7477.JPG" alt="Whitening" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 750 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -700,7 +751,7 @@
                     <!-- Card 12: Enzymatic phytopeeling -->
                     <div class="treatment-card" data-treatment="enzymatic-phytopeeling">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('enzymatic-phytopeeling')">
-                            <img src="images/phytopeeling.jpg" alt="Enzymatic phytopeeling" class="treatment-image">
+                            <img src="images/IMG_7277.PNG" alt="Enzymatic phytopeeling" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 550 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -713,7 +764,7 @@
                     <!-- Card 13: Yellow Retinol -->
                     <div class="treatment-card" data-treatment="yellow-retinol">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('yellow-retinol')">
-                            <img src="images/yellowretinol.jpg" alt="Yellow Retinol" class="treatment-image">
+                            <img src="images/IMG_7284.PNG" alt="Yellow Retinol" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 850 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
@@ -753,8 +804,8 @@
         <div class="footer-content">
             <div class="footer-column">
                 <div class="footer-logo">
-                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
-                    <span>Dimitrova.Clinic</span>
+                    <img src="images/logo_footer.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova Clinic</span>
                 </div>
                 <div class="contact-info">
                     <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
@@ -769,7 +820,7 @@
             <div class="footer-column">
                 <h3>Dimitrova Clinic</h3>
                 <ul>
-                    <li><a href="reviews.html">Recenzii</a></li>
+                    <li><a href="preparate.html">Preparate</a></li>
                     <li><a href="gallery.html">Galerie</a></li>
                 </ul>
             </div>
@@ -777,11 +828,11 @@
             <div class="footer-column">
                 <h3>Serviciile centrului nostru</h3>
                 <ul>
-                    <li><a href="facial-care.html">Îngrijirea pielii feței</a></li>
-                    <li><a href="dermapen.html">Proceduri Dermapen</a></li>
-                    <li><a href="body-care.html">Îngrijirea pielii corpului</a></li>
-                    <li><a href="prices.html">Price list</a></li>
-                    <li><a href="#oferte">Promoții și reduceri</a></li>
+                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                    <li><a href="body-care.html">Peelinguri chimice</a></li>
+                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
                     <li><a href="massage.html">Masaj</a></li>
                 </ul>
             </div>
@@ -800,7 +851,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+            <p>&copy; 2024 Dimitrova Clinic  Toate drepturile rezervate.</p>
         </div>
     </footer>
 
@@ -812,11 +863,9 @@
     const treatmentsData = {
         biorepeel: {
             title: 'BioRePeel',
-            image: 'images/biorepeel.webp',
-            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
-Acest peeling a demonstrat rezultate uimitoare pe față. Nu doar că exfoliază, dar și distruge bacteriile care provoacă acneea, elimină hiperpigmentarea, accelerează schimbul celular și reduce cheratoza.
-</div>
-<div class='modal-3col'>
+            image: 'images/biorepeel3.jpg',
+            modalContent: `
+            <div class='modal-3col'>
     <div>
         <h3>Acțiuni principale</h3>
         <p>Biorevitalizare, exfoliere, biostimulare</p>
@@ -829,18 +878,20 @@ Acest peeling a demonstrat rezultate uimitoare pe față. Nu doar că exfoliază
         <h3>Rezultate</h3>
         <p>Hidratare, lifting, îmbunătățirea texturii pielii, iluminare, reducerea porilor</p>
     </div>
+</div>
+<br>
+            <div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+Acest peeling a demonstrat rezultate uimitoare pe față. Nu doar că exfoliază, dar și distruge bacteriile care provoacă acneea, elimină hiperpigmentarea, accelerează schimbul celular și reduce cheratoza.
 </div>`
         },
         'biorepeel-body': {
             title: 'BioRePeel corp',
-            image: 'images/biorepeelbody.jpg',
-            description: 'Peeling profesional pentru corp, cu efect de reîntinerire.',
-            details: [
-                'Exfoliere profundă',
-                'Uniformizează culoarea pielii',
-                'Reduce vergeturile',
-                'Piele mai netedă și catifelată'
-            ]
+            image: 'images/IMG_0686.JPG',
+            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+Un tratament inovator italian pentru exfoliere, înălbire și întinerire fără injecții. Elimină coșurile de pe spate.
+(acțiuni principale, indicații și rezultate pune ca la BioRePeel simplu)</div>
+<div class='modal-3col'>
+</div>`
         },
         azelaic: {
             title: 'Azelaic',
@@ -946,8 +997,11 @@ Acest peeling a demonstrat rezultate uimitoare pe față. Nu doar că exfoliază
         },
         'peri-orbital': {
             title: 'Peri-orbital',
-            image: 'images/periorbital.jpg',
-            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+            modalContent: `<div style="display: flex; width: 100%; margin-bottom: 12px;">
+    <img src="images/IMG_7444.JPG" alt="Peri-orbital Before" style="width: 50%; object-fit: cover;">
+    <img src="images/IMG_7282.JPG" alt="Peri-orbital After" style="width: 50%; object-fit: cover; ">
+</div>
+<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
 <p><b>Activarea sistemului imunitar:</b> Întărește protecția naturală a pielii, sporindu-i rezistența la factorii externi.</p>
 <p><b>Hidratare și netezire:</b> Hidratează intens pielea, îmbunătățindu-i textura și eliminând senzația de uscăciune.</p>
 <p><b>Corectarea ridurilor:</b> Elimină ridurile fine și reduce adâncimea celor pronunțate din jurul ochilor.</p>
@@ -1049,7 +1103,7 @@ Acest peeling a demonstrat rezultate uimitoare pe față. Nu doar că exfoliază
         },
         whitening: {
             title: 'Whitening',
-            image: 'images/whitening.webp',
+            image: 'images/IMG_7477.JPG',
             modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
 <p><b>Efect de albire:</b> Luminează pielea prin eliminarea petelor de vârstă de diferite origini.</p>
 <p><b>Protecție antioxidantă:</b> Neutralizează efectele radicalilor liberi, protejând pielea de îmbătrânirea prematură.</p>
@@ -1085,14 +1139,16 @@ Acest peeling a demonstrat rezultate uimitoare pe față. Nu doar că exfoliază
         },
         'yellow-retinol': {
             title: 'Yellow Retinol',
-            image: 'images/yellowretinol.jpg',
+            image: 'images/IMG_7284.PNG',
             description: 'Peeling cu retinol pentru efect anti-aging intens.',
-            details: [
-                'Reduce ridurile',
-                'Stimulează colagenul',
-                'Îmbunătățește textura pielii',
-                'Rezultate vizibile rapid'
-            ]
+             modalContent: `<div style="font-size: 0.92em; line-height: 1.5; color: #555; text-align: left; padding: 0 2px;">
+<p><b>Curățare fără uscare excesivă:</b> Curăță eficient pielea de impurități fără a provoca uscăciune sau a-i perturba echilibrul natural.</p>
+<p><b>Îndepărtarea secrețiilor glandelor sebacee:</b> Îndepărtează excesul de sebum și normalizează glandele sebacee, prevenind strălucirea uleioasă.</p>
+<p><b>Eliminarea celulelor moarte ale pielii:</b> Exfoliază celulele moarte ale pielii pentru a îmbunătăți textura pielii și a promova reînnoirea pielii.</p>
+<p><b>Stimularea microcirculației:</b> Îmbunătățește circulația sângelui prin furnizarea de nutrienți și oxigen celulelor pielii.</p>
+<p><b>Pregătirea ingredientelor active:</b> Pregătește pielea pentru primirea ingredientelor active, îmbunătățind absorbția și eficacitatea acestora.</p>
+<p><b>Rezultat:</b> Piele curată, proaspătă și hidratată, cu un ton uniform și o textură îmbunătățită.</p>
+</div>`
         }
     };
     function openTreatmentModal(treatmentId) {

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despre Companie - Dimitrova.Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="symptoms-responsive.css">
+    <style>
+      .hero-content {
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+      .hero-title, .hero-subtitle, .hero-description {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      
+      .about-section {
+        padding: 80px 0;
+        background-color: var(--white);
+      }
+      
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+      }
+      
+      .about-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(89, 153, 238, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(89, 153, 238, 0.1);
+      }
+      
+      .about-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(89, 153, 238, 0.2);
+      }
+      
+      .about-card-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(45deg, #5999ee, #3d7fd9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 24px;
+      }
+      
+      .about-card h3 {
+        color: #333;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-weight: 400 !important;
+      }
+      
+      .about-card p {
+        color: #666;
+        line-height: 1.6;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-weight: 300 !important;
+      }
+      
+      .stats-section {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 60px 0;
+        margin: 40px 0;
+      }
+      
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        text-align: center;
+      }
+      
+      .stat-item {
+        background: white;
+        padding: 30px 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(89, 153, 238, 0.1);
+      }
+      
+      .stat-number {
+        font-size: 2.5em;
+        font-weight: 600;
+        color: #5999ee;
+        margin-bottom: 10px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+      }
+      
+      .stat-label {
+        color: #666;
+        font-size: 1.1em;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-weight: 300 !important;
+      }
+      
+      .team-section {
+        padding: 80px 0;
+        background-color: var(--white);
+      }
+      
+      .team-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(89, 153, 238, 0.1);
+        text-align: center;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .team-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      
+      .team-content {
+        padding: 30px;
+      }
+      
+      .team-name {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 10px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-weight: 400 !important;
+      }
+      
+      .team-role {
+        color: #5999ee;
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-weight: 300 !important;
+      }
+      
+      .team-description {
+        color: #666;
+        line-height: 1.6;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-weight: 300 !important;
+      }
+      
+      @media (max-width: 768px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+        
+        .about-card {
+          padding: 25px;
+        }
+        
+        .stat-number {
+          font-size: 2em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+        }
+        .header, .nav, .nav-links, .nav-links a {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.01em;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow: auto;
+        }
+        .modal-content {
+            background: white;
+            margin: 2% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 95%;
+            max-width: 1200px;
+            position: relative;
+            height: 95vh;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .consultation-modal {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .calendly-section {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .calendly-section iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .logo-link span {
+            font-weight: 400;
+            font-style: normal;
+            color: #234a7c !important;
+        }
+        .hero-title {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+            font-size: 3.2em !important;
+            font-weight: 400 !important;
+            letter-spacing: -0.01em;
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>DIMITROVA CLINIC</span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li class="has-dropdown">
+                        <a href="#despre">Despre noi <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="preparate.html">Preparate</a></li>
+                            <li><a href="gallery.html">Rezultate</a></li>
+                            <li><a href="despre_companie.html">Despre companie</a></li>
+                        </ul>
+                    </li>
+                    <li class="symptoms-dropdown-trigger">
+                        <a href="#simptome" id="symptomsTab">Simptome <i class="fas fa-chevron-down"></i></a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#servicii">Servicii <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                            <li><a href="body-care.html">Peelinguri chimice</a></li>
+                            <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                            <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                            <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                            <li><a href="massage.html">Masaj</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prices.html">Prețuri</a></li>
+                    <li><a href="contacte.html">Contacte</a></li>
+                    <li class="has-dropdown language-selector">
+                        <a href="#" data-lang="ro">RO <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#" data-lang="ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="symptomsDropdown" class="symptoms-dropdown-menu">
+        <div class="symptoms-dropdown-columns">
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Față</div>
+                <ul>
+                    <li><a href="acnee.html">Acnee / Coșuri</a></li>
+                    <li><a href="post-acnee.html">Post-acnee / Cicatrici</a></li>
+                    <li><a href="pori-dilatati.html">Pori dilatați</a></li>
+                    <li><a href="ten-gras.html">Ten gras / Seboree</a></li>
+                    <li><a href="deshidratare.html">Deshidratare și descuamare</a></li>
+                    <li><a href="ten-tern.html">Ten tern / lipsit de strălucire</a></li>
+                    <li><a href="pigmentare.html">Pigmentare / pete pigmentare</a></li>
+                    <li><a href="cuperoza.html">Cuperoză / rețea vasculară vizibilă</a></li>
+                    <li><a href="riduri.html">Riduri</a></li>
+                    <li><a href="pierdere-tonusului.html">Pierderea fermității și a tonusului</a></li>
+                    <li><a href="riduri-cercuri-sub-ochi.html">Riduri / Cercuri întunecate sub ochi</a></li>
+                    <li><a href="barbie-dubla.html">Bărbie dublă</a></li>
+                    <li><a href="relaxare-oval.html">Relaxarea ovalului facial / ptoză</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Buze</div>
+                <ul>
+                  <li><a href="tratamente-buze.html">Deshidratarea buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Riduri fine în jurul buzelor</a></li>
+                    <li><a href="tratamente-buze.html">Volum insuficient</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Corp</div>
+                <ul>
+                     <li><a href="vergeturi.html">Vergeturi (striae)</a></li>
+                    <li><a href="celulita.html">Celulită / Depozite locale de grăsime</a></li>
+                    <li><a href="lasare-piele.html">Lăsarea pielii după slăbire</a></li>
+                </ul>
+            </div>
+            <div class="symptoms-col">
+                <div class="symptoms-col-title">Scalp</div>
+                <ul>
+                    <li><a href="#">Căderea părului</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle">Pasiune, dedicare și profesionalism</p>
+                <h1 class="hero-title">Despre Dimitrova Clinic<br>Povestea noastră</h1>
+                <p class="hero-description">
+                    Descoperă valorile, viziunea și misiunea care ne ghidează<br>
+                    în oferirea celor mai bune servicii de cosmetologie estetică
+                </p>
+                <a href="#" class="cta-button" onclick="openModal('bookingModal'); return false;">Programează-te acum</a>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="services-header">
+                    <h2 class="services-title">Valorile noastre</h2>
+                    <p class="services-subtitle">Principiile care ne definesc și ne ghidează în fiecare zi</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Viziunea noastră</h3>
+                        <p>Să devenim centrul de referință în cosmetologia estetică din Chișinău, oferind servicii de înaltă calitate într-un mediu sigur și confortabil. Viziunea noastră este să ajutăm fiecare client să își descopere și să își îmbunătățească frumusețea naturală.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Misiunea noastră</h3>
+                        <p>Să oferim tratamente cosmetologice personalizate, folosind cele mai moderne tehnologii și produse de calitate superioară. Ne dedicăm să creăm o experiență unică pentru fiecare client, bazată pe încredere, profesionalism și rezultate vizibile.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Excelența</h3>
+                        <p>Căutăm permanent perfecțiunea în tot ceea ce facem. De la consultația inițială până la rezultatul final, fiecare detaliu este important pentru noi. Investim constant în educație și tehnologii de ultimă generație.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Siguranța</h3>
+                        <p>Siguranța clienților noștri este prioritatea numărul unu. Respectăm cele mai stricte standarde de igienă și sterilizare, folosim doar produse certificate și echipamente de înaltă calitate pentru a garanta rezultate sigure.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Abordare personalizată</h3>
+                        <p>Fiecare client este unic, iar nevoile sale sunt specifice. De aceea, dezvoltăm planuri de tratament individualizate, adaptate tipului de piele, problemelor specifice și obiectivelor fiecărei persoane.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Produse naturale</h3>
+                        <p>Preferăm să lucrăm cu produse care conțin ingrediente naturale și sunt gentle cu pielea. Colaborăm cu branduri recunoscute internațional care respectă standardele de calitate și sustenabilitate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container">
+                <div class="services-header">
+                    <h2 class="services-title">Rezultatele noastre în cifre</h2>
+                    <p class="services-subtitle">Încrederea clienților noștri se reflectă în aceste statistici</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Clienți mulțumiți</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Ani de experiență</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Tipuri de tratamente</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Rata de satisfacție</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <div class="services-header">
+                    <h2 class="services-title">Echipa noastră</h2>
+                    <p class="services-subtitle">Profesioniști dedicați frumuseții și sănătății pielii tale</p>
+                </div>
+                
+                <div class="team-card">
+                    <img src="images/ea2-Photoroom.png" alt="Dr. Dimitrova" class="team-image">
+                    <div class="team-content">
+                        <h3 class="team-name">Dr. Dimitrova</h3>
+                        <p class="team-role">Cosmetolog principal</p>
+                        <p class="team-description">Cu o experiență vastă în domeniul cosmetologiei estetice, Dr. Dimitrova este specializată în tratamente faciale avansate și proceduri de rejuvenare. Pasiunea sa pentru frumusețe și atenția la detalii se reflectă în rezultatele excepționale obținute pentru fiecare client.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo1500.png" alt="Dimitrova.Clinic Logo">
+                    <span>Dimitrova.Clinic</span>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+37360049402"><i class="fas fa-phone"></i> +373 60 049 402</a>
+                    <a href="mailto:dimitrova.clinic@gmail.com"><i class="fas fa-envelope"></i> dimitrova.clinic@gmail.com</a>
+                </div>
+                <div class="address">
+                    <p>Republica Moldova,</p>
+                    <p>Chișinău, str.Armenească 47</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Dimitrova Clinic</h3>
+                <ul>
+                    <li><a href="despre_companie.html">Despre companie</a></li>
+                    <li><a href="gallery.html">Galerie</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Serviciile centrului nostru</h3>
+                <ul>
+                    <li><a href="facial-care.html">Cosmetologie estetică</a></li>
+                    <li><a href="dermapen.html">Peelinguri chimice</a></li>
+                    <li><a href="premium-facial.html">Tratamente faciale premium</a></li>
+                    <li><a href="dermapen.html">Mezoterapie fracționară (Dermapen)</a></li>
+                    <li><a href="body-remodeling.html">Remodelare corporală</a></li>
+                    <li><a href="massage.html">Masaj</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Urmăriți-ne...</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dimitrova.clinic/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <h3>Scrieti în direct...</h3>
+                <div class="messenger-links">
+                    <a href="https://t.me/+37360049402" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61565074472102" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dimitrova.Clinic. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content consultation-modal">
+            <div class="calendly-section">
+                <iframe src="https://dimitrovaclinic.setmore.com/services/4ba81d76-0b52-4fab-b388-4cdb76e4e921" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/modal-handler.js"></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
