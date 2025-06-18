@@ -12,7 +12,79 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .modal-content.consultation-modal {
+            width: 100%;
+            max-width: 1000px;
+            height: 90vh;
+            background: white;
+            border: none;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 0;
+        }
+        
+        .calendly-section {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .calendly-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+        
+        @media (max-width: 900px) {
+            .modal-content.consultation-modal {
+                max-width: 98vw;
+                height: 90vh;
+                max-height: 90vh;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .modal-content.consultation-modal {
+                width: 99vw;
+                max-width: 99vw;
+                height: 95vh;
+                max-height: 95vh;
+            }
+        }
+        
         body {
             font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
             font-weight: 300 !important;
@@ -286,7 +358,7 @@
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('rf-lifting-decolteu')">
                             <img src="images/RF-lifiting.ARW" alt="RF-lifting facial + decolteu" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-left">1.5 h / 1200 MDL</span>
+                                <span class="badge badge-left">1.5 h / 500-700 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
@@ -298,9 +370,9 @@
                     <!-- Card 2: 3D Lifting Peeling -->
                     <div class="treatment-card new-design" data-treatment="3d-lifting-peeling">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('3d-lifting-peeling')">
-                            <img src="images/3d_lifting_peeling.jpg" alt="3D Lifting Peeling" class="treatment-image">
+                            <img src="images/IMG_8447.ARW" alt="3D Lifting Peeling" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-left">1 h / 1500 MDL</span>
+                                <span class="badge badge-left">1 h / 500 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
@@ -312,9 +384,9 @@
                     <!-- Card 3: Hydra Lifting -->
                     <div class="treatment-card new-design" data-treatment="hydra-lifting">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('hydra-lifting')">
-                            <img src="images/hydra_lifting.jpg" alt="Hydra Lifting" class="treatment-image">
+                            <img src="images/hidra_lifting.jpg" alt="Hydra Lifting" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-left">1 h / 1000 MDL</span>
+                                <span class="badge badge-left">1 h / 1490 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
@@ -328,7 +400,7 @@
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('infinity-premium')">
                             <img src="images/infinity.jpg" alt="INFINITY PREMIUM" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-left">2 h / 2000 MDL</span>
+                                <span class="badge badge-left">2 h / 1690 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
@@ -342,7 +414,7 @@
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('mezoterapie')">
                             <img src="images/dermapen.jpg" alt="Mezoterapie fracționară" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-left">1 h / 1000 MDL</span>
+                                <span class="badge badge-left">1 h / 750-1300 MDL</span>
                                 <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
                             </div>
                         </div>
@@ -355,20 +427,18 @@
         </section>
     </main>
 
-    <div id="treatmentModal" class="modal">
-        <div class="modal-content">
-            <img id="modalImage" class="modal-image" src="/placeholder.svg" alt="">
-            <div class="modal-text">
-                <h2 id="modalTitle"></h2>
-                <div id="modalDescription"></div>
+    <div id="treatmentModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
+        <div class="modal-content consultation-modal">
+            <div class="calendly-section">
+                <iframe src="" id="treatmentIframe" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-    <div id="consultationModal" class="modal">
+    <div id="consultationModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
         <div class="modal-content consultation-modal">
             <div class="calendly-section">
-                <iframe src="https://dimitrovaclinic.setmore.com/services/4ba81d76-0b52-4fab-b388-4cdb76e4e921" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://dimitrovaclinic.setmore.com/" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -506,16 +576,16 @@
     function openTreatmentModal(treatmentId) {
         const data = treatmentsData[treatmentId];
         if (!data) return;
-        document.getElementById('modalImage').src = data.image;
-        document.getElementById('modalImage').alt = data.title;
-        document.getElementById('modalTitle').textContent = data.title;
-        let descHtml = `<p>${data.description}</p>`;
-        if (data.details && data.details.length) {
-            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-            data.details.forEach(item => descHtml += `<li>${item}</li>`);
-            descHtml += '</ul>';
+        
+        // Set the iframe source based on the treatment
+        const iframe = document.getElementById('treatmentIframe');
+        if (data.bookingUrl) {
+            iframe.src = data.bookingUrl;
+        } else {
+            // Default booking URL if not specified
+            iframe.src = 'https://dimitrovaclinic.setmore.com/';
         }
-        document.getElementById('modalDescription').innerHTML = descHtml;
+        
         document.getElementById('treatmentModal').style.display = 'flex';
         document.getElementById('treatmentModal').style.opacity = '0';
         setTimeout(() => {

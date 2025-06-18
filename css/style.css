@@ -1993,25 +1993,26 @@ body.lightbox-open {
 
 /* --- MENIU SIMPTOME ORIZONTAL --- */
 .symptoms-dropdown-menu {
-    display: block;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 80px;
-    width: 100vw;
-    background: #fff;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    z-index: 9999;
-    padding: 32px 0 24px 0;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    border-top: 1px solid #eaeaea;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    pointer-events: none;
-    transition: opacity 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
-    visibility: hidden;
+   display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  padding: 32px 0 24px 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top: 1px solid #eaeaea;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
 }
 
 .symptoms-dropdown-menu.active {
@@ -2019,6 +2020,11 @@ body.lightbox-open {
     transform: scaleY(1);
     pointer-events: auto;
     visibility: visible;
+    height: 95vh !important;
+    min-height: 95vh !important;
+    max-height: 95vh !important;
+    bottom:10% !important;
+    overflow-y: auto !important;
 }
 
 /* Adaug un wrapper pentru a asigura poziționarea corectă */
