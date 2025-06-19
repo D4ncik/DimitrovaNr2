@@ -331,7 +331,7 @@
             <div class="symptoms-col">
                 <div class="symptoms-col-title">Scalp</div>
                 <ul>
-                    <li><a href="cadere-par.html">Căderea părului</a></li>
+                     <li><a href="caderea_parului.html">Căderea părului</a></li>
                 </ul>
             </div>
         </div>
@@ -430,26 +430,30 @@
         
     </main>
 
-    <div id="treatmentModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="" id="treatmentIframe" frameborder="0" allowfullscreen></iframe>
+    <!-- Treatment Modal -->
+    <div id="treatmentModal" class="modal">
+        <div class="modal-content" style="width: 100%; max-width: 1000px; background: white; border: none; overflow: hidden; position: relative; display: flex; flex-direction: column; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 0; overflow: hidden;">
+            <div class="modal-body" style="max-height: 90vh; overflow-y: auto; padding: 0;">
+                <div class="modal-image-container" style="width: 100%; height: 300px; overflow: hidden; border-radius: 12px 12px 0 0;">
+                    <img id="modalImage" src="" alt="Treatment" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 30px;">
+                    <h2 id="modalTitle" style="color: #5999ee; margin: 0 0 20px 0; font-size: 24px; font-weight: 600;"></h2>
+                    <div id="modalDescription" style="color: #333; line-height: 1.6; margin-bottom: 20px; font-size: 16px;"></div>
+                    <ul id="modalDetailsList" style="padding: 0; margin: 0; list-style: none;">
+                        <!-- Details will be added here by JavaScript -->
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="consultationModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="https://dimitrovaclinic.setmore.com/" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <div id="treatmentBookingModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="" id="treatmentBookingIframe" frameborder="0" allowfullscreen></iframe>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content" style="width: 100%; max-width: 1000px; height: 90vh; background: white; border: none; overflow: hidden; position: relative; display: flex; flex-direction: column; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 0;">
+            <button onclick="closeModal('bookingModal')" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; z-index: 1; color: #fff;">&times;</button>
+            <div class="calendly-section" style="flex: 1; width: 100%; height: 100%; overflow: hidden; border-radius: 12px;">
+                <iframe src="https://dimitrovaclinic.setmore.com/" id="bookingIframe" frameborder="0" allowfullscreen style="width: 100%; height: 100%; border: none; border-radius: 12px;"></iframe>
             </div>
         </div>
     </div>
@@ -523,144 +527,216 @@
     <script src="js/modal-handler.js"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
+    // Function to open booking modal
+    function openBookingModal() {
+        document.getElementById('bookingModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        document.getElementById('bookingModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('bookingModal').style.opacity = '1';
+        }, 10);
+    }
+    
+    // Close modal function
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+        
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset iframe source when closing booking modal
+            if (modalId === 'bookingModal') {
+                const iframe = document.getElementById('bookingIframe');
+                if (iframe) {
+                    iframe.src = iframe.src;
+                }
+            }
+        }, 300);
+    }
+    
+    // Close modal when clicking outside content
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+            closeModal(event.target.id);
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (modal.style.display === 'flex' || window.getComputedStyle(modal).display === 'flex') {
+                    closeModal(modal.id);
+                }
+            });
+        }
+    });
+
     // Datele pentru tratamentele specifice celulitei
     const treatmentsData = {
         'cavitatie': {
             title: 'Cavitație',
             image: 'images/cavitatie.jpg',
-            price: '1 h / 600 MDL',
-            description: 'Tratament cu ultrasunete pentru distrugerea celulelor adipoase și reducerea celulitei.',
+            description: 'Tratament non-invaziv pentru eliminarea grăsimii și reducerea celulitei prin unde ultrasonice.',
             details: [
-                'Distruge celulele adipoase prin ultrasunete',
-                'Reduce depozitele locale de grăsime',
-                'Îmbunătățește aspectul celulitei',
-                'Stimulează drenajul limfatic',
-                'Rezultate vizibile după prima ședință'
-            ]
+                'Distruge celulele de grăsime prin unde ultrasonice',
+                'Reduce aspectul de "coajă de portocală"',
+                'Îmbunătățește aspectul pielii',
+                'Rezultate vizibile după câteva ședințe',
+                'Fără recuperare și fără efecte secundare'
+            ],
+            price: '1 h / 600 MDL'
         },
         'lipo-laser': {
             title: 'Lipo Laser',
-            image: 'images/lipo_laser.jpg',
-            price: '1 h / 800 MDL',
-            description: 'Tratament cu laser pentru topirea grăsimii și remodelarea corporală.',
+            image: 'images/Lipolazer.webp',
+            description: 'Tratament cu laser de joasă intensitate pentru reducerea grăsimii și îmbunătățirea aspectului pielii.',
             details: [
-                'Topește grăsimea prin energie laser',
-                'Stimulează producția de colagen',
-                'Îmbunătățește fermitatea pielii',
-                'Reduce circumferința zonelor tratate',
-                'Procedură non-invazivă și indoloră'
-            ]
+                'Stimulează descompunerea grăsimilor',
+                'Îmbunătățește elasticitatea pielii',
+                'Reduce aspectul celulitic',
+                'Sesiuni rapide și confortabile',
+                'Rezultate vizibile după câteva ședințe'
+            ],
+            price: '1 h / 500 MDL'
         },
         'vacuum-therapy': {
             title: 'Terapie cu vacuum',
-            image: 'images/vacuum_therapy.jpg',
-            price: '1 h / 500 MDL',
-            description: 'Masaj cu vacuum pentru îmbunătățirea circulației și reducerea celulitei.',
+            image: 'images/IMG_8693.PNG',
+            description: 'Tratament de masaj cu vid pentru stimularea circulației și reducerea celulitei.',
             details: [
                 'Îmbunătățește circulația sanguină',
+                'Reduce retenția de lichide',
                 'Stimulează drenajul limfatic',
-                'Reduce aspectul "piele de portocală"',
-                'Tonifică și fermează pielea',
-                'Relaxează și detoxifică țesuturile'
-            ]
+                'Îmbunătățește aspectul pielii',
+                'Relaxare profundă a musculaturii'
+            ],
+            price: '1 h / 600 MDL'
         },
         'rf-lifting-corporal': {
-            title: 'RF-lifting corporal',
-            image: 'images/rf_lifting_corporal.jpg',
-            price: '1 h / 900 MDL',
-            description: 'Tratament cu radiofrecvență pentru fermitatea și lifting-ul corporal.',
+            title: 'RF-Lifting corporal',
+            image: 'images/rf_corporal.jpg',
+            description: 'Tratament cu radiofrecvență pentru întinderea pielii și reducerea celulitei.',
             details: [
                 'Stimulează producția de colagen',
-                'Îmbunătățește fermitatea pielii',
-                'Reduce lăsarea țesuturilor',
-                'Remodelează contururile corporale',
-                'Efect de lifting natural'
-            ]
+                'Întinde și tonifiază pielea',
+                'Reduce aspectul celulitic',
+                'Îmbunătățește textura pielii',
+                'Rezultate durabile'
+            ],
+            price: '1 h / 700 MDL'
         },
-        'biofoton-corporal': {
-            title: 'Biofoton',
-            image: 'images/biofoton.jpg',
-            price: '1 h / 700 MDL',
-            description: 'Terapie cu lumină LED pentru accelerarea metabolismului și regenerarea țesuturilor.',
+        'presoterapie': {
+            title: 'Presoterapie',
+            image: 'images/presoterapie.jpg',
+            description: 'Tratament de drenaj limfatic pentru eliminarea toxinelor și reducerea retenției de lichide.',
             details: [
-                'Accelerează metabolismul celular',
-                'Îmbunătățește circulația sanguină',
-                'Stimulează regenerarea țesuturilor',
-                'Reduce inflamația',
-                'Potențează efectele altor tratamente'
-            ]
+                'Stimulează drenajul limfatic',
+                'Reduce retenția de lichide',
+                'Elimină toxinele',
+                'Reduce senzația de greutate în picioare',
+                'Îmbunătățește aspectul pielii'
+            ],
+            price: '1 h / 400 MDL'
+        },
+        'mezoterapie-corporala': {
+            title: 'Mezoterapie corporală',
+            image: 'images/mezoterapie_corporala.jpg',
+            description: 'Injectii cu substanțe active pentru reducerea celulitei și a depozitelor de grăsime.',
+            details: [
+                'Reduce celulita și depozitele de grăsime',
+                'Îmbunătățește calitatea pielii',
+                'Stimulează arderea grăsimilor',
+                'Rezultate rapide și vizibile',
+                'Tratament personalizat'
+            ],
+            price: '1 h / 800 MDL'
         }
     };
-
-    function openTreatmentModal(treatmentId) {
-        const data = treatmentsData[treatmentId];
-        if (!data) return;
-        
-        // Set the iframe source based on the treatment
-        const iframe = document.getElementById('treatmentIframe');
-        if (data.bookingUrl) {
-            iframe.src = data.bookingUrl;
-        } else {
-            // Default booking URL if not specified
-            iframe.src = 'https://dimitrovaclinic.setmore.com/';
-        }
-        
-        document.getElementById('treatmentModal').style.display = 'flex';
-        document.getElementById('treatmentModal').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('treatmentModal').style.opacity = '1';
-        }, 10);
-    }
 
     const packagesData = {
         'anti-celulita-intensiv': {
             title: 'Pachet Anti-Celulită Intensiv',
             image: 'images/anti_celulita_intensiv.jpg',
-            description: 'Program intensiv de 8 ședințe pentru eliminarea celulitei și remodelarea corporală.',
-            details: [
-                '3 ședințe Cavitație',
-                '2 ședințe Lipo Laser',
-                '2 ședințe Terapie cu vacuum',
-                '1 ședință RF-lifting corporal',
-                'Rezultate vizibile în 4-6 săptămâni'
-            ]
-        },
-        'remodelare-completa': {
-            title: 'Pachet Remodelare Completă',
-            image: 'images/remodelare_completa.jpg',
-            description: 'Program complet de 12 ședințe pentru transformarea completă a siluetei.',
+            description: 'Program complet de tratament pentru eliminarea celulitei și îmbunătățirea aspectului pielii.',
             details: [
                 '4 ședințe Cavitație',
-                '3 ședințe Lipo Laser',
-                '3 ședințe RF-lifting corporal',
-                '2 ședințe Biofoton',
-                'Transformare completă a siluetei'
-            ]
+                '4 ședințe Vacumoterapie',
+                '4 ședințe RF-Lifting corporal',
+                'Consiliere nutrițională',
+                'Monitorizare periodică a rezultatelor',
+                'Recomandări personalizate de îngrijire'
+            ],
+            price: 'Pachet personalizat'
+        },
+        'remodelare-corporala': {
+            title: 'Pachet Remodelare Corporală',
+            image: 'images/remodelare_corporala.jpg',
+            description: 'Program complet pentru remodelarea siluetei și îmbunătățirea aspectului pielii.',
+            details: [
+                '6 ședințe combinate (Cavitație, RF, Vacuum)',
+                '2 ședințe Mezoterapie corporală',
+                '2 ședințe Presoterapie',
+                'Plan personalizat de tratament',
+                'Monitorizare și evaluare periodică',
+                'Consiliere nutrițională și stil de viață'
+            ],
+            price: 'Pachet personalizat'
         }
     };
 
-    function openPackageModal(packageId) {
-        const data = packagesData[packageId];
+    function openTreatmentModal(treatmentId) {
+        const data = treatmentsData[treatmentId] || packagesData[treatmentId];
         if (!data) return;
         
-        // Set the iframe source based on the package
-        const iframe = document.getElementById('packageIframe');
-        if (data.bookingUrl) {
-            iframe.src = data.bookingUrl;
-        } else {
-            // Default booking URL if not specified
-            iframe.src = 'https://dimitrovaclinic.setmore.com/';
+        // Set modal title and image
+        document.getElementById('modalTitle').textContent = data.title;
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = data.image;
+        modalImage.alt = data.title;
+        
+        // Set description
+        const modalDescription = document.getElementById('modalDescription');
+        modalDescription.textContent = data.description || '';
+        
+        // Clear and rebuild details list
+        const detailsList = document.getElementById('modalDetailsList');
+        detailsList.innerHTML = '';
+        
+        if (data.details && data.details.length) {
+            data.details.forEach(detail => {
+                const li = document.createElement('li');
+                li.style.padding = '8px 0';
+                li.style.fontSize = '16px';
+                li.style.color = '#333';
+                li.textContent = '• ' + detail;
+                detailsList.appendChild(li);
+            });
         }
         
-        document.getElementById('packageModal').style.display = 'flex';
-        document.getElementById('packageModal').style.opacity = '0';
+        // Show the modal with animation
+        const modal = document.getElementById('treatmentModal');
+        modal.style.display = 'flex';
+        modal.style.opacity = '0';
         setTimeout(() => {
-            document.getElementById('packageModal').style.opacity = '1';
+            modal.style.opacity = '1';
         }, 10);
+        
+        // Disable body scroll
+        document.body.style.overflow = 'hidden';
     }
-
+    
+    // Keep the package modal function for backward compatibility
+    function openPackageModal(packageId) {
+        openTreatmentModal(packageId);
+    }
+    
     function closePackageModal() {
-        document.getElementById('packageModal').style.display = 'none';
+        closeModal('treatmentModal');
     }
 
     document.addEventListener('keydown', function(e) {

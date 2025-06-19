@@ -328,7 +328,7 @@
             <div class="symptoms-col">
                 <div class="symptoms-col-title">Scalp</div>
                 <ul>
-                    <li><a href="cadere-par.html">Căderea părului</a></li>
+                     <li><a href="caderea_parului.html">Căderea părului</a></li>
                 </ul>
             </div>
         </div>
@@ -360,7 +360,7 @@
                             <img src="images/IMG_0681.JPG" alt="Mezoterapie Buze" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">45 min / 750 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right" onclick="event.stopPropagation(); openBookingModal()">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -375,26 +375,30 @@
         
     </main>
 
-    <div id="treatmentModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="" id="treatmentIframe" frameborder="0" allowfullscreen></iframe>
+    <!-- Treatment Modal -->
+    <div id="treatmentModal" class="modal">
+        <div class="modal-content" style="width: 100%; max-width: 1000px; background: white; border: none; overflow: hidden; position: relative; display: flex; flex-direction: column; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 0; overflow: hidden;">
+            <div class="modal-body" style="max-height: 90vh; overflow-y: auto; padding: 0;">
+                <div class="modal-image-container" style="width: 100%; height: 300px; overflow: hidden; border-radius: 12px 12px 0 0;">
+                    <img id="modalImage" src="" alt="Treatment" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 30px;">
+                    <h2 id="modalTitle" style="color: #5999ee; margin: 0 0 20px 0; font-size: 24px; font-weight: 600;"></h2>
+                    <div id="modalDescription" style="color: #333; line-height: 1.6; margin-bottom: 20px; font-size: 16px;"></div>
+                    <ul id="modalDetailsList" style="padding: 0; margin: 0; list-style: none;">
+                        <!-- Details will be added here by JavaScript -->
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="consultationModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="https://dimitrovaclinic.setmore.com/" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <div id="treatmentBookingModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="" id="treatmentBookingIframe" frameborder="0" allowfullscreen></iframe>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content" style="width: 100%; max-width: 1000px; height: 90vh; background: white; border: none; overflow: hidden; position: relative; display: flex; flex-direction: column; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 0;">
+            <button onclick="closeModal('bookingModal')" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; z-index: 1; color: #fff;">&times;</button>
+            <div class="calendly-section" style="flex: 1; width: 100%; height: 100%; overflow: hidden; border-radius: 12px;">
+                <iframe src="https://dimitrovaclinic.setmore.com/" id="bookingIframe" frameborder="0" allowfullscreen style="width: 100%; height: 100%; border: none; border-radius: 12px;"></iframe>
             </div>
         </div>
     </div>
@@ -468,71 +472,145 @@
     <script src="js/modal-handler.js"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
+    // Function to open booking modal
+    function openBookingModal() {
+        document.getElementById('bookingModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        document.getElementById('bookingModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('bookingModal').style.opacity = '1';
+        }, 10);
+    }
+    
+    // Close modal function
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+        
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset iframe source when closing booking modal
+            if (modalId === 'bookingModal') {
+                const iframe = document.getElementById('bookingIframe');
+                if (iframe) {
+                    iframe.src = iframe.src;
+                }
+            }
+        }, 300);
+    }
+    
+    // Close modal when clicking outside content
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+            closeModal(event.target.id);
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (modal.style.display === 'flex' || window.getComputedStyle(modal).display === 'flex') {
+                    closeModal(modal.id);
+                }
+            });
+        }
+    });
+
     // Datele pentru tratamentele specifice buzelor
     const treatmentsData = {
         'lip-mesotherapy': {
             title: 'Mezoterapie Buze',
             image: 'images/IMG_0681.JPG',
-            price: '45 min / 800 MDL',
-            description: 'Hidratarea și revitalizarea buzelor prin injecții cu substanțe nutritive.',
+            description: 'Tratament de mezoterapie pentru buze, care asigură hidratare și volum.',
             details: [
-                'Hidratarea profundă a buzelor',
-                'Îmbunătățirea texturii și aspectului',
-                'Stimularea regenerării naturale',
+                'Hidratare profundă a buzelor',
+                'Stimularea producției de colagen',
+                'Îmbunătățirea texturii buzelor',
                 'Reducerea ridurilor fine',
-                'Rezultate progresive și naturale'
-            ]
+                'Efect durabil până la 6 luni'
+            ],
+            price: '45 min / 750 MDL'
         }
     };
-
-    function openTreatmentModal(treatmentId) {
-        const data = treatmentsData[treatmentId];
-        if (!data) return;
-        
-        // Set the iframe source based on the treatment
-        const iframe = document.getElementById('treatmentIframe');
-        if (data.bookingUrl) {
-            iframe.src = data.bookingUrl;
-        } else {
-            // Default booking URL if not specified
-            iframe.src = 'https://dimitrovaclinic.setmore.com/';
-        }
-        
-        document.getElementById('treatmentModal').style.display = 'flex';
-        document.getElementById('treatmentModal').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('treatmentModal').style.opacity = '1';
-        }, 10);
-    }
 
     const packagesData = {
         'perfect-lips': {
             title: 'Pachet Buze Perfecte',
             image: 'images/perfect_lips_package.jpg',
-            description: 'Program complet de 5 ședințe pentru buze perfecte și sănătoase.',
+            description: 'Pachet complet pentru buze perfecte, care include tratamente de hidratare, volum și contur.',
             details: [
-                '1 ședință Augmentare cu Acid Hialuronic',
-                '2 ședințe Mezoterapie Buze',
-                '1 ședință Peeling Peri-oral',
-                '1 ședință Tratament Hidratant Intensiv',
-                'Rezultate spectaculoase și durabile'
-            ]
-        },
-        'complete-rejuvenation': {
-            title: 'Pachet Rejuvenare Completă',
-            image: 'images/lip_rejuvenation_package.jpg',
-            description: 'Program intensiv de 8 ședințe pentru rejuvenarea completă a buzelor și zonei peri-orale.',
-            details: [
+                '3 ședințe de mezoterapie buze',
+                'Tratamente de hidratare intensivă',
+                'Mărirea volumului buzelor',
+                'Definirea conturului buzelor',
+                'Consultanță personalizată',
+                'Recomandări de îngrijire acasă'
+            ],
+            price: '3 ședințe / 2000 MDL'
+        }
+    };
+
+    function openTreatmentModal(treatmentId) {
+        const data = treatmentsData[treatmentId] || packagesData[treatmentId];
+        if (!data) return;
+        
+        // Set modal title and image
+        document.getElementById('modalTitle').textContent = data.title;
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = data.image;
+        modalImage.alt = data.title;
+        
+        // Set description
+        const modalDescription = document.getElementById('modalDescription');
+        modalDescription.textContent = data.description || '';
+        
+        // Clear and rebuild details list
+        const detailsList = document.getElementById('modalDetailsList');
+        detailsList.innerHTML = '';
+        
+        if (data.details && data.details.length) {
+            data.details.forEach(detail => {
+                const li = document.createElement('li');
+                li.style.padding = '8px 0';
+                li.style.fontSize = '16px';
+                li.style.color = '#333';
+                li.textContent = '• ' + detail;
+                detailsList.appendChild(li);
+            });
+        }
+        
+        // Show the modal with animation
+        const modal = document.getElementById('treatmentModal');
+        modal.style.display = 'flex';
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 10);
+        
+        // Disable body scroll
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Keep the package modal function for backward compatibility
+    function openPackageModal(packageId) {
+        openTreatmentModal(packageId);
+    }
+    
+    function closePackageModal() {
+        closeModal('treatmentModal');
+    }        description: 'Program intensiv de 8 ședințe pentru rejuvenarea completă a buzelor și zonei peri-orale.',
+             details; [
                 '2 ședințe Augmentare cu Acid Hialuronic',
                 '2 ședințe Mezoterapie Buze',
                 '2 ședințe Peeling Peri-oral',
                 '1 ședință Conturare Buze',
-                '1 ședință Tratament Hidratant Intensiv',
                 'Transformare completă'
             ]
-        }
-    };
-
     function openPackageModal(packageId) {
         const data = packagesData[packageId];
         if (!data) return;

@@ -331,7 +331,7 @@
             <div class="symptoms-col">
                 <div class="symptoms-col-title">Scalp</div>
                 <ul>
-                    <li><a href="cadere-par.html">Căderea părului</a></li>
+                     <li><a href="caderea_parului.html">Căderea părului</a></li>
                 </ul>
             </div>
         </div>
@@ -389,26 +389,30 @@
         
     </main>
 
-    <div id="treatmentModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="" id="treatmentIframe" frameborder="0" allowfullscreen></iframe>
+    <!-- Treatment Modal -->
+    <div id="treatmentModal" class="modal">
+        <div class="modal-content" style="width: 100%; max-width: 1000px; background: white; border: none; overflow: hidden; position: relative; display: flex; flex-direction: column; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 0; overflow: hidden;">
+            <div class="modal-body" style="max-height: 90vh; overflow-y: auto; padding: 0;">
+                <div class="modal-image-container" style="width: 100%; height: 300px; overflow: hidden; border-radius: 12px 12px 0 0;">
+                    <img id="modalImage" src="" alt="Treatment" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 30px;">
+                    <h2 id="modalTitle" style="color: #5999ee; margin: 0 0 20px 0; font-size: 24px; font-weight: 600;"></h2>
+                    <div id="modalDescription" style="color: #333; line-height: 1.6; margin-bottom: 20px; font-size: 16px;"></div>
+                    <ul id="modalDetailsList" style="padding: 0; margin: 0; list-style: none;">
+                        <!-- Details will be added here by JavaScript -->
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="consultationModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="https://dimitrovaclinic.setmore.com/" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <div id="treatmentBookingModal" class="modal" onclick="if(event.target===this) this.style.display='none'">
-        <div class="modal-content consultation-modal">
-            <div class="calendly-section">
-                <iframe src="" id="treatmentBookingIframe" frameborder="0" allowfullscreen></iframe>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content" style="width: 100%; max-width: 1000px; height: 90vh; background: white; border: none; overflow: hidden; position: relative; display: flex; flex-direction: column; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 0;">
+            <button onclick="closeModal('bookingModal')" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; z-index: 1; color: #fff;">&times;</button>
+            <div class="calendly-section" style="flex: 1; width: 100%; height: 100%; overflow: hidden; border-radius: 12px;">
+                <iframe src="https://dimitrovaclinic.setmore.com/" id="bookingIframe" frameborder="0" allowfullscreen style="width: 100%; height: 100%; border: none; border-radius: 12px;"></iframe>
             </div>
         </div>
     </div>
@@ -482,85 +486,146 @@
     <script src="js/modal-handler.js"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
+    // Function to open booking modal
+    function openBookingModal() {
+        document.getElementById('bookingModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        document.getElementById('bookingModal').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('bookingModal').style.opacity = '1';
+        }, 10);
+    }
+    
+    // Close modal function
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+        
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset iframe source when closing booking modal
+            if (modalId === 'bookingModal') {
+                const iframe = document.getElementById('bookingIframe');
+                if (iframe) {
+                    iframe.src = iframe.src;
+                }
+            }
+        }, 300);
+    }
+    
+    // Close modal when clicking outside content
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+            closeModal(event.target.id);
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (modal.style.display === 'flex' || window.getComputedStyle(modal).display === 'flex') {
+                    closeModal(modal.id);
+                }
+            });
+        }
+    });
+
     // Datele pentru tratamentele specifice vergeturi
     const treatmentsData = {
         'mezoterapie-vergeturi': {
             title: 'Mezoterapie fracționară (vergeturi)',
-            image: 'images/mezoterapie_vergeturi.jpg',
-            price: '1 h / 1200 MDL',
-            description: 'Tratament cu microneedling pentru stimularea regenerării pielii în zonele cu vergeturi.',
+            image: 'images/IMG_0698.JPG',
+            description: 'Tratament avansat pentru reducerea vergeturilor prin stimularea regenerării țesuturilor.',
             details: [
-                'Stimulează producția de colagen și elastină',
-                'Reduce vizibilitatea vergeturilor',
-                'Îmbunătățește textura pielii',
-                'Uniformizează culoarea cicatricilor',
-                'Rezultate progresive și durabile'
-            ]
+                'Stimularea producției de colagen și elastină',
+                'Reducerea vizibilității vergeturilor',
+                'Îmbunătățirea texturii pielii',
+                'Efect de refacere a structurii pielii',
+                'Rezultate vizibile după câteva ședințe'
+            ],
+            price: '1 h / 750-1300 MDL'
         },
         'biofoton': {
             title: 'Biofoton',
             image: 'images/biofoton.jpg',
-            price: '1 h / 800 MDL',
-            description: 'Terapie cu lumină LED pentru accelerarea procesului de vindecare și regenerare.',
+            description: 'Tratament cu lumină pentru îmbunătățirea aspectului vergeturilor și a calității pielii.',
             details: [
-                'Accelerează procesul de vindecare',
-                'Stimulează regenerarea celulară',
-                'Reduce inflamația',
-                'Îmbunătățește circulația sanguină',
-                'Tratament non-invaziv și indolor'
-            ]
+                'Stimularea circulației sanguine',
+                'Îmbunătățirea aspectului vergeturilor',
+                'Reducerea inflamației',
+                'Accelerarea proceselor de regenerare',
+                'Nerupere și fără durere'
+            ],
+            price: '1 h / 500 MDL'
         }
     };
-
-    function openTreatmentModal(treatmentId) {
-        const data = treatmentsData[treatmentId];
-        if (!data) return;
-        
-        // Set the iframe source based on the treatment
-        const iframe = document.getElementById('treatmentIframe');
-        if (data.bookingUrl) {
-            iframe.src = data.bookingUrl;
-        } else {
-            // Default booking URL if not specified
-            iframe.src = 'https://dimitrovaclinic.setmore.com/';
-        }
-        
-        document.getElementById('treatmentModal').style.display = 'flex';
-        document.getElementById('treatmentModal').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('treatmentModal').style.opacity = '1';
-        }, 10);
-    }
 
     const packagesData = {
         'regenerare-intensiva': {
             title: 'Pachet Regenerare Intensivă',
             image: 'images/regenerare_intensiva.jpg',
-            description: 'Program intensiv de 6 ședințe pentru reducerea vergeturilor și regenerarea pielii.',
+            description: 'Program complet de tratament pentru reducerea vergeturilor și îmbunătățirea calității pielii.',
             details: [
-                '4 ședințe Mezoterapie fracționară',
-                '2 ședințe Biofoton',
-                'Evaluare și monitorizare progres',
-                'Consiliere pentru îngrijire acasă',
-                'Rezultate vizibile în 4-6 săptămâni'
-            ]
-        },
-        'eliminare-completa': {
-            title: 'Pachet Eliminare Completă',
-            image: 'images/eliminare_completa.jpg',
-            description: 'Program complet de 10 ședințe pentru eliminarea maximă a vergeturilor.',
-            details: [
-                '6 ședințe Mezoterapie fracționară',
+                '4 ședințe Mezoterapie Fracționară',
                 '4 ședințe Biofoton',
-                'Protocol personalizat',
-                'Monitorizare continuă',
-                'Transformare completă a aspectului pielii'
-            ]
+                'Tratament hidratant acasă',
+                'Consiliere nutrițională',
+                'Monitorizare periodică a rezultatelor',
+                'Recomandări personalizate de îngrijire'
+            ],
+            price: 'Pachet personalizat'
         }
     };
 
+    function openTreatmentModal(treatmentId) {
+        const data = treatmentsData[treatmentId] || packagesData[treatmentId];
+        if (!data) return;
+        
+        // Set modal title and image
+        document.getElementById('modalTitle').textContent = data.title;
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = data.image;
+        modalImage.alt = data.title;
+        
+        // Set description
+        const modalDescription = document.getElementById('modalDescription');
+        modalDescription.textContent = data.description || '';
+        
+        // Clear and rebuild details list
+        const detailsList = document.getElementById('modalDetailsList');
+        detailsList.innerHTML = '';
+        
+        if (data.details && data.details.length) {
+            data.details.forEach(detail => {
+                const li = document.createElement('li');
+                li.style.padding = '8px 0';
+                li.style.fontSize = '16px';
+                li.style.color = '#333';
+                li.textContent = '• ' + detail;
+                detailsList.appendChild(li);
+            });
+        }
+        
+        // Show the modal with animation
+        const modal = document.getElementById('treatmentModal');
+        modal.style.display = 'flex';
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 10);
+        
+        // Disable body scroll
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Keep the package modal function for backward compatibility
     function openPackageModal(packageId) {
-        const data = packagesData[packageId];
+        openTreatmentModal(packageId);
         if (!data) return;
         
         // Set the iframe source based on the package
