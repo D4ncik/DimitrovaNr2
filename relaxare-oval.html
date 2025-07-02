@@ -359,7 +359,7 @@
                             <img src="images/RF-lifiting.ARW" alt="RF-lifting facial + decolteu" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1.5 h / 500-700 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/1e612431-8d13-4173-b2e9-3077e6145b05" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -373,7 +373,7 @@
                             <img src="images/IMG_8447.ARW" alt="3D Lifting Peeling" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/b6c71d43-4002-43d0-bd39-1625005c33dc" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -387,7 +387,7 @@
                             <img src="images/hidra_lifting.jpg" alt="Hydra Lifting" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 1490 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -401,7 +401,7 @@
                             <img src="images/infinity.jpg" alt="INFINITY PREMIUM" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">2 h / 1690 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -415,7 +415,7 @@
                             <img src="images/dermapen.jpg" alt="Mezoterapie fracționară" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 750-1300 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/78876235-6c76-4cb1-8bec-58555ef31f82" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -681,6 +681,12 @@
         if (e.key === 'Escape') {
             document.getElementById('treatmentModal').style.display = 'none';
         }
+    });
+
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
     });
     </script>
 </body>

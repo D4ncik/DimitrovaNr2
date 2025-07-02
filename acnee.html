@@ -287,7 +287,7 @@
                             <img src="images/stopAcnee.jpg" alt="Stop Acne Peeling" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 900 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/41145652-20f2-4eff-bfd5-1ebc39d2e1d0">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -301,7 +301,7 @@
                             <img src="images/azelaic.jpg" alt="Azelaic Peeling" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 850 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/35eb78dd-5890-491f-ab69-ae9c8cf1d722">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -315,7 +315,7 @@
                             <img src="images/purify.PNG" alt="Purifying TREATMENT" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 750 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -329,7 +329,7 @@
                             <img src="images/combination.jpg" alt="Curățare Combinată" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 700 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/d82dcdba-9352-44bc-98b5-4897f2921b87">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -343,7 +343,7 @@
                             <img src="images/curatare_mecanica.jpg" alt="Curățare Mecanică" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 550 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/a61f1df5-cf27-42c7-8b07-3cee836e727c">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -357,7 +357,7 @@
                             <img src="images/dermapen.jpg" alt="Curățare cu Ultrasunet" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1,5 h / 900 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/f6060008-84db-47b4-a876-d18e7ad99a21">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -371,7 +371,7 @@
                             <img src="images/IMG_0657.JPG" alt="Enzyme" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 350 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -385,7 +385,7 @@
                             <img src="images/biorepeel3.jpg" alt="BioRePeel" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 1200 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/b6fda7a0-2cb0-47f9-ad8e-b0aa58c70259">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -713,6 +713,16 @@
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closePackageModal();
+    });
+
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation(); // oprește propagarea către card
+            const url = btn.getAttribute('data-booking-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
     });
     </script>
 

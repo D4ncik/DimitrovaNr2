@@ -416,7 +416,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-clasic')">
                             <img src="images/clasicmassage.jpg" alt="Masaj clasic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -428,7 +428,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-terapeutic')">
                             <img src="images/masajterapeutic.jpg" alt="Masaj terapeutic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -440,7 +440,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-anticelulitic')">
                             <img src="images/masajanticelular.jpg" alt="Masaj anticelulitic" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -452,7 +452,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-vacuum')">
                             <img src="images/masajvacum.jpeg" alt="Masaj vacuum" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -464,7 +464,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-miere')">
                             <img src="images/masajmiere.jpg" alt="Masaj cu miere" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -476,7 +476,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-sportiv')">
                             <img src="images/masajsportiv.webp" alt="Masaj sportiv" class="treatment-image">
                             <div class="badge-group">
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -715,6 +715,15 @@
             event.target.style.display = 'none';
         }
     }
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const url = btn.getAttribute('data-booking-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
+    });
     </script>
 </body>
 </html> 

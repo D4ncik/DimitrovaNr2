@@ -2048,7 +2048,7 @@ body.lightbox-open {
 
 .symptoms-col-title {
     font-weight: 700;
-    color: #5999ee;
+    color: #ffffff;
     font-size: 1.15em;
     margin-bottom: 12px;
     letter-spacing: 0.01em;
@@ -2075,14 +2075,14 @@ body.lightbox-open {
 }
 
 .symptoms-col ul li a:hover {
-    color: #5999ee;
-    background: #f3f7ff;
+    color: #ffffff;
+    background: #ffffff;
 }
 
 /* Buze ca un bloc întreg */
 .symptoms-col-title:contains('Buze') + ul,
 .symptoms-col:nth-child(2) ul {
-    background: #f3f7ff;
+    background: #ffffff;
     border-radius: 10px;
     padding: 8px 0 8px 0;
     margin: 0;
@@ -2090,7 +2090,7 @@ body.lightbox-open {
 }
 .symptoms-col:nth-child(2) ul li {
     margin-bottom: 0;
-    border-bottom: 1px solid #e0e7f8;
+    border-bottom: 1px solid #ffffff;
 }
 .symptoms-col:nth-child(2) ul li:last-child {
     border-bottom: none;
@@ -3365,4 +3365,8 @@ body.lightbox-open {
   .header .container {
     position: relative;
   }
+}
+
+a.badge-right {
+    text-decoration: none !important;
 }

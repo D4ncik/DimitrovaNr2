@@ -4,7 +4,7 @@ const bodyRemodelingData = {
         title: 'RF-lifting',
         description: 'Tratament avansat pentru lifting și firmare a pielii folosind radiofrecvență. Procedura stimulează producția de colagen și elastină, rezultând într-o piele mai fermă și mai tânără. Ideal pentru modelarea corporală și reducerea celulitei.',
         price: '1 h / 500 lei',
-        image: 'images/IMG_0699.JPG',
+        image: 'images/RF_burtaUNA.png',
         details: [
             'Stimulează producția de colagen și elastină',
             'Efect de lifting vizibil',
@@ -17,7 +17,7 @@ const bodyRemodelingData = {
         title: 'Cavitație',
         description: 'Tratament non-invaziv pentru reducerea grăsimii localizate. Utilizează ultrasunete pentru a distruge celulele de grăsime, care sunt apoi eliminate natural din corp. Rezultate vizibile după prima procedură.',
         price: '1 h / 600 lei',
-        image: 'images/corp2.PNG',
+        image: 'images/IMG_0700.JPG',
         details: [
             'Reduce grăsimea localizată',
             'Stimulează drenajul limfatic',
@@ -69,7 +69,7 @@ const bodyRemodelingData = {
         title: 'Vacuum + Cavitație',
         description: 'Pachet combinat pentru rezultate optime în modelarea corporală. Combină beneficiile drenajului limfatic cu reducerea grăsimii localizate. Rezultate vizibile și durabile în modelarea siluetei.',
         price: '',
-        image: 'images/IMG_0699.JPG',
+        image: 'images/RF_burtaUNA.png',
         details: [
             'Drenaj limfatic și reducere grăsime',
             'Rezultate rapide și vizibile',

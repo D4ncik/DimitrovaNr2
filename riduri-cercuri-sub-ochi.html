@@ -359,7 +359,7 @@
                             <img src="images/eye_perfection.jpg" alt="Eye Perfection TREATMENT" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 1390 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -373,7 +373,7 @@
                             <img src="images/RF-lifiting.ARW"" alt="Mezoterapie fracționară (zona peri-orbitală)" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 1200 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/78876235-6c76-4cb1-8bec-58555ef31f82" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -387,7 +387,7 @@
                             <img src="images/IMG_7282.JPG" alt="Peeling Peri-orbital" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/06c32a8a-51c1-478b-b0fa-68b8dc4805be" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -401,7 +401,7 @@
                             <img src="images/IMG_0645.PNG" alt="Masaj facial + mască alginată" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1.5 h / 800 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/b6671de5-80e2-4ebd-83a5-8913370f900c" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -561,7 +561,7 @@
                 'Reduce semnificativ ridurile fine',
                 'Elimină cercurile întunecate',
                 'Îmbunătățește hidratarea pielii',
-                'Sesiu de 1 oră'
+              
             ],
             price: '1 h / 1500 MDL'
         },
@@ -573,19 +573,19 @@
                 'Stimulează producția de colagen',
                 'Reduce ridurile fine',
                 'Îmbunătățește textura pielii',
-                'Sesiu de 1 oră'
+                
             ],
             price: '1 h / 1200 MDL'
         },
         'peeling-periorbital': {
             title: 'Peeling Peri-orbital',
-            image: 'images/IMG_7282.JPG',
+            image: 'images/periorbital2ximg.png',
             description: 'Exfoliere profundă a zonei delicate din jurul ochilor pentru o piele mai luminoasă și mai uniformă.',
             details: [
                 'Exfoliază stratul superficial al pielii',
                 'Uniformizează tonul pielii',
                 'Reduce aspectul pielii obosite',
-                'Sesiu de 1 oră'
+                
             ],
             price: '1 h / 500 MDL'
         },
@@ -597,7 +597,7 @@
                 'Îmbunătățește circulația sanguină',
                 'Hidratare profundă',
                 'Efect relaxant și dezmorțitor',
-                'Sesiu de 1 oră'
+              
             ],
             price: '1 h / 400 MDL'
         }
@@ -641,7 +641,13 @@
         // Disable body scroll
         document.body.style.overflow = 'hidden';
     }
-    };
+
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+}
     </script>
 </body>
 </html>

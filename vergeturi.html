@@ -358,10 +358,10 @@
                     <!-- Card 1: Mezoterapie fracționară (vergeturi) -->
                     <div class="treatment-card new-design" data-treatment="mezoterapie-vergeturi">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('mezoterapie-vergeturi')">
-                            <img src="images/IMG_0698.JPG" alt="Mezoterapie fracționară (vergeturi)" class="treatment-image">
+                            <img src="images/RF_burta.png" alt="Mezoterapie fracționară (vergeturi)" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 750-1300 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/88bbb26e-767b-4b18-8848-0040cc957fb8" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -375,7 +375,7 @@
                             <img src="images/biofoton.jpg" alt="Biofoton" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/179bcdc9-1b6c-46d6-914b-1f123c63473b" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -539,7 +539,7 @@
     const treatmentsData = {
         'mezoterapie-vergeturi': {
             title: 'Mezoterapie fracționară (vergeturi)',
-            image: 'images/IMG_0698.JPG',
+            image: 'images/RF_burtaUNA.png',
             description: 'Tratament avansat pentru reducerea vergeturilor prin stimularea regenerării țesuturilor.',
             details: [
                 'Stimularea producției de colagen și elastină',
@@ -650,6 +650,12 @@
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closePackageModal();
+    });
+
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
     });
     </script>
 </body>

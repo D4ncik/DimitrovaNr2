@@ -359,7 +359,7 @@
                             <img src="images/RF-lifiting.ARW" alt="RF-lifting facial" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/e39b3be8-2769-4616-8855-096dc927dca5" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -373,7 +373,7 @@
                             <img src="images/Lipolazer.webp" alt="Lipo Laser" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/301e37e9-f70e-4454-b710-5a93855231d0" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -387,7 +387,7 @@
                             <img src="images/IMG_0700.JPG" alt="Cavitație (local)" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 600 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/f449f59f-a130-456e-bfdd-a6c44d261008" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -547,7 +547,7 @@
                 'Stimulează producția de colagen și elastină',
                 'Îmbunătățește fermitatea pielii',
                 'Reduce aspectul de bărbie dublă',
-                'Sesiu de 1 oră'
+            
             ],
             price: '1 h / 500 MDL'
         },
@@ -559,7 +559,7 @@
                 'Elimină grăsimea localizată',
                 'Nelimitat la numărul de ședințe',
                 'Rezultate vizibile după câteva ședințe',
-                'Sesiu de 1 oră'
+                
             ],
             price: '1 h / 500 MDL'
         },
@@ -571,7 +571,7 @@
                 'Elimină celulele de grăsime',
                 'Nelimitat la numărul de ședințe',
                 'Rezultate vizibile după câteva ședințe',
-                'Sesiu de 1 oră'
+                    
             ],
             price: '1 h / 600 MDL'
         }
@@ -615,7 +615,13 @@
         // Disable body scroll
         document.body.style.overflow = 'hidden';
     }
-    };
+
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+}
     </script>
 </body>
 </html>

@@ -480,6 +480,34 @@
                 background: rgba(242, 250, 252, 0.521); /* overlay foarte subtil */
             }
         }
+        #dynamicBookingModal .modal-content.consultation-modal {
+            width: 100%;
+            max-width: 1000px;
+            height: 90vh;
+            max-height: 90vh;
+            border-radius: 12px;
+            margin: 0;
+            padding: 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #dynamicBookingModal .calendly-section {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        #dynamicBookingIframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -608,7 +636,7 @@
                             <img src="images/biorepeel3.jpg" alt="BioRePeel" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 850 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/b6fda7a0-2cb0-47f9-ad8e-b0aa58c70259">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -621,7 +649,7 @@
                             <img src="images/IMG_0686.JPG" alt="BioRePeel corp" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 800-1000 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/a14ba109-d766-40a4-a9b8-838f745b9186">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -634,7 +662,7 @@
                             <img src="images/azelaic.jpg" alt="Azelaic" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 700 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/35eb78dd-5890-491f-ab69-ae9c8cf1d722">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -647,7 +675,7 @@
                             <img src="images/mandelic.png" alt="Mandelic" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 700 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/28ecbe1e-a08e-488b-9ea7-c6013eeeaec7">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -660,7 +688,7 @@
                             <img src="images/Lactic.webp" alt="Lactic" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 700 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/c7a68eb4-4214-4089-855a-d2b0fb49028f">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -673,7 +701,7 @@
                             <img src="images/fitic.jpg" alt="Fitic" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 700 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/db3bb421-1a0d-44a9-8fa5-a70965d36166">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -683,13 +711,10 @@
                     <!-- Card 7: Peri-orbital -->
                     <div class="treatment-card" data-treatment="peri-orbital">
                         <div class="treatment-image-wrapper" onclick="openTreatmentModal('peri-orbital')">
-                            <div style="display: flex; width: 100%; height: 100%;">
-                                <img src="images/IMG_7444.jpg" alt="Peri-orbital Before" class="treatment-image" style="width: 50%; object-fit: cover;">
-                                <img src="images/IMG_7282.JPG" alt="Peri-orbital After" class="treatment-image" style="width: 50%; object-fit: cover;">
-                            </div>
+                            <img src="images/IMG_7282.jpg" alt="Peri-orbital Before & After"class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/06c32a8a-51c1-478b-b0fa-68b8dc4805be">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -702,7 +727,7 @@
                             <img src="images/stopAcnee.jpg" alt="Stop Acne" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 750 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/41145652-20f2-4eff-bfd5-1ebc39d2e1d0">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -715,7 +740,7 @@
                             <img src="images/IMG_8447.ARW" alt="3D|lifting" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 700 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/b6c71d43-4002-43d0-bd39-1625005c33dc">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -728,7 +753,7 @@
                             <img src="images/carbon1.jpg" alt="Carbon" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 750 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/aa67615a-b319-4d62-bdde-3c625fb36335">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -741,7 +766,7 @@
                             <img src="images/IMG_7477.JPG" alt="Whitening" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 800 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/274a1097-e8b5-4b06-90bf-535cb4ee4211">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -754,7 +779,7 @@
                             <img src="images/IMG_7277.PNG" alt="Enzymatic phytopeeling" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/ff137b76-d8a4-426d-a2d2-12dd74321830">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -767,7 +792,7 @@
                             <img src="images/IMG_7284.PNG" alt="Yellow Retinol" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 800 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <span class="badge badge-right book-btn" data-booking-url="https://dimitrovaclinic20.setmore.com/services/e3a572fd-309d-4f1c-a833-231e20cccade">Programează-te</span>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -796,6 +821,15 @@
            
             <div class="calendly-section">
                 <iframe src="https://dimitrovaclinic.setmore.com" style="width:100%;height:750px;border:none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal dinamic pentru booking cu link personalizat -->
+    <div id="dynamicBookingModal" class="modal">
+        <div class="modal-content consultation-modal">
+            <div class="calendly-section">
+                <iframe id="dynamicBookingIframe" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -886,8 +920,24 @@ Acest peeling a demonstrat rezultate uimitoare pe față. Nu doar că exfoliază
         },
         'biorepeel-body': {
             title: 'BioRePeel corp',
-            image: 'images/IMG_0686.JPG',
-            modalContent: `<div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
+            image: 'images/biorepeelCORP.jpg',
+            modalContent: `
+            <div class='modal-3col'>
+    <div>
+        <h3>Acțiuni principale</h3>
+        <p>Biorevitalizare, exfoliere, biostimulare</p>
+    </div>
+    <div>
+        <h3>Indicații</h3>
+        <p>Uscăciune, deshidratare, acnee/post-acnee (chiar și în fază activă), modificări legate de vârstă, pigmentare, cicatrici, pori dilatați</p>
+    </div>
+    <div>
+        <h3>Rezultate</h3>
+        <p>Hidratare, lifting, îmbunătățirea texturii pielii, iluminare, reducerea porilor</p>
+    </div>
+</div>
+<br>
+            <div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
 Un tratament inovator italian pentru exfoliere, înălbire și întinerire fără injecții. Elimină coșurile de pe spate.
 (acțiuni principale, indicații și rezultate pune ca la BioRePeel simplu)</div>
 <div class='modal-3col'>
@@ -997,9 +1047,8 @@ Un tratament inovator italian pentru exfoliere, înălbire și întinerire făr�
         },
         'peri-orbital': {
             title: 'Peri-orbital',
-            modalContent: `<div style="display: flex; width: 100%; margin-bottom: 12px;">
-    <img src="images/IMG_7444.JPG" alt="Peri-orbital Before" style="width: 50%; object-fit: cover;">
-    <img src="images/IMG_7282.JPG" alt="Peri-orbital After" style="width: 50%; object-fit: cover; ">
+            image: 'images/periorbital2ximg.png',
+            modalContent: `<div style="width: 100%; margin-bottom: 12px;">
 </div>
 <div style="font-size: 0.92em; line-height: 1.5; margin-bottom: 12px; color: #555; text-align: left; padding: 0 2px;">
 <p><b>Activarea sistemului imunitar:</b> Întărește protecția naturală a pielii, sporindu-i rezistența la factorii externi.</p>
@@ -1168,6 +1217,17 @@ Un tratament inovator italian pentru exfoliere, înălbire și întinerire făr�
             document.getElementById('treatmentModal').style.opacity = '1';
         }, 10);
     }
+    // Elimin toate modalele de programare și handlerul asociat
+    // Adaug handler pentru .book-btn ca la celelalte pagini
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const url = btn.getAttribute('data-booking-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
+    });
     </script>
 </body>
 </html>

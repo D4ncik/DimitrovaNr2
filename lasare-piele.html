@@ -361,7 +361,7 @@
                             <img src="images/cavitatie.jpg" alt="RF-lifting corporal" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/112fe9ac-c95d-44a9-911b-3e118cfbb8fc" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -375,7 +375,7 @@
                             <img src="images/IMG_8693.PNG" alt="Terapie cu vacuum" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 600 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3805f728-00e2-4c4a-a726-23914e6382a3" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -389,7 +389,7 @@
                             <img src="images/biofoton.jpg" alt="Biofoton" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 500 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/179bcdc9-1b6c-46d6-914b-1f123c63473b" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -403,7 +403,7 @@
                             <img src="images/IMG_0702.JPG" alt="Mezoterapie fracționară (zona afectată)" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 750-1300 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/e7388a16-b648-4c91-9c44-263a47e68102" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -702,6 +702,16 @@
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closePackageModal();
+    });
+
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const url = btn.getAttribute('data-booking-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
     });
     </script>
 </body>

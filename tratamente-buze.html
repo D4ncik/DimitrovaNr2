@@ -360,7 +360,7 @@
                             <img src="images/IMG_0681.JPG" alt="Mezoterapie Buze" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">45 min / 750 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openBookingModal()">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/4931b475-47eb-43cc-8303-70b0dc3b1506" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -603,40 +603,12 @@
     
     function closePackageModal() {
         closeModal('treatmentModal');
-    }        description: 'Program intensiv de 8 ședințe pentru rejuvenarea completă a buzelor și zonei peri-orale.',
-             details; [
-                '2 ședințe Augmentare cu Acid Hialuronic',
-                '2 ședințe Mezoterapie Buze',
-                '2 ședințe Peeling Peri-oral',
-                '1 ședință Conturare Buze',
-                'Transformare completă'
-            ]
-    function openPackageModal(packageId) {
-        const data = packagesData[packageId];
-        if (!data) return;
-        
-        // Set the iframe source based on the package
-        const iframe = document.getElementById('packageIframe');
-        if (data.bookingUrl) {
-            iframe.src = data.bookingUrl;
-        } else {
-            // Default booking URL if not specified
-            iframe.src = 'https://dimitrovaclinic.setmore.com/';
-        }
-        
-        document.getElementById('packageModal').style.display = 'flex';
-        document.getElementById('packageModal').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('packageModal').style.opacity = '1';
-        }, 10);
     }
 
-    function closePackageModal() {
-        document.getElementById('packageModal').style.display = 'none';
-    }
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closePackageModal();
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
     });
     </script>
 </body>

@@ -287,7 +287,7 @@
                             <img src="images/mezoterapie_scalp.jpg" alt="Mezoterapie fracționară (scalp)" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">1 h / 1200 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/55c2ade1-f6ec-417c-99bd-edba0f053c64" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -301,7 +301,7 @@
                             <img src="images/biofoton.jpg" alt="Biofoton (pentru stimularea microcirculației)" class="treatment-image">
                             <div class="badge-group">
                                 <span class="badge badge-left">45 min / 800 MDL</span>
-                                <span class="badge badge-right" onclick="event.stopPropagation(); openModal('consultationModal')">Programează-te</span>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/179bcdc9-1b6c-46d6-914b-1f123c63473b" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -542,6 +542,16 @@
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closePackageModal();
+    });
+
+    document.querySelectorAll('.book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const url = btn.getAttribute('data-booking-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
     });
     </script>
 
