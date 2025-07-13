@@ -168,7 +168,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="ten-gras">
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -468,6 +468,7 @@
             <p>&copy; 2024 Dimitrova Clinic  Toate drepturile rezervate.</p>
         </div>
     </footer>
+    <script src="js/apare.js"></script>
     <script src="js/treatment-modals.js"></script>
     <script src="js/booking-handler.js"></script>
     <script src="js/modal-handler.js"></script>
@@ -569,15 +570,100 @@
     };
 
     function openTreatmentModal(treatmentId) {
-        const data = treatmentsData[treatmentId];
-        if (!data) return;
-        document.getElementById('modalImage').src = data.image;
-        document.getElementById('modalImage').alt = data.title;
-        document.getElementById('modalTitle').textContent = data.title;
-        let descHtml = `<p>${data.description}</p>`;
-        if (data.details && data.details.length) {
+        const currentLang = localStorage.getItem('selectedLanguage') || 'ro';
+        const t = pageTranslations['ten_gras'][currentLang];
+        
+        let modalTitle, modalDesc, modalDetails;
+        
+        switch(treatmentId) {
+            case 'azelaic-peeling':
+                modalTitle = t['modal-title-azelaic'];
+                modalDesc = t['modal-desc-azelaic'];
+                modalDetails = [
+                    t['modal-detail-azelaic-1'],
+                    t['modal-detail-azelaic-2'],
+                    t['modal-detail-azelaic-3'],
+                    t['modal-detail-azelaic-4'],
+                    t['modal-detail-azelaic-5']
+                ];
+                break;
+            case 'shine-stop':
+                modalTitle = t['modal-title-shine-stop'];
+                modalDesc = t['modal-desc-shine-stop'];
+                modalDetails = [
+                    t['modal-detail-shine-stop-1'],
+                    t['modal-detail-shine-stop-2'],
+                    t['modal-detail-shine-stop-3'],
+                    t['modal-detail-shine-stop-4'],
+                    t['modal-detail-shine-stop-5']
+                ];
+                break;
+            case 'combinata':
+                modalTitle = t['modal-title-combinata'];
+                modalDesc = t['modal-desc-combinata'];
+                modalDetails = [
+                    t['modal-detail-combinata-1'],
+                    t['modal-detail-combinata-2'],
+                    t['modal-detail-combinata-3'],
+                    t['modal-detail-combinata-4'],
+                    t['modal-detail-combinata-5']
+                ];
+                break;
+            case 'ultrasunet':
+                modalTitle = t['modal-title-ultrasunet'];
+                modalDesc = t['modal-desc-ultrasunet'];
+                modalDetails = [
+                    t['modal-detail-ultrasunet-1'],
+                    t['modal-detail-ultrasunet-2'],
+                    t['modal-detail-ultrasunet-3'],
+                    t['modal-detail-ultrasunet-4'],
+                    t['modal-detail-ultrasunet-5']
+                ];
+                break;
+            case 'stop-acne-peeling':
+                modalTitle = t['modal-title-stop-acne'];
+                modalDesc = t['modal-desc-stop-acne'];
+                modalDetails = [
+                    t['modal-detail-stop-acne-1'],
+                    t['modal-detail-stop-acne-2'],
+                    t['modal-detail-stop-acne-3'],
+                    t['modal-detail-stop-acne-4'],
+                    t['modal-detail-stop-acne-5']
+                ];
+                break;
+            case 'biorepeel':
+                modalTitle = t['modal-title-biorepeel'];
+                modalDesc = t['modal-desc-biorepeel'];
+                modalDetails = [
+                    t['modal-detail-biorepeel-1'],
+                    t['modal-detail-biorepeel-2'],
+                    t['modal-detail-biorepeel-3'],
+                    t['modal-detail-biorepeel-4'],
+                    t['modal-detail-biorepeel-5']
+                ];
+                break;
+            case 'dermapen-facial':
+                modalTitle = t['modal-title-dermapen-facial'];
+                modalDesc = t['modal-desc-dermapen-facial'];
+                modalDetails = [
+                    t['modal-detail-dermapen-facial-1'],
+                    t['modal-detail-dermapen-facial-2'],
+                    t['modal-detail-dermapen-facial-3'],
+                    t['modal-detail-dermapen-facial-4'],
+                    t['modal-detail-dermapen-facial-5']
+                ];
+                break;
+            default:
+                return;
+        }
+        
+        document.getElementById('modalImage').src = treatmentsData[treatmentId].image;
+        document.getElementById('modalImage').alt = modalTitle;
+        document.getElementById('modalTitle').textContent = modalTitle;
+        let descHtml = `<p>${modalDesc}</p>`;
+        if (modalDetails && modalDetails.length) {
             descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            modalDetails.forEach(item => descHtml += `<li>${item}</li>`);
             descHtml += '</ul>';
         }
         document.getElementById('modalDescription').innerHTML = descHtml;

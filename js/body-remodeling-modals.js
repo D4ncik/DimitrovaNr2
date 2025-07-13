@@ -124,6 +124,17 @@ function openTreatmentModal(treatmentId) {
     const treatment = bodyRemodelingData[treatmentId];
     if (!treatment) return;
 
+    // Obține traducerile dinamic
+    let title = treatment.title;
+    let description = treatment.description;
+    
+    if (typeof window.getBodyRemodelingModalTranslation === 'function') {
+        const translatedTitle = window.getBodyRemodelingModalTranslation('modal-title-' + treatmentId);
+        const translatedDesc = window.getBodyRemodelingModalTranslation('modal-desc-' + treatmentId);
+        if (translatedTitle) title = translatedTitle;
+        if (translatedDesc) description = translatedDesc;
+    }
+
     const modal = document.getElementById('treatmentModal');
     const modalImage = document.getElementById('modalImage');
     let beforeAfterImages = null;
@@ -143,7 +154,7 @@ function openTreatmentModal(treatmentId) {
 
     if (beforeAfterImages) {
         modalImage.src = beforeAfterImages[0];
-        modalImage.alt = treatment.title + ' Before';
+        modalImage.alt = title + ' Before';
         // Adaug butoane de navigare absolut pe lateralul imaginii
         let nav = document.getElementById('modalImgNav');
         if (!nav) {
@@ -245,7 +256,7 @@ function openTreatmentModal(treatmentId) {
         nextBtn.disabled = beforeAfterImages.length <= 1;
     } else {
         modalImage.src = treatment.image;
-        modalImage.alt = treatment.title;
+        modalImage.alt = title;
         // Elimină navigarea dacă există
         const nav = document.getElementById('modalImgNav');
         if (nav) nav.remove();
@@ -254,13 +265,20 @@ function openTreatmentModal(treatmentId) {
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
 
-    modalTitle.textContent = treatment.title;
+    modalTitle.textContent = title;
     
-    let descHtml = `<p>${treatment.description}</p>`;
+    let descHtml = `<p>${description}</p>`;
     
     if (treatment.details && treatment.details.length) {
         descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-        treatment.details.forEach(item => descHtml += `<li>${item}</li>`);
+        treatment.details.forEach((item, idx) => {
+            let translatedDetail = item;
+            if (typeof window.getBodyRemodelingModalTranslation === 'function') {
+                const translated = window.getBodyRemodelingModalTranslation(`modal-detail-${treatmentId}-${idx+1}`);
+                if (translated) translatedDetail = translated;
+            }
+            descHtml += `<li>${translatedDetail}</li>`;
+        });
         descHtml += '</ul>';
     }
     
@@ -303,6 +321,9 @@ function openTreatmentModal(treatmentId) {
     setTimeout(() => {
         modal.style.opacity = '1';
     }, 10);
+    
+    // Salvează ID-ul tratamentului pentru update la schimbarea limbii
+    modal.setAttribute('data-current-treatment-id', treatmentId);
 }
 
 // Function to close modal
@@ -342,4 +363,18 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+}); 
+
+// Actualizează conținutul modalului la schimbarea limbii
+function updateOpenModalContent() {
+  const treatmentModal = document.getElementById('treatmentModal');
+  if (treatmentModal && treatmentModal.style.display === 'flex') {
+    const currentTreatmentId = treatmentModal.getAttribute('data-current-treatment-id');
+    if (currentTreatmentId) {
+      openTreatmentModal(currentTreatmentId);
+    }
+  }
+}
+window.addEventListener('languageChanged', function() {
+  updateOpenModalContent();
 }); 

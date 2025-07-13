@@ -967,7 +967,7 @@ font-weight: 300 !important;
 }
 
 .hero-content {
-    max-width: 1200px;
+    max-width: 1350px !important;
     width: 100%;
     margin: 0 auto;
     padding: 60px 20px;

@@ -229,7 +229,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="facial-care">
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -654,6 +654,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/apare.js"></script>
     <script src="js/treatment-modals.js"></script>
     <script src="js/booking-handler.js"></script>
     <script src="js/modal-handler.js"></script>
@@ -775,21 +776,30 @@
         const data = treatmentsData[treatmentId];
         if (!data) return;
         
+        let title = window.getFacialCareModalTranslation('modal-title-' + treatmentId) || data.title;
+        let description = window.getFacialCareModalTranslation('modal-desc-' + treatmentId) || data.description;
+
         if (data.modalContent) {
-            // Pentru tratamente cu modalContent personalizat (ex: Carboxytherapy)
             document.getElementById('modalImage').style.display = 'none';
-            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalTitle').textContent = title;
             document.getElementById('modalDescription').innerHTML = data.modalContent;
         } else {
-            // Pentru tratamente cu format standard
             document.getElementById('modalImage').style.display = 'block';
             document.getElementById('modalImage').src = data.image;
-            document.getElementById('modalImage').alt = data.title;
-            document.getElementById('modalTitle').textContent = data.title;
-            let descHtml = `<p>${data.description}</p>`;
+            document.getElementById('modalImage').alt = title;
+            document.getElementById('modalTitle').textContent = title;
+            let descHtml = `<p>${description}</p>`;
             if (data.details && data.details.length) {
                 descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-                data.details.forEach(item => descHtml += `<li>${item}</li>`);
+                data.details.forEach((item, index) => {
+                    let translatedDetail = item;
+                    if (typeof window.getFacialCareModalTranslation === 'function') {
+                        const key = `modal-detail-${treatmentId}-${index + 1}`;
+                        const newTranslatedDetail = window.getFacialCareModalTranslation(key);
+                        if (newTranslatedDetail) translatedDetail = newTranslatedDetail;
+                    }
+                    descHtml += `<li>${translatedDetail}</li>`;
+                });
                 descHtml += '</ul>';
             }
             document.getElementById('modalDescription').innerHTML = descHtml;
@@ -852,13 +862,25 @@
     function openPackageModal(packageId) {
         const data = packagesData[packageId];
         if (!data) return;
+
+        let title = window.getFacialCareModalTranslation('modal-package-title-' + packageId) || data.title;
+        let description = window.getFacialCareModalTranslation('modal-package-desc-' + packageId) || data.description;
+
         document.getElementById('packageModalImage').src = data.image;
-        document.getElementById('packageModalImage').alt = data.title;
-        document.getElementById('packageModalTitle').textContent = data.title;
-        let descHtml = `<p>${data.description}</p>`;
+        document.getElementById('packageModalImage').alt = title;
+        document.getElementById('packageModalTitle').textContent = title;
+        let descHtml = `<p>${description}</p>`;
         if (data.details && data.details.length) {
             descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            data.details.forEach((item, index) => {
+                let translatedDetail = item;
+                if (typeof window.getFacialCareModalTranslation === 'function') {
+                    const key = `modal-package-detail-${packageId}-${index + 1}`;
+                    const newTranslatedDetail = window.getFacialCareModalTranslation(key);
+                    if (newTranslatedDetail) translatedDetail = newTranslatedDetail;
+                }
+                descHtml += `<li>${translatedDetail}</li>`;
+            });
             descHtml += '</ul>';
         }
         document.getElementById('packageModalDescription').innerHTML = descHtml;
@@ -887,6 +909,91 @@
             }
         });
     });
+
+    // Funcție pentru a actualiza conținutul modalelor deschise la schimbarea limbii
+    function updateOpenModalContent() {
+        const treatmentModal = document.getElementById('treatmentModal');
+        const packageModal = document.getElementById('packageModal');
+        
+        // Actualizează modalul de tratament dacă este deschis
+        if (treatmentModal.style.display === 'flex') {
+            const currentTreatmentId = treatmentModal.getAttribute('data-current-treatment-id');
+            if (currentTreatmentId) {
+                const data = treatmentsData[currentTreatmentId];
+                if (data) {
+                    let title = window.getFacialCareModalTranslation('modal-title-' + currentTreatmentId) || data.title;
+                    let description = window.getFacialCareModalTranslation('modal-desc-' + currentTreatmentId) || data.description;
+                    
+                    document.getElementById('modalTitle').textContent = title;
+                    let descHtml = `<p>${description}</p>`;
+                    if (data.details && data.details.length) {
+                        descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+                        data.details.forEach((item, index) => {
+                            let translatedDetail = item;
+                            if (typeof window.getFacialCareModalTranslation === 'function') {
+                                const key = `modal-detail-${currentTreatmentId}-${index + 1}`;
+                                const newTranslatedDetail = window.getFacialCareModalTranslation(key);
+                                if (newTranslatedDetail) translatedDetail = newTranslatedDetail;
+                            }
+                            descHtml += `<li>${translatedDetail}</li>`;
+                        });
+                        descHtml += '</ul>';
+                    }
+                    document.getElementById('modalDescription').innerHTML = descHtml;
+                }
+            }
+        }
+        
+        // Actualizează modalul de pachet dacă este deschis
+        if (packageModal.style.display === 'flex') {
+            const currentPackageId = packageModal.getAttribute('data-current-package-id');
+            if (currentPackageId) {
+                const data = packagesData[currentPackageId];
+                if (data) {
+                    let title = window.getFacialCareModalTranslation('modal-package-title-' + currentPackageId) || data.title;
+                    let description = window.getFacialCareModalTranslation('modal-package-desc-' + currentPackageId) || data.description;
+                    
+                    document.getElementById('packageModalTitle').textContent = title;
+                    let descHtml = `<p>${description}</p>`;
+                    if (data.details && data.details.length) {
+                        descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+                        data.details.forEach((item, index) => {
+                            let translatedDetail = item;
+                            if (typeof window.getFacialCareModalTranslation === 'function') {
+                                const key = `modal-package-detail-${currentPackageId}-${index + 1}`;
+                                const newTranslatedDetail = window.getFacialCareModalTranslation(key);
+                                if (newTranslatedDetail) translatedDetail = newTranslatedDetail;
+                            }
+                            descHtml += `<li>${translatedDetail}</li>`;
+                        });
+                        descHtml += '</ul>';
+                    }
+                    document.getElementById('packageModalDescription').innerHTML = descHtml;
+                }
+            }
+        }
+    }
+
+    // Listener pentru evenimentul de schimbare a limbii (emis de main.js)
+    window.addEventListener('languageChanged', function(e) {
+        updateOpenModalContent();
+    });
+
+    // Păstrează ID-ul tratamentului/pachetului deschis în modal
+    const treatmentModal = document.getElementById('treatmentModal');
+    const packageModal = document.getElementById('packageModal');
+
+    const originalOpenTreatmentModal = openTreatmentModal;
+    openTreatmentModal = function(treatmentId) {
+        originalOpenTreatmentModal(treatmentId);
+        if (treatmentModal) treatmentModal.setAttribute('data-current-treatment-id', treatmentId);
+    };
+
+    const originalOpenPackageModal = openPackageModal;
+    openPackageModal = function(packageId) {
+        originalOpenPackageModal(packageId);
+        if (packageModal) packageModal.setAttribute('data-current-package-id', packageId);
+    };
     </script>
 </body>
 </html>

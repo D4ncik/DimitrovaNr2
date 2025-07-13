@@ -136,6 +136,59 @@ function openTreatmentModal(treatmentId, treatmentType) {
     // Ascund prețul individual
     modalPrice.style.display = (treatmentId in sessionLabelsData) ? 'none' : '';
 
+    // Mutăm etichetele cu nr. de ședințe sub lista de detalii pentru modalele de program
+    if (treatmentId.endsWith('-program')) {
+        // Caută lista de detalii (ul) din modalDescription
+        const ul = modalDescription.querySelector('ul');
+        if (ul) {
+            ul.parentNode.insertBefore(container, ul.nextSibling);
+        } else {
+            // fallback: sub titlu
+            modalTitle.parentNode.insertBefore(container, modalTitle.nextSibling);
+        }
+        modalPrice.style.display = 'none';
+    } else {
+        if (container.parentNode) container.parentNode.removeChild(container);
+        modalPrice.style.display = '';
+    }
+    // Eliminăm scrollbarul din modal (fallback JS)
+    const modalContent = modal.querySelector('.modal-content');
+    if (modalContent) {
+        modalContent.style.overflowY = 'visible';
+        modalContent.style.maxHeight = 'none';
+    }
+
+    // Adaugă/actualizează linkul 'Vezi rezultate' sub descriere
+    let resultsLink = document.getElementById('modalResultsLink');
+    if (!resultsLink) {
+        resultsLink = document.createElement('a');
+        resultsLink.id = 'modalResultsLink';
+        resultsLink.className = 'modal-link';
+        resultsLink.style.display = 'none';
+        resultsLink.style.marginTop = '10px';
+        resultsLink.style.color = 'var(--primary-color)';
+        resultsLink.style.fontWeight = '600';
+        resultsLink.style.textDecoration = 'underline';
+        modalDescription.parentNode.insertBefore(resultsLink, modalDescription.nextSibling);
+    }
+    const galleryLinks = {
+        'dermapen-face': 'gallery.html#facial',
+        'dermapen-hair': 'gallery.html#scalp',
+        'dermapen-stretch': 'gallery.html#vergeturi',
+        'dermapen-lips': 'gallery.html#buze',
+        'dermapen-face-program': 'gallery.html#facial',
+        'dermapen-hair-program': 'gallery.html#scalp',
+        'dermapen-stretch-program': 'gallery.html#vergeturi',
+        'dermapen-lips-program': 'gallery.html#buze'
+    };
+    resultsLink.href = galleryLinks[treatmentId] || '#';
+    if (typeof window.getDermapenModalTranslation === 'function') {
+        resultsLink.textContent = window.getDermapenModalTranslation('modal-results-link') || 'Vezi rezultate';
+    } else {
+        resultsLink.textContent = 'Vezi rezultate';
+    }
+    resultsLink.style.display = galleryLinks[treatmentId] ? 'inline-block' : 'none';
+
     modal.style.display = 'flex';
     modal.style.opacity = '0';
     setTimeout(() => {

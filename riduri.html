@@ -169,7 +169,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="riduri">
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -461,6 +461,7 @@
     <script src="js/treatment-modals.js"></script>
     <script src="js/booking-handler.js"></script>
     <script src="js/modal-handler.js"></script>
+    <script src="js/apare.js"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
     // Datele pentru tratamentele specifice riduri
@@ -548,13 +549,36 @@
     function openTreatmentModal(treatmentId) {
         const data = treatmentsData[treatmentId];
         if (!data) return;
+        
+        // Get current language
+        const currentLang = localStorage.getItem('selectedLanguage') || 'ro';
+        
+        // Get translated content if available
+        let title = data.title;
+        let description = data.description;
+        let details = data.details;
+        
+        if (typeof window.getRiduriModalTranslation === 'function') {
+            const translatedTitle = window.getRiduriModalTranslation('modal-title-' + treatmentId);
+            const translatedDesc = window.getRiduriModalTranslation('modal-desc-' + treatmentId);
+            
+            if (translatedTitle) title = translatedTitle;
+            if (translatedDesc) description = translatedDesc;
+            
+            // Get translated details
+            const translatedDetails = window.getRiduriModalTranslation('modal-details-' + treatmentId);
+            if (translatedDetails && Array.isArray(translatedDetails)) {
+                details = translatedDetails;
+            }
+        }
+        
         document.getElementById('modalImage').src = data.image;
-        document.getElementById('modalImage').alt = data.title;
-        document.getElementById('modalTitle').textContent = data.title;
-        let descHtml = `<p>${data.description}</p>`;
-        if (data.details && data.details.length) {
+        document.getElementById('modalImage').alt = title;
+        document.getElementById('modalTitle').textContent = title;
+        let descHtml = `<p>${description}</p>`;
+        if (details && details.length) {
             descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            details.forEach(item => descHtml += `<li>${item}</li>`);
             descHtml += '</ul>';
         }
         document.getElementById('modalDescription').innerHTML = descHtml;

@@ -241,7 +241,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="riduri-cercuri-sub-ochi">
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -500,6 +500,7 @@
     <script src="js/treatment-modals.js"></script>
     <script src="js/booking-handler.js"></script>
     <script src="js/modal-handler.js"></script>
+    <script src="js/apare.js"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
     // Function to open booking modal
@@ -607,22 +608,44 @@
         const data = treatmentsData[treatmentId];
         if (!data) return;
         
+        // Get current language
+        const currentLang = localStorage.getItem('selectedLanguage') || 'ro';
+        
+        // Get translated content if available
+        let title = data.title;
+        let description = data.description;
+        let details = data.details;
+        
+        if (typeof window.getRiduriCercuriModalTranslation === 'function') {
+            const translatedTitle = window.getRiduriCercuriModalTranslation('modal-title-' + treatmentId);
+            const translatedDesc = window.getRiduriCercuriModalTranslation('modal-desc-' + treatmentId);
+            
+            if (translatedTitle) title = translatedTitle;
+            if (translatedDesc) description = translatedDesc;
+            
+            // Get translated details
+            const translatedDetails = window.getRiduriCercuriModalTranslation('modal-details-' + treatmentId);
+            if (translatedDetails && Array.isArray(translatedDetails)) {
+                details = translatedDetails;
+            }
+        }
+        
         // Set modal title and image
-        document.getElementById('modalTitle').textContent = data.title;
+        document.getElementById('modalTitle').textContent = title;
         const modalImage = document.getElementById('modalImage');
         modalImage.src = data.image;
-        modalImage.alt = data.title;
+        modalImage.alt = title;
         
         // Set description
         const modalDescription = document.getElementById('modalDescription');
-        modalDescription.textContent = data.description || '';
+        modalDescription.textContent = description || '';
         
         // Clear and rebuild details list
         const detailsList = document.getElementById('modalDetailsList');
         detailsList.innerHTML = '';
         
-        if (data.details && data.details.length) {
-            data.details.forEach(detail => {
+        if (details && details.length) {
+            details.forEach(detail => {
                 const li = document.createElement('li');
                 li.style.padding = '8px 0';
                 li.style.fontSize = '16px';
@@ -630,6 +653,8 @@
                 li.textContent = '• ' + detail;
                 detailsList.appendChild(li);
             });
+        }
+        
         // Show the modal with animation
         const modal = document.getElementById('treatmentModal');
         modal.style.display = 'flex';
@@ -647,7 +672,6 @@
             e.stopPropagation();
         });
     });
-}
     </script>
 </body>
 </html>

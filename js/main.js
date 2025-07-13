@@ -41,64 +41,161 @@ document.addEventListener("DOMContentLoaded", () => {
   const translations = {
     ro: {
       despre: "Despre noi",
-      recenzii: "Recenzii",
-      galerie: "Galerie",
+      simptome: "Simptome",
       servicii: "Servicii",
-      "price-list": "Oferte și Tarife",
       preturi: "Prețuri",
-      oferte: "Oferte",
-      noutati: "Noutăți",
       contacte: "Contacte",
-      fata: "Cosmetologie estetică",
-      dermapen: "Peelinguri chimice",
-      corp: "Tratamente faciale premium",
       "hero-subtitle": "Îngrijire personalizată, atenție la fiecare detaliu",
       "hero-title": "Frumusețea ta, în mâini sigure<br>și dedicate!",
       "hero-description":
         "Servicii cosmetologice profesionale oferite cu grijă<br>într-un spațiu intim și relaxant din Chișinău",
       "cta-button": "Programează-te acum",
+      "offer-title": "Ofertă lunii",
+      "offer-package-title": "Pachet Premium Facial",
+      "offer-description": "Tratament facial complet + Peeling chimic + Mezoterapie",
+      "offer-price": "Preț special: 1500 lei",
+      "offer-original": "Preț normal: 2000 lei",
       "services-title": "Serviciile centrului nostru",
       "services-subtitle": "Frumusețea ta merită toată grija — te aștept cu sufletul deschis.",
       "service-face-title": "Cosmetologie estetică",
       "service-face-description":
         "Tratamente profesionale pentru îngrijirea și îmbunătățirea aspectului pielii, adaptate nevoilor individuale.",
-      "service-dermapen-title": "Peelinguri chimice",
-      "service-dermapen-description":
+      "service-peeling-title": "Peelinguri chimice",
+      "service-peeling-description":
         "Proceduri specializate pentru exfoliere și reînnoirea pielii, cu rezultate vizibile imediate.",
-      "service-body-title": "Tratamente faciale premium",
-      "service-body-description": "Proceduri de lux cu produse de înaltă calitate pentru un efect maxim și durabil.",
+      "service-premium-title": "Tratamente faciale premium",
+      "service-premium-description": "Proceduri de lux cu produse de înaltă calitate pentru un efect maxim și durabil.",
+      "service-dermapen-title": "Mezoterapie fracționară (Dermapen)",
+      "service-dermapen-description": "Tehnologie avansată pentru regenerarea profundă a pielii și stimularea producției de colagen.",
+      "service-body-title": "Remodelare corporală",
+      "service-body-description": "Tratamente specializate pentru conturarea și tonifierea corpului, cu rezultate vizibile.",
+      "service-massage-title": "Masaj",
+      "service-massage-description": "Tehnici de masaj pentru relaxare, detensionare și îmbunătățirea circulației, adaptate nevoilor tale.",
       "service-button": "Detalii",
+      "symptoms-face": "Față",
+      "symptoms-lips": "Buze",
+      "symptoms-body": "Corp",
+      "symptoms-scalp": "Scalp",
+      "footer-about": "Despre noi",
+      "footer-gallery": "Galerie",
+      "footer-services": "Serviciile centrului nostru",
+      "footer-follow": "Urmăriți-ne...",
+      "footer-write": "Scrieti în direct...",
+      "footer-rights": "Toate drepturile rezervate.",
+      // Submeniuri "Despre noi"
+      "preparate": "Preparate",
+      "rezultate": "Rezultate",
+      "despre-companie": "Despre companie",
+      // Simptome - Față
+      "acnee": "Acnee / Coșuri",
+      "post-acnee": "Post-acnee / Cicatrici",
+      "pori-dilatati": "Pori dilatați",
+      "ten-gras": "Ten gras / Seboree",
+      "deshidratare": "Deshidratare și descuamare",
+      "ten-tern": "Ten tern / lipsit de strălucire",
+      "pigmentare": "Pigmentare / pete pigmentare",
+      "cuperoza": "Cuperoză / rețea vasculară vizibilă",
+      "riduri": "Riduri",
+      "pierdere-tonusului": "Pierderea fermității și a tonusului",
+      "riduri-cercuri-sub-ochi": "Riduri / Cercuri întunecate sub ochi",
+      "barbie-dubla": "Bărbie dublă",
+      "relaxare-oval": "Relaxarea ovalului facial / ptoză",
+      // Simptome - Buze
+      "deshidratare-buze": "Deshidratarea buzelor",
+      "riduri-buze": "Riduri fine în jurul buzelor",
+      "volum-buze": "Volum insuficient",
+      // Simptome - Corp
+      "vergeturi": "Vergeturi (striae)",
+      "celulita": "Celulită / Depozite locale de grăsime",
+      "lasare-piele": "Lăsarea pielii după slăbire",
+      // Simptome - Scalp
+      "caderea-parului": "Căderea părului",
+      // Servicii
+      "facial-care": "Cosmetologie estetică",
+      "body-care": "Peelinguri chimice",
+      "premium-facial": "Tratamente faciale premium",
+      "dermapen": "Mezoterapie fracționară (Dermapen)",
+      "body-remodeling": "Remodelare corporală",
+      "massage": "Masaj",
     },
     ru: {
       despre: "О нас",
-      recenzii: "Отзывы",
-      galerie: "Галерея",
+      simptome: "Симптомы",
       servicii: "Услуги",
-      "price-list": "Предложения и цены",
       preturi: "Цены",
-      oferte: "Акции",
-      noutati: "Новости",
       contacte: "Контакты",
-      fata: "Уход за кожей лица",
-      dermapen: "Процедуры Dermapen",
-      corp: "Уход за кожей тела",
       "hero-subtitle": "Индивидуальный уход, внимание к каждой детали",
       "hero-title": "Ваша красота в надежных<br>и заботливых руках!",
       "hero-description":
         "Профессиональные косметологические услуги<br>в уютном и расслабляющем пространстве в Кишиневе",
       "cta-button": "Записаться сейчас",
+      "offer-title": "Предложение месяца",
+      "offer-package-title": "Премиум пакет для лица",
+      "offer-description": "Полный уход за лицом + Химический пилинг + Мезотерапия",
+      "offer-price": "Специальная цена: 1500 лей",
+      "offer-original": "Обычная цена: 2000 лей",
       "services-title": "Услуги нашего центра",
       "services-subtitle": "Ваша красота достойна особой заботы — жду вас с открытым сердцем.",
-      "service-face-title": "Уход за кожей лица",
+      "service-face-title": "Эстетическая косметология",
       "service-face-description":
-        "Персонализированные процедуры по уходу за лицом, профессиональная чистка и специализированные процедуры для всех типов кожи.",
-      "service-dermapen-title": "Процедуры Dermapen",
-      "service-dermapen-description":
-        "Передовая технология для регенерации кожи, уменьшения шрамов и улучшения текстуры кожи.",
-      "service-body-title": "Уход за кожей тела",
-      "service-body-description":
-        "Комплексные процедуры для тела, направленные на тонизацию, увлажнение и улучшение общего состояния кожи.",
+        "Профессиональные процедуры по уходу и улучшению внешнего вида кожи, адаптированные к индивидуальным потребностям.",
+      "service-peeling-title": "Химические пилинги",
+      "service-peeling-description":
+        "Специализированные процедуры для отшелушивания и обновления кожи с видимыми результатами.",
+      "service-premium-title": "Премиум процедуры для лица",
+      "service-premium-description": "Процедуры премиум-класса с высококачественными продуктами для максимального и длительного эффекта.",
+      "service-dermapen-title": "Фракционная мезотерапия (Дермапен)",
+      "service-dermapen-description": "Передовые технологии для глубокой регенерации кожи и стимуляции выработки коллагена.",
+      "service-body-title": "Коррекция фигуры",
+      "service-body-description": "Специализированные процедуры для контурирования и тонизирования тела с видимыми результатами.",
+      "service-massage-title": "Массаж",
+      "service-massage-description": "Техники массажа для расслабления, снятия напряжения и улучшения кровообращения, адаптированные к вашим потребностям.",
       "service-button": "Подробнее",
+      "symptoms-face": "Лицо",
+      "symptoms-lips": "Губы",
+      "symptoms-body": "Тело",
+      "symptoms-scalp": "Кожа головы",
+      "footer-about": "О нас",
+      "footer-gallery": "Галерея",
+      "footer-services": "Услуги нашего центра",
+      "footer-follow": "Следите за нами...",
+      "footer-write": "Напишите в директ...",
+      "footer-rights": "Все права защищены.",
+      // Submeniuri "Despre noi"
+      "preparate": "Препараты",
+      "rezultate": "Результаты",
+      "despre-companie": "О компании",
+      // Simptome - Față
+      "acnee": "Акне / Прыщи",
+      "post-acnee": "Пост-акне / Шрамы",
+      "pori-dilatati": "Расширенные поры",
+      "ten-gras": "Жирная кожа / Себорея",
+      "deshidratare": "Обезвоживание и шелушение",
+      "ten-tern": "Тусклая кожа / отсутствие сияния",
+      "pigmentare": "Пигментация / пигментные пятна",
+      "cuperoza": "Купероз / видимая сосудистая сетка",
+      "riduri": "Морщины",
+      "pierdere-tonusului": "Потеря упругости и тонуса",
+      "riduri-cercuri-sub-ochi": "Морщины / Темные круги под глазами",
+      "barbie-dubla": "Двойной подбородок",
+      "relaxare-oval": "Птоз / расслабление овала лица",
+      // Simptome - Buze
+      "deshidratare-buze": "Обезвоживание губ",
+      "riduri-buze": "Мелкие морщины вокруг губ",
+      "volum-buze": "Недостаточный объем",
+      // Simptome - Corp
+      "vergeturi": "Растяжки (стрии)",
+      "celulita": "Целлюлит / Локальные жировые отложения",
+      "lasare-piele": "Обвисание кожи после похудения",
+      // Simptome - Scalp
+      "caderea-parului": "Выпадение волос",
+      // Servicii
+      "facial-care": "Эстетическая косметология",
+      "body-care": "Химические пилинги",
+      "premium-facial": "Премиум процедуры для лица",
+      "dermapen": "Фракционная мезотерапия (Дермапен)",
+      "body-remodeling": "Коррекция фигуры",
+      "massage": "Массаж",
     },
   }
 
@@ -106,55 +203,196 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateContent(lang) {
     console.log("Updating content to language:", lang)
 
+    // Update navigation menu
     const menuItems = document.querySelectorAll(".nav-links a")
     menuItems.forEach((item) => {
-      const key = item.getAttribute("href")?.replace("#", "")
-      if (translations[lang][key]) {
-        if (item.querySelector(".fas.fa-chevron-down")) {
-          item.innerHTML = translations[lang][key] + ' <i class="fas fa-chevron-down"></i>'
-        } else {
-          item.textContent = translations[lang][key]
+      const href = item.getAttribute("href")
+      if (href) {
+        let key = href.replace("#", "")
+        if (href === "#despre") key = "despre"
+        else if (href === "#simptome") key = "simptome"
+        else if (href === "#servicii") key = "servicii"
+        else if (href === "prices.html") key = "preturi"
+        else if (href === "contacte.html") key = "contacte"
+        else if (href === "preparate.html") key = "preparate"
+        else if (href === "gallery.html") key = "rezultate"
+        else if (href === "despre_companie.html") key = "despre-companie"
+        
+        if (translations[lang][key]) {
+          if (item.querySelector(".fas.fa-chevron-down")) {
+            item.innerHTML = translations[lang][key] + ' <i class="fas fa-chevron-down"></i>'
+          } else {
+            item.textContent = translations[lang][key]
+          }
         }
       }
     })
 
+    // Update hero section
     const heroSubtitle = document.querySelector(".hero-subtitle")
     const heroTitle = document.querySelector(".hero-title")
     const heroDescription = document.querySelector(".hero-description")
-    const ctaButton = document.querySelector(".cta-button")
+    const ctaButtons = document.querySelectorAll(".cta-button")
 
     if (heroSubtitle) heroSubtitle.textContent = translations[lang]["hero-subtitle"]
     if (heroTitle) heroTitle.innerHTML = translations[lang]["hero-title"]
     if (heroDescription) heroDescription.innerHTML = translations[lang]["hero-description"]
-    if (ctaButton) ctaButton.textContent = translations[lang]["cta-button"]
+    ctaButtons.forEach(button => {
+      if (button) button.textContent = translations[lang]["cta-button"]
+    })
 
+    // Update offer section
+    const offerTitle = document.querySelector(".offer-title")
+    const offerPackageTitles = document.querySelectorAll(".offer-details h3")
+    const offerDescriptions = document.querySelectorAll(".offer-description")
+    const offerPrices = document.querySelectorAll(".offer-price")
+    const offerOriginals = document.querySelectorAll(".offer-original")
+
+    if (offerTitle) offerTitle.textContent = translations[lang]["offer-title"]
+    offerPackageTitles.forEach(title => {
+      if (title) title.textContent = translations[lang]["offer-package-title"]
+    })
+    offerDescriptions.forEach(desc => {
+      if (desc) desc.textContent = translations[lang]["offer-description"]
+    })
+    offerPrices.forEach(price => {
+      if (price) price.textContent = translations[lang]["offer-price"]
+    })
+    offerOriginals.forEach(original => {
+      if (original) original.textContent = translations[lang]["offer-original"]
+    })
+
+    // Update services section
     const servicesTitle = document.querySelector(".services-title")
     const servicesSubtitle = document.querySelector(".services-subtitle")
-    const servicesMessage = document.querySelector(".services-message")
-    const serviceCards = document.querySelectorAll(".service-card")
 
     if (servicesTitle) servicesTitle.textContent = translations[lang]["services-title"]
     if (servicesSubtitle) servicesSubtitle.textContent = translations[lang]["services-subtitle"]
-    if (servicesMessage) servicesMessage.textContent = translations[lang]["services-message"]
 
+    // Update service cards
+    const serviceCards = document.querySelectorAll(".service-card")
     serviceCards.forEach((card, index) => {
       const title = card.querySelector(".service-title")
       const description = card.querySelector(".service-description")
-      const button = card.querySelector(".service-button")
+      const button = card.querySelector(".details-button")
 
       if (index === 0) {
         if (title) title.textContent = translations[lang]["service-face-title"]
         if (description) description.textContent = translations[lang]["service-face-description"]
       } else if (index === 1) {
+        if (title) title.textContent = translations[lang]["service-peeling-title"]
+        if (description) description.textContent = translations[lang]["service-peeling-description"]
+      } else if (index === 2) {
+        if (title) title.textContent = translations[lang]["service-premium-title"]
+        if (description) description.textContent = translations[lang]["service-premium-description"]
+      } else if (index === 3) {
         if (title) title.textContent = translations[lang]["service-dermapen-title"]
         if (description) description.textContent = translations[lang]["service-dermapen-description"]
-      } else if (index === 2) {
+      } else if (index === 4) {
         if (title) title.textContent = translations[lang]["service-body-title"]
         if (description) description.textContent = translations[lang]["service-body-description"]
+      } else if (index === 5) {
+        if (title) title.textContent = translations[lang]["service-massage-title"]
+        if (description) description.textContent = translations[lang]["service-massage-description"]
       }
 
       if (button) button.textContent = translations[lang]["service-button"]
     })
+
+    // Update symptoms dropdown
+    const symptomsTitles = document.querySelectorAll(".symptoms-col-title")
+    symptomsTitles.forEach((title, index) => {
+      if (index === 0) title.textContent = translations[lang]["symptoms-face"]
+      else if (index === 1) title.textContent = translations[lang]["symptoms-lips"]
+      else if (index === 2) title.textContent = translations[lang]["symptoms-body"]
+      else if (index === 3) title.textContent = translations[lang]["symptoms-scalp"]
+    })
+
+    // Update footer
+    const footerAbout = document.querySelector('.footer-column:nth-child(2) h3')
+    const footerAboutLinks = document.querySelectorAll('.footer-column:nth-child(2) a')
+    const footerServices = document.querySelector('.footer-column:nth-child(3) h3')
+    const footerServicesLinks = document.querySelectorAll('.footer-column:nth-child(3) a')
+    const footerFollow = document.querySelector('.footer-column:nth-child(4) h3:first-of-type')
+    const footerWrite = document.querySelector('.footer-column:nth-child(4) h3:last-of-type')
+    const footerRights = document.querySelector('.footer-bottom p')
+
+    if (footerAbout) footerAbout.textContent = "Dimitrova Clinic"
+    if (footerAboutLinks[0]) footerAboutLinks[0].textContent = translations[lang]["footer-about"]
+    if (footerAboutLinks[1]) footerAboutLinks[1].textContent = translations[lang]["footer-gallery"]
+    if (footerServices) footerServices.textContent = translations[lang]["footer-services"]
+    
+    // Update footer services links
+    footerServicesLinks.forEach((link, index) => {
+      if (index === 0) link.textContent = translations[lang]["service-face-title"]
+      else if (index === 1) link.textContent = translations[lang]["service-peeling-title"]
+      else if (index === 2) link.textContent = translations[lang]["service-premium-title"]
+      else if (index === 3) link.textContent = translations[lang]["service-dermapen-title"]
+      else if (index === 4) link.textContent = translations[lang]["service-body-title"]
+      else if (index === 5) link.textContent = translations[lang]["service-massage-title"]
+    })
+    
+    if (footerFollow) footerFollow.textContent = translations[lang]["footer-follow"]
+    if (footerWrite) footerWrite.textContent = translations[lang]["footer-write"]
+    if (footerRights) {
+      const currentYear = new Date().getFullYear()
+      footerRights.innerHTML = `&copy; ${currentYear} Dimitrova.Clinic. ${translations[lang]["footer-rights"]}`
+    }
+
+    // Update simptome dropdown links
+    const simptomeLinks = document.querySelectorAll('#symptomsDropdown a')
+    simptomeLinks.forEach(link => {
+      const href = link.getAttribute('href')
+      if (href) {
+        let key = ''
+        if (href.includes('acnee')) key = 'acnee'
+        else if (href.includes('post-acnee')) key = 'post-acnee'
+        else if (href.includes('pori-dilatati')) key = 'pori-dilatati'
+        else if (href.includes('ten-gras')) key = 'ten-gras'
+        else if (href.includes('deshidratare')) key = 'deshidratare'
+        else if (href.includes('ten-tern')) key = 'ten-tern'
+        else if (href.includes('pigmentare')) key = 'pigmentare'
+        else if (href.includes('cuperoza')) key = 'cuperoza'
+        else if (href.includes('riduri.html') && link.textContent.includes('Cercuri')) key = 'riduri-cercuri-sub-ochi'
+        else if (href.includes('riduri')) key = 'riduri'
+        else if (href.includes('pierdere-tonusului')) key = 'pierdere-tonusului'
+        else if (href.includes('barbie-dubla')) key = 'barbie-dubla'
+        else if (href.includes('relaxare-oval')) key = 'relaxare-oval'
+        else if (href.includes('tratamente-buze')) {
+          if (link.textContent.includes('Deshidratarea')) key = 'deshidratare-buze'
+          else if (link.textContent.includes('Riduri fine')) key = 'riduri-buze'
+          else if (link.textContent.includes('Volum')) key = 'volum-buze'
+        }
+        else if (href.includes('vergeturi')) key = 'vergeturi'
+        else if (href.includes('celulita')) key = 'celulita'
+        else if (href.includes('lasare-piele')) key = 'lasare-piele'
+        else if (href.includes('caderea_parului')) key = 'caderea-parului'
+        if (translations[lang][key]) link.textContent = translations[lang][key]
+      }
+    })
+
+    // Update servicii dropdown links
+    // Caută dropdown-ul care are ca link principal textul 'Servicii' (sau traducerea lui)
+    const serviciiDropdown = Array.from(document.querySelectorAll('.nav-links .has-dropdown')).find(li => {
+      const a = li.querySelector('a');
+      return a && (a.textContent.trim().startsWith(translations[lang]['servicii']) || a.textContent.trim().startsWith('Servicii'));
+    });
+    if (serviciiDropdown) {
+      const serviciiLinks = serviciiDropdown.querySelectorAll('.dropdown a');
+      serviciiLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href) {
+          let key = '';
+          if (href.includes('facial-care')) key = 'facial-care';
+          else if (href.includes('body-care')) key = 'body-care';
+          else if (href.includes('premium-facial')) key = 'premium-facial';
+          else if (href.includes('dermapen')) key = 'dermapen';
+          else if (href.includes('body-remodeling')) key = 'body-remodeling';
+          else if (href.includes('massage')) key = 'massage';
+          if (translations[lang][key]) link.textContent = translations[lang][key];
+        }
+      });
+    }
 
     console.log("Content update complete for language:", lang)
   }
@@ -365,8 +603,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      body.setAttribute("data-lang", lang)
       updateContent(lang)
+
+      // Emit eveniment custom pentru traducerea paginilor individuale (apare.js)
+      const event = new CustomEvent('languageChanged', { detail: { lang } })
+      window.dispatchEvent(event)
 
       if (window.innerWidth <= 768) {
         this.closest(".has-dropdown").classList.remove("active")

@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="gallery">
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -374,6 +374,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/apare.js"></script>
     <script>
         // Lightbox functionality
         const lightbox = document.getElementById('lightbox');
@@ -384,21 +385,16 @@
         function openLightbox(imgSrc) {
             lightboxImg.src = imgSrc;
             lightbox.style.display = 'flex';
-            
-            // Adăugăm clasa pentru a indica că lightbox-ul este deschis
             document.body.classList.add('lightbox-open');
-            // Resetăm cursorul imaginii la deschidere pentru a reflecta lipsa zoom/pan
             lightboxImg.style.cursor = 'default';
         }
 
         // Funcție pentru a închide lightbox-ul
         function closeLightboxFunc() {
              lightbox.style.display = 'none';
-             // Eliminăm clasa indicatoare
              document.body.classList.remove('lightbox-open');
         }
 
-        // Gestionăm click-ul pe toate elementele galeriei
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', function() {
                 const imgSrc = this.querySelector('img').src;
@@ -406,22 +402,31 @@
             });
         });
 
-        // Adăugăm funcționalitate de închidere lightbox la click pe X sau în afara imaginii
         closeLightbox.addEventListener('click', closeLightboxFunc);
 
         lightbox.addEventListener('click', (e) => {
-            // Verificăm dacă s-a făcut click direct pe overlay-ul lightbox-ului
             if (e.target === lightbox) {
                 closeLightboxFunc();
             }
         });
 
-        // Închidere lightbox cu tasta Escape
-         document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', (e) => {
              if (e.key === 'Escape' && lightbox.style.display === 'flex') {
                  closeLightboxFunc();
              }
          });
+
+        // Integrare cu sistemul de limbă din meniu (main.js):
+        // Suprapun funcția de schimbare a limbii pentru a emite evenimentul languageChanged
+        (function() {
+          const origUpdateContent = window.updateContent;
+          if (typeof origUpdateContent === 'function') {
+            window.updateContent = function(lang) {
+              origUpdateContent(lang);
+              window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+            }
+          }
+        })();
     </script>
 </body>
 </html> 

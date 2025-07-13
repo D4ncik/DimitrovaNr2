@@ -341,7 +341,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="massage">
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -416,7 +416,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-clasic')">
                             <img src="images/clasicmassage.jpg" alt="Masaj clasic" class="treatment-image">
                             <div class="badge-group">
-                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/a7ddd6ab-bb75-4b12-aa24-ecd024031f49" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -428,7 +428,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-terapeutic')">
                             <img src="images/masajterapeutic.jpg" alt="Masaj terapeutic" class="treatment-image">
                             <div class="badge-group">
-                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/c608ee47-0416-4818-87a4-ed820d7f0cb9" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -440,7 +440,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-anticelulitic')">
                             <img src="images/masajanticelular.jpg" alt="Masaj anticelulitic" class="treatment-image">
                             <div class="badge-group">
-                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/e0a90675-823c-4fdf-8f60-30ccfe045535" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -452,7 +452,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-vacuum')">
                             <img src="images/masajvacum.jpeg" alt="Masaj vacuum" class="treatment-image">
                             <div class="badge-group">
-                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/9000b537-bc89-4128-88c6-4edaa7effc95" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -464,7 +464,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-miere')">
                             <img src="images/masajmiere.jpg" alt="Masaj cu miere" class="treatment-image">
                             <div class="badge-group">
-                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/6930e811-8086-4b52-9624-06c24548abe6" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -476,7 +476,7 @@
                         <div class="treatment-image-wrapper" onclick="openMassageModal('masaj-sportiv')">
                             <img src="images/masajsportiv.webp" alt="Masaj sportiv" class="treatment-image">
                             <div class="badge-group">
-                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/3853bf19-f303-4707-b748-7f1b34a57beb" target="_blank" rel="noopener noreferrer">Programează-te</a>
+                                <a class="badge badge-right book-btn" href="https://dimitrovaclinic20.setmore.com/services/eb20f198-cbcd-4eda-99f9-3b91381673ef" target="_blank" rel="noopener noreferrer">Programează-te</a>
                             </div>
                         </div>
                         <div class="treatment-content">
@@ -607,6 +607,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/apare.js"></script>
     <script>
     // Modal data pentru fiecare tip de masaj
     const massageData = {
@@ -693,23 +694,66 @@
     function openMassageModal(massageId) {
         const data = massageData[massageId];
         if (!data) return;
+        
+        // Obține traducerile dinamic
+        let title = data.title;
+        let description = data.description;
+        let time = data.time;
+        let price = data.price;
+        
+        if (typeof window.getMassageModalTranslation === 'function') {
+            const translatedTitle = window.getMassageModalTranslation('modal-title-' + massageId);
+            const translatedDesc = window.getMassageModalTranslation('modal-desc-' + massageId);
+            const translatedTime = window.getMassageModalTranslation('modal-time-' + massageId);
+            const translatedPrice = window.getMassageModalTranslation('modal-price-' + massageId);
+            
+            if (translatedTitle) title = translatedTitle;
+            if (translatedDesc) description = translatedDesc;
+            if (translatedTime) time = translatedTime;
+            if (translatedPrice) price = translatedPrice;
+        }
+        
         document.getElementById('massageModalImage').src = data.image;
-        document.getElementById('massageModalImage').alt = data.title;
-        document.getElementById('massageModalTitle').textContent = data.title;
-        let descHtml = `<p>${data.description}</p>`;
+        document.getElementById('massageModalImage').alt = title;
+        document.getElementById('massageModalTitle').textContent = title;
+        let descHtml = `<p>${description}</p>`;
         if (data.details && data.details.length) {
             descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-            data.details.forEach(item => descHtml += `<li>${item}</li>`);
+            data.details.forEach((item, idx) => {
+                let translatedDetail = item;
+                if (typeof window.getMassageModalTranslation === 'function') {
+                    const translated = window.getMassageModalTranslation(`modal-detail-${massageId}-${idx+1}`);
+                    if (translated) translatedDetail = translated;
+                }
+                descHtml += `<li>${translatedDetail}</li>`;
+            });
             descHtml += '</ul>';
         }
-        descHtml += `<div style='margin-top:18px;'><p style='margin-bottom:4px;'><strong>Timp:</strong> ${data.time}</p><p><strong>Preț:</strong> ${data.price}</p></div>`;
+        descHtml += `<div style='margin-top:18px;'><p style='margin-bottom:4px;'><strong>Timp:</strong> ${time}</p><p><strong>Preț:</strong> ${price}</p></div>`;
         document.getElementById('massageModalDescription').innerHTML = descHtml;
         document.getElementById('massageModal').style.display = 'flex';
         document.getElementById('massageModal').style.opacity = '0';
         setTimeout(() => {
             document.getElementById('massageModal').style.opacity = '1';
         }, 10);
+        
+        // Salvează ID-ul pentru update la schimbarea limbii
+        document.getElementById('massageModal').setAttribute('data-current-massage-id', massageId);
     }
+    
+    // Actualizează conținutul modalului la schimbarea limbii
+    function updateOpenModalContent() {
+        const massageModal = document.getElementById('massageModal');
+        if (massageModal && massageModal.style.display === 'flex') {
+            const currentMassageId = massageModal.getAttribute('data-current-massage-id');
+            if (currentMassageId) {
+                openMassageModal(currentMassageId);
+            }
+        }
+    }
+    window.addEventListener('languageChanged', function() {
+        updateOpenModalContent();
+    });
     window.onclick = function(event) {
         if (event.target.classList && event.target.classList.contains('modal')) {
             event.target.style.display = 'none';

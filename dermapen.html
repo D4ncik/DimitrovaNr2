@@ -540,7 +540,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="dermapen">
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -655,11 +655,11 @@
             </div>
         </section>
 
-        <section class="consultation-banner" style="margin-top: 120px;">
+        <!-- <section class="consultation-banner" style="margin-top: 120px;">
             <h2 data-translate="facial-consultation-title">Consultație Personalizată</h2>
             <p data-translate="facial-consultation-desc">Vom alege împreună un tratament individual perfect pentru pielea ta</p>
             <a class="modal-button" style="margin-top: 30px;" href="https://dimitrovaclinic20.setmore.com/services/ffff493f-29bd-47a3-a6bd-128a43b9e03a" target="_blank" rel="noopener noreferrer" data-translate="facial-consultation-free">GRATUIT</a>
-        </section>
+        </section> -->
 
         <section class="facial-treatments">
             <div class="container">
@@ -809,10 +809,8 @@
             <img id="modalImage" class="modal-image" src="" alt="">
             <div class="modal-text">
                 <h2 id="modalTitle"></h2>
-                <p id="modalDescription"></p>
-                <div class="modal-links">
-                    <a href="#" id="modalResultsLink" class="modal-link">Vezi rezultate</a>
-                </div>
+                <div id="modalDescription"></div>
+                <a href="#" id="modalResultsLink" class="modal-link" style="display:none; margin-top: 10px; color: var(--primary-color); font-weight: 600; text-decoration: underline;">Vezi rezultate</a>
             </div>
             <div class="modal-info">
                 <p id="modalPrice" class="modal-price"></p>
@@ -885,6 +883,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/apare.js"></script>
     <script>
         // Data pentru tratamentele Dermapen
         const treatmentsData = {
@@ -1024,13 +1023,25 @@
         function openTreatmentModal(treatmentId) {
             const data = treatmentsData[treatmentId];
             if (!data) return;
+            
+            let title = window.getDermapenModalTranslation('modal-title-' + treatmentId) || data.title;
+            let description = window.getDermapenModalTranslation('modal-desc-' + treatmentId) || data.description;
+            
             document.getElementById('modalImage').src = data.image;
-            document.getElementById('modalImage').alt = data.title;
-            document.getElementById('modalTitle').textContent = data.title;
-            let descHtml = `<p>${data.description}</p>`;
+            document.getElementById('modalImage').alt = title;
+            document.getElementById('modalTitle').textContent = title;
+            let descHtml = `<p>${description}</p>`;
             if (data.details && data.details.length) {
                 descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
-                data.details.forEach(item => descHtml += `<li>${item}</li>`);
+                data.details.forEach((item, index) => {
+                    let translatedDetail = item;
+                    if (typeof window.getDermapenModalTranslation === 'function') {
+                        const key = `modal-detail-${treatmentId}-${index + 1}`;
+                        const newTranslatedDetail = window.getDermapenModalTranslation(key);
+                        if (newTranslatedDetail) translatedDetail = newTranslatedDetail;
+                    }
+                    descHtml += `<li>${translatedDetail}</li>`;
+                });
                 descHtml += '</ul>';
             }
             document.getElementById('modalDescription').innerHTML = descHtml;
@@ -1049,12 +1060,14 @@
                 'dermapen-maini': 'gallery.html#maini'
             };
             resultsLink.href = galleryLinks[treatmentId] || '#';
+            resultsLink.textContent = (typeof window.getDermapenModalTranslation === 'function') ? window.getDermapenModalTranslation('modal-results-link') : 'Vezi rezultate';
             resultsLink.style.display = galleryLinks[treatmentId] ? 'inline-block' : 'none';
             
             // Afișează prețul doar pentru programele de tratament
             const modalInfo = document.querySelector('.modal-info');
             if (data.showPrice) {
-                document.getElementById('modalPrice').textContent = data.price;
+                let price = (typeof window.getDermapenModalTranslation === 'function') ? window.getDermapenModalTranslation('modal-price-' + treatmentId) : '';
+                document.getElementById('modalPrice').textContent = price || data.price;
                 modalInfo.style.display = 'flex';
             } else {
                 modalInfo.style.display = 'none';
@@ -1107,6 +1120,54 @@
                 window.open(url, '_blank');
             });
         });
+
+        // Funcție pentru a actualiza conținutul modalelor deschise la schimbarea limbii
+        function updateOpenModalContent() {
+            const treatmentModal = document.getElementById('treatmentModal');
+            
+            // Actualizează modalul de tratament dacă este deschis
+            if (treatmentModal.style.display === 'flex') {
+                const currentTreatmentId = treatmentModal.getAttribute('data-current-treatment-id');
+                if (currentTreatmentId) {
+                    const data = treatmentsData[currentTreatmentId];
+                    if (data) {
+                        let title = window.getDermapenModalTranslation('modal-title-' + currentTreatmentId) || data.title;
+                        let description = window.getDermapenModalTranslation('modal-desc-' + currentTreatmentId) || data.description;
+                        
+                        document.getElementById('modalTitle').textContent = title;
+                        let descHtml = `<p>${description}</p>`;
+                        if (data.details && data.details.length) {
+                            descHtml += '<ul style="margin-left:1em; padding-left:1em; color:#666; font-size:1em;">';
+                            data.details.forEach((item, index) => {
+                                let translatedDetail = item;
+                                if (typeof window.getDermapenModalTranslation === 'function') {
+                                    const key = `modal-detail-${currentTreatmentId}-${index + 1}`;
+                                    const newTranslatedDetail = window.getDermapenModalTranslation(key);
+                                    if (newTranslatedDetail) translatedDetail = newTranslatedDetail;
+                                }
+                                descHtml += `<li>${translatedDetail}</li>`;
+                            });
+                            descHtml += '</ul>';
+                        }
+                        document.getElementById('modalDescription').innerHTML = descHtml;
+                    }
+                }
+            }
+        }
+
+        // Listener pentru evenimentul de schimbare a limbii (emis de main.js)
+        window.addEventListener('languageChanged', function(e) {
+            updateOpenModalContent();
+        });
+
+        // Păstrează ID-ul tratamentului deschis în modal
+        const treatmentModal = document.getElementById('treatmentModal');
+
+        const originalOpenTreatmentModal = openTreatmentModal;
+        openTreatmentModal = function(treatmentId) {
+            originalOpenTreatmentModal(treatmentId);
+            if (treatmentModal) treatmentModal.setAttribute('data-current-treatment-id', treatmentId);
+        };
     </script>
 </body>
 </html>
