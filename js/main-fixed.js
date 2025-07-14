@@ -372,6 +372,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-})
-    // Adăugăm event listener pentru scroll cu throttling
 
+    // Adăugăm event listener pentru scroll cu throttling
+    

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Acnee / Coșuri - Dimitrova.Clinic</title>
+    <title data-translate="page-title">Acnee / Coșuri - Dimitrova.Clinic</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -189,7 +189,7 @@
                         <ul class="dropdown">
                             <li><a href="preparate.html">Preparate</a></li>
                             <li><a href="gallery.html">Rezultate</a></li>
-                             <li><a href="#">Despre companie</a></li>
+                             <li><a href="despre_companie.html">Despre companie</a></li>
                         </ul>
                     </li>
                     <li class="symptoms-dropdown-trigger">
@@ -267,8 +267,8 @@
     <main>
         <section class="hero-section">
             <div class="hero-content">
-                <h1>Acnee / Coșuri</h1>
-                <p>Tratamente specializate pentru combaterea acneei și prevenirea apariției coșurilor. Soluții profesionale pentru o piele curată, sănătoasă și echilibrată.</p>
+                <h1 data-translate="hero-title">Acnee / Coșuri</h1>
+                <p data-translate="hero-description">Tratamente specializate pentru combaterea acneei și prevenirea apariției coșurilor. Soluții profesionale pentru o piele curată, sănătoasă și echilibrată.</p>
                 <ul class="benefits-list">
                     <li>Reducerea inflamațiilor și a erupțiilor acneice</li>
                     <li>Controlul producției de sebum</li>
@@ -739,6 +739,80 @@
         if (e.key === 'Escape') closePackageModal();
     });
 
+    // Initialize translations when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get saved language or default to Romanian
+        const savedLang = localStorage.getItem('selectedLanguage') || 'ro';
+        
+        // Update the language selector
+        const languageLinks = document.querySelectorAll('.language-selector a');
+        languageLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === savedLang) {
+                link.parentElement.querySelector('a').textContent = 
+                    link.getAttribute('data-lang').toUpperCase();
+            }
+            
+            // Add click event to language selector
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                localStorage.setItem('selectedLanguage', lang);
+                updateContent(lang);
+                
+                // Update language selector text
+                this.parentElement.parentElement.querySelector('a').textContent = 
+                    lang.toUpperCase();
+            });
+        });
+        
+        // Initialize content with saved language
+        updateContent(savedLang);
+    });
+    
+    // Function to update content based on language
+    function updateContent(lang) {
+        // Update all elements with data-translate attribute
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            
+            // Find the translation in the pageTranslations object
+            let translation = '';
+            
+            // Check if the key exists in the translations
+            if (pageTranslations.acnee && pageTranslations.acnee[lang] && 
+                pageTranslations.acnee[lang][key]) {
+                translation = pageTranslations.acnee[lang][key];
+            } else if (pageTranslations[key] && pageTranslations[key][lang]) {
+                // Fallback to common translations if not found in page-specific ones
+                translation = pageTranslations[key][lang];
+            }
+            
+            // Update the element's content
+            if (translation) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.value = translation;
+                } else if (element.tagName === 'IMG' && element.hasAttribute('alt')) {
+                    element.alt = translation;
+                } else if (element.hasAttribute('title')) {
+                    element.title = translation;
+                } else if (element.hasAttribute('placeholder')) {
+                    element.placeholder = translation;
+                } else {
+                    element.innerHTML = translation; // Use innerHTML to handle <br> tags
+                }
+            }
+        });
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        
+        // Update page title
+        if (pageTranslations.acnee && pageTranslations.acnee[lang] && 
+            pageTranslations.acnee[lang]['page-title']) {
+            document.title = pageTranslations.acnee[lang]['page-title'];
+        }
+    }
+
     document.querySelectorAll('.book-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.stopPropagation(); // oprește propagarea către card
@@ -751,5 +825,6 @@
     </script>
 
      <script src="js/main.js"></script>
+    <script src="js/apare.js"></script>
 </body>
 </html>

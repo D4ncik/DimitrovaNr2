@@ -117,6 +117,30 @@ document.addEventListener("DOMContentLoaded", () => {
       "dermapen": "Mezoterapie fracționară (Dermapen)",
       "body-remodeling": "Remodelare corporală",
       "massage": "Masaj",
+      
+      // Body care page
+      "body-care-hero-title": "Peelinguri Chimice",
+      "body-care-hero-subtitle": "Descoperă puterea transformatoare a peelingurilor chimice profesionale.",
+      "body-care-benefit-1": "Proceduri personalizate pentru fiecare tip de piele",
+      "body-care-benefit-2": "Produse de înaltă calitate și rezultate garantate",
+      "body-care-benefit-3": "Efecte vizibile imediate și de lungă durată",
+      "body-care-benefit-4": "Tratamente pentru toate tipurile de probleme cutanate",
+      "book-now": "Programează-te",
+      
+      // Treatment names
+      "biorepeel": "BioRePeel",
+      "biorepeel-body": "BioRePeel corp",
+      "azelaic": "Azelaic",
+      "mandelic": "Mandelic",
+      "lactic": "Lactic",
+      "fitic": "Fitic",
+      "peri-orbital": "Peri-orbital",
+      "stop-acne": "Stop Acne",
+      "3d-lifting": "3D|lifting",
+      "carbon": "Carbon",
+      "whitening": "Whitening",
+      "enzymatic-phytopeeling": "Enzymatic phytopeeling",
+      "yellow-retinol": "Yellow Retinol",
     },
     ru: {
       despre: "О нас",
@@ -196,6 +220,30 @@ document.addEventListener("DOMContentLoaded", () => {
       "dermapen": "Фракционная мезотерапия (Дермапен)",
       "body-remodeling": "Коррекция фигуры",
       "massage": "Массаж",
+      
+      // Body care page - Russian
+      "body-care-hero-title": "Химические пилинги",
+      "body-care-hero-subtitle": "Откройте для себя преобразующую силу профессиональных химических пилингов.",
+      "body-care-benefit-1": "Индивидуальные процедуры для каждого типа кожи",
+      "body-care-benefit-2": "Высококачественные продукты и гарантированные результаты",
+      "body-care-benefit-3": "Мгновенный и долгосрочный видимый эффект",
+      "body-care-benefit-4": "Лечение всех типов кожных проблем",
+      "book-now": "Записаться",
+      
+      // Treatment names - Russian
+      "biorepeel": "Биоревитализация",
+      "biorepeel-body": "Биоревитализация тела",
+      "azelaic": "Азелаиновая кислота",
+      "mandelic": "Миндальный пилинг",
+      "lactic": "Молочный пилинг",
+      "fitic": "Фитопилинг",
+      "peri-orbital": "Периорбитальная зона",
+      "stop-acne": "Стоп-акне",
+      "3d-lifting": "3D-лифтинг",
+      "carbon": "Углеродный пилинг",
+      "whitening": "Отбеливание",
+      "enzymatic-phytopeeling": "Ферментативный фитопилинг",
+      "yellow-retinol": "Желтый ретинол",
     },
   }
 
