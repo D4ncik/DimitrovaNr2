@@ -25,222 +25,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Great+Vibes&family=Inter:ital,opsz,wght@1,14..32,600&display=swap" rel="stylesheet">
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
-        body {
-            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-            font-weight: 300 !important;
+      /* Critical CSS for above-the-fold content */
+      .hero-content {
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+      .hero-title, .hero-subtitle, .hero-description {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      
+      /* Performance optimization styles */
+      .service-card, .treatment-card, .package-card {
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+      
+      .service-card:hover, .treatment-card:hover, .package-card:hover {
+        transform: translateZ(0) translateY(-5px);
+      }
+      
+      /* Optimize animations */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
         }
-        .header, .nav, .nav-links, .nav-links a {
-            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-            font-weight: 300 !important;
-            letter-spacing: 0.01em;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            overflow: auto;
-        }
-        .modal-content {
-            background: white;
-            margin: 2% auto;
-            padding: 20px;
-            border-radius: 15px;
-            width: 95%;
-            max-width: 1200px;
-            position: relative;
-            height: 95vh;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        .consultation-modal {
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
-        .calendly-section {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .calendly-section iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .logo-link span {
-            font-weight: 400;
-            font-style: normal;
-            color: #234a7c !important;
-        }
-        .monthly-offer {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 40px 0;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(89, 153, 238, 0.08);
-            border-radius: 0;
-        }
-        .monthly-offer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, 
-                rgba(89, 153, 238, 0.03) 0%,
-                rgba(89, 153, 238, 0) 20%,
-                rgba(89, 153, 238, 0) 80%,
-                rgba(89, 153, 238, 0.03) 100%);
-            pointer-events: none;
-            border-radius: 0;
-        }
-        .offer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .offer-card {
-            display: flex;
-            background: white;
-            box-shadow: 0 0 15px rgba(89, 153, 238, 0.05);
-            overflow: hidden;
-            position: relative;
-            border-radius: 15px;
-        }
-        .offer-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg,
-                rgba(89, 153, 238, 0.02) 0%,
-                rgba(89, 153, 238, 0) 50%,
-                rgba(89, 153, 238, 0.02) 100%);
-            pointer-events: none;
-            border-radius: 15px;
-        }
-        .offer-image {
-            width: 40%;
-            object-fit: cover;
-            border-radius: 15px 0 0 15px;
-        }
-        .offer-details {
-            padding: 30px;
-            flex: 1;
-            border-radius: 0 15px 15px 0;
-        }
-        .offer-title {
-            font-family: "GFS Didot", serif;
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .offer-details h3 {
-            font-size: 1.8em;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .offer-description {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        .offer-price {
-            font-size: 1.5em;
-            color: #5999ee;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .offer-original {
-            font-size: 1.1em;
-            color: #999;
-            text-decoration: line-through;
-            margin-bottom: 20px;
-        }
-        .service-card {
-            display: flex;
-            flex-direction: column;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(89, 153, 238, 0.05);
-            position: relative;
-        }
-        .service-content {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .service-title {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .service-description {
-            color: #666;
-            margin-bottom: 20px;
-            flex: 1;
-        }
-        .details-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #5999ee;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            text-align: center;
-            margin-top: auto;
-        }
-        .details-button:hover {
-            background-color: #4a8ad9;
-        }
-        @media (max-width: 768px) {
-            .offer-card {
-                flex-direction: column;
-            }
-            .offer-image {
-                width: 100%;
-                height: auto;
-                border-radius: 15px 15px 0 0;
-            }
-            .offer-details {
-                width: 100%;
-                border-radius: 0 0 15px 15px;
-            }
-        }
-        .hero-title {
-            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-            font-size: 3.2em !important;
-            font-weight: 400 !important;
-            letter-spacing: -0.01em;
-            color: #222;
-        }
-        .service-card, .service-title, .service-description, .details-button, .offer-card, .offer-title, .offer-description, .offer-price, .offer-original, .offer-details h3 {
-            font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-            font-weight: 300 !important;
-        }
-        .offer-title {
-            font-weight: 400 !important;
-            font-size: 2.2em !important;
-        }
+      }
     </style>
 </head>
 <body>
